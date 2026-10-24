@@ -10,26 +10,26 @@ Production is blocked. Do not buy anything, enable billing, deploy, merge around
 - Supabase organization reports free/tier_free. No purchase or paid activation was performed.
 - Google audience is Testing. That is suitable for the current test workflow, not public-launch evidence.
 - You confirm Vercel shows Hobby (free). This is owner-reported dashboard evidence; the connected tools do not expose the billing field.
-- Current provider metadata shows two Google identities, one RFT profile and two verified TOTP factors. You confirm recognizing both identities. Their separate browser-profile mapping and disposable designation remain unconfirmed. No identity has been impersonated or deleted.
+- Current provider metadata shows two Google identities, one RFT profile and two verified TOTP factors. You recognize both and designate **A: Current profile (preserve)** and **B: New RFT Test**. Both must be preserved. **Neither is disposable; no deletion is authorized.** You report B reaches an empty app. Opening the app does not itself initialize a saved profile, so the one-profile count is not proof that B failed to sign in.
+- The hosted read-only SQL claim-context probe passed five contexts across eight relations, including cross-user read denial, enrolled AAL1 denial and invalid-session denial. No persistent data changed. This is separate from signed-JWT browser/REST and write/related-ID tests, which remain incomplete. Only the in-app browser is connected; the two external browser profiles are not exposed for automated session checks.
 - You approved publishing Ismail Studio, https://ismailstudio.my and contact@ismailstudio.my. The English/BM privacy and terms pages now include those details; the homepage credits Ismail Studio. Retention and owner/legal review remain open.
 
-## 1. Identify the two test profiles privately
+## 1. Preserve the two designated profiles
 
-The current provider count is **two Google identities**, but only **one RFT profile**. A second successful empty-app bootstrap is not established. Do not create another identity just to increase the count, and do not delete either existing identity.
+The current provider count is **two Google identities**, **one saved RFT profile**, **two verified factors**. The owner reports B reaches an empty app. Preserve both identities and all their records. Do not create another identity just to increase a count.
 
-1. You have confirmed recognizing both entries. Keep email addresses, IDs, keys and authentication details private.
-2. Open each account in a separate browser profile. Tell Codex the browser/profile names you choose for **A (preserve)** and **B (test)**. Only designate B as disposable if you control it and accept deleting its synthetic RFT records later.
-3. In Google Cloud Console → **Google Auth Platform → Audience → Test users**, ensure the chosen test account is listed.
-4. With the local RFT server running, open **http://127.0.0.1:3000/login** in B's browser profile, choose the correct Google identity and complete MFA privately if prompted. Expected result: an empty RFT app rather than A's QA accounts. Share only the screen/result and profile name.
-5. Codex can then run the prepared, locally rehearsed hosted checks for the explicitly designated identities. Counts, recognition or a second sign-in alone do not prove isolation or authorize deletion.
+1. Keep A in **Current profile** and B in **New RFT Test**. Keep email addresses, IDs, keys and authentication details private.
+2. Complete Google/MFA privately when prompted. Never send session cookies, tokens, authenticator QR material or codes for automation.
+3. Signed-session browser/REST read/write, related-ID and MFA lifecycle checks still need an observable, authorized test session. Owner reports and SQL-context simulation cover narrower scopes. The current browser connection does not expose either external profile.
+4. Any later synthetic write test must preserve both identities and existing rows. No deletion or factor removal is authorized by the empty-app check.
 
 The first profile contains two explicitly synthetic QA accounts and three entries. They were preserved; they are not live bank balances. No real account or record was deleted.
 
-## 2. Controlled deletion verification
+## 2. Deletion gate — blocked by explicit preservation instruction
 
-This is destructive and remains unperformed. Designate only a **disposable RFT test identity**, never your main Google/RFT identity, and explicitly authorize deletion of that identity's **RFT profile and synthetic RFT records**. This does not delete the Google account itself.
+**Neither designated identity is disposable and no deletion is authorized. Do not run Settings → Delete my RFT account, revoke either identity, or remove their records.** Controlled hosted deletion verification remains unperformed, so G09 cannot pass. The current preservation instruction is binding; it is not a request to change your decision.
 
-A server-only deletion key is now present in the private local configuration; its validity has not been exercised against an authorized disposable identity. Presence is not deletion proof. When Codex is ready for the designated test:
+A server-only deletion key is present in the private local configuration; its validity has not been exercised. Presence is not deletion proof. The following is a **future recovery reference only**, usable only if you later independently choose a separate disposable identity and explicitly authorize that test:
 
 1. Open Supabase → RFT → **Project Settings → API Keys**, using the secret-key section. Do not copy a secret into chat, GitHub or a browser application's public configuration.
 2. If the existing key needs correction, in your local private `.env.local` file set `SUPABASE_SECRET_KEY` to the correct project's existing server secret. Never use a `NEXT_PUBLIC_` name. Do not change the publishable key or enable billing.

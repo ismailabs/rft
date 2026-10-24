@@ -2,68 +2,74 @@
   "schema_version": 1,
   "project": "RFT",
   "environment": "production",
-  "source_commit": "0a51dc048d65208108ae2c9a8256de043b5a9a02",
-  "reviewed_at": "2026-10-24T12:53:31.488Z",
+  "source_commit": "7612ed76c9bd03ec53d30adb3c3d74cba7827e0b",
+  "reviewed_at": "2026-10-24T13:30:29.513Z",
   "cost_verified_zero": false,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
   "public_url": null,
-  "scope": "Visual recovery candidate before source publication. source_commit remains the historical baseline until an independently verified publication receipt is recorded. Local resource failures are retained; fresh full CI is pending. No implementation deployment.",
+  "scope": "Visual recovery source 7612ed7 verified by clean Linux CI (79 unit/integration and 64 browser checks); following evidence-only edits do not change application/test/migration source. Hosted read-only SQL simulation is narrower than signed-session proof. Production blocked; both designated identities preserved; no deletion authorized.",
   "gates": {
     "G01": {
-      "status": "blocked",
-      "note": "Source audit passes with 20 preserved PNGs, five approved hashed additions, one owner-authorized removal and exact original AGENTS prefix. New diff/publication receipt pending.",
+      "status": "pass",
+      "note": "Reviewed source published to existing draft PR. Local HEAD/tracking/advertised SHA agree; original handoff/skills and registered asset exceptions pass. Main unchanged.",
       "evidence": [
         "docs/visual-recovery-verification.md",
         "docs/savings-goals-migration.md",
-        "docs/design-reference-register.md"
+        "docs/design-reference-register.md",
+        "artifacts/verification/recovery-ci-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T09:50:16.696Z"
+      "verified_at": "2026-10-24T13:30:29.513Z"
     },
     "G02": {
-      "status": "blocked",
-      "note": "Earlier 76-test verify passed. Current frozen run: 64 passed, 15 skipped after database bootstrap timed out; run failed. Current build succeeds; fresh complete CI remains required.",
+      "status": "pass",
+      "note": "Clean Linux CI 40095971680: npm ci, typecheck, lint, 79 tests, production build and secret scan all succeed; npm audit zero vulnerabilities.",
       "evidence": [
         "docs/visual-recovery-verification.md",
         "docs/savings-goals-migration.md",
-        "docs/design-reference-register.md"
+        "docs/design-reference-register.md",
+        "artifacts/verification/recovery-ci-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T12:53:31.488Z"
+      "verified_at": "2026-10-24T13:30:29.513Z"
     },
     "G03": {
       "status": "pass",
-      "note": "Current reporting module 7/7 and all 64 non-database tests in the frozen run pass. Exact money, KL boundaries, large values and reconciliation covered. Full current CI pending.",
+      "note": "Current clean 79-test CI passes exact money/property/reconciliation tests, Malaysia month/day boundaries, large values and exact goals transport.",
       "evidence": [
         "docs/visual-recovery-verification.md",
         "docs/savings-goals-migration.md",
-        "docs/design-reference-register.md"
+        "docs/design-reference-register.md",
+        "artifacts/verification/recovery-ci-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T12:53:31.488Z"
+      "verified_at": "2026-10-24T13:30:29.513Z"
     },
     "G04": {
-      "status": "blocked",
-      "note": "Earlier unchanged local database/probe rehearsal passed 17/17. Latest frozen database bootstrap exceeded 30s and skipped 15 cases, so current full verification is pending CI. Hosted destructive recovery is not authorized.",
+      "status": "pass",
+      "note": "Current clean CI passes all isolated PostgreSQL atomic transfer, historical edit/date, FK/ownership, exact goals, synthetic restore and cascade tests. Hosted operational recovery is separate and remains blocked.",
       "evidence": [
         "docs/visual-recovery-verification.md",
         "docs/savings-goals-migration.md",
-        "docs/design-reference-register.md"
+        "docs/design-reference-register.md",
+        "artifacts/verification/recovery-ci-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T12:53:31.488Z"
+      "verified_at": "2026-10-24T13:30:29.513Z"
     },
     "G05": {
       "status": "blocked",
-      "note": "Earlier local eight-table owner/MFA matrix passes. Owner recognizes both Google identities; separate browser-profile mapping and disposable designation remain unconfirmed. Hosted identity probes have not run.",
+      "note": "Hosted read-only SQL simulation passed five contexts/eight relations with no changes; owner reports B empty. Both profiles designated/preserved. Signed-JWT browser/REST, write and related-ID negative checks remain incomplete.",
       "evidence": [
         "docs/visual-recovery-verification.md",
         "docs/savings-goals-migration.md",
-        "docs/design-reference-register.md"
+        "docs/design-reference-register.md",
+        "artifacts/verification/recovery-ci-receipt.md",
+        "artifacts/verification/hosted-read-only-receipt.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T12:53:31.488Z"
+      "verified_at": "2026-10-24T13:30:29.513Z"
     },
     "G06": {
       "status": "blocked",
@@ -99,25 +105,27 @@
     },
     "G09": {
       "status": "blocked",
-      "note": "CSV and actual-handler boundary tests pass locally; server-only deletion key is present but no authorized disposable hosted deletion/revocation has been verified.",
+      "note": "CSV/live synthetic export and current handler tests pass; both identities must be preserved and no deletion is authorized. Controlled hosted deletion/revocation remains unperformed.",
       "evidence": [
         "docs/visual-recovery-verification.md",
         "docs/savings-goals-migration.md",
-        "docs/design-reference-register.md"
+        "docs/design-reference-register.md",
+        "artifacts/verification/recovery-ci-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T09:50:16.696Z"
+      "verified_at": "2026-10-24T13:30:29.513Z"
     },
     "G10": {
       "status": "blocked",
-      "note": "Five desktop/homepage and all M1–M8 references mapped with approved exceptions. Actual populated/empty/pending/error captures and comparison evidence exist. Final browser/CI receipt and essential manual/device acceptance remain open.",
+      "note": "Approved references mapped; actual captures/comparisons reviewed; all 64 current CI browser/axe/keyboard/responsive checks pass. Essential manual screen-reader/device acceptance and brand-rights limitations remain.",
       "evidence": [
         "docs/visual-recovery-verification.md",
         "docs/savings-goals-migration.md",
-        "docs/design-reference-register.md"
+        "docs/design-reference-register.md",
+        "artifacts/verification/recovery-ci-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T09:50:16.696Z"
+      "verified_at": "2026-10-24T13:30:29.513Z"
     },
     "G11": {
       "status": "blocked",
@@ -141,13 +149,15 @@
     },
     "G13": {
       "status": "blocked",
-      "note": "Owner-approved public operator/contact implemented in English/BM: Ismail Studio, ismailstudio.my, contact@ismailstudio.my. Retention and applicable owner/legal review remain unresolved.",
+      "note": "Approved Ismail Studio website/email included and rendered in EN/BM notices. Retention, actual operational handling and applicable owner/legal review remain unresolved.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-final-receipt.md"
+        "artifacts/verification/ci-final-receipt.md",
+        "artifacts/verification/recovery-ci-receipt.md",
+        "docs/visual-recovery-verification.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T12:53:31.488Z"
+      "verified_at": "2026-10-24T13:30:29.513Z"
     },
     "G14": {
       "status": "blocked",
