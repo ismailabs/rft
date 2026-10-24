@@ -54,3 +54,13 @@ No new deployment or hosted schema mutation yet. No money spent or paid service 
 - Supabase organization verified free/tier_free. Vercel actual billing plan remains unverified; connected read tools omit it, browser audit timed out. Original placeholder unchanged. No production deployment or confirmed public app URL.
 - Public OAuth remains Testing; direct hosted two-user/MFA bypass/deletion, legal/contact/retention facts, encrypted operational recovery and protected main remain release blockers. Exact owner steps and concrete recovery proposal are in docs/owner-actions.md and docs/operations.md.
 - Local updated production server restarted successfully on port 3000. This is a local test environment, not a release. Source delivery/CI receipts follow after safe Git publication.
+
+## GitHub checkpoint
+
+Source commit: `8caa5bcb7b37ec40201b7dbdabad24601b577512`. Draft PR: https://github.com/ismailabs/rft/pull/1 (unmerged). Local HEAD, tracking ref and advertised remote feature SHA matched after push; main remains `c669f6ea616d266e6d433efec4cf4ac9853602a2`. Working tree was clean. No deletions or original assets/skill changes. Git diff --cached --check passed after normalizing only generated log trailing whitespace.
+
+CI run 40059370624 has completed clean npm ci, handoff audit, type/lint/46 tests/build/secret scan and npm audit successfully; browser installation/full test step still running at this checkpoint. Final status is recorded after completion. Post-push Vercel list still contains only the original baseline placeholder deployment, so Git publication caused no new deployment.
+
+## Confirmed clean CI
+
+Run https://github.com/ismailabs/rft/actions/runs/40059370624 completed successfully for tested source 8caa5bcb7b37ec40201b7dbdabad24601b577512. All job steps passed, including fresh npm ci, full verify, npm audit, Chromium install and all 31 browser tests. A redacted result excerpt is in artifacts/verification/ci-receipt.md. No deployment occurred. Production remains blocked by the explicit gate record in docs/release-evidence.json.

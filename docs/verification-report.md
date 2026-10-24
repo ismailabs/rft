@@ -1,49 +1,45 @@
-# RFT verification report — in progress, 2026-10-24
+# RFT verification report — 2026-10-24
 
-Status: **IMPLEMENTATION_IN_PROGRESS / RELEASE_BLOCKED**. No implemented production deployment or verified public application URL.
+Status: **IMPLEMENTED CANDIDATE, PRODUCTION BLOCKED**. Draft PR: https://github.com/ismailabs/rft/pull/1, unmerged. Tested source: `8caa5bcb7b37ec40201b7dbdabad24601b577512`. No implemented production deployment or verified public application URL.
 
-## Observed passes
+## Actual verification
 
-| Check | Actual evidence | Limit |
+| Check | Observed result and evidence | Practical limit |
 |---|---|---|
-| Original handoff/source | 65 manifest sizes/hash prefixes match; 12 skills; tracked assets/skills unchanged | Split extraction requires the supplied layout-aware audit, original structural script assumes a different root |
-| Static/build | `artifacts/verification/verify-final.log`: typecheck, lint, 46 tests and Next.js build pass | Git/clean CI checkpoint pending; final local run in verify-final.log |
-| Finance/database | `artifacts/verification/unit-db-final.log`: 46 tests; 2,000 property iterations, exact vector/history/partition/conservation, RLS, MFA, parent IDs, atomic rollback, synthetic restore and deletion cascades | Supabase Auth tables/functions stubbed in local PostgreSQL; not a hosted Auth lifecycle result |
-| Browser | `artifacts/verification/browser-final.log`: 31/31 Chromium checks; 320/375/430/768/1440 public widths and 320/430/1440 app-component views, axe, EN/BM, failed-save retention, focus return, reduced motion, anonymous API denial | App-component host has synthetic props and no authentication/persistence. Live Google test sign-in and synthetic writes separately observed; physical-device/screen-reader checks outstanding |
-| Added edge checks | Two additional Chromium checks pass: maximum amounts/long names at 320px and same-account transfer rejection before a request | Included in the final 31-test aggregate |
-| Hosted setup | `docs/database-rollout.md`, provider migration history: seven RLS tables, 14 policies, three additive migrations, zero users at setup | Schema setup was empty; later genuine Google login and clearly labelled synthetic workflow recorded separately |
-| Hosted anonymous denial | `artifacts/verification/hosted-anonymous.json`: ten probes return 401 | Does not prove two-user authenticated isolation |
-| Provider security | Supabase security advisor returns no findings; public helper execution revoked; FK indexes complete | No claim of an independent penetration test |
-| Secrets/dependencies | Custom source/browser-output scan passes; npm audit reports zero vulnerabilities | Custom scan is not Gitleaks; privileged deletion key is not configured |
+| Repository/handoff | 65 manifest size/hash prefixes match; all 21 original PNGs visually inspected; 12 installed skills; original assets/skills/lock unchanged. Local/tracking/advertised remote feature SHA matched; main remains baseline. Staged diff/check reviewed, no deletions | Split extraction needs the layout-aware audit; original validator bytes preserved |
+| Clean CI | [Run 40059370624](https://github.com/ismailabs/rft/actions/runs/40059370624), verify job 120769332020: success for clean npm ci, type, zero-warning lint, unit/database, production build, custom secret scan, dependency audit and Chromium. Receipt: artifacts/verification/ci-receipt.md | Standard public Ubuntu runner, no deployment credentials/step; clean CI does not prove production gates |
+| Finance/database | 46 tests on Windows and clean Linux CI; 2,000 property iterations, exact vector/history/date/partition/conservation, all-table owner denials, MFA/session/parent IDs, atomic rollback, synthetic restore and deletion cascades. artifacts/verification/unit-db-final.log, verify-final.log | Local PostgreSQL stubs Supabase-owned Auth tables/functions; no claim of hosted Auth lifecycle from those tests |
+| Browser/accessibility | 31/31 Chromium checks, zero skipped/unexpected/flaky; public 320/375/430/768/1440 widths; six app-component views 320/430/1440; axe, BM/reduced motion, failed-save retention, focus, maximum amounts, transfer validation and expense-source drill-down. browser-final.log, playwright.json and screenshots | Component host has synthetic props and no Auth/persistence. Screen reader, physical device and complete authenticated manual acceptance unperformed |
+| Real Google/synthetic journey | Authenticated local app observed after real Google login; two QA accounts, synthetic income/expense/transfer persisted; app and restricted hosted SQL reconcile 109.76 + 60.34 = 170.10. CSV downloaded and inspected. live-workflow.md and live-synthetic-export.csv | Testing audience; no real financial data. Full historical edit/delete/second-user hosted regression incomplete |
+| MFA | Owner reports enrollment plus sign-out/sign-in challenge; provider independently confirms one verified factor | Direct hosted bypass/removal not independently tested; no QR, seed, code or session token extracted |
+| Hosted schema/anonymous | Three additive migrations, seven RLS tables/14 policies, initial empty state confirmed before setup; ten publishable-only REST/RPC probes all 401. database-rollout.md and hosted-anonymous.json | Later Google test account and QA records exist; never repeat empty-project destructive assumptions |
+| Current advisors/config | Database/helper findings resolved. Latest advisor has one disabled-password-protection Auth warning; live Auth settings show only Google enabled, email and anonymous false | Password warning is recorded and not called a zero-finding result; no paid password feature enabled |
+| Secrets/dependencies | Custom source/browser scan passes, including modern secret and legacy service-role JWT patterns; npm audit zero vulnerabilities locally and in CI | Custom scan is not Gitleaks or an independent penetration test. Server deletion key is absent |
+| Costs/deployment | Supabase organization free/tier_free. No purchase/paid activation. Post-push Vercel list still contains only baseline placeholder at c669f6e; Git deployment disabled | Vercel actual plan/quotas, intended env scopes and public OAuth eligibility still unverified |
 
-## Release gate status
+## Production gates
 
-| Gate | Status | Remaining requirement |
+| Gate | Status | Remaining evidence |
 |---|---|---|
-| G01 repository integrity | in progress | Reviewed Git checkpoint, remote SHA and CI receipt |
-| G02 reproducible build | in progress | Fresh clean npm ci and CI confirmation |
-| G03 monetary arithmetic | pass locally | Exact tests above; maintain regression |
-| G04 transfer/data integrity | pass locally | Hosted lifecycle still part of G08 |
-| G05 RLS isolation | blocked | Local negative matrix passes; real two-user hosted REST evidence absent |
-| G06 Google OAuth/session | blocked | Owner reports Google audience Testing; actual intended public session lifecycle unverified |
-| G07 optional MFA | blocked | Local AAL policy passes; real enrollment/challenge/removal and direct hosted bypass tests absent |
-| G08 complete feature acceptance | blocked | Real authenticated account/transaction/transfer/report workflows and all mandatory cases need hosted evidence |
-| G09 export/deletion | blocked | CSV defenses/local cascades pass; real export reauth and privileged deletion not verified; no admin key configured |
-| G10 design/accessibility | partial | Automated Chromium/visual captures available; remaining dialogs, screen reader and physical-device gaps recorded |
-| G11 PWA privacy | partial | Manifest/icons/network-only worker checks pass; physical installation/update/session-switching verification absent |
-| G12 secrets/infrastructure | partial | No privileged client key; production/preview scopes and full infrastructure configuration not verified |
-| G13 privacy/legal | blocked | Operator contact, factual retention and owner/needed legal review unresolved; pages clearly marked prelaunch drafts |
-| G14 recovery | blocked | Synthetic database restore passed; actual encrypted operational backup storage/schedule/retention/owner and recovery rehearsal unresolved |
-| G15 RM0/provider compliance | blocked | No paid services enabled by this work; actual Vercel/Supabase plan/billing/public-OAuth eligibility still unverified |
-| G16 deployment/smoke | not run | Predeployment gates not all passed; no production release authorized yet |
+| G01 repository integrity | pass | Maintain preserved sources and exact Git receipt |
+| G02 reproducible build | pass | Clean CI receipt above |
+| G03 money | pass | Exact local/Linux regression evidence above |
+| G04 transfer/data integrity | pass | Isolated negative matrix and live synthetic reconciliation; hosted lifecycle also covered by G08 |
+| G05 RLS isolation | blocked | Real two-user/direct hosted REST matrix; last observed provider count remains one Auth user/profile |
+| G06 public Google/session | blocked | Audience Testing; public intended-production session lifecycle unverified |
+| G07 optional MFA | blocked | Hosted direct AAL1/AAL2 bypass and removal checks |
+| G08 full scope | blocked | Complete real authenticated P01–P14 acceptance, including historical mutations/goals/second-user checks |
+| G09 export/deletion | blocked | CSV works; recent-auth expiry/second-user denials and controlled hosted identity deletion missing |
+| G10 design/accessibility | blocked | Automated/visual/keyboard results pass; complete authenticated essential manual acceptance and device gaps unresolved |
+| G11 PWA | blocked | Physical installation/update/account-switch privacy verification |
+| G12 infrastructure | blocked | Intended env isolation, admin-key scope, protected main and full configuration |
+| G13 privacy/legal | blocked | Operator/contact/retention facts and applicable owner/legal review; public pages remain explicit drafts |
+| G14 recovery | blocked | Operational encrypted backup destination/schedule/key recovery and real feasible restore procedure; synthetic restore is separate |
+| G15 RM0/compliance | blocked | Actual Vercel plan/quotas and public OAuth/domain/noncommercial eligibility |
+| G16 deployment/smoke | not-run | G01–G15 must pass first; no implemented public URL |
 
-No blocked gate is waived by a successful build, a generated JSON record, or the empty hosted schema setup. Keep Vercel Git deployments disabled and do not merge/deploy around these gates.
+`docs/release-evidence.json` deliberately contains blocked gates and cost_verified_zero=false. The original release guard must reject it. An evidence JSON cannot prove its own truth. No gate is waived by successful CI or schema setup.
 
+Owner steps: docs/owner-actions.md. Operational proposal and official provider sources: docs/operations.md. Requirements/code/test mapping: docs/requirements-traceability.md. Local setup: docs/development.md.
 
-## Live workflow and limits
-
-`artifacts/verification/live-workflow.md` records actual Google test login, two synthetic accounts, income/expense and atomic transfer, independently reconciled hosted balances, and an inspected authenticated CSV. Provider confirms one verified TOTP factor; owner reports fresh-login challenge. These are testing-environment receipts, not production OAuth or a hosted bypass/removal/deletion result. Last provider metadata still showed one user/profile. No identities or records were deleted.
-
-Supabase organization reports free/tier_free. Vercel project/team reads omit billing plan, and browser audit timed out. Actual plan/quotas remain blocked. Official current provider sources and the unactivated recovery proposal are in `docs/operations.md`. No new public deployment is claimed.
-
-Log copies in source have trailing whitespace normalized for Git; raw local copies remain gitignored under artifacts/private/raw-logs. Result text is preserved. Handoff attributes prevent line-ending conversion of its byte-hashed originals.
+Generated log copies have trailing whitespace normalized for Git; raw local copies remain gitignored under artifacts/private/raw-logs. Result text is preserved. Handoff attributes prevent line-ending conversion of byte-hashed originals. Local updated server is a test environment, not a public release. No unattended monitoring/backup automation is configured.

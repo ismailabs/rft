@@ -18,3 +18,7 @@ The additive schema and permission migrations were applied after an empty-projec
 ## Deployment control
 
 `vercel.json` disables all Git-triggered deployments, following the current official git.deploymentEnabled configuration. No production workflow is supplied. A future explicit production deployment must first validate the actual G01–G15 evidence and provider state. A successful source push, build or schema test is not release authorization.
+
+## Current hosted advisor refresh
+
+After real Auth activity, the latest security advisor reports one Auth warning: `auth_leaked_password_protection` disabled. A separate live Auth-settings read returns only Google enabled, email false and anonymous false. This is a password-provider advisory, not a reported database RLS/function finding. Do not purchase/enable a paid password feature for this Google-only app. Recheck applicability if authentication policy ever changes; the current advisor output is not described as zero findings.
