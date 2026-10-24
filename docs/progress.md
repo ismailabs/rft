@@ -68,3 +68,9 @@ Run https://github.com/ismailabs/rft/actions/runs/40059370624 completed successf
 ## Owner clarification
 
 Owner confirms only one Google account is available, explaining the one-user hosted count. A second legitimate test identity remains an external prerequisite; do not fabricate identities or repeat the same sign-in as a two-user test. Owner also reports Vercel Billing shows Hobby (free). Record this as owner dashboard evidence, distinct from independent provider API confirmation. Public OAuth, authenticated negative/deletion, protected main, privacy and operational recovery gates remain blocked. No deployment.
+
+## Final HTTPS cookie hardening
+
+Inspected installed Supabase SSR defaults and current official SSR documentation. Added a shared HTTPS Secure/SameSite=Lax cookie policy to server client and proxy. Two integration cases use the real SSR Google PKCE implementation and mocked Next cookie adapter, with network forbidden, to verify actual emitted cookie options for HTTPS and localhost. Total 48 unit/integration tests pass; type/lint/custom secret scan pass. Final build/CI receipts follow. This does not change the blocked public release decision.
+
+Final local verify including HTTPS cookie policy passed: 48 unit/integration tests, original handoff audit, type/lint, production build and source/browser secret scan. Updated local server restarted successfully. The policy leaves local HTTP cookie transport unchanged; actual HTTPS flags are checked by real SSR PKCE cookie-adapter tests. Hosted/public lifecycle gates remain blocked.

@@ -22,3 +22,9 @@ The additive schema and permission migrations were applied after an empty-projec
 ## Current hosted advisor refresh
 
 After real Auth activity, the latest security advisor reports one Auth warning: `auth_leaked_password_protection` disabled. A separate live Auth-settings read returns only Google enabled, email false and anonymous false. This is a password-provider advisory, not a reported database RLS/function finding. Do not purchase/enable a paid password feature for this Google-only app. Recheck applicability if authentication policy ever changes; the current advisor output is not described as zero findings.
+
+## HTTPS session cookie policy
+
+Both SSR clients (route/server client and refresh proxy) now apply one cookie policy: host-only cookies, Path=/, SameSite=Lax, and Secure when NEXT_PUBLIC_APP_ORIGIN uses HTTPS. A production origin must be its verified HTTPS application URL; localhost is only for local testing. The real Supabase SSR PKCE flow is tested against the Next cookie adapter for HTTPS and HTTP localhost without making network requests or printing verifier values. Browser-readable defaults remain compatible with Supabase's documented SSR model; no admin credentials are exposed.
+
+Reference: https://supabase.com/docs/guides/auth/server-side/advanced-guide
