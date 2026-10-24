@@ -1,0 +1,6 @@
+# The approved handoff is a byte-hashed source inventory, not generated code.
+/AGENTS.md -text
+/MANIFEST.md -text
+/README.md -text
+/START-HERE.md -text
+/RFT-Codex-Desktop-Handoff/** -text

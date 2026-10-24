@@ -1,0 +1,50 @@
+
+> ringgit-finance-tracker@0.1.0 build
+> next build
+
+▲ Next.js 16.4.3 (Turbopack)
+✓ Running next.config.ts took 822ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 39.9s
+  Running TypeScript ...
+✓ Finished filesystem cache database compaction in 10.2s
+  Finished TypeScript in 49s ...
+  Collecting page data using 3 workers ...
+  Generating static pages using 3 workers (0/14) ...
+  Generating static pages using 3 workers (3/14)
+  Generating static pages using 3 workers (6/14)
+  Generating static pages using 3 workers (10/14)
+✓ Generating static pages using 3 workers (14/14) in 540ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ƒ /_not-found
+├ ƒ /api/delete-account
+├ ƒ /api/export
+├ ƒ /api/finance
+├ ƒ /api/mfa
+├ ƒ /api/onboarding
+├ ƒ /app
+├ ƒ /app/accounts
+├ ƒ /app/accounts/[id]
+├ ƒ /app/categories
+├ ƒ /app/insights
+├ ƒ /app/settings
+├ ƒ /app/transactions
+├ ƒ /auth/callback
+├ ƒ /auth/mfa
+├ ƒ /auth/sign-in
+├ ƒ /auth/sign-out
+├ ƒ /login
+├ ○ /manifest.webmanifest
+├ ƒ /preview
+├ ƒ /privacy
+└ ƒ /terms
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

@@ -1,0 +1,13 @@
+node_modules/
+.next/
+.vercel/
+.env*
+!.env.example
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+artifacts/private/
+supabase/.temp/
+supabase/.branches/
+__pycache__/

@@ -1,0 +1,81 @@
+
+> ringgit-finance-tracker@0.1.0 verify
+> npm run audit:handoff && npm run typecheck && npm run lint && npm test && npm run build
+
+
+> ringgit-finance-tracker@0.1.0 audit:handoff
+> node scripts/audit-handoff.mjs
+
+PASS: 65 original handoff hashes; 12 skill names; original assets/skills unchanged.
+Split extraction supported: four entry documents remain at repository root. This is not an application release check.
+
+> ringgit-finance-tracker@0.1.0 typecheck
+> tsc --noEmit
+
+
+> ringgit-finance-tracker@0.1.0 lint
+> eslint src tests scripts --max-warnings 0
+
+
+> ringgit-finance-tracker@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 C:/Users/moham/OneDrive/Desktop/rft
+
+
+ Test Files  3 passed (3)
+      Tests  45 passed (45)
+   Start at  10:59:22
+   Duration  8.35s (tests 83%, import 12%, transform 4%)
+
+
+> ringgit-finance-tracker@0.1.0 build
+> next build
+
+▲ Next.js 16.4.3 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 292ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 27.1s
+  Running TypeScript ...
+  Finished TypeScript in 17.0s ...
+  Collecting page data using 3 workers ...
+  Generating static pages using 3 workers (0/14) ...
+  Generating static pages using 3 workers (3/14)
+  Generating static pages using 3 workers (6/14)
+  Generating static pages using 3 workers (10/14)
+✓ Generating static pages using 3 workers (14/14) in 424ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ƒ /_not-found
+├ ƒ /api/delete-account
+├ ƒ /api/export
+├ ƒ /api/finance
+├ ƒ /api/mfa
+├ ƒ /api/onboarding
+├ ƒ /app
+├ ƒ /app/accounts
+├ ƒ /app/accounts/[id]
+├ ƒ /app/categories
+├ ƒ /app/insights
+├ ƒ /app/settings
+├ ƒ /app/transactions
+├ ƒ /auth/callback
+├ ƒ /auth/mfa
+├ ƒ /auth/sign-in
+├ ƒ /auth/sign-out
+├ ƒ /login
+├ ○ /manifest.webmanifest
+├ ƒ /preview
+├ ƒ /privacy
+└ ƒ /terms
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

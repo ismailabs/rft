@@ -1,0 +1,12 @@
+
+> ringgit-finance-tracker@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 C:/Users/moham/OneDrive/Desktop/rft
+
+
+ Test Files  3 passed (3)
+      Tests  46 passed (46)
+   Start at  11:26:25
+   Duration  38.03s (tests 60%, transform 20%, import 19%, worker 1%)

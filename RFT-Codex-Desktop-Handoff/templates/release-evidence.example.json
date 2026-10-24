@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "project": "RFT",
+  "environment": "production",
+  "source_commit": "UNVERIFIED",
+  "reviewed_at": null,
+  "cost_verified_zero": false,
+  "has_unapproved_irreversible_change": true,
+  "gates": {
+    "G01": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G02": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G03": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G04": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G05": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G06": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G07": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G08": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G09": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G10": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G11": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G12": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G13": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G14": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    },
+    "G15": {
+      "status": "not-run",
+      "evidence": [],
+      "verified_by": "",
+      "verified_at": null
+    }
+  }
+}
