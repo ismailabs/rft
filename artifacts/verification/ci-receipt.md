@@ -29,3 +29,5 @@ Excerpt from provider job log (ANSI formatting removed):
 2026-10-24T03:43:36.2385884Z   31 passed (32.2s)
 
 This receipt proves the clean local/synthetic CI checks only. See docs/verification-report.md for hosted and production blockers.
+
+Documentation checkpoint bc97f980cdd810e3fb944e642fc9eb302c79165a also passed clean CI: https://github.com/ismailabs/rft/actions/runs/40059825626 (verify job 120770711828, all steps success). Application source is unchanged from 8caa5bcb7b37ec40201b7dbdabad24601b577512. Later owner clarifications change documentation only.

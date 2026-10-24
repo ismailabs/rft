@@ -64,3 +64,7 @@ CI run 40059370624 has completed clean npm ci, handoff audit, type/lint/46 tests
 ## Confirmed clean CI
 
 Run https://github.com/ismailabs/rft/actions/runs/40059370624 completed successfully for tested source 8caa5bcb7b37ec40201b7dbdabad24601b577512. All job steps passed, including fresh npm ci, full verify, npm audit, Chromium install and all 31 browser tests. A redacted result excerpt is in artifacts/verification/ci-receipt.md. No deployment occurred. Production remains blocked by the explicit gate record in docs/release-evidence.json.
+
+## Owner clarification
+
+Owner confirms only one Google account is available, explaining the one-user hosted count. A second legitimate test identity remains an external prerequisite; do not fabricate identities or repeat the same sign-in as a two-user test. Owner also reports Vercel Billing shows Hobby (free). Record this as owner dashboard evidence, distinct from independent provider API confirmation. Public OAuth, authenticated negative/deletion, protected main, privacy and operational recovery gates remain blocked. No deployment.

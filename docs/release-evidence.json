@@ -54,7 +54,7 @@
     },
     "G05": {
       "status": "blocked",
-      "note": "Isolated two-user denial matrix passes; real hosted second Google identity/direct REST matrix absent.",
+      "note": "Isolated two-user denial matrix passes; owner confirms only one Google account, so a second legitimate hosted test identity/direct REST matrix remains unavailable.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-receipt.md"
@@ -157,7 +157,7 @@
     },
     "G15": {
       "status": "blocked",
-      "note": "Supabase free confirmed; Vercel actual plan, public OAuth/domain compliance and total eligibility not fully verified.",
+      "note": "Supabase free independently confirmed; owner reports Vercel Hobby (free). Independent quotas, public OAuth/domain compliance and overall RM0 release eligibility remain incomplete.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-receipt.md"

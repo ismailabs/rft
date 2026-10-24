@@ -2,7 +2,7 @@
 
 ## Observed provider state
 
-Supabase reports free/tier_free for the RFT organization (2026-10-24). The Vercel project and existing placeholder are identified, but its billing plan is not exposed by the connected read tools. No paid plan, domain, add-on, cron service, analytics service or storage service was purchased or enabled.
+Supabase reports free/tier_free for the RFT organization (2026-10-24). The Vercel project and existing placeholder are identified. Owner reports its Billing page shows Hobby (free); the billing plan is not independently exposed by the connected read tools. No paid plan, domain, add-on, cron service, analytics service or storage service was purchased or enabled.
 
 Current official sources reviewed on 2026-10-24:
 

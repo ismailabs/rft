@@ -15,7 +15,7 @@ Status: **IMPLEMENTED CANDIDATE, PRODUCTION BLOCKED**. Draft PR: https://github.
 | Hosted schema/anonymous | Three additive migrations, seven RLS tables/14 policies, initial empty state confirmed before setup; ten publishable-only REST/RPC probes all 401. database-rollout.md and hosted-anonymous.json | Later Google test account and QA records exist; never repeat empty-project destructive assumptions |
 | Current advisors/config | Database/helper findings resolved. Latest advisor has one disabled-password-protection Auth warning; live Auth settings show only Google enabled, email and anonymous false | Password warning is recorded and not called a zero-finding result; no paid password feature enabled |
 | Secrets/dependencies | Custom source/browser scan passes, including modern secret and legacy service-role JWT patterns; npm audit zero vulnerabilities locally and in CI | Custom scan is not Gitleaks or an independent penetration test. Server deletion key is absent |
-| Costs/deployment | Supabase organization free/tier_free. No purchase/paid activation. Post-push Vercel list still contains only baseline placeholder at c669f6e; Git deployment disabled | Vercel actual plan/quotas, intended env scopes and public OAuth eligibility still unverified |
+| Costs/deployment | Supabase organization free/tier_free. No purchase/paid activation. Post-push Vercel list still contains only baseline placeholder at c669f6e; Git deployment disabled | Owner reports Vercel Hobby (free); independent plan/quotas, intended env scopes and public OAuth eligibility still unverified |
 
 ## Production gates
 
@@ -25,7 +25,7 @@ Status: **IMPLEMENTED CANDIDATE, PRODUCTION BLOCKED**. Draft PR: https://github.
 | G02 reproducible build | pass | Clean CI receipt above |
 | G03 money | pass | Exact local/Linux regression evidence above |
 | G04 transfer/data integrity | pass | Isolated negative matrix and live synthetic reconciliation; hosted lifecycle also covered by G08 |
-| G05 RLS isolation | blocked | Real two-user/direct hosted REST matrix; last observed provider count remains one Auth user/profile |
+| G05 RLS isolation | blocked | Real two-user/direct hosted REST matrix; owner confirms only one Google account is available, matching the one-user provider count |
 | G06 public Google/session | blocked | Audience Testing; public intended-production session lifecycle unverified |
 | G07 optional MFA | blocked | Hosted direct AAL1/AAL2 bypass and removal checks |
 | G08 full scope | blocked | Complete real authenticated P01–P14 acceptance, including historical mutations/goals/second-user checks |
@@ -35,7 +35,7 @@ Status: **IMPLEMENTED CANDIDATE, PRODUCTION BLOCKED**. Draft PR: https://github.
 | G12 infrastructure | blocked | Intended env isolation, admin-key scope, protected main and full configuration |
 | G13 privacy/legal | blocked | Operator/contact/retention facts and applicable owner/legal review; public pages remain explicit drafts |
 | G14 recovery | blocked | Operational encrypted backup destination/schedule/key recovery and real feasible restore procedure; synthetic restore is separate |
-| G15 RM0/compliance | blocked | Actual Vercel plan/quotas and public OAuth/domain/noncommercial eligibility |
+| G15 RM0/compliance | blocked | Owner reports Vercel Hobby (free); independent quotas and public OAuth/domain/noncommercial eligibility remain |
 | G16 deployment/smoke | not-run | G01–G15 must pass first; no implemented public URL |
 
 `docs/release-evidence.json` deliberately contains blocked gates and cost_verified_zero=false. The original release guard must reject it. An evidence JSON cannot prove its own truth. No gate is waived by successful CI or schema setup.

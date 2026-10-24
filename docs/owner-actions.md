@@ -9,10 +9,12 @@ Production is blocked. Do not buy anything, enable billing, deploy, merge around
 - You report enrolling MFA and testing a fresh sign-in challenge. Supabase independently confirms one verified factor. Direct hosted bypass/removal checks remain separate.
 - Supabase organization reports free/tier_free. No purchase or paid activation was performed.
 - Google audience is Testing. That is suitable for the current test workflow, not public-launch evidence.
+- You confirm Vercel shows Hobby (free). This is owner-reported dashboard evidence; the connected tools do not expose the billing field.
+- You confirm you have only one Google account. A second legitimate test identity is not yet available; no further sign-in retry with the same account will resolve the two-user gate.
 
 ## 1. Complete the second Google test sign-in
 
-The last independent provider count still showed **one** Auth user and one profile after the second “done” reply. Adding an address to Google's Test users list alone does not create an RFT user.
+You have confirmed that you only have one Google account. The last independent provider count agrees: **one** Auth user/profile. Do not keep repeating sign-in with that same account. The gate needs a second legitimate Google test identity. If you choose to create an additional free Google account, complete Google's account-creation, credentials and terms steps yourself; Codex must not fabricate a Google identity. Alternatively, use an explicitly authorized tester who controls their own Google account. Codex will not contact another person without your instruction. Once that separate test identity is available:
 
 1. In [Google Cloud Console](https://console.cloud.google.com/), select RFT's OAuth project → **Google Auth Platform → Audience → Test users**. Ensure the second Google address is listed.
 2. Open a **separate browser profile** from the one used for the first RFT login. In Edge, use the profile menu → **Add profile**, or use another browser already installed.
@@ -39,7 +41,7 @@ Keep this credential local while release is blocked. Preview/test deployment sco
 
 ## 3. Confirm the actual Vercel plan and protected Git checks
 
-1. Open Vercel → **ismailstudio → Settings → Billing**. Confirm the actual plan is **Hobby**, with no paid add-ons or trial that will charge. Share only the plan/status; no payment information. The connected project/team tools did not expose the billing plan, and browser audit timed out.
+1. You report **Hobby (free)** in Vercel Billing. Preserve that plan and avoid paid add-ons/trials; actual usage/quotas and independent intended-project confirmation still need a release review. The connected project/team tools did not expose billing, and browser audit timed out.
 2. After the first green GitHub workflow, open GitHub → **ismailabs/rft → Settings → Rules → Rulesets → New branch ruleset**.
 3. Name it **RFT main protection**, target the default branch, require a pull request and the **verify** check from **RFT verification**, block force pushes/deletions, then set enforcement **Active**. Do not enable a paid feature if prompted.
 4. Tell Codex when saved so protection can be independently inspected. A green CI run alone does not protect main.
