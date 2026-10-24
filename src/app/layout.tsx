@@ -4,6 +4,7 @@ import "@fontsource/dm-sans/500.css";
 import "@fontsource/dm-sans/600.css";
 import "@fontsource/dm-sans/700.css";
 import "./globals.css";
+import "./recovery.css";
 import { currentLocale } from "@/i18n/server";
 export const metadata: Metadata = {
   title: { default: "RFT — Ringgit Finance Tracker", template: "%s | RFT" },
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#17665E",
+  themeColor: "#008565",
 };
 export default async function RootLayout({
   children,

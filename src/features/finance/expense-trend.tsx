@@ -42,6 +42,7 @@ export function ExpenseSources({
       <button
         className="icon-button"
         aria-label={`${d.sourceEntries}: ${label}`}
+        title={`${d.sourceEntries}: ${label}`}
         onClick={() => {
           setLimit(40);
           setOpen(true);

@@ -1,3 +1,5 @@
+> Visual decisions below are historical. The owner's recovery directive and docs/design-reference-register.md now control the five desktop/homepage references, all M1–M8, shared leaf branding and approved Google button exception. Current source count is 25, with one specifically owner-authorized old-logo removal.
+
 # Implementation decisions
 
 - Preserve all handoff files byte for byte, including split extraction. New living evidence stays in docs/ and artifacts/. Root instruction references resolve under RFT-Codex-Desktop-Handoff/.

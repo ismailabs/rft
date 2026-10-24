@@ -108,10 +108,20 @@ export const en = {
   sourceEntries: "View source entries",
   weekStarting: "Week starting",
   entryCount: "Expense entries",
-  goals: "Optional category goals",
+  goals: "Monthly budgets",
+  savingsGoals: "Savings Goals",
+  addSavingsGoal: "Add savings goal",
+  goalName: "Goal name",
+  targetAmount: "Target amount (RM)",
+  savedAmount: "Recorded savings (RM)",
+  targetDate: "Target date (optional)",
+  savingsHelp:
+    "Record your own savings estimate. Updating a goal does not move money or change account balances.",
+  noSavingsGoals:
+    "No savings goals yet. Choose something you want to save for.",
   goalHelp:
     "Set an expense category limit for a calendar month. Going over it is information, not a judgment.",
-  addGoal: "Set a goal",
+  addGoal: "Set budget",
   limit: "Monthly limit (RM)",
   used: "Recorded spending",
   remaining: "Remaining",
@@ -330,9 +340,19 @@ export const ms: Dictionary = {
   weekStarting: "Minggu bermula",
   entryCount: "Catatan perbelanjaan",
   goals: "Matlamat kategori pilihan",
+  savingsGoals: "Matlamat Simpanan",
+  addSavingsGoal: "Tambah matlamat simpanan",
+  goalName: "Nama matlamat",
+  targetAmount: "Amaun sasaran (RM)",
+  savedAmount: "Simpanan dicatat (RM)",
+  targetDate: "Tarikh sasaran (pilihan)",
+  savingsHelp:
+    "Catat anggaran simpanan anda. Mengemas kini matlamat tidak memindahkan wang atau mengubah baki akaun.",
+  noSavingsGoals:
+    "Belum ada matlamat simpanan. Pilih sesuatu yang ingin anda simpan.",
   goalHelp:
     "Tetapkan had kategori perbelanjaan untuk satu bulan kalendar. Melebihi had ialah maklumat, bukan penilaian.",
-  addGoal: "Tetapkan matlamat",
+  addGoal: "Tetapkan bajet",
   limit: "Had bulanan (RM)",
   used: "Perbelanjaan dicatat",
   remaining: "Baki matlamat",

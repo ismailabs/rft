@@ -1,109 +1,122 @@
 import {
-  ArrowDownLeft,
-  ArrowUpRight,
-  ArrowLeftRight,
-  Wallet,
-  Plus,
   Home,
   List,
+  Wallet,
   ChartNoAxesColumn,
   Settings,
+  Tag,
+  Search,
+  ArrowDown,
+  ArrowUp,
+  Equal,
 } from "lucide-react";
 import { balances, totals } from "@/domain/finance/calculations";
+import { monthlyReport } from "@/domain/finance/reporting";
 import { money } from "@/domain/finance/money";
-import { sample } from "@/features/finance/sample";
+import { marketingExample as sample } from "@/features/finance/marketing-example";
+import { LeafMark } from "@/components/brand";
+import {
+  MonthlyChart,
+  AccountOverview,
+  BalanceSummary,
+} from "@/features/finance/visual-components";
 import type { Dictionary } from "@/i18n/dictionaries";
-const end = "2026-02-01T00:00:00Z";
+
+/** Real DOM preview, with synthetic data explicitly labeled outside its scaled frame. */
 export function SamplePreview({ d }: { d: Dictionary }) {
+  const asOf = "2026-10-24T04:00:00.000Z",
+    end = "2026-10-24T04:00:00.001Z";
   const b = balances(sample, end),
-    t = totals(sample.transactions, { start: null, end });
+    t = totals(sample.transactions, { start: "2026-09-30T16:00:00.000Z", end });
+  const locale = d.home === "Utama" ? "ms" : "en";
   return (
-    <div className="sample-wrap">
-      <p className="sample-label">{d.sample}</p>
-      <div className="sample-app">
-        <div className="sample-top">
-          <b>RFT</b>
-          <span>{d.home}</span>
+    <div className="desktop-preview-wrap">
+      <div className="preview-window" aria-hidden="true" inert>
+        <div className="window-dots">
+          <i />
+          <i />
+          <i />
         </div>
-        <h2>{d.overview}</h2>
-        <div className="balance-panel">
-          <p>{d.estimated}</p>
-          <strong>{money([...b.values()].reduce((a, v) => a + v, 0n))}</strong>
-          <span>{d.estimateNote}</span>
-          <div className="balance-motif" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </div>
-        </div>
-        <dl className="flow-grid">
-          <div>
-            <dt>
-              <ArrowDownLeft size={17} />
-              {d.income}
-            </dt>
-            <dd>{money(t.income)}</dd>
-          </div>
-          <div>
-            <dt>
-              <ArrowUpRight size={17} />
-              {d.expenses}
-            </dt>
-            <dd>{money(t.expenses)}</dd>
-          </div>
-          <div>
-            <dt>{d.net}</dt>
-            <dd>{money(t.net)}</dd>
-          </div>
-        </dl>
-        <div className="sample-history">
-          <h3>{d.recent}</h3>
-          {[
-            {
-              icon: ArrowLeftRight,
-              title: d.transfer,
-              amount: money(5000n),
-              class: "teal",
-            },
-            {
-              icon: ArrowUpRight,
-              title: d.expense,
-              amount: "−" + money(2490n),
-              class: "rose",
-            },
-            {
-              icon: ArrowDownLeft,
-              title: d.income,
-              amount: "+" + money(8000n),
-              class: "teal",
-            },
-          ].map((row, i) => (
-            <div className="activity-row" key={i}>
-              <span className={`icon-disc ${row.class}`}>
-                <row.icon size={20} />
-              </span>
-              <div>
-                <b>{row.title}</b>
-                <small>{i === 0 ? `${d.cash} → ${d.ewallet}` : d.cash}</small>
-              </div>
-              <strong>{row.amount}</strong>
+        <div className="preview-dashboard">
+          <aside>
+            <div className="preview-brand">
+              <LeafMark />
+              <b>
+                RFT<small>Ringgit Finance Tracker</small>
+              </b>
             </div>
-          ))}
-        </div>
-        <div className="sample-bottom" aria-hidden="true">
-          <Home />
-          <List />
-          <span>
-            <Plus />
-          </span>
-          <ChartNoAxesColumn />
-          <Settings />
+            {[
+              { Icon: Home, label: d.home },
+              { Icon: List, label: d.activity },
+              { Icon: Wallet, label: d.accounts },
+              { Icon: ChartNoAxesColumn, label: d.insights },
+              { Icon: Tag, label: d.categories },
+              { Icon: Settings, label: d.settings },
+            ].map((n, i) => (
+              <div className={i === 0 ? "active" : ""} key={n.label}>
+                <n.Icon size={19} />
+                {n.label}
+              </div>
+            ))}
+          </aside>
+          <div className="preview-main">
+            <div className="preview-topbar">
+              <Search size={16} />
+              {d.search}
+              <span>MYR</span>
+            </div>
+            <div className="preview-dashboard-page">
+              <h2>
+                {locale === "ms"
+                  ? "Gambaran kewangan anda"
+                  : "Your financial overview"}
+              </h2>
+              <p>{d.overviewIntro}</p>
+              <div className="preview-grid">
+                <div>
+                  <BalanceSummary
+                    amount={[...b.values()].reduce((n, v) => n + v, 0n)}
+                    d={d}
+                    asOf={asOf}
+                    locale={locale}
+                    series={monthlyReport(sample, asOf).map((r) => r.closing)}
+                  />
+                  <dl className="preview-metrics">
+                    {[
+                      { label: d.income, value: t.income, Icon: ArrowDown },
+                      { label: d.expenses, value: t.expenses, Icon: ArrowUp },
+                      { label: d.net, value: t.net, Icon: Equal },
+                    ].map((x) => (
+                      <div key={x.label}>
+                        <x.Icon size={19} />
+                        <dt>{x.label}</dt>
+                        <dd>{money(x.value)}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <MonthlyChart
+                    data={sample}
+                    asOf={asOf}
+                    locale={locale}
+                    d={d}
+                  />
+                </div>
+                <section className="preview-accounts">
+                  <h3>{d.accounts}</h3>
+                  <AccountOverview data={sample} values={b} d={d} />
+                  <div className="preview-insight">
+                    <h3>{d.insights}</h3>
+                    <p>{d.sampleHelp}</p>
+                    <p>{d.estimateNote}</p>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <p className="sample-caption">
-        <Wallet size={16} />
-        {d.sampleHelp}
-      </p>
+      <p className="sample-label">{d.sample}</p>
+      <p className="sample-caption">{d.sampleHelp}</p>
     </div>
   );
 }

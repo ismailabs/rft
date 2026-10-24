@@ -1,3 +1,5 @@
+> Visual decisions below are historical. The owner's recovery directive and docs/design-reference-register.md now control the five desktop/homepage references, all M1–M8, shared leaf branding and approved Google button exception. Current source count is 25, with one specifically owner-authorized old-logo removal.
+
 # Source image review — 2026-10-24
 
 All 21 originals opened individually with the image viewer before design decisions. Original filenames, pixels and Git objects preserved. Filenames below omit the common `ChatGPT Image Oct 24, 2026, ` prefix. No exact binary duplicates (distinct SHA-256 prefixes for all 21).

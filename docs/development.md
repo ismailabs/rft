@@ -1,6 +1,6 @@
 # RFT implementation guide
 
-The original root entry documents and handoff remain byte-for-byte intact. This guide describes the implemented app; release readiness is in `verification-report.md` and required owner steps are in `owner-actions.md`.
+The original handoff contents remain byte-for-byte intact. Root AGENTS retains its exact original byte prefix plus the specifically verified Next.js-generated appendix; the source audit rejects other changes. This guide describes the implemented app; release readiness is in `verification-report.md` and required owner steps are in `owner-actions.md`.
 
 ## Run locally
 

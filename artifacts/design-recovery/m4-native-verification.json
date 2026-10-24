@@ -1,0 +1,45 @@
+{
+  "recorded_at": "2026-10-24T10:40:48.415Z",
+  "mobile_section_y": {
+    "spending_trend": 267.046875,
+    "category": 580.34375,
+    "insights": 989.796875,
+    "budgets": 1123.59375,
+    "goals": 1654.59375
+  },
+  "daily_total": "2596.20",
+  "captures": [
+    {
+      "css_viewport": 390,
+      "dom_scroll_width": 375,
+      "image_width": 375,
+      "image_height": 3373,
+      "path": "artifacts/design-recovery/actual-insights-390-full.png",
+      "method": "Native in-app browser; screenshot excludes native scrollbar; synthetic fixture"
+    },
+    {
+      "css_viewport": 768,
+      "dom_scroll_width": 753,
+      "image_width": 753,
+      "image_height": 2740,
+      "path": "artifacts/design-recovery/actual-insights-768.png",
+      "method": "Native in-app browser; screenshot excludes native scrollbar; synthetic fixture"
+    },
+    {
+      "css_viewport": 1448,
+      "dom_scroll_width": 1433,
+      "image_width": 1433,
+      "image_height": 1940,
+      "path": "artifacts/design-recovery/actual-insights-1448.png",
+      "method": "Native in-app browser; screenshot excludes native scrollbar; synthetic fixture"
+    },
+    {
+      "css_viewport": 1920,
+      "dom_scroll_width": 1905,
+      "image_width": 1905,
+      "image_height": 1895,
+      "path": "artifacts/design-recovery/actual-insights-1920.png",
+      "method": "Native in-app browser; screenshot excludes native scrollbar; synthetic fixture"
+    }
+  ]
+}

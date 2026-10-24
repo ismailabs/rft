@@ -3,6 +3,7 @@ export const sample: Snapshot = {
   locale: "en",
   subcategories: [],
   budgets: [],
+  goals: [],
   accounts: [
     {
       id: "sample-cash",

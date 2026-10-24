@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import dynamic from "next/dynamic";
 import {
   Home,
   List,
@@ -10,10 +9,6 @@ import {
   Settings,
   Plus,
   Wallet,
-  Landmark,
-  Banknote,
-  ArrowDownLeft,
-  ArrowUpRight,
   ArrowLeftRight,
   Pencil,
   Trash2,
@@ -23,6 +18,10 @@ import {
   LogOut,
   SlidersHorizontal,
   X,
+  Search,
+  Tag,
+  PieChart,
+  Target,
 } from "lucide-react";
 import { dictionary } from "@/i18n/dictionaries";
 import {
@@ -31,19 +30,31 @@ import {
   categoryShares,
   weeklyComparison,
 } from "@/domain/finance/calculations";
-import { money, parseMoney } from "@/domain/finance/money";
+import { money } from "@/domain/finance/money";
 import { periodFor, inPeriod, localDate } from "@/domain/finance/periods";
-import type { Snapshot, Locale, Transaction } from "@/domain/finance/types";
+import type { Snapshot, Locale } from "@/domain/finance/types";
 import { Brand } from "@/components/brand";
 import { Sheet } from "@/components/ui/dialog";
 import { Pwa } from "@/components/pwa";
 import { EntryForm, type FormKind, type Editable } from "./entry-form";
 import { PeriodFilter } from "./period-filter";
 import { ExpenseTrend, ExpenseSources } from "./expense-trend";
-const SpendingChart = dynamic(
-  () => import("./spending-chart").then((m) => m.SpendingChart),
-  { ssr: false },
-);
+import { monthlyReport } from "@/domain/finance/reporting";
+import {
+  Panel,
+  BalanceSummary,
+  FlowSummary,
+  MonthlyChart,
+  TransactionHistory,
+  AccountOverview,
+  AccountTypeSummary,
+  Breakdown,
+  FactualInsight,
+  MobileDashboardOverview,
+  MobileSpendingTrend,
+  SavingsProgress,
+  BudgetProgress,
+} from "./visual-components";
 type View =
   | "home"
   | "activity"
@@ -58,12 +69,16 @@ export function FinanceApp({
   view,
   accountId,
   initialAsOf,
+  displayName = "",
+  initialSearch = "",
 }: {
   initial: Snapshot;
   locale: Locale;
   view: View;
   accountId?: string;
   initialAsOf: string;
+  displayName?: string;
+  initialSearch?: string;
 }) {
   const d = dictionary(locale),
     router = useRouter();
@@ -81,7 +96,7 @@ export function FinanceApp({
   const [kind, setKind] = useState("month"),
     [from, setFrom] = useState(localDate(new Date(initialAsOf))),
     [to, setTo] = useState(localDate(new Date(initialAsOf)));
-  const [search, setSearch] = useState(""),
+  const [search, setSearch] = useState(initialSearch),
     [type, setType] = useState("all"),
     [account, setAccount] = useState(accountId || "");
   const [status, setStatus] = useState(""),
@@ -117,6 +132,7 @@ export function FinanceApp({
     category_meta: d.edit,
     subcategory_meta: d.edit,
     budget: d.addGoal,
+    goal: d.addSavingsGoal,
   };
   const errorText = (code: string) =>
     d.errors[code as keyof typeof d.errors] || d.errors.SERVER_UNAVAILABLE;
@@ -187,8 +203,6 @@ export function FinanceApp({
       active: view === "settings" || view === "categories",
     },
   ];
-  const accountIcon = (type: string) =>
-    type === "bank" ? Landmark : type === "cash" ? Banknote : Wallet;
   const entries = [
     ...data.transactions.map((t) => ({ ...t, kind: t.type as string })),
     ...data.transfers.map((t) => ({
@@ -214,132 +228,186 @@ export function FinanceApp({
     )
     .sort((a, b) => Date.parse(b.occurred_at) - Date.parse(a.occurred_at));
   const [page, setPage] = useState(1);
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [inlineRevision, setInlineRevision] = useState(0);
+  const report = monthlyReport(data, asOf);
+  const ms = locale === "ms";
+  const selectedEntries = entries.filter(
+    (t) => !categoryFilter || t.category_id === categoryFilter,
+  );
   const displayEntries =
-    view === "home" ? entries.slice(0, 5) : entries.slice(0, page * 40);
+    view === "home" || view === "accounts" || view === "account"
+      ? entries.slice(0, 5)
+      : selectedEntries.slice((page - 1) * 10, page * 10);
   const filter = (
     <PeriodFilter
       d={d}
       kind={kind}
-      setKind={setKind}
+      setKind={(v) => {
+        setKind(v);
+        setPage(1);
+      }}
       from={from}
-      setFrom={setFrom}
+      setFrom={(v) => {
+        setFrom(v);
+        setPage(1);
+      }}
       to={to}
-      setTo={setTo}
+      setTo={(v) => {
+        setTo(v);
+        setPage(1);
+      }}
     />
   );
   const activityList = (
-    <div className="activity-list">
-      {displayEntries.length ? (
-        displayEntries.map((t) => {
-          const Icon =
-            t.kind === "transfer"
-              ? ArrowLeftRight
-              : t.kind === "income"
-                ? ArrowDownLeft
-                : ArrowUpRight;
-          const category = data.categories.find(
-            (c) => c.id === t.category_id,
-          )?.name;
-          return (
-            <div className="activity-row" key={t.id}>
-              <span
-                className={`icon-disc ${t.kind === "expense" ? "rose" : "teal"}`}
-              >
-                <Icon size={20} />
-              </span>
-              <div className="row-description">
-                <b>{t.note || category || d.transfer}</b>
-                <small>
-                  {t.kind === "transfer"
-                    ? d.transfer
-                    : t.kind === "income"
-                      ? d.income
-                      : d.expense}{" "}
-                  · {data.accounts.find((a) => a.id === t.account_id)?.name}
-                  {"destination_id" in t
-                    ? ` → ${data.accounts.find((a) => a.id === t.destination_id)?.name}`
-                    : ""}
-                </small>
-                <small>
-                  {new Intl.DateTimeFormat(
-                    locale === "ms" ? "ms-MY" : "en-MY",
-                    {
-                      dateStyle: "medium",
-                      timeStyle: "short",
-                      timeZone: "Asia/Kuala_Lumpur",
-                    },
-                  ).format(new Date(t.occurred_at))}
-                </small>
-              </div>
-              <div className="row-value">
-                <strong>
-                  {t.kind === "income" ? "+" : t.kind === "expense" ? "−" : ""}
-                  {money(parseMoney(t.amount))}
-                </strong>
-                {view !== "home" ? (
-                  <div className="row-actions">
-                    {t.kind !== "transfer" ? (
-                      <button
-                        className="icon-button"
-                        aria-label={`${d.edit}: ${t.note || category}`}
-                        onClick={() =>
-                          setForm({
-                            kind: "transaction",
-                            initial: t as Transaction,
-                          })
-                        }
-                      >
-                        <Pencil size={16} />
-                      </button>
-                    ) : null}
-                    <button
-                      className="icon-button danger-text"
-                      aria-label={`${d.remove}: ${t.note || category || d.transfer}`}
-                      onClick={() =>
-                        setDeleting({
-                          id: t.id,
-                          table:
-                            t.kind === "transfer"
-                              ? "transfers"
-                              : "transactions",
-                        })
-                      }
-                    >
-                      <Trash2 size={16} />
-                    </button>
-                  </div>
-                ) : null}
-              </div>
-            </div>
-          );
-        })
-      ) : (
-        <div className="empty-state">
-          <List size={31} strokeWidth={1.4} />
-          <h3>{view === "home" ? d.noActivity : d.noResults}</h3>
-          <p>{d.noActivityHelp}</p>
-        </div>
+    <TransactionHistory
+      entries={displayEntries}
+      groupDates={view !== "home"}
+      data={data}
+      d={d}
+      locale={locale}
+      onEdit={
+        view === "home"
+          ? undefined
+          : (t) => setForm({ kind: "transaction", initial: t })
+      }
+      onDelete={
+        view === "home" ? undefined : (id, table) => setDeleting({ id, table })
+      }
+    />
+  );
+  const desktopNav = [
+    {
+      href: "/app",
+      name: ms ? "Gambaran" : "Dashboard",
+      icon: Home,
+      active: view === "home",
+    },
+    {
+      href: "/app/transactions",
+      name: ms ? "Transaksi" : "Transactions",
+      icon: List,
+      active: view === "activity",
+    },
+    {
+      href: "/app/accounts",
+      name: d.accounts,
+      icon: Wallet,
+      active: view === "accounts" || view === "account",
+    },
+    {
+      href: "/app/insights#budgets",
+      name: ms ? "Bajet" : "Budgets",
+      icon: PieChart,
+      active: view === "insights",
+    },
+    {
+      href: "/app/insights#goals",
+      name: ms ? "Matlamat" : "Goals",
+      icon: Target,
+      active: false,
+    },
+    {
+      href: "/app/insights#reports",
+      name: ms ? "Laporan" : "Reports",
+      icon: ChartNoAxesColumn,
+      active: false,
+    },
+    {
+      href: "/app/categories",
+      name: d.categories,
+      icon: Tag,
+      active: view === "categories",
+    },
+    {
+      href: "/app/settings#data",
+      name: ms ? "Eksport data" : "Data export",
+      icon: Download,
+      active: false,
+    },
+    {
+      href: "/app/settings",
+      name: d.settings,
+      icon: Settings,
+      active: view === "settings",
+    },
+  ];
+  async function saveInline(value: unknown) {
+    await save(value);
+    setInlineRevision((n) => n + 1);
+  }
+  const recentPanel = (
+    <Panel
+      title={d.recent}
+      action={
+        <Link className="text-link" href="/app/transactions">
+          {d.seeAll}
+        </Link>
+      }
+    >
+      {activityList}
+    </Panel>
+  );
+  const balancePanel = (
+    <BalanceSummary
+      amount={
+        view === "account" ? accountBalances.get(accountId || "") || 0n : funds
+      }
+      d={d}
+      asOf={new Date(Date.parse(period?.end || asOf) - 1).toISOString()}
+      locale={locale}
+      series={report.map((r) =>
+        view === "account"
+          ? balances(data, r.period.end).get(accountId || "") || 0n
+          : r.closing,
       )}
-      {view !== "home" && entries.length > displayEntries.length ? (
-        <button
-          className="button secondary"
-          onClick={() => setPage((p) => p + 1)}
-        >
-          {d.seeAll} ({entries.length - displayEntries.length})
-        </button>
-      ) : null}
-    </div>
+      account={view === "account"}
+    />
+  );
+  const accountFlow =
+    view === "account" && period
+      ? totals(
+          data.transactions.filter((t) => t.account_id === accountId),
+          period,
+        )
+      : tally;
+  const flows = accountFlow ? <FlowSummary {...accountFlow} d={d} /> : null;
+  const insightSummary = (
+    <>
+      <FactualInsight
+        title={ms ? "Catatan perbelanjaan anda" : "Your recorded spending"}
+      >
+        {tally ? money(tally.expenses) : "—"}. {ms ? "Perbelanjaan dicatat dalam tempoh dipilih." : "Expenses recorded in the selected period."}
+      </FactualInsight>
+      <FactualInsight title={shares[0]?.name || d.categoryShare} tone="amber">
+        {shares[0]
+          ? `${money(shares[0].amount)} · ${(shares[0].share / 100).toFixed(1)}%`
+          : d.noInsights}
+      </FactualInsight>
+      <FactualInsight
+        title={ms ? "Bajet bulanan" : "Monthly budgets"}
+        tone="purple"
+      >
+        {data.budgets.length
+          ? `${data.budgets.length} ${ms ? "had bulanan disimpan" : "saved monthly category limits"}`
+          : d.noGoals}
+      </FactualInsight>
+    </>
   );
   return (
-    <div className="app-shell">
+    <div className={`app-shell recovered view-${view}`}>
       <Pwa />
-      <aside className="app-sidebar">
+      <aside
+        className="app-sidebar"
+        aria-label={ms ? "Navigasi RFT" : "RFT navigation"}
+      >
         <Brand />
         <nav aria-label={d.home}>
-          {nav.map((n) => (
+          {desktopNav.map((n) => (
             <Link
               key={n.href}
               href={n.href}
+              aria-label={n.name}
               aria-current={n.active ? "page" : undefined}
             >
               <n.icon size={21} />
@@ -361,7 +429,49 @@ export function FinanceApp({
       <div className="app-body">
         <header className="app-header">
           <Brand />
-          <span>MYR / Asia/Kuala_Lumpur</span>
+          <form
+            className="global-search"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (view !== "home" && view !== "activity")
+                router.push(
+                  `/app/transactions?search=${encodeURIComponent(search)}`,
+                );
+            }}
+          >
+            <Search size={20} aria-hidden="true" />
+            <label className="sr-only" htmlFor="global-search">
+              {d.search}
+            </label>
+            <input
+              id="global-search"
+              name="search"
+              type="search"
+              placeholder={
+                ms
+                  ? "Cari transaksi, akaun, kategori…"
+                  : "Search transactions, accounts, categories…"
+              }
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setPage(1);
+              }}
+            />
+          </form>
+          <Link className="profile-link" href="/app/settings">
+            <span className="profile-avatar" aria-hidden="true">
+              {displayName ? (
+                displayName.slice(0, 2).toUpperCase()
+              ) : (
+                <Settings size={19} aria-hidden="true" />
+              )}
+            </span>
+            <span>{displayName || d.settings}</span>
+            {displayName ? (
+              <span className="sr-only"> · {d.settings}</span>
+            ) : null}
+          </Link>
           <Link
             className="icon-button"
             href="/app/settings"
@@ -373,7 +483,27 @@ export function FinanceApp({
         <main id="main" className="app-main">
           <div className="page-heading">
             <div>
-              <h1>{names[view]}</h1>
+              <h1>
+                {view === "home"
+                  ? displayName
+                    ? `${ms ? "Selamat kembali" : "Welcome back"}, ${displayName}`
+                    : ms
+                      ? "Gambaran kewangan anda"
+                      : "Your financial overview"
+                  : view === "activity"
+                    ? ms
+                      ? "Transaksi"
+                      : "Transactions"
+                    : view === "accounts"
+                      ? ms
+                        ? "Akaun & Pindahan"
+                        : "Accounts & Transfers"
+                      : view === "insights"
+                        ? ms
+                          ? "Analisis & Bajet"
+                          : "Insights & Budgets"
+                        : names[view]}
+              </h1>
               <p>
                 {view === "home"
                   ? d.overviewIntro
@@ -394,11 +524,16 @@ export function FinanceApp({
                 <Plus size={19} />
                 {d.addAccount}
               </button>
-            ) : view === "home" ? (
-              <Link className="text-link" href="/app/accounts">
-                {d.accounts}
-                <ChevronRight size={18} />
-              </Link>
+            ) : ["home", "insights", "account"].includes(view) ? (
+              filter
+            ) : view === "activity" ? (
+              <button
+                className="button"
+                onClick={() => setForm({ kind: "transaction" })}
+              >
+                <Plus size={19} aria-hidden="true" />
+                {d.add}
+              </button>
             ) : null}
           </div>
           <div aria-live="polite">
@@ -443,386 +578,443 @@ export function FinanceApp({
               </button>
             </section>
           ) : null}
-          {["home", "activity", "insights", "account"].includes(view) ? (
-            <>
-              {filter}
-              {!period ? (
-                <p className="error" role="alert">
-                  {d.errors.VALIDATION_FAILED}
-                </p>
-              ) : null}
-            </>
-          ) : null}
-          {view === "home" || view === "accounts" || view === "account" ? (
-            <>
-              <section className="balance-panel">
-                <p>{view === "account" ? d.estimatedAccount : d.estimated}</p>
-                <strong>
-                  {money(
-                    view === "account"
-                      ? accountBalances.get(accountId || "") || 0n
-                      : funds,
-                  )}
-                </strong>
-                <span>{d.estimateNote}</span>
-                <div className="balance-motif" aria-hidden="true">
-                  <i />
-                  <i />
-                  <i />
-                </div>
-              </section>
-              <p className="as-of">
-                {d.asOf}{" "}
-                {new Intl.DateTimeFormat(locale === "ms" ? "ms-MY" : "en-MY", {
-                  dateStyle: "medium",
-                  timeStyle: "short",
-                  timeZone: "Asia/Kuala_Lumpur",
-                }).format(
-                  new Date(
-                    (period?.end ? Date.parse(period.end) : Date.parse(asOf)) -
-                      1,
-                  ),
-                )}
-              </p>
-            </>
-          ) : null}
-          {(view === "home" || view === "account") && tally ? (
-            <dl className="flow-grid">
-              <div>
-                <dt>
-                  <ArrowDownLeft size={18} />
-                  {d.income}
-                </dt>
-                <dd>
-                  {money(
-                    view === "account"
-                      ? totals(
-                          data.transactions.filter(
-                            (t) => t.account_id === accountId,
-                          ),
-                          period!,
-                        ).income
-                      : tally.income,
-                  )}
-                </dd>
-              </div>
-              <div>
-                <dt>
-                  <ArrowUpRight size={18} />
-                  {d.expenses}
-                </dt>
-                <dd>
-                  {money(
-                    view === "account"
-                      ? totals(
-                          data.transactions.filter(
-                            (t) => t.account_id === accountId,
-                          ),
-                          period!,
-                        ).expenses
-                      : tally.expenses,
-                  )}
-                </dd>
-              </div>
-              <div>
-                <dt>{d.net}</dt>
-                <dd>
-                  {money(
-                    view === "account"
-                      ? totals(
-                          data.transactions.filter(
-                            (t) => t.account_id === accountId,
-                          ),
-                          period!,
-                        ).net
-                      : tally.net,
-                  )}
-                </dd>
-              </div>
-            </dl>
+          {!period ? (
+            <p className="error" role="alert">
+              {d.errors.VALIDATION_FAILED}
+            </p>
           ) : null}
           {view === "home" ? (
-            <div className="dashboard-grid">
-              <section className="surface history-section">
-                <div className="section-row">
-                  <h2>{d.recent}</h2>
-                  <Link href="/app/transactions" className="text-link">
-                    {d.seeAll}
-                  </Link>
+            <div className="reference-dashboard">
+              <div className="primary-stack">
+                {balancePanel}
+                <div className="home-flow-block">
+                  <div className="mobile-flow-heading">
+                    <h2>{d.month}</h2>
+                    {filter}
+                  </div>
+                  {flows}
                 </div>
-                {activityList}
-              </section>
-              <section className="surface category-summary">
-                <h2>{d.categoryShare}</h2>
-                {shares.length ? (
-                  <>
-                    {shares.slice(0, 4).map((row) => (
-                      <div className="share-row" key={row.id}>
-                        <span>{row.name}</span>
-                        <b>{money(row.amount)}</b>
-                        <small>{(row.share / 100).toFixed(1)}%</small>
-                      </div>
-                    ))}
-                    <Link className="text-link" href="/app/insights">
-                      {d.insights}
-                      <ChevronRight size={17} />
+                <MonthlyChart data={data} asOf={asOf} locale={locale} d={d} />
+                <MobileDashboardOverview
+                  data={data}
+                  asOf={asOf}
+                  shares={shares}
+                  d={d}
+                  locale={locale}
+                />
+                {recentPanel}
+              </div>
+              <aside
+                className="secondary-stack"
+                aria-label={ms ? "Ringkasan tambahan" : "Additional summaries"}
+              >
+                <Panel
+                  title={d.accounts}
+                  action={
+                    <Link className="text-link" href="/app/accounts">
+                      {ms ? "Urus" : "Manage"}
                     </Link>
-                  </>
-                ) : (
-                  <p>{d.noInsights}</p>
-                )}
-              </section>
+                  }
+                >
+                  <AccountOverview data={data} values={accountBalances} d={d} />
+                  <button
+                    className="button secondary wide"
+                    onClick={() => setForm({ kind: "account" })}
+                  >
+                    <Plus size={18} />
+                    {d.addAccount}
+                  </button>
+                </Panel>
+                <Panel
+                  title={d.insights}
+                  action={
+                    <Link className="text-link" href="/app/insights">
+                      {ms ? "Lihat semua" : "View all"}
+                    </Link>
+                  }
+                >
+                  {insightSummary}
+                </Panel>
+              </aside>
             </div>
           ) : null}
-          {view === "activity" || view === "account" ? (
-            <>
-              <div className="activity-filters">
-                <label className="field">
-                  <span>{d.search}</span>
-                  <input
-                    type="search"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                  />
-                </label>
-                <label className="field">
-                  <span>{d.type}</span>
-                  <select
-                    value={type}
-                    onChange={(e) => setType(e.target.value)}
-                  >
-                    <option value="all">{d.allTypes}</option>
-                    <option value="income">{d.income}</option>
-                    <option value="expense">{d.expense}</option>
-                    <option value="transfer">{d.transfer}</option>
-                  </select>
-                </label>
-                {view === "activity" ? (
-                  <label className="field">
-                    <span>{d.account}</span>
-                    <select
-                      value={account}
-                      onChange={(e) => setAccount(e.target.value)}
-                    >
-                      <option value="">{d.accountAll}</option>
-                      {data.accounts.map((a) => (
-                        <option value={a.id} key={a.id}>
-                          {a.name}
-                        </option>
-                      ))}
-                    </select>
+          {view === "activity" ? (
+            <div className="reference-transactions">
+              <div className="primary-stack">
+                <Panel className="transaction-controls">
+                  <div className="transaction-tabs">
+                    {["all", "income", "expense", "transfer"].map((v) => (
+                      <button
+                        key={v}
+                        className={type === v ? "active" : ""}
+                        aria-pressed={type === v}
+                        onClick={() => {
+                          setType(v);
+                          setPage(1);
+                        }}
+                      >
+                        {v === "all"
+                          ? ms
+                            ? "Semua transaksi"
+                            : "All Transactions"
+                          : v === "income"
+                            ? d.income
+                            : v === "expense"
+                              ? d.expenses
+                              : d.transfer}
+                      </button>
+                    ))}
+                    {filter}
+                  </div>
+                  <label className="search-control">
+                    <Search size={20} aria-hidden="true" />
+                    <span className="sr-only">{d.search}</span>
+                    <input
+                      type="search"
+                      placeholder={
+                        ms
+                          ? "Cari keterangan atau kategori…"
+                          : "Search by description, account or category…"
+                      }
+                      value={search}
+                      onChange={(e) => {
+                        setSearch(e.target.value);
+                        setPage(1);
+                      }}
+                    />
                   </label>
-                ) : null}
+                  <div className="filter-select-row">
+                    <label>
+                      <span className="sr-only">{d.account}</span>
+                      <select
+                        value={account}
+                        onChange={(e) => {
+                          setAccount(e.target.value);
+                          setPage(1);
+                        }}
+                      >
+                        <option value="">{d.accountAll}</option>
+                        {data.accounts.map((a) => (
+                          <option value={a.id} key={a.id}>
+                            {a.name}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <label>
+                      <span className="sr-only">{d.category}</span>
+                      <select
+                        value={categoryFilter}
+                        onChange={(e) => {
+                          setCategoryFilter(e.target.value);
+                          setPage(1);
+                        }}
+                      >
+                        <option value="">
+                          {ms ? "Semua kategori" : "All categories"}
+                        </option>
+                        {data.categories.map((c) => (
+                          <option value={c.id} key={c.id}>
+                            {c.name}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <button
+                      className="text-link"
+                      onClick={() => {
+                        setType("all");
+                        setAccount("");
+                        setCategoryFilter("");
+                        setSearch("");
+                        setPage(1);
+                      }}
+                    >
+                      {ms ? "Kosongkan penapis" : "Clear filters"}
+                    </button>
+                  </div>
+                  <div className="category-filter-strip">
+                    <button
+                      aria-pressed={!categoryFilter}
+                      onClick={() => {
+                        setCategoryFilter("");
+                        setPage(1);
+                      }}
+                    >
+                      <Tag size={20} />
+                      {d.allTypes}
+                    </button>
+                    {data.categories
+                      .filter((c) => !c.archived && c.type === "expense")
+                      .map((c) => (
+                        <button
+                          key={c.id}
+                          aria-pressed={categoryFilter === c.id}
+                          onClick={() => {
+                            setCategoryFilter(c.id);
+                            setPage(1);
+                          }}
+                        >
+                          {c.name}
+                        </button>
+                      ))}
+                  </div>
+                </Panel>
+                <Panel>
+                  {activityList}
+                  <div className="table-pagination">
+                    <span>
+                      {selectedEntries.length
+                        ? `${(page - 1) * 10 + 1}–${Math.min(page * 10, selectedEntries.length)} / ${selectedEntries.length}`
+                        : "0"}{" "}
+                      {ms ? "transaksi" : "transactions"}
+                    </span>
+                    <div>
+                      <button
+                        className="icon-button"
+                        aria-label={ms ? "Halaman sebelumnya" : "Previous page"}
+                        disabled={page === 1}
+                        onClick={() => setPage((n) => n - 1)}
+                      >
+                        ‹
+                      </button>
+                      <span aria-current="page">{page}</span>
+                      <button
+                        className="icon-button"
+                        aria-label={ms ? "Halaman seterusnya" : "Next page"}
+                        disabled={page * 10 >= selectedEntries.length}
+                        onClick={() => setPage((n) => n + 1)}
+                      >
+                        ›
+                      </button>
+                    </div>
+                  </div>
+                </Panel>
               </div>
-              <section className="surface">{activityList}</section>
-            </>
+              <aside className="desktop-composer rft-panel" aria-label={d.add}>
+                <h2>{d.add}</h2>
+                <EntryForm
+                  key={inlineRevision}
+                  kind="transaction"
+                  data={data}
+                  d={d}
+                  onSave={saveInline}
+                  onCancel={() => setInlineRevision((n) => n + 1)}
+                />
+              </aside>
+            </div>
           ) : null}
           {view === "accounts" ? (
-            <>
-              <div className="account-list">
-                {data.accounts.length ? (
-                  data.accounts.map((a) => {
-                    const Icon = accountIcon(a.type);
-                    return (
-                      <article className="account-row" key={a.id}>
-                        <span className="icon-disc teal">
-                          <Icon size={24} />
-                        </span>
-                        <Link
-                          className="account-name"
-                          href={`/app/accounts/${a.id}`}
-                        >
-                          <b>{a.name}</b>
-                          <small>
-                            {d[a.type]}
-                            {a.provider ? ` · ${a.provider}` : ""}
-                            {a.archived ? ` · ${d.archived}` : ""}
-                          </small>
-                        </Link>
-                        <strong>
-                          {money(accountBalances.get(a.id) || 0n)}
-                        </strong>
-                        <button
-                          className="icon-button"
-                          aria-label={`${d.edit}: ${a.name}`}
-                          onClick={() =>
-                            setForm({ kind: "account_meta", initial: a })
-                          }
-                        >
-                          <Pencil size={17} />
-                        </button>
-                        <button
-                          className="icon-button danger-text"
-                          aria-label={`${d.remove}: ${a.name}`}
-                          onClick={() =>
-                            setDeleting({ id: a.id, table: "accounts" })
-                          }
-                        >
-                          <Trash2 size={17} />
-                        </button>
-                      </article>
-                    );
-                  })
-                ) : (
-                  <div className="empty-state">
-                    <Wallet size={34} />
-                    <h2>{d.noAccounts}</h2>
-                    <p>{d.noAccountsHelp}</p>
-                  </div>
-                )}
+            <div className="reference-accounts">
+              <div className="primary-stack">
+                {balancePanel}
+                <Panel
+                  title={ms ? "Akaun anda" : "Your Accounts"}
+                  action={
+                    <button
+                      className="text-link"
+                      onClick={() => setForm({ kind: "account" })}
+                    >
+                      <Plus size={18} />
+                      {d.addAccount}
+                    </button>
+                  }
+                >
+                  <AccountOverview
+                    data={data}
+                    values={accountBalances}
+                    d={d}
+                    onEdit={(a) =>
+                      setForm({ kind: "account_meta", initial: a })
+                    }
+                    onDelete={(id, table) => setDeleting({ id, table })}
+                  />
+                </Panel>
+                <div className="mobile-transfer-action">
+                  <AccountTypeSummary
+                    data={data}
+                    values={accountBalances}
+                    d={d}
+                  />
+                  <button
+                    className="button wide"
+                    disabled={
+                      data.accounts.filter((a) => !a.archived).length < 2
+                    }
+                    onClick={() => setForm({ kind: "transfer" })}
+                  >
+                    <ArrowLeftRight size={19} />
+                    {d.transfer}
+                  </button>
+                </div>
+                {recentPanel}
               </div>
-              <button
-                className="button secondary"
-                disabled={data.accounts.filter((a) => !a.archived).length < 2}
-                onClick={() => setForm({ kind: "transfer" })}
+              <aside
+                className="secondary-stack"
+                aria-label={ms ? "Ringkasan tambahan" : "Additional summaries"}
               >
-                <ArrowLeftRight size={19} />
-                {d.transfer}
-              </button>
-              <p className="hint">{d.transferHelp}</p>
-            </>
+                <Panel
+                  title={
+                    ms ? "Pindahan antara akaun" : "Transfer Between Accounts"
+                  }
+                  className="desktop-composer"
+                >
+                  <EntryForm
+                    key={inlineRevision}
+                    kind="transfer"
+                    data={data}
+                    d={d}
+                    onSave={saveInline}
+                    onCancel={() => setInlineRevision((n) => n + 1)}
+                  />
+                </Panel>
+                <Panel
+                  title={ms ? "Ringkasan akaun" : "Account Summary"}
+                  className="desktop-account-summary"
+                >
+                  <Breakdown
+                    rows={data.accounts.map((a) => ({
+                      id: a.id,
+                      name: a.name,
+                      amount: accountBalances.get(a.id) || 0n,
+                    }))}
+                    total={funds}
+                    label={d.estimated}
+                    d={d}
+                  />
+                </Panel>
+              </aside>
+            </div>
+          ) : null}
+          {view === "account" ? (
+            <div className="account-detail-stack">
+              {balancePanel}
+              {flows}
+              <MonthlyChart
+                data={{
+                  ...data,
+                  transactions: data.transactions.filter(
+                    (t) => t.account_id === accountId,
+                  ),
+                }}
+                asOf={asOf}
+                locale={locale}
+                d={d}
+              />
+              <Panel title={d.recent}>{activityList}</Panel>
+            </div>
           ) : null}
           {view === "insights" ? (
             <>
-              <ExpenseTrend data={data} asOf={asOf} locale={locale} d={d} />
-              <section className="surface">
-                <h2>{d.categoryShare}</h2>
-                <p className="hint">{d.shareHelp}</p>
-                {shares.length ? (
-                  <>
-                    <SpendingChart
-                      rows={shares.map((r) => ({
-                        name: r.name,
-                        share: r.share / 100,
-                        formatted: money(r.amount),
-                      }))}
-                    />
-                    <table>
-                      <caption className="sr-only">{d.categoryShare}</caption>
-                      <thead>
-                        <tr>
-                          <th>{d.category}</th>
-                          <th>{d.amount}</th>
-                          <th>%</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {shares.map((r) => (
-                          <tr key={r.id}>
-                            <td>
-                              {r.name}
-                              {period ? (
-                                <ExpenseSources
-                                  data={data}
-                                  period={period}
-                                  categoryId={r.id}
-                                  label={r.name}
-                                  locale={locale}
-                                  d={d}
-                                />
-                              ) : null}
-                            </td>
-                            <td>{money(r.amount)}</td>
-                            <td>{(r.share / 100).toFixed(1)}%</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </>
-                ) : (
-                  <div className="empty-state">
-                    <ChartNoAxesColumn size={32} />
-                    <p>{d.noInsights}</p>
+              <MobileSpendingTrend
+                data={data}
+                period={period}
+                asOf={asOf}
+                d={d}
+                locale={locale}
+              />
+              <h2 className="sr-only">
+                {ms ? "Ringkasan kewangan" : "Financial summaries"}
+              </h2>
+              <div className="insight-summary-grid">{insightSummary}</div>
+              <div className="insight-chart-grid">
+                <Panel
+                  title={
+                    ms
+                      ? "Perbelanjaan mengikut kategori"
+                      : "Expenses by Category"
+                  }
+                >
+                  <p className="hint">{d.shareHelp}</p>
+                  <Breakdown
+                    rows={shares}
+                    total={tally?.expenses || 0n}
+                    label={d.expenses}
+                    d={d}
+                  />
+                  {period && shares.length ? (
+                    <div className="insight-sources">
+                      {shares.map((r) => (
+                        <ExpenseSources
+                          key={r.id}
+                          data={data}
+                          period={period!}
+                          categoryId={r.id}
+                          label={r.name}
+                          locale={locale}
+                          d={d}
+                        />
+                      ))}
+                    </div>
+                  ) : null}
+                </Panel>
+                <MonthlyChart
+                  data={data}
+                  asOf={asOf}
+                  locale={locale}
+                  d={d}
+                  title={
+                    ms ? "Perbandingan bulanan" : "Month-to-Month Comparison"
+                  }
+                />
+              </div>
+              <div className="insight-bottom-grid">
+                {" "}
+                <section className="rft-panel budget-progress" id="budgets">
+                  <div className="section-row">
+                    <h2>{ms ? "Kemajuan bajet" : "Budget Progress"}</h2>
+                    <button
+                      className="text-link"
+                      onClick={() => setForm({ kind: "budget" })}
+                    >
+                      <Plus size={18} />
+                      {d.addGoal}
+                    </button>
                   </div>
-                )}
-              </section>
-              <section className="insight-note">
-                <h2>{d.comparison}</h2>
-                {comparison ? (
-                  <>
+                  <p className="hint">{d.goalHelp}</p>
+                  <BudgetProgress
+                    data={data}
+                    d={d}
+                    onDelete={(id, table) => setDeleting({ id, table })}
+                  />
+                </section>
+                <section id="goals">
+                  <Panel
+                    title={d.savingsGoals}
+                    action={
+                      <button
+                        className="text-link"
+                        onClick={() => setForm({ kind: "goal" })}
+                      >
+                        <Plus size={17} />
+                        {d.addSavingsGoal}
+                      </button>
+                    }
+                  >
+                    <SavingsProgress
+                      goals={data.goals || []}
+                      d={d}
+                      locale={locale}
+                      onEdit={(g) => setForm({ kind: "goal", initial: g })}
+                      onDelete={(id, table) => setDeleting({ id, table })}
+                    />
+                  </Panel>
+                </section>
+              </div>
+              <section id="reports">
+                <div className="comparison-context">
+                  <h2>{d.comparison}</h2>
+                  {comparison ? (
                     <p>
                       {money(comparison.newTotal)} {d.comparedWith}{" "}
                       {money(comparison.oldTotal)}. {d.difference}:{" "}
                       {money(comparison.difference)}.
                     </p>
-                    <p>
-                      {localDate(new Date(comparison.recent.start!))} –{" "}
-                      {localDate(
-                        new Date(Date.parse(comparison.recent.end) - 1),
-                      )}
-                      ; {localDate(new Date(comparison.previous.start!))} –{" "}
-                      {localDate(
-                        new Date(Date.parse(comparison.previous.end) - 1),
-                      )}
-                      .
-                    </p>
-                  </>
-                ) : null}
-                <p>{d.comparisonHelp}</p>
-              </section>
-              <section className="surface">
-                <div className="section-row">
-                  <h2>{d.goals}</h2>
-                  <button
-                    className="text-link"
-                    onClick={() => setForm({ kind: "budget" })}
-                  >
-                    <Plus size={18} />
-                    {d.addGoal}
-                  </button>
+                  ) : null}
+                  <p>{d.comparisonHelp}</p>
                 </div>
-                <p className="hint">{d.goalHelp}</p>
-                {data.budgets.length ? (
-                  data.budgets.map((b) => {
-                    const y = +b.month.slice(0, 4),
-                      m = +b.month.slice(5, 7);
-                    const last = new Date(Date.UTC(y, m, 0))
-                      .toISOString()
-                      .slice(0, 10);
-                    const bp = periodFor("custom", new Date(), b.month, last);
-                    const used = totals(
-                        data.transactions.filter(
-                          (t) => t.category_id === b.category_id,
-                        ),
-                        bp,
-                      ).expenses,
-                      remaining = parseMoney(b.amount) - used;
-                    return (
-                      <div className="budget-row" key={b.id}>
-                        <div>
-                          <b>
-                            {
-                              data.categories.find(
-                                (c) => c.id === b.category_id,
-                              )?.name
-                            }
-                          </b>
-                          <small>{b.month.slice(0, 7)}</small>
-                          <p>
-                            {d.used}: {money(used)} /{" "}
-                            {money(parseMoney(b.amount))}
-                          </p>
-                          <span>
-                            {remaining < 0n ? d.over : d.remaining}:{" "}
-                            {money(remaining < 0n ? -remaining : remaining)}
-                          </span>
-                        </div>
-                        <button
-                          className="icon-button danger-text"
-                          aria-label={`${d.remove}: ${data.categories.find((c) => c.id === b.category_id)?.name}`}
-                          onClick={() =>
-                            setDeleting({ id: b.id, table: "budgets" })
-                          }
-                        >
-                          <Trash2 size={18} />
-                        </button>
-                      </div>
-                    );
-                  })
-                ) : (
-                  <p>{d.noGoals}</p>
-                )}
               </section>
+              <ExpenseTrend data={data} asOf={asOf} locale={locale} d={d} />
             </>
           ) : null}
           {view === "categories" ? (
@@ -909,7 +1101,32 @@ export function FinanceApp({
           ) : null}
           {view === "settings" ? (
             <>
-              <section className="surface settings-section">
+              <section className="surface settings-section settings-profile">
+                <h2>{ms ? "Profil" : "Profile"}</h2>
+                <div className="settings-profile-row">
+                  <span className="profile-avatar" aria-hidden="true">
+                    {displayName
+                      ? displayName.slice(0, 2).toUpperCase()
+                      : "RFT"}
+                  </span>
+                  <div>
+                    <b>{displayName || (ms ? "Akaun anda" : "Your account")}</b>
+                    <p>{ms ? "Log masuk dengan Google" : "Google sign-in"}</p>
+                  </div>
+                </div>
+              </section>
+              <section className="surface settings-section settings-accounts">
+                <h2>{d.accounts}</h2>
+                <AccountOverview data={data} values={accountBalances} d={d} />
+                <button
+                  className="text-link"
+                  onClick={() => setForm({ kind: "account" })}
+                >
+                  <Plus size={18} aria-hidden="true" />
+                  {d.addAccount}
+                </button>
+              </section>
+              <section className="surface settings-section settings-preferences">
                 <h2>{d.preferences}</h2>
                 <label className="settings-row">
                   <div>
@@ -936,14 +1153,6 @@ export function FinanceApp({
                     <option value="ms">Bahasa Melayu</option>
                   </select>
                 </label>
-                <Link className="settings-row" href="/app/accounts">
-                  <Wallet />
-                  <div>
-                    <b>{d.accounts}</b>
-                    <p>{d.accountIntro}</p>
-                  </div>
-                  <ChevronRight />
-                </Link>
                 <Link className="settings-row" href="/app/categories">
                   <List />
                   <div>
@@ -953,7 +1162,7 @@ export function FinanceApp({
                   <ChevronRight />
                 </Link>
               </section>
-              <section className="surface settings-section">
+              <section className="surface settings-section settings-security">
                 <h2>{d.security}</h2>
                 <Link className="settings-row" href="/auth/mfa">
                   <ShieldCheck />
@@ -970,51 +1179,57 @@ export function FinanceApp({
                   </button>
                 </form>
               </section>
-              <section className="surface settings-section">
+              <section className="surface settings-section" id="data">
                 <h2>{d.data}</h2>
-                <p>{d.exportHelp}</p>
-                <label className="field">
-                  <span>{d.period}</span>
-                  <select
-                    value={kind}
-                    onChange={(e) => setKind(e.target.value)}
+                <details className="export-options">
+                  <summary>
+                    <Download size={18} aria-hidden="true" />
+                    {d.export}
+                  </summary>
+                  <p>{d.exportHelp}</p>
+                  <label className="field">
+                    <span>{d.period}</span>
+                    <select
+                      value={kind}
+                      onChange={(e) => setKind(e.target.value)}
+                    >
+                      <option value="all">{d.all}</option>
+                      <option value="today">{d.today}</option>
+                      <option value="week">{d.week}</option>
+                      <option value="month">{d.month}</option>
+                      <option value="custom">{d.custom}</option>
+                    </select>
+                  </label>
+                  {kind === "custom" ? filter : null}
+                  <button
+                    className="button secondary"
+                    disabled={busy || !period}
+                    onClick={() =>
+                      run(async () => {
+                        const response = await fetch(
+                          `/api/export?${new URLSearchParams({ period: kind, from, to })}`,
+                          { cache: "no-store" },
+                        );
+                        if (!response.ok) {
+                          const body = await response.json();
+                          throw new Error(body.error);
+                        }
+                        const url = URL.createObjectURL(await response.blob());
+                        const a = document.createElement("a");
+                        a.href = url;
+                        a.download = "rft-transactions.csv";
+                        a.click();
+                        URL.revokeObjectURL(url);
+                      })
+                    }
                   >
-                    <option value="all">{d.all}</option>
-                    <option value="today">{d.today}</option>
-                    <option value="week">{d.week}</option>
-                    <option value="month">{d.month}</option>
-                    <option value="custom">{d.custom}</option>
-                  </select>
-                </label>
-                {kind === "custom" ? filter : null}
-                <button
-                  className="button secondary"
-                  disabled={busy || !period}
-                  onClick={() =>
-                    run(async () => {
-                      const response = await fetch(
-                        `/api/export?${new URLSearchParams({ period: kind, from, to })}`,
-                        { cache: "no-store" },
-                      );
-                      if (!response.ok) {
-                        const body = await response.json();
-                        throw new Error(body.error);
-                      }
-                      const url = URL.createObjectURL(await response.blob());
-                      const a = document.createElement("a");
-                      a.href = url;
-                      a.download = "rft-transactions.csv";
-                      a.click();
-                      URL.revokeObjectURL(url);
-                    })
-                  }
-                >
-                  <Download size={18} />
-                  {d.export}
-                </button>
-                <Link href="/login" className="text-link">
-                  {d.reauth}
-                </Link>
+                    <Download size={18} />
+                    {d.export}
+                  </button>
+                  <Link href="/login" className="text-link">
+                    {d.reauth}
+                  </Link>
+                </details>
                 <hr />
                 <button
                   className="text-link danger-text"
@@ -1023,16 +1238,20 @@ export function FinanceApp({
                   <Trash2 size={18} />
                   {d.deleteAccount}
                 </button>
-                <p>{d.deleteAccountHelp}</p>
+                <p className="delete-summary">
+                  {ms
+                    ? "Padam rekod RFT anda secara kekal."
+                    : "Permanently remove your RFT records."}
+                </p>
               </section>
-              <section className="surface">
-                <h2>{d.install}</h2>
+              <details className="surface settings-install">
+                <summary>{d.install}</summary>
                 <p>{d.installHelp}</p>
                 <div className="button-row">
                   <Link href="/privacy">{d.privacy}</Link>
                   <Link href="/terms">{d.terms}</Link>
                 </div>
-              </section>
+              </details>
             </>
           ) : null}
           {view === "home" && !data.accounts.length ? (

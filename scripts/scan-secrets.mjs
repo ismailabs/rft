@@ -34,7 +34,7 @@ function hasLegacyPrivilege(source) {
 }
 for (const file of files) {
   if (
-    !/\.(?:ts|tsx|js|mjs|json|md|sql|yml|yaml|toml|ps1|py|example)$/.test(
+    !/\.(?:ts|tsx|js|mjs|json|md|sql|yml|yaml|toml|ps1|py|example|log|txt)$/.test(
       file,
     ) ||
     file.startsWith(".agents/")

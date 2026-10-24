@@ -6,22 +6,22 @@ Production is blocked. Do not buy anything, enable billing, deploy, merge around
 
 - Google-only Supabase configuration independently checked: Google true, Email false, anonymous false.
 - Genuine Google sign-in reached the authenticated local app. Synthetic accounts, income, expense, transfer and CSV download worked against the hosted database.
-- You report enrolling MFA and testing a fresh sign-in challenge. Supabase independently confirms one verified factor. Direct hosted bypass/removal checks remain separate.
+- You report enrolling MFA and testing a fresh sign-in challenge. The latest aggregate provider check confirms two verified TOTP factors across two Google identities, with one RFT profile. Direct hosted bypass/removal checks remain separate.
 - Supabase organization reports free/tier_free. No purchase or paid activation was performed.
 - Google audience is Testing. That is suitable for the current test workflow, not public-launch evidence.
 - You confirm Vercel shows Hobby (free). This is owner-reported dashboard evidence; the connected tools do not expose the billing field.
-- You confirm you have only one Google account. A second legitimate test identity is not yet available; no further sign-in retry with the same account will resolve the two-user gate.
+- Current provider metadata shows two Google identities, one RFT profile and two verified TOTP factors. You confirm recognizing both identities. Their separate browser-profile mapping and disposable designation remain unconfirmed. No identity has been impersonated or deleted.
+- You approved publishing Ismail Studio, https://ismailstudio.my and contact@ismailstudio.my. The English/BM privacy and terms pages now include those details; the homepage credits Ismail Studio. Retention and owner/legal review remain open.
 
-## 1. Complete the second Google test sign-in
+## 1. Identify the two test profiles privately
 
-You have confirmed that you only have one Google account. The last independent provider count agrees: **one** Auth user/profile. Do not keep repeating sign-in with that same account. The gate needs a second legitimate Google test identity. If you choose to create an additional free Google account, complete Google's account-creation, credentials and terms steps yourself; Codex must not fabricate a Google identity. Alternatively, use an explicitly authorized tester who controls their own Google account. Codex will not contact another person without your instruction. Once that separate test identity is available:
+The current provider count is **two Google identities**, but only **one RFT profile**. A second successful empty-app bootstrap is not established. Do not create another identity just to increase the count, and do not delete either existing identity.
 
-1. In [Google Cloud Console](https://console.cloud.google.com/), select RFT's OAuth project → **Google Auth Platform → Audience → Test users**. Ensure the second Google address is listed.
-2. Open a **separate browser profile** from the one used for the first RFT login. In Edge, use the profile menu → **Add profile**, or use another browser already installed.
-3. Open [local RFT login](http://127.0.0.1:3000/login), then **Continue with Google**.
-4. On Google's account chooser, choose **Use another account** and select the **different** Google identity. Do not use the first account again. Enter credentials only on Google.
-5. Expected result: the new user's RFT app starts empty, without the two “QA synthetic” accounts from the first profile. Tell Codex the browser/profile name and observed result, without the email address or credentials.
-6. Codex must independently confirm two users and run owned/cross-owner negative checks before claiming hosted isolation.
+1. You have confirmed recognizing both entries. Keep email addresses, IDs, keys and authentication details private.
+2. Open each account in a separate browser profile. Tell Codex the browser/profile names you choose for **A (preserve)** and **B (test)**. Only designate B as disposable if you control it and accept deleting its synthetic RFT records later.
+3. In Google Cloud Console → **Google Auth Platform → Audience → Test users**, ensure the chosen test account is listed.
+4. With the local RFT server running, open **http://127.0.0.1:3000/login** in B's browser profile, choose the correct Google identity and complete MFA privately if prompted. Expected result: an empty RFT app rather than A's QA accounts. Share only the screen/result and profile name.
+5. Codex can then run the prepared, locally rehearsed hosted checks for the explicitly designated identities. Counts, recognition or a second sign-in alone do not prove isolation or authorize deletion.
 
 The first profile contains two explicitly synthetic QA accounts and three entries. They were preserved; they are not live bank balances. No real account or record was deleted.
 
@@ -29,10 +29,10 @@ The first profile contains two explicitly synthetic QA accounts and three entrie
 
 This is destructive and remains unperformed. Designate only a **disposable RFT test identity**, never your main Google/RFT identity, and explicitly authorize deletion of that identity's **RFT profile and synthetic RFT records**. This does not delete the Google account itself.
 
-The deletion API currently fails closed because a server-only admin key is absent. When Codex is ready for the designated test:
+A server-only deletion key is now present in the private local configuration; its validity has not been exercised against an authorized disposable identity. Presence is not deletion proof. When Codex is ready for the designated test:
 
 1. Open Supabase → RFT → **Project Settings → API Keys**, using the secret-key section. Do not copy a secret into chat, GitHub or a browser application's public configuration.
-2. In your local private `.env.local` file, set `SUPABASE_SECRET_KEY` to the correct project's existing server secret. Never use a `NEXT_PUBLIC_` name. Do not change the publishable key or enable billing.
+2. If the existing key needs correction, in your local private `.env.local` file set `SUPABASE_SECRET_KEY` to the correct project's existing server secret. Never use a `NEXT_PUBLIC_` name. Do not change the publishable key or enable billing.
 3. Tell Codex only that the private file is saved. Codex will restart and validate the server without printing the key.
 4. In the disposable user's separate profile, sign in again with Google, complete MFA if enrolled, then **Settings → Delete my RFT account**. The final permanent deletion needs explicit authorization at that time.
 5. Codex must verify user/record removal, revoked-session denial, remaining-user isolation and documented retention exceptions. No `pass` until those checks succeed.
@@ -49,7 +49,7 @@ Keep this credential local while release is blocked. Preview/test deployment sco
 ## 4. Settle privacy and recovery facts on the prepared implementation
 
 1. Review the actual local [privacy page](http://127.0.0.1:3000/privacy) and [terms page](http://127.0.0.1:3000/terms), including BM. Both are explicitly prelaunch drafts.
-2. Supply the operator identity and a public contact address you are willing to publish. Do not send a private phone number or personal financial information.
+2. Your approved public details are now included: **Ismail Studio**, **ismailstudio.my**, **contact@ismailstudio.my**. Confirm the notices accurately describe your actual handling when reviewing retention and recovery below.
 3. Review `docs/operations.md`: choose an existing, access-controlled encrypted backup location, identify who performs backups/restores, and settle retention and recovery limits. No paid service is assumed. If a safe feasible RM0 process cannot be verified, launch stays blocked.
 4. Complete any applicable Malaysian privacy/legal review. Codex can implement accurate wording from verified facts but cannot invent legal approval or operational guarantees.
 

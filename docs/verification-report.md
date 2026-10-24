@@ -1,3 +1,5 @@
+> The results below describe the earlier source checkpoint. Current visual recovery, 76-test local results, hosted additive goal migration, failure diagnoses and new screenshots are tracked in docs/visual-recovery-verification.md, docs/progress.md and docs/savings-goals-migration.md. Earlier 48-test CI does not verify the current recovery changes. No production release has occurred.
+
 # RFT verification report — 2026-10-24
 
 Status: **IMPLEMENTED CANDIDATE, PRODUCTION BLOCKED**. Draft PR: https://github.com/ismailabs/rft/pull/1, unmerged. Tested source: `dd5f90e6fc43d030064dad4c6371112c4c744596`. No implemented production deployment or verified public application URL.

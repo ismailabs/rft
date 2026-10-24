@@ -9,12 +9,22 @@ export async function GET(request: Request) {
     const { data, client } = await loadSnapshot();
     await requireRecentOAuth(client);
     const params = new URL(request.url).searchParams;
-    const period = periodFor(
-      params.get("period") || "all",
-      new Date(),
-      params.get("from") || undefined,
-      params.get("to") || undefined,
-    );
+    let period;
+    try {
+      period = periodFor(
+        params.get("period") || "all",
+        new Date(),
+        params.get("from") || undefined,
+        params.get("to") || undefined,
+      );
+    } catch (error) {
+      if (
+        error instanceof Error &&
+        ["INVALID_DATE", "INVALID_RANGE"].includes(error.message)
+      )
+        throw new Error("VALIDATION_FAILED");
+      throw error;
+    }
     return new Response(exportCsv(data, period), {
       headers: {
         "Content-Type": "text/csv; charset=utf-8",

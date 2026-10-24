@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ShieldCheck, ArrowRight } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import { Brand } from "@/components/brand";
+import { GoogleAction } from "@/components/google-action";
 import { LocaleSwitch } from "@/components/locale-switch";
 import { dictionary } from "@/i18n/dictionaries";
 import { currentLocale } from "@/i18n/server";
@@ -37,12 +38,7 @@ export default async function Login({
             </p>
           ) : null}
           {configured ? (
-            <form method="post" action="/auth/sign-in">
-              <button className="button wide" type="submit">
-                {d.getStarted}
-                <ArrowRight size={18} />
-              </button>
-            </form>
+            <GoogleAction label={d.getStarted} className="login-google" />
           ) : (
             <Link href="/preview" className="button">
               {d.seePreview}

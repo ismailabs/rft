@@ -1,3 +1,4 @@
+import { capture } from "./capture";
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 for (const width of [320, 375, 430, 768, 1440]) {
@@ -5,7 +6,9 @@ for (const width of [320, 375, 430, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/");
     await expect(
-      page.getByRole("heading", { name: "Your money, made clearer." }),
+      page.getByRole("heading", {
+        name: /Track your money\.\s*A brighter tomorrow\./,
+      }),
     ).toBeVisible();
     await expect(
       page.getByText("Illustrative sample — not your financial data"),
@@ -17,7 +20,7 @@ for (const width of [320, 375, 430, 768, 1440]) {
     ).toBe(true);
     const results = await new AxeBuilder({ page }).analyze();
     expect(results.violations).toEqual([]);
-    await page.screenshot({
+    await capture(page, {
       path: `artifacts/screenshots/public-${width}.png`,
       fullPage: true,
     });
@@ -27,7 +30,9 @@ test("BM language, FAQ and public routes work", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "BM", exact: true }).click();
   await expect(
-    page.getByRole("heading", { name: "Wang anda, lebih jelas." }),
+    page.getByRole("heading", {
+      name: /Jejaki wang anda\.\s*Esok yang lebih cerah\./,
+    }),
   ).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("lang", "ms");
   await page

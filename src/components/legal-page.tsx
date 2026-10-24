@@ -23,11 +23,11 @@ export async function LegalPage({ kind }: { kind: "privacy" | "terms" }) {
           ],
           [
             "Eksport, pemadaman dan simpanan",
-            "Anda boleh mengeksport catatan. Pemadaman akaun memerlukan pengesahan terkini dan memadam rekod aplikasi serta identiti RFT. Log penyedia dan sandaran terlindung boleh mempunyai tempoh simpanan berasingan. Jadual sandaran, tempoh simpanan dan saluran hubungan pemilik mesti dimuktamadkan sebelum pelancaran.",
+            "Anda boleh mengeksport catatan. Pemadaman akaun memerlukan pengesahan terkini dan memadam rekod aplikasi serta identiti RFT. Log penyedia dan sandaran terlindung boleh mempunyai tempoh simpanan berasingan. Jadual sandaran dan tempoh simpanan mesti dimuktamadkan sebelum pelancaran.",
           ],
           [
             "Status notis",
-            "Draf prapelancaran, 24 Oktober 2026. Semakan pemilik terhadap pengendalian sebenar, hubungan, simpanan dan kewajipan Malaysia belum selesai. Draf ini tidak mengesahkan pematuhan undang-undang.",
+            "Draf prapelancaran, 24 Oktober 2026. Semakan pemilik terhadap pengendalian sebenar, simpanan dan kewajipan Malaysia belum selesai. Draf ini tidak mengesahkan pematuhan undang-undang.",
           ],
         ]
       : [
@@ -45,11 +45,11 @@ export async function LegalPage({ kind }: { kind: "privacy" | "terms" }) {
           ],
           [
             "Export, deletion and retention",
-            "You can export records. Account deletion requires recent identity verification and removes application records and your RFT identity. Provider logs and protected backups may have separate retention. The backup schedule, retention periods and owner contact channel must be finalized before launch.",
+            "You can export records. Account deletion requires recent identity verification and removes application records and your RFT identity. Provider logs and protected backups may have separate retention. The backup schedule and retention periods must be finalized before launch.",
           ],
           [
             "Notice status",
-            "Prelaunch draft, 24 October 2026. Owner review of actual handling, contact details, retention and applicable Malaysian obligations remains outstanding. This draft does not certify legal compliance.",
+            "Prelaunch draft, 24 October 2026. Owner review of actual handling, retention and applicable Malaysian obligations remains outstanding. This draft does not certify legal compliance.",
           ],
         ]
     : bm
@@ -68,7 +68,7 @@ export async function LegalPage({ kind }: { kind: "privacy" | "terms" }) {
           ],
           [
             "Status terma",
-            "Draf prapelancaran, 24 Oktober 2026. Butiran pengendali, saluran bantuan dan semakan pemilik/undang-undang belum dimuktamadkan. Tiada pelancaran awam berdasarkan draf ini.",
+            "Draf prapelancaran, 24 Oktober 2026. Semakan pemilik/undang-undang belum dimuktamadkan. Tiada pelancaran awam berdasarkan draf ini.",
           ],
         ]
       : [
@@ -86,7 +86,7 @@ export async function LegalPage({ kind }: { kind: "privacy" | "terms" }) {
           ],
           [
             "Terms status",
-            "Prelaunch draft, 24 October 2026. Operator details, support contact and owner/legal review are not finalized. This draft does not authorize a public release.",
+            "Prelaunch draft, 24 October 2026. Owner/legal review is not finalized. This draft does not authorize a public release.",
           ],
         ];
   return (
@@ -108,6 +108,22 @@ export async function LegalPage({ kind }: { kind: "privacy" | "terms" }) {
               ? "Terma penggunaan"
               : "Terms of use"}
         </h1>
+        <section>
+          <h2>{bm ? "Pengendali dan hubungan" : "Operator and contact"}</h2>
+          <p>
+            {bm ? "RFT dihasilkan oleh " : "RFT is made by "}
+            <a href="https://ismailstudio.my">Ismail Studio</a>.
+            {bm
+              ? " Untuk pertanyaan privasi atau bantuan, e-mel "
+              : " For privacy or support questions, email "}
+            <a href="mailto:contact@ismailstudio.my">contact@ismailstudio.my</a>
+            .
+          </p>
+          <p>
+            {bm ? "Laman web: " : "Website: "}
+            <a href="https://ismailstudio.my">ismailstudio.my</a>
+          </p>
+        </section>
         {sections.map(([heading, text]) => (
           <section key={heading}>
             <h2>{heading}</h2>

@@ -7,7 +7,10 @@ export async function loadSnapshot() {
   const identity = await verifiedIdentity();
   const { data, error } = await identity.client.rpc("finance_snapshot");
   if (error || !data) throw new Error("LOAD_FAILED");
-  return { ...identity, data: data as Snapshot };
+  return {
+    ...identity,
+    data: { ...data, goals: data.goals || [] } as Snapshot,
+  };
 }
 
 export async function mutateFinance(input: unknown) {
@@ -17,6 +20,22 @@ export async function mutateFinance(input: unknown) {
   const { client, user } = await verifiedIdentity();
   let result;
   switch (m.kind) {
+    case "goal": {
+      const { kind: _, edit, ...values } = m;
+      void _;
+      result = edit
+        ? await client
+            .from("goals")
+            .update(values)
+            .eq("id", m.id)
+            .eq("user_id", user.id)
+            .select("id")
+        : await client
+            .from("goals")
+            .insert({ ...values, user_id: user.id })
+            .select("id");
+      break;
+    }
     case "locale":
       result = await client
         .from("profiles")

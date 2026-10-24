@@ -19,12 +19,31 @@ const opening = z.string().transform((v, ctx) => {
   }
 });
 const instant = z.iso.datetime({ offset: true });
+const nonnegativeAmount = z.string().transform((v, ctx) => {
+  try {
+    return decimal(parseMoney(v));
+  } catch {
+    ctx.addIssue({ code: "custom", message: "INVALID_AMOUNT" });
+    return z.NEVER;
+  }
+});
 const common = {
   id,
   occurred_at: instant,
   note: z.string().max(300).default(""),
 };
 export const mutation = z.discriminatedUnion("kind", [
+  z
+    .object({
+      kind: z.literal("goal"),
+      id,
+      name,
+      target_amount: amount,
+      saved_amount: nonnegativeAmount,
+      target_date: z.iso.date().nullable(),
+      edit: z.boolean().default(false),
+    })
+    .strict(),
   z
     .object({
       kind: z.literal("account"),
@@ -115,6 +134,7 @@ export const mutation = z.discriminatedUnion("kind", [
         "transactions",
         "transfers",
         "budgets",
+        "goals",
         "accounts",
         "categories",
         "subcategories",

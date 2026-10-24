@@ -1,3 +1,4 @@
+import { capture } from "./capture";
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 const harness = "http://127.0.0.1:5174";
@@ -21,7 +22,7 @@ for (const view of [
       ).toBe(true);
       const results = await new AxeBuilder({ page }).analyze();
       expect(results.violations).toEqual([]);
-      await page.screenshot({
+      await capture(page, {
         path: `artifacts/screenshots/ui-${view}-${width}.png`,
         fullPage: true,
       });
@@ -58,7 +59,7 @@ test("entry sheet manages keyboard focus and preserves failed input", async ({
   await expect(dialog.getByLabel("Amount (RM)", { exact: true })).toHaveValue(
     "24.90",
   );
-  await page.screenshot({
+  await capture(page, {
     path: "artifacts/screenshots/ui-transaction-error-375.png",
     fullPage: true,
   });
@@ -80,7 +81,7 @@ test("large balances and long financial rows stay readable at 320px", async ({
         () => document.documentElement.scrollWidth <= innerWidth,
       ),
     ).toBe(true);
-    await page.screenshot({
+    await capture(page, {
       path: `artifacts/screenshots/ui-stress-${view}-320.png`,
       fullPage: true,
     });
@@ -111,7 +112,7 @@ test("transfer rejects the same account before making a request", async ({
   );
   expect(writes).toBe(0);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
-  await page.screenshot({
+  await capture(page, {
     path: "artifacts/screenshots/ui-transfer-validation-430.png",
     fullPage: true,
   });
@@ -155,7 +156,7 @@ test("insight source entries reconcile and return focus", async ({ page }) => {
     ),
   ).toBe(true);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
-  await page.screenshot({
+  await capture(page, {
     path: "artifacts/screenshots/ui-insight-source-320.png",
     fullPage: false,
   });

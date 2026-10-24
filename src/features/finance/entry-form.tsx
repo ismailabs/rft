@@ -1,5 +1,9 @@
 "use client";
 import { useId, useRef, useState } from "react";
+import { ArrowDown, ArrowUp, ArrowLeftRight } from "lucide-react";
+import { balances } from "@/domain/finance/calculations";
+import { CategoryMark } from "./visual-components";
+import { parseMoney, money } from "@/domain/finance/money";
 import type {
   Snapshot,
   Transaction,
@@ -7,6 +11,7 @@ import type {
   Category,
   Subcategory,
   Budget,
+  SavingsGoal,
 } from "@/domain/finance/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { localInstant } from "@/domain/finance/periods";
@@ -19,8 +24,11 @@ export type FormKind =
   | "subcategory"
   | "category_meta"
   | "subcategory_meta"
-  | "budget";
-export type Editable = Transaction | Account | Category | Subcategory | Budget;
+  | "budget"
+  | "goal";
+// Goals are manually recorded estimates, independent of posted account movements.
+export type Editable =
+  Transaction | Account | Category | Subcategory | Budget | SavingsGoal;
 const localNow = () =>
   new Date(Date.now() + 8 * 3600000).toISOString().slice(0, 16);
 const localTime = (v: string) =>
@@ -63,7 +71,12 @@ export function EntryForm({
   const [pending, setPending] = useState(false),
     [error, setError] = useState("");
   const requestId = useRef("");
+  const [transferAmount, setTransferAmount] = useState("");
+  const [sourceId, setSourceId] = useState("");
+  const [destinationId, setDestinationId] = useState("");
+  const [transferAt, setTransferAt] = useState(localNow);
   const uid = useId();
+  const goal = initial && "target_amount" in initial ? initial : undefined;
   const accounts = data.accounts.filter(
     (a) => !a.archived || a.id === record?.account_id,
   );
@@ -73,7 +86,10 @@ export function EntryForm({
       c.type === (kind === "budget" ? "expense" : type),
   );
   const field = (name: string, label: string, node: React.ReactNode) => (
-    <label className="field" htmlFor={`${uid}-${name}`}>
+    <label
+      className={`field field-${({ occurred_at: "date", note: "description", category_id: "category", subcategory_id: "subcategory", account_id: "account", planned: "reflection" } as Record<string, string>)[name] || name}`}
+      htmlFor={`${uid}-${name}`}
+    >
       <span>{label}</span>
       {node}
     </label>
@@ -122,7 +138,13 @@ export function EntryForm({
     required: true,
     inputMode: "decimal",
     autoComplete: "off",
-    defaultValue: record?.amount || "",
+    ...(kind === "transfer"
+      ? {
+          value: transferAmount,
+          onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+            setTransferAmount(e.target.value),
+        }
+      : { defaultValue: record?.amount || "" }),
     placeholder: "0.00",
     className: "amount-input",
     maxLength: 19,
@@ -138,6 +160,16 @@ export function EntryForm({
     let payload: unknown;
     try {
       switch (kind) {
+        case "goal":
+          payload = {
+            ...base,
+            name: values.name,
+            target_amount: values.target_amount,
+            saved_amount: values.saved_amount,
+            target_date: values.target_date || null,
+            edit: !!goal,
+          };
+          break;
         case "account":
           payload = {
             ...base,
@@ -225,10 +257,84 @@ export function EntryForm({
   }
   return (
     <form onSubmit={submit} className="entry-form">
+      {kind === "goal" ? (
+        <>
+          {input("name", d.goalName, {
+            required: true,
+            maxLength: 60,
+            defaultValue: goal?.name || "",
+          })}
+          {input("target_amount", d.targetAmount, {
+            required: true,
+            inputMode: "decimal",
+            autoComplete: "off",
+            maxLength: 19,
+            placeholder: "0.00",
+            defaultValue: goal?.target_amount || "",
+          })}
+          {input("saved_amount", d.savedAmount, {
+            required: true,
+            inputMode: "decimal",
+            autoComplete: "off",
+            maxLength: 19,
+            defaultValue: goal?.saved_amount || "0.00",
+          })}
+          {input("target_date", d.targetDate, {
+            type: "date",
+            defaultValue: goal?.target_date || "",
+          })}
+          <p className="hint">{d.savingsHelp}</p>
+        </>
+      ) : null}
       {kind === "transaction" ? (
         <>
-          {typeField}
+          <div
+            className="transaction-type-buttons"
+            role="group"
+            aria-label={d.type}
+          >
+            <button
+              type="button"
+              aria-pressed={type === "expense"}
+              onClick={() => {
+                setType("expense");
+                setCategoryId("");
+              }}
+            >
+              <ArrowUp aria-hidden="true" />
+              {d.expense}
+            </button>
+            <button
+              type="button"
+              className="income"
+              aria-pressed={type === "income"}
+              onClick={() => {
+                setType("income");
+                setCategoryId("");
+              }}
+            >
+              <ArrowDown aria-hidden="true" />
+              {d.income}
+            </button>
+          </div>
           {amountField}
+          <div
+            className="mobile-category-choices"
+            role="group"
+            aria-label={d.category}
+          >
+            {categories.map((c) => (
+              <button
+                type="button"
+                key={c.id}
+                aria-pressed={categoryId === c.id}
+                onClick={() => setCategoryId(c.id)}
+              >
+                <CategoryMark name={c.name} type={type} />
+                <span>{c.name}</span>
+              </button>
+            ))}
+          </div>
           {select("account_id", d.account, accounts, {
             required: true,
             defaultValue: record?.account_id || "",
@@ -238,14 +344,22 @@ export function EntryForm({
             value: categoryId,
             onChange: (e) => setCategoryId(e.target.value),
           })}
-          {select(
-            "subcategory_id",
-            d.subcategory,
-            data.subcategories.filter(
-              (c) => c.category_id === categoryId && !c.archived,
-            ),
-            { defaultValue: record?.subcategory_id || "" },
-          )}
+          {data.subcategories.some(
+            (c) =>
+              c.category_id === categoryId &&
+              (!c.archived || c.id === record?.subcategory_id),
+          )
+            ? select(
+                "subcategory_id",
+                d.subcategory,
+                data.subcategories.filter(
+                  (c) =>
+                    c.category_id === categoryId &&
+                    (!c.archived || c.id === record?.subcategory_id),
+                ),
+                { defaultValue: record?.subcategory_id || "" },
+              )
+            : null}
           {input("occurred_at", d.date, {
             type: "datetime-local",
             required: true,
@@ -279,17 +393,32 @@ export function EntryForm({
       {kind === "transfer" ? (
         <>
           <p className="hint">{d.transferHelp}</p>
-          {select("source_id", d.source, accounts, { required: true })}
+          {select("source_id", d.source, accounts, {
+            required: true,
+            value: sourceId,
+            onChange: (e) => setSourceId(e.target.value),
+          })}
           {select("destination_id", d.destination, accounts, {
             required: true,
+            value: destinationId,
+            onChange: (e) => setDestinationId(e.target.value),
           })}
           {amountField}
           {input("occurred_at", d.date, {
             type: "datetime-local",
             required: true,
-            defaultValue: localNow(),
+            value: transferAt,
+            onChange: (e) => setTransferAt(e.target.value),
           })}
           {input("note", d.note, { maxLength: 300 })}
+          <TransferPreview
+            data={data}
+            sourceId={sourceId}
+            destinationId={destinationId}
+            amount={transferAmount}
+            occurredAt={transferAt}
+            d={d}
+          />
         </>
       ) : null}
       {kind === "account" || kind === "account_meta" ? (
@@ -397,5 +526,51 @@ export function EntryForm({
         </button>
       </div>
     </form>
+  );
+}
+
+function TransferPreview({
+  data,
+  sourceId,
+  destinationId,
+  amount,
+  occurredAt,
+  d,
+}: {
+  data: Snapshot;
+  sourceId: string;
+  destinationId: string;
+  amount: string;
+  occurredAt: string;
+  d: Dictionary;
+}) {
+  let value: bigint;
+  try {
+    value = parseMoney(amount);
+  } catch {
+    return null;
+  }
+  if (!sourceId || !destinationId || sourceId === destinationId || value <= 0n)
+    return null;
+  let end: string;
+  try {
+    end = new Date(Date.parse(localInstant(occurredAt)) + 1).toISOString();
+  } catch {
+    return null;
+  }
+  const current = balances(data, end);
+  return (
+    <div className="transfer-preview">
+      <ArrowLeftRight size={21} aria-hidden="true" />
+      <p>
+        {data.accounts.find((a) => a.id === sourceId)?.name}:{" "}
+        <strong>{money((current.get(sourceId) || 0n) - value)}</strong>
+      </p>
+      <p>
+        {data.accounts.find((a) => a.id === destinationId)?.name}:{" "}
+        <strong>{money((current.get(destinationId) || 0n) + value)}</strong>
+      </p>
+      <p>{d.transferHelp}</p>
+    </div>
   );
 }

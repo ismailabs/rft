@@ -2,65 +2,68 @@
   "schema_version": 1,
   "project": "RFT",
   "environment": "production",
-  "source_commit": "dd5f90e6fc43d030064dad4c6371112c4c744596",
-  "reviewed_at": "2026-10-24T04:01:51Z",
+  "source_commit": "0a51dc048d65208108ae2c9a8256de043b5a9a02",
+  "reviewed_at": "2026-10-24T12:53:31.488Z",
   "cost_verified_zero": false,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
   "public_url": null,
-  "scope": "Production readiness record; evidence is local/synthetic unless explicitly stated. No production app released.",
+  "scope": "Visual recovery candidate before source publication. source_commit remains the historical baseline until an independently verified publication receipt is recorded. Local resource failures are retained; fresh full CI is pending. No implementation deployment.",
   "gates": {
     "G01": {
-      "status": "pass",
-      "note": "Reviewed preserved sources; pushed feature source dd5f90e; main remains baseline. Final docs-only checkpoint follows.",
+      "status": "blocked",
+      "note": "Source audit passes with 20 preserved PNGs, five approved hashed additions, one owner-authorized removal and exact original AGENTS prefix. New diff/publication receipt pending.",
       "evidence": [
-        "docs/verification-report.md",
-        "artifacts/verification/ci-final-receipt.md"
+        "docs/visual-recovery-verification.md",
+        "docs/savings-goals-migration.md",
+        "docs/design-reference-register.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T04:01:51Z"
+      "verified_at": "2026-10-24T09:50:16.696Z"
     },
     "G02": {
-      "status": "pass",
-      "note": "Clean GitHub CI 40060470069 succeeded: fresh npm ci, verify, audit and 31 Chromium checks.",
+      "status": "blocked",
+      "note": "Earlier 76-test verify passed. Current frozen run: 64 passed, 15 skipped after database bootstrap timed out; run failed. Current build succeeds; fresh complete CI remains required.",
       "evidence": [
-        "docs/verification-report.md",
-        "artifacts/verification/ci-final-receipt.md"
+        "docs/visual-recovery-verification.md",
+        "docs/savings-goals-migration.md",
+        "docs/design-reference-register.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T04:01:51Z"
+      "verified_at": "2026-10-24T12:53:31.488Z"
     },
     "G03": {
       "status": "pass",
-      "note": "48 unit/integration tests on Windows/Linux, including 2,000 financial property iterations and real SSR cookie transport cases.",
+      "note": "Current reporting module 7/7 and all 64 non-database tests in the frozen run pass. Exact money, KL boundaries, large values and reconciliation covered. Full current CI pending.",
       "evidence": [
-        "docs/verification-report.md",
-        "artifacts/verification/ci-final-receipt.md",
-        "artifacts/verification/verify-final.log"
+        "docs/visual-recovery-verification.md",
+        "docs/savings-goals-migration.md",
+        "docs/design-reference-register.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T04:01:51Z"
+      "verified_at": "2026-10-24T12:53:31.488Z"
     },
     "G04": {
-      "status": "pass",
-      "note": "Local atomic/FK/scale/history/rollback and real synthetic transfer reconciliation.",
+      "status": "blocked",
+      "note": "Earlier unchanged local database/probe rehearsal passed 17/17. Latest frozen database bootstrap exceeded 30s and skipped 15 cases, so current full verification is pending CI. Hosted destructive recovery is not authorized.",
       "evidence": [
-        "docs/verification-report.md",
-        "artifacts/verification/ci-final-receipt.md",
-        "artifacts/verification/verify-final.log"
+        "docs/visual-recovery-verification.md",
+        "docs/savings-goals-migration.md",
+        "docs/design-reference-register.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T04:01:51Z"
+      "verified_at": "2026-10-24T12:53:31.488Z"
     },
     "G05": {
       "status": "blocked",
-      "note": "Isolated two-user denial matrix passes; owner confirms only one Google account, so a second legitimate hosted test identity/direct REST matrix remains unavailable.",
+      "note": "Earlier local eight-table owner/MFA matrix passes. Owner recognizes both Google identities; separate browser-profile mapping and disposable designation remain unconfirmed. Hosted identity probes have not run.",
       "evidence": [
-        "docs/verification-report.md",
-        "artifacts/verification/ci-final-receipt.md"
+        "docs/visual-recovery-verification.md",
+        "docs/savings-goals-migration.md",
+        "docs/design-reference-register.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T04:01:51Z"
+      "verified_at": "2026-10-24T12:53:31.488Z"
     },
     "G06": {
       "status": "blocked",
@@ -96,24 +99,25 @@
     },
     "G09": {
       "status": "blocked",
-      "note": "Live synthetic CSV inspected; privileged deletion key absent and disposable hosted deletion unverified.",
+      "note": "CSV and actual-handler boundary tests pass locally; server-only deletion key is present but no authorized disposable hosted deletion/revocation has been verified.",
       "evidence": [
-        "docs/verification-report.md",
-        "artifacts/verification/ci-final-receipt.md",
-        "artifacts/verification/live-workflow.md"
+        "docs/visual-recovery-verification.md",
+        "docs/savings-goals-migration.md",
+        "docs/design-reference-register.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T04:01:51Z"
+      "verified_at": "2026-10-24T09:50:16.696Z"
     },
     "G10": {
       "status": "blocked",
-      "note": "All source PNGs reviewed; responsive/axe/keyboard/modal checks pass; full manual authenticated/device acceptance incomplete.",
+      "note": "Five desktop/homepage and all M1–M8 references mapped with approved exceptions. Actual populated/empty/pending/error captures and comparison evidence exist. Final browser/CI receipt and essential manual/device acceptance remain open.",
       "evidence": [
-        "docs/verification-report.md",
-        "artifacts/verification/ci-final-receipt.md"
+        "docs/visual-recovery-verification.md",
+        "docs/savings-goals-migration.md",
+        "docs/design-reference-register.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T04:01:51Z"
+      "verified_at": "2026-10-24T09:50:16.696Z"
     },
     "G11": {
       "status": "blocked",
@@ -137,13 +141,13 @@
     },
     "G13": {
       "status": "blocked",
-      "note": "Actual operator contact, retention and applicable owner/legal review unresolved.",
+      "note": "Owner-approved public operator/contact implemented in English/BM: Ismail Studio, ismailstudio.my, contact@ismailstudio.my. Retention and applicable owner/legal review remain unresolved.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-final-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T04:01:51Z"
+      "verified_at": "2026-10-24T12:53:31.488Z"
     },
     "G14": {
       "status": "blocked",

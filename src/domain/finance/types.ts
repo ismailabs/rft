@@ -45,6 +45,13 @@ export type Budget = {
   month: string;
   amount: string;
 };
+export type SavingsGoal = {
+  id: string;
+  name: string;
+  target_amount: string;
+  saved_amount: string;
+  target_date: string | null;
+};
 export type Snapshot = {
   accounts: Account[];
   categories: Category[];
@@ -52,6 +59,7 @@ export type Snapshot = {
   transactions: Transaction[];
   transfers: Transfer[];
   budgets: Budget[];
+  goals: SavingsGoal[];
   locale: Locale;
 };
 export const emptySnapshot = (): Snapshot => ({
@@ -61,5 +69,6 @@ export const emptySnapshot = (): Snapshot => ({
   transactions: [],
   transfers: [],
   budgets: [],
+  goals: [],
   locale: "en",
 });

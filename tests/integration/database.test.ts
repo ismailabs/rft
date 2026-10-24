@@ -212,6 +212,83 @@ describe("PostgreSQL RLS and integrity in isolated PGlite", () => {
       (await db.query("select * from public.transactions")).rows,
     ).toHaveLength(0);
   });
+  it("stores exact goal estimates without changing recorded account movements", async () => {
+    await asUser();
+    const before = (
+      await db.query<{
+        finance_snapshot: {
+          accounts: unknown;
+          transactions: unknown;
+          transfers: unknown;
+        };
+      }>("select public.finance_snapshot()")
+    ).rows[0].finance_snapshot;
+    await db.query(
+      "insert into public.goals(id,user_id,name,target_amount,saved_amount,target_date) values('00000000-0000-4000-8000-000000000061',$1,'Synthetic goal',$2,$3,'2027-01-01')",
+      [A, "9999999999999999.99", "0.10"],
+    );
+    const after = (
+      await db.query<{
+        finance_snapshot: {
+          accounts: unknown;
+          transactions: unknown;
+          transfers: unknown;
+          goals: { target_amount: string; saved_amount: string }[];
+        };
+      }>("select public.finance_snapshot()")
+    ).rows[0].finance_snapshot;
+    expect(after.goals[0].target_amount).toBe("9999999999999999.99");
+    expect(after.goals[0].saved_amount).toBe("0.10");
+    for (const key of ["accounts", "transactions", "transfers"] as const)
+      expect(after[key]).toEqual(before[key]);
+    await db.query(
+      "update public.goals set saved_amount=$1 where id='00000000-0000-4000-8000-000000000061'",
+      ["0.11"],
+    );
+    expect(
+      (
+        await db.query<{ saved_amount: string }>(
+          "select saved_amount::text from public.goals",
+        )
+      ).rows[0].saved_amount,
+    ).toBe("0.11");
+    await expect(
+      db.query(
+        "update public.goals set user_id=$1 where id='00000000-0000-4000-8000-000000000061'",
+        [B],
+      ),
+    ).rejects.toThrow();
+    await expect(
+      db.query(
+        "insert into public.goals(user_id,name,target_amount) values($1,'forged',100)",
+        [B],
+      ),
+    ).rejects.toThrow();
+  });
+  it("rejects invalid goal money instead of rounding it", async () => {
+    await asUser();
+    for (const value of [
+      "0",
+      "-1",
+      "1.001",
+      "NaN",
+      "Infinity",
+      "10000000000000000",
+    ])
+      await expect(
+        db.query(
+          "insert into public.goals(user_id,name,target_amount) values($1,'invalid',$2)",
+          [A, value],
+        ),
+      ).rejects.toThrow();
+    for (const value of ["-1", "0.001", "NaN", "Infinity", "10000000000000000"])
+      await expect(
+        db.query(
+          "insert into public.goals(user_id,name,target_amount,saved_amount) values($1,'invalid',100,$2)",
+          [A, value],
+        ),
+      ).rejects.toThrow();
+  });
   it("isolates every user-owned table on read, update and delete", async () => {
     await asUser();
     await db.exec(`insert into public.profiles(user_id) values('${A}');
@@ -227,6 +304,7 @@ describe("PostgreSQL RLS and integrity in isolated PGlite", () => {
       "transactions",
       "transfers",
       "budgets",
+      "goals",
     ]) {
       expect(
         (
@@ -304,10 +382,18 @@ describe("PostgreSQL RLS and integrity in isolated PGlite", () => {
         [A],
       ),
     ).rejects.toThrow();
+    expect((await db.query("select * from public.goals")).rows).toHaveLength(0);
+    await expect(
+      db.query(
+        "insert into public.goals(user_id,name,target_amount) values($1,'MFA bypass',100)",
+        [A],
+      ),
+    ).rejects.toThrow();
     await asUser(A, "aal2");
     expect((await db.query("select * from public.accounts")).rows).toHaveLength(
       2,
     );
+    expect((await db.query("select * from public.goals")).rows).toHaveLength(1);
   });
   it("revoked or mismatched sessions fail closed even with AAL2", async () => {
     await asUser(A, "aal2", sessionB);
@@ -403,6 +489,7 @@ describe("PostgreSQL RLS and integrity in isolated PGlite", () => {
       "transactions",
       "transfers",
       "budgets",
+      "goals",
     ])
       expect(
         (await db.query(`select * from public.${table} where user_id=$1`, [A]))

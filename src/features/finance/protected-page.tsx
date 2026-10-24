@@ -8,9 +8,11 @@ import { Brand } from "@/components/brand";
 export async function ProtectedPage({
   view,
   accountId,
+  initialSearch,
 }: {
   view: React.ComponentProps<typeof FinanceApp>["view"];
   accountId?: string;
+  initialSearch?: string;
 }) {
   const locale = await currentLocale();
   let loaded;
@@ -47,7 +49,15 @@ export async function ProtectedPage({
       locale={locale}
       view={view}
       accountId={accountId}
+      initialSearch={initialSearch}
       initialAsOf={new Date().toISOString()}
+      displayName={
+        typeof loaded.user.user_metadata?.given_name === "string"
+          ? loaded.user.user_metadata.given_name.slice(0, 60)
+          : typeof loaded.user.user_metadata?.full_name === "string"
+            ? loaded.user.user_metadata.full_name.split(" ")[0].slice(0, 60)
+            : ""
+      }
     />
   );
 }
