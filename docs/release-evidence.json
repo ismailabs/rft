@@ -2,8 +2,8 @@
   "schema_version": 1,
   "project": "RFT",
   "environment": "production",
-  "source_commit": "8caa5bcb7b37ec40201b7dbdabad24601b577512",
-  "reviewed_at": "2026-10-24 03:45:33 UTC",
+  "source_commit": "dd5f90e6fc43d030064dad4c6371112c4c744596",
+  "reviewed_at": "2026-10-24T04:01:51Z",
   "cost_verified_zero": false,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
@@ -12,168 +12,168 @@
   "gates": {
     "G01": {
       "status": "pass",
-      "note": "Reviewed preserved files; feature branch 8caa5bc local/tracking/advertised remote agree; main unchanged.",
+      "note": "Reviewed preserved sources; pushed feature source dd5f90e; main remains baseline. Final docs-only checkpoint follows.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md"
+        "artifacts/verification/ci-final-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G02": {
       "status": "pass",
-      "note": "Clean GitHub npm ci and full verify/audit/31 Chromium checks succeeded.",
+      "note": "Clean GitHub CI 40060470069 succeeded: fresh npm ci, verify, audit and 31 Chromium checks.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md"
+        "artifacts/verification/ci-final-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G03": {
       "status": "pass",
-      "note": "Exact money and 2,000 property iterations; 46 unit/PostgreSQL tests on Windows and Linux.",
+      "note": "48 unit/integration tests on Windows/Linux, including 2,000 financial property iterations and real SSR cookie transport cases.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md",
-        "artifacts/verification/unit-db-final.log"
+        "artifacts/verification/ci-final-receipt.md",
+        "artifacts/verification/verify-final.log"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G04": {
       "status": "pass",
       "note": "Local atomic/FK/scale/history/rollback and real synthetic transfer reconciliation.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md",
-        "artifacts/verification/unit-db-final.log"
+        "artifacts/verification/ci-final-receipt.md",
+        "artifacts/verification/verify-final.log"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G05": {
       "status": "blocked",
       "note": "Isolated two-user denial matrix passes; owner confirms only one Google account, so a second legitimate hosted test identity/direct REST matrix remains unavailable.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md"
+        "artifacts/verification/ci-final-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G06": {
       "status": "blocked",
       "note": "Real Google test login works; audience Testing and public intended production lifecycle unverified.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md"
+        "artifacts/verification/ci-final-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G07": {
       "status": "blocked",
       "note": "Real factor verified and owner-reported fresh challenge; hosted direct bypass/removal unverified.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md",
+        "artifacts/verification/ci-final-receipt.md",
         "artifacts/verification/live-workflow.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G08": {
       "status": "blocked",
       "note": "Core live synthetic journey works; full hosted mandatory acceptance incomplete.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md",
+        "artifacts/verification/ci-final-receipt.md",
         "artifacts/verification/live-workflow.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G09": {
       "status": "blocked",
       "note": "Live synthetic CSV inspected; privileged deletion key absent and disposable hosted deletion unverified.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md",
+        "artifacts/verification/ci-final-receipt.md",
         "artifacts/verification/live-workflow.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G10": {
       "status": "blocked",
       "note": "All source PNGs reviewed; responsive/axe/keyboard/modal checks pass; full manual authenticated/device acceptance incomplete.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md"
+        "artifacts/verification/ci-final-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G11": {
       "status": "blocked",
       "note": "Manifest/icons/network-only privacy checks pass; physical install/update/session-switch privacy pending.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md"
+        "artifacts/verification/ci-final-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G12": {
       "status": "blocked",
       "note": "Custom secret scan and Google-only configuration pass; intended environment scopes and protected main not verified.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md"
+        "artifacts/verification/ci-final-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G13": {
       "status": "blocked",
       "note": "Actual operator contact, retention and applicable owner/legal review unresolved.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md"
+        "artifacts/verification/ci-final-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G14": {
       "status": "blocked",
       "note": "Synthetic restore passes; encrypted operational backup destination/schedule/key recovery and hosted procedure unverified.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md"
+        "artifacts/verification/ci-final-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G15": {
       "status": "blocked",
       "note": "Supabase free independently confirmed; owner reports Vercel Hobby (free). Independent quotas, public OAuth/domain compliance and overall RM0 release eligibility remain incomplete.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md"
+        "artifacts/verification/ci-final-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     },
     "G16": {
       "status": "not-run",
       "note": "No implemented deployment; predeploy mandatory gates not all pass.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-receipt.md"
+        "artifacts/verification/ci-final-receipt.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24 03:45:33 UTC"
+      "verified_at": "2026-10-24T04:01:51Z"
     }
   }
 }
