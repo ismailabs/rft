@@ -12,3 +12,5 @@ Verified 2026-10-24T13:30:29.513Z.
 - Post-push Vercel list still showed one baseline placeholder at main c669f6e; no implementation deployment.
 
 Scope: synthetic local/Linux tests, real component renders and public unauthenticated routes. This does not establish signed-session hosted isolation/MFA/deletion, legal/retention, operational recovery, provider/public OAuth eligibility, branch protection or physical-device/screen-reader acceptance. Both designated identities are preserved; neither is disposable and no deletion is authorized.
+
+Evidence commit 087801592f2ac5cd9b2c9ac06e1259b340024c1c also passed clean CI https://github.com/ismailabs/rft/actions/runs/40098650105, job 120886076785: 79 unit/integration and 64 browser checks, all steps successful. See recovery-evidence-ci-excerpt.log. Subsequent protection receipt records the now-active PR/status/deletion/force-push rules; environment and other release gates remain blocked.

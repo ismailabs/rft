@@ -10,6 +10,7 @@ Production is blocked. Do not buy anything, enable billing, deploy, merge around
 - Supabase organization reports free/tier_free. No purchase or paid activation was performed.
 - Google audience is Testing. That is suitable for the current test workflow, not public-launch evidence.
 - You confirm Vercel shows Hobby (free). This is owner-reported dashboard evidence; the connected tools do not expose the billing field.
+- GitHub's public API now independently confirms Active default-branch protection: a pull request, the GitHub Actions `verify` check, deletion prevention and force-push prevention. Main is unchanged. The endpoint does not expose bypass actors without write-scoped access, so no independent bypass-list claim is made.
 - Current provider metadata shows two Google identities, one RFT profile and two verified TOTP factors. You recognize both and designate **A: Current profile (preserve)** and **B: New RFT Test**. Both must be preserved. **Neither is disposable; no deletion is authorized.** You report B reaches an empty app. Opening the app does not itself initialize a saved profile, so the one-profile count is not proof that B failed to sign in.
 - The hosted read-only SQL claim-context probe passed five contexts across eight relations, including cross-user read denial, enrolled AAL1 denial and invalid-session denial. No persistent data changed. This is separate from signed-JWT browser/REST and write/related-ID tests, which remain incomplete. Only the in-app browser is connected; the two external browser profiles are not exposed for automated session checks.
 - You approved publishing Ismail Studio, https://ismailstudio.my and contact@ismailstudio.my. The English/BM privacy and terms pages now include those details; the homepage credits Ismail Studio. Retention and owner/legal review remain open.
@@ -42,9 +43,9 @@ Keep this credential local while release is blocked. Preview/test deployment sco
 ## 3. Confirm the actual Vercel plan and protected Git checks
 
 1. You report **Hobby (free)** in Vercel Billing. Preserve that plan and avoid paid add-ons/trials; actual usage/quotas and independent intended-project confirmation still need a release review. The connected project/team tools did not expose billing, and browser audit timed out.
-2. After the first green GitHub workflow, open GitHub → **ismailabs/rft → Settings → Rules → Rulesets → New branch ruleset**.
-3. Name it **RFT main protection**, target the default branch, require a pull request and the **verify** check from **RFT verification**, block force pushes/deletions, then set enforcement **Active**. Do not enable a paid feature if prompted.
-4. Tell Codex when saved so protection can be independently inspected. A green CI run alone does not protect main.
+2. **Completed:** you saved **RFT main protection**. After correcting the missing PR/status rules, the public API confirms it is Active, targets the default branch, requires a pull request and the GitHub Actions **verify** check, and blocks force pushes/deletions. Receipt: `artifacts/verification/main-protection-receipt.json`.
+3. Keep those rules and the empty bypass list. The API does not expose the bypass list to this read-only request; do not infer it from the protected=true flag. No paid feature is needed. Do not merge while other release gates are blocked.
+4. Intended production/preview secret separation and current provider quotas still need release evidence; branch protection does not establish those settings.
 
 ## 4. Settle privacy and recovery facts on the prepared implementation
 

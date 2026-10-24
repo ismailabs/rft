@@ -1,4 +1,4 @@
-> The results below describe the earlier source checkpoint. Current visual recovery, 76-test local results, hosted additive goal migration, failure diagnoses and new screenshots are tracked in docs/visual-recovery-verification.md, docs/progress.md and docs/savings-goals-migration.md. Earlier 48-test CI does not verify the current recovery changes. No production release has occurred.
+> The results below describe the earlier source checkpoint. Current visual recovery, clean 79-test/64-browser CI, hosted additive goal migration, failure history and screenshots are tracked in docs/visual-recovery-verification.md, artifacts/verification/recovery-ci-receipt.md and docs/savings-goals-migration.md. Earlier 48-test CI does not verify the current recovery changes. No production release has occurred.
 
 # RFT verification report — 2026-10-24
 
