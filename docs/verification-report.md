@@ -1,4 +1,4 @@
-> The results below describe the earlier source checkpoint. Current visual recovery, clean 79-test/64-browser CI, hosted additive goal migration, failure history and screenshots are tracked in docs/visual-recovery-verification.md, artifacts/verification/recovery-ci-receipt.md and docs/savings-goals-migration.md. Earlier 48-test CI does not verify the current recovery changes. No production release has occurred.
+> Historical checkpoint below. Later A–E corrections were accepted by the owner and passed clean 80-test/78-browser CI; see `docs/pixel-fidelity-correction.md`. Current production preparation, approved-notice renders, 91-test local verification, real A/C positive signed-session evidence and remaining blockers are recorded in `docs/progress.md`, `docs/release-evidence.json` and `artifacts/verification/production-notices-approved`. The owner's explicit backup cancellation is the sole scope exception in `docs/production-release-policy.md`; recovery is untested. Earlier results do not verify later source. No implemented production release has occurred.
 
 # RFT verification report — 2026-10-24
 

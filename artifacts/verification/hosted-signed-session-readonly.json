@@ -1,0 +1,98 @@
+{
+  "environment": "Loopback RFT server + real hosted Supabase signed sessions",
+  "observations": [
+    {
+      "checkedAt": "2026-10-25T06:38:10.176Z",
+      "slot": "A",
+      "authenticated": true,
+      "recordMutation": false,
+      "deletionAuthorized": false,
+      "identityMatchesSlot": true,
+      "protectedIdentity": true,
+      "google": true,
+      "currentLevel": "aal2",
+      "nextLevel": "aal2",
+      "financeApiStatus": 200,
+      "privateNoStore": true,
+      "databaseReadRows": 2,
+      "snapshotPermitted": true,
+      "counts": {
+        "accounts": 2,
+        "categories": 15,
+        "subcategories": 0,
+        "transactions": 2,
+        "transfers": 1,
+        "budgets": 0,
+        "goals": 0
+      },
+      "result": "ACCESS_ALLOWED"
+    },
+    {
+      "checkedAt": "2026-10-25T06:46:21.133Z",
+      "slot": "C",
+      "authenticated": true,
+      "recordMutation": false,
+      "deletionAuthorized": false,
+      "identityMatchesSlot": true,
+      "protectedIdentity": false,
+      "google": true,
+      "currentLevel": "aal1",
+      "nextLevel": "aal1",
+      "financeApiStatus": 200,
+      "privateNoStore": true,
+      "databaseReadRows": 0,
+      "snapshotPermitted": true,
+      "counts": {
+        "accounts": 0,
+        "categories": 15,
+        "subcategories": 0,
+        "transactions": 0,
+        "transfers": 0,
+        "budgets": 0,
+        "goals": 0
+      },
+      "result": "ACCESS_ALLOWED"
+    },
+    {
+      "checkedAt": "2026-10-25T06:52:44.430Z",
+      "slot": "A",
+      "authenticated": true,
+      "recordMutation": false,
+      "deletionAuthorized": false,
+      "result": "WRONG_IDENTITY",
+      "protectedIdentity": false
+    },
+    {
+      "checkedAt": "2026-10-25T06:52:58.797Z",
+      "slot": "A",
+      "authenticated": true,
+      "recordMutation": false,
+      "deletionAuthorized": false,
+      "result": "WRONG_IDENTITY",
+      "protectedIdentity": false
+    },
+    {
+      "checkedAt": "2026-10-25T06:53:01.522Z",
+      "slot": "A",
+      "authenticated": true,
+      "recordMutation": false,
+      "deletionAuthorized": false,
+      "result": "WRONG_IDENTITY",
+      "protectedIdentity": false
+    },
+    {
+      "checkedAt": "2026-10-25T06:56:20.023Z",
+      "slot": "C",
+      "authenticated": false,
+      "recordMutation": false,
+      "deletionAuthorized": false,
+      "result": "UNAUTHENTICATED"
+    }
+  ],
+  "limitations": [
+    "Historical observed A AAL2 and third C unenrolled AAL1 positive reads only",
+    "Subsequent verifier restart lost in-memory session clients; reconnect requests not independently observed",
+    "No synthetic write matrix, identity deletion or factor change performed",
+    "Owner reports are not promoted to independent evidence"
+  ]
+}

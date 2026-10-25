@@ -27,7 +27,7 @@ export async function LegalPage({ kind }: { kind: "privacy" | "terms" }) {
           ],
           [
             "Status notis",
-            "Draf prapelancaran, 24 Oktober 2026. Semakan pemilik terhadap pengendalian sebenar, simpanan dan kewajipan Malaysia belum selesai. Draf ini tidak mengesahkan pematuhan undang-undang.",
+            "Dikemas kini 25 Oktober 2026. Hubungi Ismail Studio untuk pertanyaan atau permintaan.",
           ],
         ]
       : [
@@ -49,7 +49,7 @@ export async function LegalPage({ kind }: { kind: "privacy" | "terms" }) {
           ],
           [
             "Notice status",
-            "Prelaunch draft, 24 October 2026. Owner review of actual handling, retention and applicable Malaysian obligations remains outstanding. This draft does not certify legal compliance.",
+            "Updated 25 October 2026. Contact Ismail Studio for questions or requests.",
           ],
         ]
     : bm
@@ -68,7 +68,7 @@ export async function LegalPage({ kind }: { kind: "privacy" | "terms" }) {
           ],
           [
             "Status terma",
-            "Draf prapelancaran, 24 Oktober 2026. Semakan pemilik/undang-undang belum dimuktamadkan. Tiada pelancaran awam berdasarkan draf ini.",
+            "Dikemas kini 25 Oktober 2026. Hubungi Ismail Studio untuk pertanyaan atau permintaan.",
           ],
         ]
       : [
@@ -86,7 +86,7 @@ export async function LegalPage({ kind }: { kind: "privacy" | "terms" }) {
           ],
           [
             "Terms status",
-            "Prelaunch draft, 24 October 2026. Owner/legal review is not finalized. This draft does not authorize a public release.",
+            "Updated 25 October 2026. Contact Ismail Studio for questions or requests.",
           ],
         ];
   return (

@@ -3,7 +3,7 @@
   "project": "RFT",
   "environment": "production",
   "source_commit": "fb5fc33d8c27c94478445ccd4c6d72c3b8d250aa",
-  "reviewed_at": "2026-10-25T03:02:49.901Z",
+  "reviewed_at": "2026-10-25T07:09:29.340Z",
   "cost_verified_zero": false,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
@@ -60,16 +60,17 @@
     },
     "G05": {
       "status": "blocked",
-      "note": "Hosted read-only SQL simulation passed five contexts/eight relations with no changes; owner reports B empty. Both profiles designated/preserved. Signed-JWT browser/REST, write and related-ID negative checks remain incomplete.",
+      "note": "Read-only hosted SQL simulation passed five contexts/eight relations. Actual signed A AAL2 and separate third C unenrolled AAL1 sessions were independently observed: A sees two accounts, C sees none, both API/snapshot accesses correctly allowed. A/B preserved. After helper restart, new valid signed reconnect requests are not yet observed; C-only write/related-ID negative matrix remains prepared, not run.",
       "evidence": [
         "docs/visual-recovery-verification.md",
         "docs/savings-goals-migration.md",
         "docs/design-reference-register.md",
         "artifacts/verification/recovery-ci-receipt.md",
-        "artifacts/verification/hosted-read-only-receipt.json"
+        "artifacts/verification/hosted-read-only-receipt.json",
+        "artifacts/verification/hosted-signed-session-readonly.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T13:30:29.513Z"
+      "verified_at": "2026-10-25T07:09:29.340Z"
     },
     "G06": {
       "status": "blocked",
@@ -84,14 +85,16 @@
     },
     "G07": {
       "status": "blocked",
-      "note": "Real factor verified and owner-reported fresh challenge; hosted direct bypass/removal unverified.",
+      "note": "Two original verified factors remain. Real protected A AAL2 and third C unenrolled AAL1 sessions independently passed API and hosted database/snapshot reads. Owner reports RFT opens after MFA. Enrolled AAL1 direct denial and safe removal remain unverified; no factor was changed.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-final-receipt.md",
-        "artifacts/verification/live-workflow.md"
+        "artifacts/verification/live-workflow.md",
+        "docs/progress.md",
+        "artifacts/verification/hosted-signed-session-readonly.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T04:01:51Z"
+      "verified_at": "2026-10-25T07:09:29.340Z"
     },
     "G08": {
       "status": "blocked",
@@ -152,27 +155,32 @@
     },
     "G13": {
       "status": "blocked",
-      "note": "Approved Ismail Studio website/email included and rendered in EN/BM notices. Retention, actual operational handling and applicable owner/legal review remain unresolved.",
+      "note": "Owner approved factual EN/BM notices, no-backup/data-loss limitations and dated final paragraphs. Four final renders inspected: fonts ready, no overflow/page errors, zero axe violations after notice-only home-link contrast repair. Bounded privacy engineering/applicability assessment documented; no full consolidated-statute review or legal certification claimed. Hosted stated security/deletion behavior remains incomplete, so G13 is not passed.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-final-receipt.md",
         "artifacts/verification/recovery-ci-receipt.md",
-        "docs/visual-recovery-verification.md"
+        "docs/visual-recovery-verification.md",
+        "docs/privacy-readiness-assessment.md",
+        "artifacts/verification/production-notices-approved/receipt.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T13:30:29.513Z"
+      "verified_at": "2026-10-25T07:09:29.340Z"
     },
     "G14": {
-      "status": "blocked",
-      "note": "Owner explicitly cancelled encrypted backups and requested deployment/production continuation on 2026-10-25. No further backup implementation or key-custody action is requested. Portable tools/version and synthetic encryption checks completed before cancellation; no hosted dump, production key or upload occurred. Cancellation is a scope change, not a passed operational recovery test.",
+      "status": "not-run",
+      "recovery_verified": false,
+      "note": "Explicitly removed from scope by the owner's backup cancellation and approval of factual no-backup/data-loss notices. No further backup or key-custody action is requested. Earlier portable/synthetic checks do not prove operational recovery. This is not a passed gate; only the targeted effective policy excludes it. Every other gate remains mandatory.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-final-receipt.md",
         "docs/operations.md",
+        "docs/production-release-policy.md",
+        "docs/production-release-policy.json",
         "artifacts/verification/production-preparation-receipt.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-25T03:02:49.901Z"
+      "verified_at": "2026-10-25T07:09:29.340Z"
     },
     "G15": {
       "status": "blocked",
@@ -217,6 +225,7 @@
       "encrypted_backup_work": "cancelled",
       "production_preparation": "continue",
       "backup_verification_claim": false,
+      "owner_notice_approval": "Approve these factual notices for publication",
       "plaintext_cloud_backup_authorized": false,
       "other_security_privacy_budget_boundaries": "preserved"
     }
@@ -225,7 +234,11 @@
     "receipt": "artifacts/verification/production-preparation-receipt.json",
     "deployment_status": "NOT_DEPLOYED",
     "implementation_public_url": null,
-    "source_changes": "EN/BM privacy/deletion copy reflects cancelled backups; complete local verify passes 80/80 tests, type/lint/build/audit/custom scan; four public notice renders verified. Clean CI for publication pending.",
-    "owner_auth_configuration": "Owner reports done; actual public sign-in/session proof remains separate"
-  }
+    "source_changes": "Committed b934e09 preparation passes clean CI 80/80 unit/database and 78/78 browser tests. Subsequent owner-approved final EN/BM status paragraphs, notice-only contrast fix and effective release guard pass fresh local type/lint/build and 91/91 unit/database cases. Four final notice renders have zero axe violations and were inspected. Publication/current full CI remains pending; prior draft renders are preserved.",
+    "owner_auth_configuration": "Owner reports done; actual public sign-in/session proof remains separate",
+    "followupReceipt": "artifacts/verification/production-followup-receipt.json"
+  },
+  "effective_release_policy": "docs/production-release-policy.json",
+  "effective_release_guard": "node scripts/check-effective-release.mjs",
+  "protected_test_identities": "A/B preserved. An initial mistaken C session matched a protected identity and was rejected. A genuine third C Google session was later independently verified, unenrolled AAL1 and financially empty. Latest helper restart lost in-memory clients and reconnects remain unverified. No fixture writes or deletion performed; no identity deletion authorized."
 }

@@ -1,0 +1,9 @@
+# Effective release policy after the owner's backup cancellation
+
+On 25 October 2026 the owner explicitly instructed: “cancel encrypted backups, continue with the deployment and production”. The owner subsequently approved the factual English/BM privacy and terms notices, including no application-managed backups and possible unrecoverable data loss. The approved final publication paragraph is implemented in `src/components/legal-page.tsx`.
+
+This direct scope change supersedes only the original G14 requirement to build and operate encrypted backups and prove their restoration. G14 is recorded `not-run`, with `recovery_verified: false`; it is never relabelled a pass. No backup work or plaintext replacement is authorized. Historical handoff documents and their original validator remain byte-preserved. Their original all-gates policy will still reject the cancelled G14.
+
+`production-release-policy.json` records this one exception. `node scripts/check-effective-release.mjs` checks the updated evidence record against it and fails closed on every other predeployment gate, missing owner provenance, a falsely passed recovery test, unverified RM0 status, an unapproved irreversible change, a dirty checkout or an application-source mismatch. Its tests exercise those refusal paths. This structural check cannot authenticate its own evidence; source logs and provider state must also be inspected.
+
+G01–G13 and G15 still require evidence before a production release, and G16 remains required afterward. A/B identities and records remain protected. A third Google test identity being offered is not permission to delete it. Deleting only that separate RFT identity and synthetic records still requires exact separate owner authorization. Real customer data operations retain their separate authorization and verified-recovery requirement.

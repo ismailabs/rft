@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "project": "RFT",
+  "effective_date": "2026-10-25",
+  "predeploy_required_gates": ["G01", "G02", "G03", "G04", "G05", "G06", "G07", "G08", "G09", "G10", "G11", "G12", "G13", "G15"],
+  "postdeploy_required_gates": ["G16"],
+  "owner_scope_exceptions": [
+    {
+      "gate": "G14",
+      "scope": "application_managed_encrypted_backups_and_operational_restore",
+      "owner_request": "cancel encrypted backups, continue with the deployment and production",
+      "owner_notice_approval": "Approve these factual notices for publication",
+      "no_application_managed_backups_disclosed": true,
+      "data_loss_limitation_disclosed": true,
+      "recovery_verified": false,
+      "plaintext_cloud_backup_authorized": false,
+      "authority": "Direct owner messages in this conversation on 2026-10-25, recorded in docs/progress.md",
+      "evidence": ["docs/operations.md", "docs/owner-actions.md", "docs/progress.md", "src/components/legal-page.tsx"]
+    }
+  ],
+  "boundaries": "Every other mandatory gate still requires passing evidence. Preserve A/B and all existing records. No deletion without exact separate authorization; no irreversible real-data change without authorization and verified recovery. RM0; no paid activation. This policy does not mark recovery tested or authorize plaintext backups."
+}

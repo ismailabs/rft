@@ -718,6 +718,9 @@ hr {
   padding: 50px 28px 100px;
   margin: auto;
 }
+.legal-page > .text-link {
+  color: #007750;
+}
 .legal-page h1 {
   margin: 25px 0 45px;
 }

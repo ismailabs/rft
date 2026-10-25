@@ -4,11 +4,11 @@ On 2026-10-25 the owner directed: “cancel encrypted backups, continue with the
 
 At cancellation, pinned portable tools had been extracted outside OneDrive and version-checked. A local synthetic age round-trip/wrong-key/tamper test passed; its two disposable keys were removed. No native database rehearsal started, no hosted record was exported, no production key was created and nothing was uploaded. Uncommitted tool-preparation scripts are preserved in ignored `artifacts/private/cancelled-backup-preparation/`; they are not shipped as an active workflow.
 
-The application privacy/deletion copy now truthfully states that RFT does not operate application-managed backups and lost/deleted data may not be recoverable. Source migrations and earlier isolated PGlite recovery tests remain available; they do not establish an operational backup service. Remaining production/security/provider/privacy checks continue independently.
+The application privacy/deletion copy now truthfully states that RFT does not operate application-managed backups and lost/deleted data may not be recoverable. The owner approved these factual EN/BM notices for publication and the dated final paragraph on 25 October. The targeted cancellation and effective release guard are documented in `docs/production-release-policy.md`. G14 stays untested, excluded only by the direct scope change, while all other gates remain mandatory. Source migrations and earlier isolated PGlite recovery tests remain available; they do not establish an operational backup service.
 
 ## Observed provider state
 
-Supabase reports free/tier_free for the RFT organization (2026-10-24). The Vercel project and existing placeholder are identified. Owner reports its Billing page shows Hobby (free); the billing plan is not independently exposed by the connected read tools. No paid plan, domain, add-on, cron service, analytics service or storage service was purchased or enabled.
+Supabase reports free/tier_free for the RFT organization (2026-10-25). Authenticated Vercel CLI independently confirms Hobby for the exact intended team, matching the owner report. Production-only environment metadata and Standard Protection are configured and independently reread; no implementation is deployed. Billing cost data is unavailable, not evidence of zero usage. No paid plan, domain, add-on, cron service, analytics service or storage service was purchased or enabled. Receipt: `artifacts/verification/production-preparation-receipt.json`.
 
 Current official sources reviewed on 2026-10-24:
 
@@ -22,7 +22,7 @@ Earlier owner decision: use the existing Google Drive account (observed 22.4 MB 
 
 The local PostgreSQL rehearsal restores an isolated synthetic database and verifies snapshot equality, exact money, ownership/MFA enforcement and Auth-FK deletion cascades. This is reproducible test evidence, **not** an operational backup of the hosted project.
 
-Before release, all of the following need actual configuration and a witnessed restore:
+The following was the original pre-cancellation proposal. It is retained for history and is not an active implementation or release instruction:
 
 1. Use a compatible PostgreSQL 17 `pg_dump` client or the officially documented Supabase logical-dump workflow with project-authorized credentials. Inspect defaults: schema-only or an export excluding identity linkage is insufficient. Capture required public/private schema, policies/functions, relations and data; define how identity linkage is restored securely. Do not copy secrets or dump contents into Git, CI artifacts, logs or chat.
 2. Select an existing no-cost destination with encryption, restricted access and a separately recoverable encryption key. Decide a second off-device location without enabling chargeable storage or exposing private data to the public repository.
@@ -31,7 +31,7 @@ Before release, all of the following need actual configuration and a witnessed r
 5. Restore only synthetic data to a disposable isolated destination first. Check counts, orphan/parent ownership constraints, exact opening+income−expense±transfer reconciliation, export and both-user/MFA denial. Authorize any later real-data restore separately and verify a recovery copy before overwriting anything.
 6. State a truthful recovery point/time based on the working schedule and measured restore. Until then, RPO/RTO are unknown. Never promise no loss or continuous availability.
 
-If this cannot be implemented and verified at RM0, G14 remains blocked. No “accepted risk” checkbox silently waives the mandatory recovery evidence.
+Under the original handoff this unverified process blocked G14. The owner's later explicit cancellation supersedes that one scope requirement, as recorded in the effective policy. No recovery test is claimed and no other gate is waived.
 
 ## Routine checks and incidents
 
