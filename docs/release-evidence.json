@@ -3,12 +3,26 @@
   "project": "RFT",
   "environment": "production",
   "source_commit": "ea6666dba37f997aa14c79faa2df5669204737cd",
-  "reviewed_at": "2026-10-25T07:37:09.583Z",
+  "reviewed_at": "2026-10-25T08:53:50.000Z",
   "cost_verified_zero": false,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
   "public_url": null,
-  "scope": "Owner-approved final notices, scoped contrast repair and effective release guard: frozen application source ea6666d, clean Linux CI for f1adca4 with 91/91 unit/database and 78/78 Chromium tests. Actual A/C positive signed reads documented; hosted/manual/public release checks remain blocked. No implementation deployment.",
+  "scope": "Owner-approved final notices, scoped contrast repair and effective release guard: frozen application source ea6666d, clean Linux CI for f1adca4 with 91/91 unit/database and 78/78 Chromium tests. Actual A/C positive signed reads and four C-only hosted core groups documented. Protected credential-free Preview from 904913b passes eight public-page captures; production remains baseline. Remaining hosted/manual/public release gates are blocked.",
+  "protected_preview": {
+    "deployment_id": "dpl_8R9AmtEN4PGdSKK43FKGdS3tnqiV",
+    "source_commit": "904913ba94df1fef21d40a7613adacfabe97c2fd",
+    "url": "https://rft-ovpxnmtjm-ismailstudio.vercel.app",
+    "access": "Vercel Standard Protection; existing CLI identity; no share link",
+    "supabase_configured": false,
+    "public_page_captures_passed": 8,
+    "production_released": false,
+    "evidence": [
+      "docs/protected-preview-verification.md",
+      "artifacts/verification/protected-preview-infrastructure.json",
+      "artifacts/verification/protected-preview-904913b-attempt2/receipt.json"
+    ]
+  },
   "gates": {
     "G01": {
       "status": "pass",
@@ -72,17 +86,18 @@
     },
     "G05": {
       "status": "blocked",
-      "note": "Read-only hosted SQL simulation passed five contexts/eight relations. Actual signed A AAL2 and separate third C unenrolled AAL1 sessions were independently observed: A sees two accounts, C sees none, both API/snapshot accesses correctly allowed. A/B preserved. After helper restart, new valid signed reconnect requests are not yet observed; C-only write/related-ID negative matrix remains prepared, not run.",
+      "note": "Read-only hosted SQL simulation passed five contexts/eight relations. Actual A AAL2 and distinct C unenrolled AAL1 reads were independently observed. C reconnected and four real hosted creation/edit/validation/reconciliation groups passed using only C synthetic fixtures; A/B before/after application fingerprint is unchanged. The current helper awaits A's actual AAL2 reconnect before the prepared cross-user write/related-ID matrix. No DELETE calls or identity deletion ran; full signed-session isolation gate remains blocked.",
       "evidence": [
         "docs/visual-recovery-verification.md",
         "docs/savings-goals-migration.md",
         "docs/design-reference-register.md",
         "artifacts/verification/recovery-ci-receipt.md",
         "artifacts/verification/hosted-read-only-receipt.json",
-        "artifacts/verification/hosted-signed-session-readonly.json"
+        "artifacts/verification/hosted-signed-session-readonly.json",
+        "artifacts/verification/hosted-c-core-receipt.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-25T07:09:29.340Z"
+      "verified_at": "2026-10-25T08:08:03.823Z"
     },
     "G06": {
       "status": "blocked",
@@ -111,18 +126,19 @@
     },
     "G08": {
       "status": "blocked",
-      "note": "Core live synthetic journey works; full hosted mandatory acceptance incomplete.",
+      "note": "Four C-only hosted core groups pass exact creation/edit/reconciliation, invalid-input atomic denial, Malaysia month-boundary history and archive/metadata/goal updates. All 26 C rows are synthetic/default/profile data; A/B are unchanged. Full hosted mandatory acceptance, signed cross-user writes, enrolled MFA lifecycle and controlled deletion remain incomplete.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-final-receipt.md",
-        "artifacts/verification/live-workflow.md"
+        "artifacts/verification/live-workflow.md",
+        "artifacts/verification/hosted-c-core-receipt.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
       "verified_at": "2026-10-24T04:01:51Z"
     },
     "G09": {
       "status": "blocked",
-      "note": "CSV/live synthetic export and current handler tests pass; both identities must be preserved and no deletion is authorized. Controlled hosted deletion/revocation remains unperformed.",
+      "note": "Earlier CSV/live synthetic export and current handler tests pass. Original A/B remain protected. Separate C is prepared and has synthetic fixtures, but availability is not final deletion consent. All record/identity deletion remains unauthorized and unperformed; fresh owned CSV/re-auth plus controlled removal/revocation checks are incomplete.",
       "evidence": [
         "docs/visual-recovery-verification.md",
         "docs/savings-goals-migration.md",
@@ -148,7 +164,7 @@
     },
     "G11": {
       "status": "blocked",
-      "note": "Manifest/icons/network-only privacy checks pass; physical install/update/session-switch privacy pending.",
+      "note": "Manifest/icons/network-only privacy checks pass. Protected HTTPS Preview serves source-matching icons and worker source without finance-cache handlers. Automated visual contexts block service workers; this is not installed behavior proof. Physical install/update/session-switch privacy remains pending.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-final-receipt.md"
@@ -158,13 +174,15 @@
     },
     "G12": {
       "status": "pass",
-      "note": "Current authenticated GitHub read confirms Active default-branch PR/verify/deletion/force-push rules, empty bypass actors and current_user_can_bypass never. Vercel metadata confirms exact project/team, Production-only server Secret/config, no Preview/Development credentials and Standard Protection. Custom source/browser scan passes and safe logging checked. Public OAuth and other release gates remain separate; no implementation deployed.",
+      "note": "Authenticated GitHub read confirms Active default-branch PR/verify/deletion/force-push rules, empty bypass actors and current_user_can_bypass never. Fresh Vercel reads confirm exact project/team, Production-only server Secret/config, no Preview/Development credentials and Standard Protection. Credential-free Preview is protected; finance/export fail closed with NOT_CONFIGURED/private-no-store. Custom source/browser scan and safe logging checks pass. Production remains the original baseline; public OAuth and other gates are separate.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-final-receipt.md",
         "artifacts/verification/main-protection-receipt.json",
         "artifacts/verification/production-preparation-receipt.json",
-        "artifacts/verification/production-infrastructure-followup.json"
+        "artifacts/verification/production-infrastructure-followup.json",
+        "artifacts/verification/protected-preview-infrastructure.json",
+        "artifacts/verification/protected-preview-904913b-attempt2/receipt.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
       "verified_at": "2026-10-25T07:14:07.968Z"
@@ -211,7 +229,7 @@
     },
     "G16": {
       "status": "not-run",
-      "note": "No implemented deployment; predeploy mandatory gates not all pass.",
+      "note": "No implemented production deployment; predeploy mandatory gates do not all pass. The separately protected credential-free Preview verifies public rendering only and is not a production release or G16 smoke result.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-final-receipt.md"
@@ -257,5 +275,5 @@
   },
   "effective_release_policy": "docs/production-release-policy.json",
   "effective_release_guard": "node scripts/check-effective-release.mjs",
-  "protected_test_identities": "A/B preserved. An initial mistaken C session matched a protected identity and was rejected. A genuine third C Google session was later independently verified, unenrolled AAL1 and financially empty. Latest helper restart lost in-memory clients and reconnects remain unverified. No fixture writes or deletion performed; no identity deletion authorized."
+  "protected_test_identities": "A/B identities, factors and original application rows preserved; before/after application fingerprint unchanged. Distinct third C is connected at unenrolled AAL1 and four C-only synthetic hosted core groups pass, leaving 26 synthetic/default/profile rows. No DELETE calls or identity removal occurred. The helper retains C and awaits A's fresh legitimate pre/post-MFA session; the last owner-reported done produced another C request, while A's native InPrivate window remains on login. All deletion still requires separate exact C-only approval."
 }

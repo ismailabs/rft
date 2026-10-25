@@ -1,0 +1,86 @@
+{
+  "checkedAt": "2026-10-25T08:51:25.910Z",
+  "project": {
+    "id": "prj_eM0EcPUzjg3G31h4jc6uhfo60dBo",
+    "name": "rft",
+    "team": "team_y1FMLs1LWgVb2dOvegEGYVkf",
+    "ssoProtection": {
+      "enabled": true,
+      "deploymentType": "prod_deployment_urls_and_all_previews"
+    },
+    "nodeVersion": "24.x"
+  },
+  "environmentVariables": [
+    {
+      "key": "RFT_PUBLIC_RELEASE_READY",
+      "type": "encrypted",
+      "target": [
+        "production"
+      ]
+    },
+    {
+      "key": "SUPABASE_SECRET_KEY",
+      "type": "sensitive",
+      "target": [
+        "production"
+      ]
+    },
+    {
+      "key": "NEXT_PUBLIC_APP_ORIGIN",
+      "type": "encrypted",
+      "target": [
+        "production"
+      ]
+    },
+    {
+      "key": "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
+      "type": "encrypted",
+      "target": [
+        "production"
+      ]
+    },
+    {
+      "key": "NEXT_PUBLIC_SUPABASE_URL",
+      "type": "encrypted",
+      "target": [
+        "production"
+      ]
+    }
+  ],
+  "deployments": [
+    {
+      "id": "dpl_8R9AmtEN4PGdSKK43FKGdS3tnqiV",
+      "url": "rft-ovpxnmtjm-ismailstudio.vercel.app",
+      "target": null,
+      "state": "READY",
+      "source": "904913ba94df1fef21d40a7613adacfabe97c2fd"
+    },
+    {
+      "id": "dpl_Gdg96eCDHUsrTyEkA64cNXLGgNHb",
+      "url": "rft-e45ml2f2q-ismailstudio.vercel.app",
+      "target": "production",
+      "state": "READY",
+      "source": "c669f6ea616d266e6d433efec4cf4ac9853602a2"
+    }
+  ],
+  "preview": {
+    "id": "dpl_8R9AmtEN4PGdSKK43FKGdS3tnqiV",
+    "target": "Preview (target omitted; provider returns null)",
+    "source": "904913ba94df1fef21d40a7613adacfabe97c2fd",
+    "hasSupabaseConfiguration": false,
+    "temporaryShareLinkCreated": false,
+    "protectionDisabled": false,
+    "existingCliDevelopmentOidcOnly": true,
+    "browserTokenHeaderScope": "exact Preview origin only"
+  },
+  "production": {
+    "implementationReleased": false,
+    "baselineDeploymentUnchanged": true,
+    "baselineSource": "c669f6ea616d266e6d433efec4cf4ac9853602a2",
+    "gitTriggeredDeploymentsDisabled": true
+  },
+  "limits": [
+    "Provider READY is not functional proof; actual separate browser receipt covers eight public-page captures",
+    "Preview cannot exercise Google sign-in, private financial records, installed PWA/session-switching or public production smoke"
+  ]
+}

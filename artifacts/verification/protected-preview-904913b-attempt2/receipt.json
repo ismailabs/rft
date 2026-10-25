@@ -1,0 +1,189 @@
+{
+  "checkedAt": "2026-10-25T08:48:12.973Z",
+  "deploymentId": "dpl_8R9AmtEN4PGdSKK43FKGdS3tnqiV",
+  "origin": "https://rft-ovpxnmtjm-ismailstudio.vercel.app",
+  "environment": "Protected Preview; no Supabase environment variables",
+  "sourceCommit": "904913ba94df1fef21d40a7613adacfabe97c2fd",
+  "access": "Existing CLI identity; short-lived Development OIDC; exact-origin request header",
+  "productionReleased": false,
+  "shareLinkCreated": false,
+  "secretValuesRecorded": false,
+  "serviceWorkers": "Blocked in automated visual context; worker source inspected separately",
+  "checks": [
+    {
+      "name": "Anonymous access remains protected",
+      "status": "pass",
+      "httpStatus": 302
+    },
+    {
+      "name": "Existing account accesses the real RFT homepage",
+      "status": "pass",
+      "httpStatus": 200
+    },
+    {
+      "name": "/api/finance has no finance configuration and is private/no-store",
+      "status": "pass",
+      "httpStatus": 503,
+      "error": "NOT_CONFIGURED"
+    },
+    {
+      "name": "/api/export has no finance configuration and is private/no-store",
+      "status": "pass",
+      "httpStatus": 503,
+      "error": "NOT_CONFIGURED"
+    },
+    {
+      "name": "Manifest any icon 192x192 matches reviewed source",
+      "status": "pass"
+    },
+    {
+      "name": "Manifest any icon 512x512 matches reviewed source",
+      "status": "pass"
+    },
+    {
+      "name": "Manifest maskable icon 512x512 matches reviewed source",
+      "status": "pass"
+    },
+    {
+      "name": "Hosted worker source has no finance/persistent cache handler",
+      "status": "pass"
+    }
+  ],
+  "captures": [
+    {
+      "path": "/",
+      "locale": "en",
+      "width": 1448,
+      "height": 1086,
+      "file": "homepage-1448.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 1448,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 1,
+      "axeViolations": 0,
+      "sha256": "e34ef7c9ea93756a3e7ae04aaeb850a7a740e279d4ecd501cff3e2c2fe3665a3"
+    },
+    {
+      "path": "/",
+      "locale": "en",
+      "width": 390,
+      "height": 900,
+      "file": "homepage-390.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 390,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 1,
+      "axeViolations": 0,
+      "sha256": "7885a16a997d9fe0c1921d489df7a01905387fa2945b5ed04a01dcb172b1dc85"
+    },
+    {
+      "path": "/preview",
+      "locale": "en",
+      "width": 1448,
+      "height": 1086,
+      "file": "public-preview-1448.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 1448,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 1,
+      "axeViolations": 0,
+      "sha256": "3ec8bfd29503d81e4b23f78c9b5689fa2123a446865d0b25990de00e535c2ac7"
+    },
+    {
+      "path": "/login",
+      "locale": "en",
+      "width": 390,
+      "height": 900,
+      "file": "login-unconfigured-390.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 390,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 1,
+      "axeViolations": 0,
+      "sha256": "df4b8563bfab30418b3f987b1fe0e629b88395deeb1ce59446d73f6122d89753"
+    },
+    {
+      "path": "/privacy",
+      "locale": "en",
+      "width": 1100,
+      "height": 900,
+      "file": "privacy-en.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 1100,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 1,
+      "axeViolations": 0,
+      "sha256": "c683162603921aa671904038d85305b87fd5834d974d05d8f39cab2ab572221d"
+    },
+    {
+      "path": "/terms",
+      "locale": "en",
+      "width": 1100,
+      "height": 900,
+      "file": "terms-en.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 1100,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 1,
+      "axeViolations": 0,
+      "sha256": "114d71193160c00e49429e29a0f812fd1a1e62437fc733b8ca584c6a297b0963"
+    },
+    {
+      "path": "/privacy",
+      "locale": "ms",
+      "width": 1100,
+      "height": 900,
+      "file": "privacy-ms.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 1100,
+      "missingImages": 0,
+      "lang": "ms",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 1,
+      "axeViolations": 0,
+      "sha256": "5811bdb3dc0614cb2f2d64e9f4cf78dab36dd1aa5890c78d29209f2d7c547033"
+    },
+    {
+      "path": "/terms",
+      "locale": "ms",
+      "width": 1100,
+      "height": 900,
+      "file": "terms-ms.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 1100,
+      "missingImages": 0,
+      "lang": "ms",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 1,
+      "axeViolations": 0,
+      "sha256": "912cedf19d5a1b6d0f2186ca9303e86bb125c73f520462683a0346b8a6af4be7"
+    }
+  ],
+  "limits": [
+    "This preview has no RFT sign-in/data access configuration",
+    "No public-production OAuth or actual installed PWA/session-switch proof",
+    "No authenticated financial browser state used in this Preview"
+  ],
+  "status": "pass",
+  "completedAt": "2026-10-25T08:49:27.765Z"
+}
