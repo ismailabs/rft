@@ -3,7 +3,7 @@
   "project": "RFT",
   "environment": "production",
   "source_commit": "fb5fc33d8c27c94478445ccd4c6d72c3b8d250aa",
-  "reviewed_at": "2026-10-25T02:26:55.314Z",
+  "reviewed_at": "2026-10-25T02:35:19.858Z",
   "cost_verified_zero": false,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
@@ -117,7 +117,7 @@
     },
     "G10": {
       "status": "blocked",
-      "note": "A–E corrected and review-ready: all five final comparisons inspected, 22 selected panel bounds within 1.063 px of measured raster edges; complete 78/78 Chromium suite passes responsive/keyboard/axe checks. Remaining font/vector/paint and truthful/accessible control differences are documented; final owner visual acceptance and manual assistive-technology evidence remain outstanding. No pixel-perfect claim.",
+      "note": "Owner accepted all five corrected A–E visuals with documented differences on 2026-10-25. Five final comparisons inspected; 22 selected panel bounds within 1.063 px of measured raster edges; complete 78/78 Chromium suite passes responsive/keyboard/axe checks. Manual screen-reader/accessibility review remains unperformed. No pixel-perfect or production approval claim.",
       "evidence": [
         "docs/pixel-fidelity-correction.md",
         "artifacts/pixel-fidelity/clean-ci-receipt.json",
@@ -125,7 +125,7 @@
         "artifacts/pixel-fidelity/delivery/source-manifest.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-25T02:26:55.314Z"
+      "verified_at": "2026-10-25T02:35:19.858Z"
     },
     "G11": {
       "status": "blocked",
@@ -192,11 +192,17 @@
     }
   },
   "worktree_correction": {
-    "status": "IMPLEMENTED_REVIEW_PENDING",
+    "status": "IMPLEMENTED_VISUAL_ACCEPTED",
     "base_commit": "1a4896e5b9742bd1df9cdfdab3df2929674c7538",
     "source_commit": "fb5fc33d8c27c94478445ccd4c6d72c3b8d250aa",
     "record": "docs/pixel-fidelity-correction.md",
     "ci_receipt": "artifacts/pixel-fidelity/clean-ci-receipt.json",
-    "note": "A–E implementation, final rendered comparisons and complete clean regression suite verified. Residual visual/manual acceptance limits remain explicit. No production deployment, hosted mutation or identity deletion."
+    "note": "Owner accepted corrected A–E visuals with documented differences. Final rendered comparisons and complete 80/80 unit/database plus 78/78 browser suite verified. Manual/accessibility and other release gates remain separate. No production deployment, hosted mutation or identity deletion.",
+    "owner_visual_acceptance": {
+      "date": "2026-10-25",
+      "scope": "A–E corrected visuals with documented differences",
+      "statement": "Accept the corrected visuals with the documented differences",
+      "deployment_authorized": false
+    }
   }
 }

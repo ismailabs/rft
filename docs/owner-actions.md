@@ -4,6 +4,8 @@ Production is blocked. Do not buy anything, enable billing, deploy, merge around
 
 ## Confirmed preparation
 
+- On 2026-10-25 you accepted the corrected A–E visuals with the documented font/vector/texture and truthful/accessible differences. Visual correction acceptance is resolved; this is not deployment authorization. Actual final comparisons, 80/80 unit/database and 78/78 browser evidence are in `docs/pixel-fidelity-correction.md`.
+
 - Google-only Supabase configuration independently checked: Google true, Email false, anonymous false.
 - Genuine Google sign-in reached the authenticated local app. Synthetic accounts, income, expense, transfer and CSV download worked against the hosted database.
 - You report enrolling MFA and testing a fresh sign-in challenge. The latest aggregate provider check confirms two verified TOTP factors across two Google identities, with one RFT profile. Direct hosted bypass/removal checks remain separate.
