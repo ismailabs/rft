@@ -3,38 +3,42 @@
   "project": "RFT",
   "environment": "production",
   "source_commit": "ea6666dba37f997aa14c79faa2df5669204737cd",
-  "reviewed_at": "2026-10-25T07:14:07.968Z",
+  "reviewed_at": "2026-10-25T07:21:12.121Z",
   "cost_verified_zero": false,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
   "public_url": null,
-  "scope": "Owner-approved final EN/BM notices, scoped contrast repair, owner-amended release guard and actual partial hosted A/C reads. Local 91/91 tests and type/lint/build pass. Current source publication/clean CI pending. All remaining effective gates are mandatory; no implementation deployment.",
+  "scope": "Owner-approved final notices, scoped contrast repair and effective release guard: frozen application source ea6666d, clean Linux CI for f1adca4 with 91/91 unit/database and 78/78 Chromium tests. Actual A/C positive signed reads documented; hosted/manual/public release checks remain blocked. No implementation deployment.",
   "gates": {
     "G01": {
       "status": "pass",
-      "note": "Frozen followup source ea6666d reviewed on the existing feature branch. Original handoff/skills/assets preserved; source and screenshot receipts retained. Main and deployment remain unchanged; publication checkpoint follows.",
+      "note": "Followup source ea6666d published through f1adca4 on the existing feature branch. Local/tracking/advertised SHA and tested PR merge/source trees match; reviewed diffs and all original handoff/skills/assets preserved. Main unchanged.",
       "evidence": [
         "docs/pixel-fidelity-correction.md",
         "artifacts/pixel-fidelity/clean-ci-receipt.json",
         "artifacts/pixel-fidelity/clean-ci-excerpt.log",
         "artifacts/pixel-fidelity/delivery/source-manifest.json",
-        "artifacts/verification/production-followup-receipt.json"
+        "artifacts/verification/production-followup-receipt.json",
+        "artifacts/verification/production-followup-ci-receipt.json",
+        "artifacts/verification/production-followup-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
-      "verified_at": "2026-10-25T07:14:07.968Z"
+      "verified_at": "2026-10-25T07:21:12.121Z"
     },
     "G02": {
-      "status": "blocked",
-      "note": "Fresh local typecheck/lint, 91/91 unit/database tests, production build, zero dependency vulnerabilities and custom scan pass for the followup source. Clean current-source Linux CI pending; older 80/78 CI is retained as historical evidence.",
+      "status": "pass",
+      "note": "Clean PR CI 40172076825 (inspected job 121104845350) and push CI 40172071567 both succeed for f1adca4: fresh locked install, typecheck, zero-warning lint, 91/91 unit/database tests, production build, 304-file custom/browser secret scan, zero dependency vulnerabilities and 78/78 Chromium checks. Tested merge/source trees agree; frozen application source ea6666d is unchanged.",
       "evidence": [
         "docs/pixel-fidelity-correction.md",
         "artifacts/pixel-fidelity/clean-ci-receipt.json",
         "artifacts/pixel-fidelity/clean-ci-excerpt.log",
         "artifacts/pixel-fidelity/delivery/source-manifest.json",
-        "artifacts/verification/production-followup-receipt.json"
+        "artifacts/verification/production-followup-receipt.json",
+        "artifacts/verification/production-followup-ci-receipt.json",
+        "artifacts/verification/production-followup-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
-      "verified_at": "2026-10-25T07:14:07.968Z"
+      "verified_at": "2026-10-25T07:21:12.121Z"
     },
     "G03": {
       "status": "pass",
@@ -44,10 +48,12 @@
         "artifacts/pixel-fidelity/clean-ci-receipt.json",
         "artifacts/pixel-fidelity/clean-ci-excerpt.log",
         "artifacts/pixel-fidelity/delivery/source-manifest.json",
-        "artifacts/verification/production-followup-unit.log"
+        "artifacts/verification/production-followup-unit.log",
+        "artifacts/verification/production-followup-ci-receipt.json",
+        "artifacts/verification/production-followup-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
-      "verified_at": "2026-10-25T07:14:07.968Z"
+      "verified_at": "2026-10-25T07:21:12.121Z"
     },
     "G04": {
       "status": "pass",
@@ -57,10 +63,12 @@
         "artifacts/pixel-fidelity/clean-ci-receipt.json",
         "artifacts/pixel-fidelity/clean-ci-excerpt.log",
         "artifacts/pixel-fidelity/delivery/source-manifest.json",
-        "artifacts/verification/production-followup-unit.log"
+        "artifacts/verification/production-followup-unit.log",
+        "artifacts/verification/production-followup-ci-receipt.json",
+        "artifacts/verification/production-followup-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
-      "verified_at": "2026-10-25T07:14:07.968Z"
+      "verified_at": "2026-10-25T07:21:12.121Z"
     },
     "G05": {
       "status": "blocked",
@@ -130,10 +138,12 @@
         "docs/pixel-fidelity-correction.md",
         "artifacts/pixel-fidelity/clean-ci-receipt.json",
         "artifacts/pixel-fidelity/clean-ci-excerpt.log",
-        "artifacts/pixel-fidelity/delivery/source-manifest.json"
+        "artifacts/pixel-fidelity/delivery/source-manifest.json",
+        "artifacts/verification/production-followup-ci-receipt.json",
+        "artifacts/verification/production-followup-ci-excerpt.log"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-25T02:35:19.858Z"
+      "verified_at": "2026-10-25T07:21:12.121Z"
     },
     "G11": {
       "status": "blocked",
@@ -239,9 +249,10 @@
     "receipt": "artifacts/verification/production-preparation-receipt.json",
     "deployment_status": "NOT_DEPLOYED",
     "implementation_public_url": null,
-    "source_changes": "Committed b934e09 preparation passes clean CI 80/80 unit/database and 78/78 browser tests. Subsequent owner-approved final EN/BM status paragraphs, notice-only contrast fix and effective release guard pass fresh local type/lint/build and 91/91 unit/database cases. Four final notice renders have zero axe violations and were inspected. Publication/current full CI remains pending; prior draft renders are preserved.",
+    "source_changes": "Frozen followup application ea6666d is published via f1adca4. Both current clean Linux CI runs pass 91/91 unit/database and 78/78 Chromium checks; all job steps succeed and merge/source trees match. Four final approved EN/BM notice renders are inspected with zero axe violations. Remaining hosted/manual/public gates still block release.",
     "owner_auth_configuration": "Owner reports done; actual public sign-in/session proof remains separate",
-    "followupReceipt": "artifacts/verification/production-followup-receipt.json"
+    "followupReceipt": "artifacts/verification/production-followup-receipt.json",
+    "ci_receipt": "artifacts/verification/production-followup-ci-receipt.json"
   },
   "effective_release_policy": "docs/production-release-policy.json",
   "effective_release_guard": "node scripts/check-effective-release.mjs",

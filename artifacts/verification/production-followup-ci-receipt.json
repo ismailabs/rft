@@ -1,0 +1,103 @@
+{
+  "checkedAt": "2026-10-25T07:21:09.616Z",
+  "frozenApplicationSource": "ea6666dba37f997aa14c79faa2df5669204737cd",
+  "testedHead": "f1adca433c88b195261cceaa896d1bcd4158ecff",
+  "testedMerge": "f6392525a823e13328799d38ce1d4600758fdc98",
+  "sourceAndMergeTree": "d9ce4e3bbbd59dd2d2a820eb5d811d3425a16a30",
+  "applicationSourceDiffFromFrozen": "none across src/tests/scripts/public/supabase/workflow/packages/vercel",
+  "prRun": {
+    "id": 40172076825,
+    "url": "https://github.com/ismailabs/rft/actions/runs/40172076825",
+    "conclusion": "success",
+    "inspectedJob": 121104845350
+  },
+  "pushRun": {
+    "id": 40172071567,
+    "url": "https://github.com/ismailabs/rft/actions/runs/40172071567",
+    "conclusion": "success"
+  },
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Require free standard-runner public repository",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm ci --ignore-scripts",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run verify",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm audit --audit-level=moderate",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npx playwright install --with-deps chromium",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run test:e2e",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Write evidence summary",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "results": {
+    "unitDatabasePassed": 91,
+    "browserPassed": 78,
+    "dependencyVulnerabilities": 0,
+    "secretScanTextFiles": 304,
+    "handoffHashes": 65,
+    "skills": 12,
+    "preservedOriginalPNGs": 20,
+    "authorizedRemovedPNGs": 1,
+    "registeredAdditions": 5
+  },
+  "deployment": {
+    "performed": false,
+    "mainMerged": false,
+    "implementedPublicUrl": null
+  },
+  "limits": "Clean synthetic CI is not independent proof of hosted signed-session writes, enrolled-AAL1 denial, controlled deletion, actual public OAuth, physical PWA/screen-reader or legal compliance. Encrypted backups explicitly cancelled; recovery untested."
+}
