@@ -2,61 +2,65 @@
   "schema_version": 1,
   "project": "RFT",
   "environment": "production",
-  "source_commit": "fb5fc33d8c27c94478445ccd4c6d72c3b8d250aa",
-  "reviewed_at": "2026-10-25T07:09:29.340Z",
+  "source_commit": "ea6666dba37f997aa14c79faa2df5669204737cd",
+  "reviewed_at": "2026-10-25T07:14:07.968Z",
   "cost_verified_zero": false,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
   "public_url": null,
-  "scope": "Mandatory A–E correction source fb5fc33: clean Linux CI 80/80 unit/database and 78/78 browser checks, actual 1448×1086 synthetic comparisons and measured artwork/layout. Historical recovery evidence remains narrower. Production blocked; designated identities preserved; no deletion authorized.",
+  "scope": "Owner-approved final EN/BM notices, scoped contrast repair, owner-amended release guard and actual partial hosted A/C reads. Local 91/91 tests and type/lint/build pass. Current source publication/clean CI pending. All remaining effective gates are mandatory; no implementation deployment.",
   "gates": {
     "G01": {
       "status": "pass",
-      "note": "Reviewed correction source is published in draft PR #1. Local HEAD/tracking/advertised SHA and tested PR merge/source Git trees agree; original handoff/skills/asset audit passes. Main unchanged.",
+      "note": "Frozen followup source ea6666d reviewed on the existing feature branch. Original handoff/skills/assets preserved; source and screenshot receipts retained. Main and deployment remain unchanged; publication checkpoint follows.",
       "evidence": [
         "docs/pixel-fidelity-correction.md",
         "artifacts/pixel-fidelity/clean-ci-receipt.json",
         "artifacts/pixel-fidelity/clean-ci-excerpt.log",
-        "artifacts/pixel-fidelity/delivery/source-manifest.json"
+        "artifacts/pixel-fidelity/delivery/source-manifest.json",
+        "artifacts/verification/production-followup-receipt.json"
       ],
       "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
-      "verified_at": "2026-10-25T02:26:55.314Z"
+      "verified_at": "2026-10-25T07:14:07.968Z"
     },
     "G02": {
-      "status": "pass",
-      "note": "Clean locked Linux CI passes fresh npm ci, typecheck, zero-warning lint, 80/80 unit/database tests, production build, source/browser custom secret scan and zero npm vulnerabilities. All job steps successful.",
+      "status": "blocked",
+      "note": "Fresh local typecheck/lint, 91/91 unit/database tests, production build, zero dependency vulnerabilities and custom scan pass for the followup source. Clean current-source Linux CI pending; older 80/78 CI is retained as historical evidence.",
       "evidence": [
         "docs/pixel-fidelity-correction.md",
         "artifacts/pixel-fidelity/clean-ci-receipt.json",
         "artifacts/pixel-fidelity/clean-ci-excerpt.log",
-        "artifacts/pixel-fidelity/delivery/source-manifest.json"
+        "artifacts/pixel-fidelity/delivery/source-manifest.json",
+        "artifacts/verification/production-followup-receipt.json"
       ],
       "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
-      "verified_at": "2026-10-25T02:26:55.314Z"
+      "verified_at": "2026-10-25T07:14:07.968Z"
     },
     "G03": {
       "status": "pass",
-      "note": "Current 80-test clean CI passes exact money/property/reconciliation tests, Malaysia month/day boundaries, large values, goals transport and reconciled public example. Literal contradictory reference values remain test-only display inputs.",
+      "note": "Current 80-test clean CI passes exact money/property/reconciliation tests, Malaysia month/day boundaries, large values, goals transport and reconciled public example. Literal contradictory reference values remain test-only display inputs. Followup local suite also passes 91/91; financial/Auth/API/migration source is unchanged from b934e09.",
       "evidence": [
         "docs/pixel-fidelity-correction.md",
         "artifacts/pixel-fidelity/clean-ci-receipt.json",
         "artifacts/pixel-fidelity/clean-ci-excerpt.log",
-        "artifacts/pixel-fidelity/delivery/source-manifest.json"
+        "artifacts/pixel-fidelity/delivery/source-manifest.json",
+        "artifacts/verification/production-followup-unit.log"
       ],
       "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
-      "verified_at": "2026-10-25T02:26:55.314Z"
+      "verified_at": "2026-10-25T07:14:07.968Z"
     },
     "G04": {
       "status": "pass",
-      "note": "Current clean CI passes isolated PostgreSQL atomic transfer, historical edit/date, FK/ownership, exact goals, synthetic restore and cascade tests. Hosted operational recovery remains separate and blocked.",
+      "note": "Current clean CI passes isolated PostgreSQL atomic transfer, historical edit/date, FK/ownership, exact goals, synthetic restore and cascade tests. Hosted operational recovery remains separate and blocked. Followup local suite also passes 91/91; financial/Auth/API/migration source is unchanged from b934e09.",
       "evidence": [
         "docs/pixel-fidelity-correction.md",
         "artifacts/pixel-fidelity/clean-ci-receipt.json",
         "artifacts/pixel-fidelity/clean-ci-excerpt.log",
-        "artifacts/pixel-fidelity/delivery/source-manifest.json"
+        "artifacts/pixel-fidelity/delivery/source-manifest.json",
+        "artifacts/verification/production-followup-unit.log"
       ],
       "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
-      "verified_at": "2026-10-25T02:26:55.314Z"
+      "verified_at": "2026-10-25T07:14:07.968Z"
     },
     "G05": {
       "status": "blocked",
@@ -142,16 +146,17 @@
       "verified_at": "2026-10-24T04:01:51Z"
     },
     "G12": {
-      "status": "blocked",
-      "note": "Production configuration is metadata-verified in exact Vercel project/team: server-only key stored as Production Secret, public config targets Production only, no Preview/Development credentials. Server key validated read-only; Google-only provider settings read. Standard Protection protects previews/deployment URLs. Main PR/verify/deletion/force-push rules remain active. Intended public OAuth/callback and other hosted launch checks remain outstanding.",
+      "status": "pass",
+      "note": "Current authenticated GitHub read confirms Active default-branch PR/verify/deletion/force-push rules, empty bypass actors and current_user_can_bypass never. Vercel metadata confirms exact project/team, Production-only server Secret/config, no Preview/Development credentials and Standard Protection. Custom source/browser scan passes and safe logging checked. Public OAuth and other release gates remain separate; no implementation deployed.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-final-receipt.md",
         "artifacts/verification/main-protection-receipt.json",
-        "artifacts/verification/production-preparation-receipt.json"
+        "artifacts/verification/production-preparation-receipt.json",
+        "artifacts/verification/production-infrastructure-followup.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-25T03:02:49.901Z"
+      "verified_at": "2026-10-25T07:14:07.968Z"
     },
     "G13": {
       "status": "blocked",

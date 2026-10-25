@@ -1,0 +1,106 @@
+{
+  "checkedAt": "2026-10-25T07:14:04.352Z",
+  "gitHub": {
+    "repository": "ismailabs/rft",
+    "rulesetId": 25783124,
+    "enforcement": "active",
+    "defaultBranchTarget": [
+      "~DEFAULT_BRANCH"
+    ],
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "type": "pull_request"
+      },
+      {
+        "type": "required_status_checks",
+        "requiredChecks": [
+          {
+            "context": "verify",
+            "integration_id": 15368
+          }
+        ]
+      }
+    ],
+    "bypassActors": [],
+    "currentUserCanBypass": "never"
+  },
+  "vercel": {
+    "project": {
+      "id": "prj_eM0EcPUzjg3G31h4jc6uhfo60dBo",
+      "name": "rft",
+      "accountId": "team_y1FMLs1LWgVb2dOvegEGYVkf",
+      "ssoProtection": {
+        "enabled": true,
+        "deploymentType": "prod_deployment_urls_and_all_previews"
+      },
+      "passwordProtection": {
+        "enabled": false,
+        "deploymentType": null
+      },
+      "trustedIps": {
+        "enabled": false,
+        "deploymentType": null,
+        "addresses": [],
+        "protectionMode": null
+      }
+    },
+    "environmentMetadata": [
+      {
+        "key": "RFT_PUBLIC_RELEASE_READY",
+        "type": "encrypted",
+        "target": [
+          "production"
+        ]
+      },
+      {
+        "key": "SUPABASE_SECRET_KEY",
+        "type": "sensitive",
+        "target": [
+          "production"
+        ]
+      },
+      {
+        "key": "NEXT_PUBLIC_APP_ORIGIN",
+        "type": "encrypted",
+        "target": [
+          "production"
+        ]
+      },
+      {
+        "key": "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
+        "type": "encrypted",
+        "target": [
+          "production"
+        ]
+      },
+      {
+        "key": "NEXT_PUBLIC_SUPABASE_URL",
+        "type": "encrypted",
+        "target": [
+          "production"
+        ]
+      }
+    ],
+    "deployments": [
+      {
+        "state": "READY",
+        "target": "production",
+        "sha": "c669f6ea616d266e6d433efec4cf4ac9853602a2"
+      }
+    ]
+  },
+  "secrets": {
+    "decryptRequested": false,
+    "valuesPublished": false,
+    "privilegedBrowserExposure": false,
+    "customScan": "303 source text files plus browser output; configured privileged patterns absent"
+  },
+  "productionImplementationDeployed": false,
+  "publicImplementationUrl": null
+}
