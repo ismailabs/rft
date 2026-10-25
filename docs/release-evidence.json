@@ -3,7 +3,7 @@
   "project": "RFT",
   "environment": "production",
   "source_commit": "ea6666dba37f997aa14c79faa2df5669204737cd",
-  "reviewed_at": "2026-10-25T08:53:50.000Z",
+  "reviewed_at": "2026-10-25T09:04:20.427Z",
   "cost_verified_zero": false,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
@@ -26,7 +26,7 @@
   "gates": {
     "G01": {
       "status": "pass",
-      "note": "Followup source ea6666d published through f1adca4 on the existing feature branch. Local/tracking/advertised SHA and tested PR merge/source trees match; reviewed diffs and all original handoff/skills/assets preserved. Main unchanged.",
+      "note": "Published 7bf8d9e has matching local/tracking/advertised feature refs and the exact same tree as tested PR merge 2d14b7c. Main remains c669f6e; preserved handoff/skills/assets audit passes. Subsequent evidence-only updates keep frozen application/test/release source ea6666d unchanged.",
       "evidence": [
         "docs/pixel-fidelity-correction.md",
         "artifacts/pixel-fidelity/clean-ci-receipt.json",
@@ -34,14 +34,16 @@
         "artifacts/pixel-fidelity/delivery/source-manifest.json",
         "artifacts/verification/production-followup-receipt.json",
         "artifacts/verification/production-followup-ci-receipt.json",
-        "artifacts/verification/production-followup-ci-excerpt.log"
+        "artifacts/verification/production-followup-ci-excerpt.log",
+        "artifacts/verification/protected-preview-ci-receipt.json",
+        "artifacts/verification/protected-preview-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
-      "verified_at": "2026-10-25T07:21:12.121Z"
+      "verified_at": "2026-10-25T09:04:20.427Z"
     },
     "G02": {
       "status": "pass",
-      "note": "Clean PR CI 40172076825 (inspected job 121104845350) and push CI 40172071567 both succeed for f1adca4: fresh locked install, typecheck, zero-warning lint, 91/91 unit/database tests, production build, 304-file custom/browser secret scan, zero dependency vulnerabilities and 78/78 Chromium checks. Tested merge/source trees agree; frozen application source ea6666d is unchanged.",
+      "note": "Clean PR CI 40178711604, inspected job 121124935155 for 7bf8d9e, passes every step: locked install, typecheck, zero-warning lint, 91/91 unit/database, production build, 313-file custom/browser secret scan, zero dependency vulnerabilities and 78/78 Chromium checks. Source/tested-merge tree equality verified; frozen application/test/release source ea6666d unchanged.",
       "evidence": [
         "docs/pixel-fidelity-correction.md",
         "artifacts/pixel-fidelity/clean-ci-receipt.json",
@@ -49,10 +51,12 @@
         "artifacts/pixel-fidelity/delivery/source-manifest.json",
         "artifacts/verification/production-followup-receipt.json",
         "artifacts/verification/production-followup-ci-receipt.json",
-        "artifacts/verification/production-followup-ci-excerpt.log"
+        "artifacts/verification/production-followup-ci-excerpt.log",
+        "artifacts/verification/protected-preview-ci-receipt.json",
+        "artifacts/verification/protected-preview-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
-      "verified_at": "2026-10-25T07:21:12.121Z"
+      "verified_at": "2026-10-25T09:04:20.427Z"
     },
     "G03": {
       "status": "pass",
