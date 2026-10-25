@@ -8,10 +8,16 @@ export async function capture(
   options: NonNullable<Parameters<Page["screenshot"]>[0]> & { path: string },
 ) {
   const { path: destination, ...settings } = options;
-  const target = path.resolve(destination),
+  const original = path.resolve(destination),
     root = path.resolve("artifacts");
-  const relative = path.relative(root, target);
+  const relative = path.relative(root, original);
   if (relative.startsWith("..") || path.isAbsolute(relative))
+    throw new Error("Screenshot target must remain under artifacts");
+  const target = process.env.RFT_CAPTURE_ROOT
+    ? path.resolve(process.env.RFT_CAPTURE_ROOT, relative)
+    : original;
+  const finalRelative = path.relative(root, target);
+  if (finalRelative.startsWith("..") || path.isAbsolute(finalRelative))
     throw new Error("Screenshot target must remain under artifacts");
   const bytes = await page.screenshot(settings);
   await mkdir(path.dirname(target), { recursive: true });

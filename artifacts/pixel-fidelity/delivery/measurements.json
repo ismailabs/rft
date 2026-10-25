@@ -1,0 +1,513 @@
+{
+  "referenceUncertaintyPixels": "approximately 1–2",
+  "note": "Geometry diagnostic only; no pixel-perfect or similarity-percentage claim.",
+  "rows": [
+    {
+      "screen": "A",
+      "panel": "balance",
+      "reference": [
+        285,
+        182,
+        712,
+        140
+      ],
+      "actual": [
+        285,
+        182,
+        712.71875,
+        140
+      ],
+      "delta": [
+        0,
+        0,
+        0.719,
+        0
+      ],
+      "maxAbsoluteDelta": 0.719
+    },
+    {
+      "screen": "A",
+      "panel": "flows",
+      "reference": [
+        285,
+        338,
+        712,
+        117
+      ],
+      "actual": [
+        285,
+        338,
+        712.71875,
+        117
+      ],
+      "delta": [
+        0,
+        0,
+        0.719,
+        0
+      ],
+      "maxAbsoluteDelta": 0.719
+    },
+    {
+      "screen": "A",
+      "panel": "monthly",
+      "reference": [
+        285,
+        471,
+        712,
+        264
+      ],
+      "actual": [
+        285,
+        471,
+        712.71875,
+        264
+      ],
+      "delta": [
+        0,
+        0,
+        0.719,
+        0
+      ],
+      "maxAbsoluteDelta": 0.719
+    },
+    {
+      "screen": "A",
+      "panel": "recent",
+      "reference": [
+        285,
+        751,
+        712,
+        305
+      ],
+      "actual": [
+        285,
+        751,
+        712.71875,
+        305
+      ],
+      "delta": [
+        0,
+        0,
+        0.719,
+        0
+      ],
+      "maxAbsoluteDelta": 0.719
+    },
+    {
+      "screen": "A",
+      "panel": "accounts",
+      "reference": [
+        1012,
+        182,
+        407,
+        484
+      ],
+      "actual": [
+        1012.71875,
+        182,
+        407.28125,
+        484
+      ],
+      "delta": [
+        0.719,
+        0,
+        0.281,
+        0
+      ],
+      "maxAbsoluteDelta": 0.719
+    },
+    {
+      "screen": "A",
+      "panel": "insights",
+      "reference": [
+        1012,
+        683,
+        407,
+        372
+      ],
+      "actual": [
+        1012.71875,
+        683,
+        407.28125,
+        372
+      ],
+      "delta": [
+        0.719,
+        0,
+        0.281,
+        0
+      ],
+      "maxAbsoluteDelta": 0.719
+    },
+    {
+      "screen": "B",
+      "panel": "filters",
+      "reference": [
+        277,
+        183,
+        783,
+        260
+      ],
+      "actual": [
+        277,
+        183,
+        783,
+        260
+      ],
+      "delta": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxAbsoluteDelta": 0
+    },
+    {
+      "screen": "B",
+      "panel": "history",
+      "reference": [
+        277,
+        457,
+        783,
+        576
+      ],
+      "actual": [
+        277,
+        457,
+        783,
+        576
+      ],
+      "delta": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxAbsoluteDelta": 0
+    },
+    {
+      "screen": "B",
+      "panel": "composer",
+      "reference": [
+        1076,
+        95,
+        365,
+        950
+      ],
+      "actual": [
+        1075,
+        95,
+        365,
+        950.71875
+      ],
+      "delta": [
+        -1,
+        0,
+        0,
+        0.719
+      ],
+      "maxAbsoluteDelta": 1
+    },
+    {
+      "screen": "C",
+      "panel": "balance",
+      "reference": [
+        285,
+        183,
+        697,
+        140
+      ],
+      "actual": [
+        285,
+        183,
+        697,
+        140
+      ],
+      "delta": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxAbsoluteDelta": 0
+    },
+    {
+      "screen": "C",
+      "panel": "accounts",
+      "reference": [
+        285,
+        338,
+        697,
+        414
+      ],
+      "actual": [
+        285,
+        339,
+        697,
+        414
+      ],
+      "delta": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "maxAbsoluteDelta": 1
+    },
+    {
+      "screen": "C",
+      "panel": "recent",
+      "reference": [
+        285,
+        769,
+        697,
+        292
+      ],
+      "actual": [
+        285,
+        769,
+        697,
+        292
+      ],
+      "delta": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxAbsoluteDelta": 0
+    },
+    {
+      "screen": "C",
+      "panel": "transfer",
+      "reference": [
+        997,
+        183,
+        423,
+        619
+      ],
+      "actual": [
+        997,
+        183,
+        423,
+        619
+      ],
+      "delta": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxAbsoluteDelta": 0
+    },
+    {
+      "screen": "C",
+      "panel": "summary",
+      "reference": [
+        997,
+        818,
+        423,
+        243
+      ],
+      "actual": [
+        997,
+        818,
+        423,
+        243
+      ],
+      "delta": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxAbsoluteDelta": 0
+    },
+    {
+      "screen": "D",
+      "panel": "summary",
+      "reference": [
+        286,
+        183,
+        1134,
+        158
+      ],
+      "actual": [
+        286,
+        183,
+        1134,
+        158
+      ],
+      "delta": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxAbsoluteDelta": 0
+    },
+    {
+      "screen": "D",
+      "panel": "categories",
+      "reference": [
+        286,
+        356,
+        610,
+        334
+      ],
+      "actual": [
+        286,
+        356,
+        609.453125,
+        334
+      ],
+      "delta": [
+        0,
+        0,
+        -0.547,
+        0
+      ],
+      "maxAbsoluteDelta": 0.547
+    },
+    {
+      "screen": "D",
+      "panel": "comparison",
+      "reference": [
+        910,
+        356,
+        511,
+        334
+      ],
+      "actual": [
+        909.453125,
+        356,
+        510.546875,
+        334
+      ],
+      "delta": [
+        -0.547,
+        0,
+        -0.453,
+        0
+      ],
+      "maxAbsoluteDelta": 0.547
+    },
+    {
+      "screen": "D",
+      "panel": "budgets",
+      "reference": [
+        286,
+        704,
+        593,
+        350
+      ],
+      "actual": [
+        286,
+        704,
+        591.9375,
+        350
+      ],
+      "delta": [
+        0,
+        0,
+        -1.063,
+        0
+      ],
+      "maxAbsoluteDelta": 1.063
+    },
+    {
+      "screen": "D",
+      "panel": "goals",
+      "reference": [
+        891,
+        704,
+        530,
+        350
+      ],
+      "actual": [
+        890.9375,
+        704,
+        529.0625,
+        350
+      ],
+      "delta": [
+        -0.063,
+        0,
+        -0.938,
+        0
+      ],
+      "maxAbsoluteDelta": 0.938
+    },
+    {
+      "screen": "E",
+      "panel": "hero",
+      "reference": [
+        0,
+        77,
+        1448,
+        566
+      ],
+      "actual": [
+        0,
+        77,
+        1448,
+        566
+      ],
+      "delta": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxAbsoluteDelta": 0
+    },
+    {
+      "screen": "E",
+      "panel": "preview",
+      "reference": [
+        623,
+        104,
+        766,
+        522
+      ],
+      "actual": [
+        622.640625,
+        104,
+        765.984375,
+        521.984375
+      ],
+      "delta": [
+        -0.359,
+        0,
+        -0.016,
+        -0.016
+      ],
+      "maxAbsoluteDelta": 0.359
+    },
+    {
+      "screen": "E",
+      "panel": "features",
+      "reference": [
+        56,
+        936,
+        1334,
+        124
+      ],
+      "actual": [
+        56.03125,
+        936,
+        1334.0625,
+        124
+      ],
+      "delta": [
+        0.031,
+        0,
+        0.063,
+        0
+      ],
+      "maxAbsoluteDelta": 0.063
+    }
+  ],
+  "maxAbsoluteDeltaPixels": 1.063
+}

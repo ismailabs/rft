@@ -1,0 +1,610 @@
+{
+  "viewport": {
+    "width": 1448,
+    "height": 1086,
+    "dpr": 1
+  },
+  "screens": {
+    "A": {
+      "fontStatus": "loaded",
+      "devicePixelRatio": 1,
+      "scrollWidth": 1448,
+      "boxes": [
+        {
+          "selector": "app-sidebar",
+          "x": 0,
+          "y": 0,
+          "width": 255,
+          "height": 1086,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(251, 252, 253)",
+          "radius": "0px",
+          "padding": "22px 13px 24px"
+        },
+        {
+          "selector": "app-header",
+          "x": 255,
+          "y": 0,
+          "width": 1193,
+          "height": 77,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "0px",
+          "padding": "12px 38px 12px 30px"
+        },
+        {
+          "selector": "page-heading",
+          "title": "Good morning, Amirul",
+          "x": 285,
+          "y": 97,
+          "width": 1135,
+          "height": 66,
+          "font": "Roboto, sans-serif",
+          "background": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "padding": "0px"
+        },
+        {
+          "selector": "balance-summary",
+          "x": 285,
+          "y": 182,
+          "width": 712.71875,
+          "height": 140,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "22px 22px 18px"
+        },
+        {
+          "selector": "metric-grid",
+          "x": 285,
+          "y": 338,
+          "width": 712.71875,
+          "height": 117,
+          "font": "Roboto, sans-serif",
+          "background": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "padding": "0px"
+        },
+        {
+          "selector": "rft-panel monthly-panel",
+          "title": "Income vs Expenses",
+          "x": 285,
+          "y": 471,
+          "width": 712.71875,
+          "height": 264,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "13px 21px 18px"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Last 7 days",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "18px 21px"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Top Categories",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "18px 21px"
+        },
+        {
+          "selector": "rft-panel recent-transactions",
+          "title": "Recent Transactions",
+          "x": 285,
+          "y": 751,
+          "width": 712.71875,
+          "height": 305,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "12px 21px 18px"
+        },
+        {
+          "selector": "rft-panel dashboard-accounts",
+          "title": "Accounts",
+          "x": 1012.71875,
+          "y": 182,
+          "width": 407.28125,
+          "height": 484,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "17px 21px 18px"
+        },
+        {
+          "selector": "rft-panel dashboard-insights",
+          "title": "Insights",
+          "x": 1012.71875,
+          "y": 683,
+          "width": 407.28125,
+          "height": 372,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "18px 21px 3px"
+        }
+      ],
+      "missingImages": [],
+      "errors": []
+    },
+    "B": {
+      "fontStatus": "loaded",
+      "devicePixelRatio": 1,
+      "scrollWidth": 1448,
+      "boxes": [
+        {
+          "selector": "app-sidebar",
+          "x": 0,
+          "y": 0,
+          "width": 255,
+          "height": 1086,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(251, 252, 253)",
+          "radius": "0px",
+          "padding": "22px 13px 24px"
+        },
+        {
+          "selector": "app-header",
+          "x": 255,
+          "y": 0,
+          "width": 1193,
+          "height": 77,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "0px",
+          "padding": "12px 38px 12px 30px"
+        },
+        {
+          "selector": "page-heading",
+          "title": "Transactions",
+          "x": 284,
+          "y": 98,
+          "width": 770,
+          "height": 66,
+          "font": "Roboto, sans-serif",
+          "background": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "padding": "0px"
+        },
+        {
+          "selector": "rft-panel transaction-controls",
+          "x": 277,
+          "y": 183,
+          "width": 783,
+          "height": 260,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "14px"
+        },
+        {
+          "selector": "rft-panel ",
+          "x": 277,
+          "y": 457,
+          "width": 783,
+          "height": 576,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "10px 14px 17px 18px"
+        },
+        {
+          "selector": "desktop-composer rft-panel",
+          "title": "Add Transaction",
+          "x": 1075,
+          "y": 95,
+          "width": 365,
+          "height": 950.71875,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "22px 20px"
+        }
+      ],
+      "missingImages": [],
+      "errors": []
+    },
+    "C": {
+      "fontStatus": "loaded",
+      "devicePixelRatio": 1,
+      "scrollWidth": 1448,
+      "boxes": [
+        {
+          "selector": "app-sidebar",
+          "x": 0,
+          "y": 0,
+          "width": 255,
+          "height": 1086,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(251, 252, 253)",
+          "radius": "0px",
+          "padding": "22px 13px 24px"
+        },
+        {
+          "selector": "app-header",
+          "x": 255,
+          "y": 0,
+          "width": 1193,
+          "height": 77,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "0px",
+          "padding": "12px 38px 12px 30px"
+        },
+        {
+          "selector": "page-heading",
+          "title": "Accounts & Transfer",
+          "x": 285,
+          "y": 98,
+          "width": 1135,
+          "height": 66,
+          "font": "Roboto, sans-serif",
+          "background": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "padding": "0px"
+        },
+        {
+          "selector": "balance-summary",
+          "x": 285,
+          "y": 183,
+          "width": 697,
+          "height": 140,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "22px 22px 18px"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Your Accounts",
+          "x": 285,
+          "y": 339,
+          "width": 697,
+          "height": 414,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "16px"
+        },
+        {
+          "selector": "rft-panel account-types-panel",
+          "title": "Accounts by Type",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "18px 21px"
+        },
+        {
+          "selector": "rft-panel recent-transactions",
+          "title": "Recent Account Transactions",
+          "x": 285,
+          "y": 769,
+          "width": 697,
+          "height": 292,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "12px 21px 18px"
+        },
+        {
+          "selector": "rft-panel desktop-composer",
+          "title": "Transfer Money",
+          "x": 997,
+          "y": 183,
+          "width": 423,
+          "height": 619,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "18px 21px"
+        },
+        {
+          "selector": "rft-panel desktop-account-summary",
+          "title": "Account Summary",
+          "x": 997,
+          "y": 818,
+          "width": 423,
+          "height": 243,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "18px 21px"
+        }
+      ],
+      "missingImages": [],
+      "errors": []
+    },
+    "D": {
+      "fontStatus": "loaded",
+      "devicePixelRatio": 1,
+      "scrollWidth": 1448,
+      "boxes": [
+        {
+          "selector": "app-sidebar",
+          "x": 0,
+          "y": 0,
+          "width": 255,
+          "height": 1086,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(251, 252, 253)",
+          "radius": "0px",
+          "padding": "22px 13px 24px"
+        },
+        {
+          "selector": "app-header",
+          "x": 255,
+          "y": 0,
+          "width": 1193,
+          "height": 77,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "0px",
+          "padding": "12px 38px 12px 30px"
+        },
+        {
+          "selector": "page-heading",
+          "title": "Insights & Budgets",
+          "x": 286,
+          "y": 98,
+          "width": 1134,
+          "height": 66,
+          "font": "Roboto, sans-serif",
+          "background": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "padding": "0px"
+        },
+        {
+          "selector": "rft-panel mobile-spending-trend",
+          "title": "Spending Trend",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "18px 21px"
+        },
+        {
+          "selector": "insight-summary-grid",
+          "x": 286,
+          "y": 183,
+          "width": 1134,
+          "height": 158,
+          "font": "Roboto, sans-serif",
+          "background": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "padding": "0px"
+        },
+        {
+          "selector": "factual-insight",
+          "x": 286,
+          "y": 183,
+          "width": 361.671875,
+          "height": 158,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "19px 15px 19px 21px"
+        },
+        {
+          "selector": "factual-insight",
+          "x": 660.671875,
+          "y": 183,
+          "width": 358.671875,
+          "height": 158,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "19px 15px 19px 21px"
+        },
+        {
+          "selector": "factual-insight",
+          "x": 1032.34375,
+          "y": 183,
+          "width": 387.65625,
+          "height": 158,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "19px 15px 19px 21px"
+        },
+        {
+          "selector": "rft-panel category-breakdown",
+          "title": "Expenses by Category",
+          "x": 286,
+          "y": 356,
+          "width": 609.453125,
+          "height": 334,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "16px 21px 18px"
+        },
+        {
+          "selector": "rft-panel monthly-panel",
+          "title": "Month-to-Month Comparison",
+          "x": 909.453125,
+          "y": 356,
+          "width": 510.546875,
+          "height": 334,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "16px 21px 18px"
+        },
+        {
+          "selector": "rft-panel budget-progress",
+          "title": "Budget Progress",
+          "x": 286,
+          "y": 704,
+          "width": 591.9375,
+          "height": 350,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "14px 21px 18px"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Goals Progress",
+          "x": 890.9375,
+          "y": 704,
+          "width": 529.0625,
+          "height": 350,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "14px 21px 11px 24px"
+        }
+      ],
+      "missingImages": [],
+      "errors": []
+    },
+    "E": {
+      "fontStatus": "loaded",
+      "devicePixelRatio": 1,
+      "scrollWidth": 1448,
+      "boxes": [
+        {
+          "selector": "concept-a-hero",
+          "title": "Track your money.A brighter tomorrow.",
+          "x": 0,
+          "y": 77,
+          "width": 1448,
+          "height": 566,
+          "font": "Roboto, sans-serif",
+          "background": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "padding": "27px 59.3594px 17px 62.25px"
+        },
+        {
+          "selector": "concept-a-copy",
+          "title": "Track your money.A brighter tomorrow.",
+          "x": 62.25,
+          "y": 138,
+          "width": 560.390625,
+          "height": 431,
+          "font": "Roboto, sans-serif",
+          "background": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "padding": "0px"
+        },
+        {
+          "selector": "desktop-preview-wrap",
+          "title": "Good morning, Amirul",
+          "x": 622.640625,
+          "y": 104,
+          "width": 765.984375,
+          "height": 521.984375,
+          "font": "Roboto, sans-serif",
+          "background": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "padding": "0px"
+        },
+        {
+          "selector": "preview-window",
+          "title": "Good morning, Amirul",
+          "x": 622.640625,
+          "y": 104,
+          "width": 765.984375,
+          "height": 521.984375,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "14px",
+          "padding": "0px"
+        },
+        {
+          "selector": "balance-summary",
+          "x": 788.2560424804688,
+          "y": 221.6025848388672,
+          "width": 350.99493408203125,
+          "height": 84.41816711425781,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "22px"
+        },
+        {
+          "selector": "metric-grid",
+          "x": 788.2560424804688,
+          "y": 318.6834716796875,
+          "width": 350.99493408203125,
+          "height": 73.86590576171875,
+          "font": "Roboto, sans-serif",
+          "background": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "padding": "0px"
+        },
+        {
+          "selector": "rft-panel monthly-panel",
+          "title": "Income vs Expenses",
+          "x": 788.2560424804688,
+          "y": 405.21209716796875,
+          "width": 350.99493408203125,
+          "height": 171.47442626953125,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "22px"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Accounts",
+          "x": 1149.275634765625,
+          "y": 221.6025848388672,
+          "width": 223.56787109375,
+          "height": 287.021728515625,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "22px"
+        },
+        {
+          "selector": "rft-panel dashboard-insights",
+          "title": "Insights",
+          "x": 1149.275634765625,
+          "y": 517.59375,
+          "width": 223.56787109375,
+          "height": 94.970458984375,
+          "font": "Roboto, sans-serif",
+          "background": "rgb(255, 255, 255)",
+          "radius": "12px",
+          "padding": "22px"
+        },
+        {
+          "selector": "feature-card-grid",
+          "x": 56.03125,
+          "y": 936,
+          "width": 1334.0625,
+          "height": 124,
+          "font": "Roboto, sans-serif",
+          "background": "rgba(0, 0, 0, 0)",
+          "radius": "0px",
+          "padding": "0px"
+        }
+      ],
+      "missingImages": [],
+      "errors": []
+    }
+  }
+}

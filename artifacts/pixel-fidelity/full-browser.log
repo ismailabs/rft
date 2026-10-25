@@ -1,0 +1,122 @@
+[WebServer] (node:17724) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:20152) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 72 tests using 1 worker
+
+(node:10376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference home at 390 (10.2s)
+  ok  2 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference home at 768 (5.7s)
+  ok  3 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference home at 1448 (4.8s)
+  ok  4 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference home at 1920 (6.1s)
+  ok  5 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference activity at 390 (4.7s)
+  ok  6 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference activity at 768 (5.3s)
+  ok  7 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference activity at 1448 (5.8s)
+  ok  8 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference activity at 1920 (6.3s)
+  ok  9 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference accounts at 390 (4.2s)
+  ok 10 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference accounts at 768 (4.4s)
+  ok 11 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference accounts at 1448 (4.8s)
+  ok 12 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference accounts at 1920 (5.2s)
+  ok 13 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference insights at 390 (6.5s)
+  ok 14 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference insights at 768 (4.6s)
+  ok 15 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference insights at 1448 (5.0s)
+  ok 16 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference insights at 1920 (5.6s)
+  ok 17 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference settings at 390 (4.1s)
+  ok 18 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference settings at 768 (3.8s)
+  ok 19 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference settings at 1448 (4.2s)
+  ok 20 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference settings at 1920 (4.5s)
+  ok 21 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference account at 390 (4.7s)
+  ok 22 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference account at 768 (7.4s)
+  ok 23 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference account at 1448 (7.5s)
+  ok 24 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference account at 1920 (6.9s)
+  ok 25 [chromium] › tests\e2e\fidelity.spec.ts:59:3 › Concept A reference at 1448 (6.1s)
+  ok 26 [chromium] › tests\e2e\fidelity.spec.ts:59:3 › Concept A reference at 1920 (4.4s)
+  ok 27 [chromium] › tests\e2e\fidelity.spec.ts:78:1 › savings goal preserves exact input through pending and failure, then refreshes saved progress (4.3s)
+  x  28 [chromium] › tests\e2e\fidelity.spec.ts:162:1 › transaction filters reset pagination and category chips select the actual field (3.1s)
+(node:14608) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 29 [chromium] › tests\e2e\fidelity.spec.ts:200:1 › mobile transfer preview preserves the combined total and displays exact after amounts (6.6s)
+  ok 30 [chromium] › tests\e2e\fidelity.spec.ts:229:3 › empty activity at 390 (5.1s)
+  ok 31 [chromium] › tests\e2e\fidelity.spec.ts:229:3 › empty accounts at 390 (4.8s)
+  ok 32 [chromium] › tests\e2e\fidelity.spec.ts:229:3 › empty insights at 390 (10.1s)
+  ok 33 [chromium] › tests\e2e\fidelity.spec.ts:229:3 › empty settings at 390 (14.0s)
+  ok 34 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference home: artwork, content and accessibility (9.3s)
+  ok 35 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference activity: artwork, content and accessibility (8.4s)
+  ok 36 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference accounts: artwork, content and accessibility (9.5s)
+  ok 37 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference insights: artwork, content and accessibility (16.4s)
+  ok 38 [chromium] › tests\e2e\pixel-correction.spec.ts:37:1 › description and optional note survive a failed save without changing exact money (5.8s)
+  ok 39 [chromium] › tests\e2e\pixel-correction.spec.ts:87:1 › transfer date can be cleared and restored without a false balance or lost precision (3.3s)
+  ok 40 [chromium] › tests\e2e\pixel-correction.spec.ts:108:1 › balance privacy and transaction selection preserve access to edit actions (5.2s)
+  ok 41 [chromium] › tests\e2e\pixel-correction.spec.ts:141:1 › account, goal and budget chevrons retain deletion confirmation without issuing writes (10.0s)
+  ok 42 [chromium] › tests\e2e\public.spec.ts:5:3 › public homepage at 320px (3.1s)
+  ok 43 [chromium] › tests\e2e\public.spec.ts:5:3 › public homepage at 375px (3.1s)
+  ok 44 [chromium] › tests\e2e\public.spec.ts:5:3 › public homepage at 430px (3.2s)
+  ok 45 [chromium] › tests\e2e\public.spec.ts:5:3 › public homepage at 768px (3.1s)
+  ok 46 [chromium] › tests\e2e\public.spec.ts:5:3 › public homepage at 1440px (4.6s)
+  ok 47 [chromium] › tests\e2e\public.spec.ts:29:1 › BM language, FAQ and public routes work (3.2s)
+  ok 48 [chromium] › tests\e2e\public.spec.ts:54:1 › protected pages and direct APIs fail closed without configuration/session (2.5s)
+  ok 49 [chromium] › tests\e2e\public.spec.ts:87:1 › PWA manifest and worker never cache finance responses (161ms)
+  ok 50 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated home UI at 320px (4.8s)
+  ok 51 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated home UI at 430px (3.5s)
+  ok 52 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated home UI at 1440px (6.4s)
+  ok 53 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated activity UI at 320px (3.9s)
+  ok 54 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated activity UI at 430px (3.7s)
+  ok 55 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated activity UI at 1440px (4.6s)
+  ok 56 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated accounts UI at 320px (4.0s)
+  ok 57 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated accounts UI at 430px (3.7s)
+  ok 58 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated accounts UI at 1440px (4.1s)
+  ok 59 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated insights UI at 320px (4.5s)
+  ok 60 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated insights UI at 430px (4.3s)
+  ok 61 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated insights UI at 1440px (5.8s)
+  ok 62 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated settings UI at 320px (3.8s)
+  ok 63 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated settings UI at 430px (3.8s)
+  ok 64 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated settings UI at 1440px (4.3s)
+  ok 65 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated categories UI at 320px (3.0s)
+  ok 66 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated categories UI at 430px (3.6s)
+  ok 67 [chromium] › tests\e2e\ui.spec.ts:14:5 › isolated categories UI at 1440px (5.3s)
+  ok 68 [chromium] › tests\e2e\ui.spec.ts:31:1 › entry sheet manages keyboard focus and preserves failed input (3.6s)
+  ok 69 [chromium] › tests\e2e\ui.spec.ts:72:1 › large balances and long financial rows stay readable at 320px (5.7s)
+  ok 70 [chromium] › tests\e2e\ui.spec.ts:90:1 › transfer rejects the same account before making a request (4.9s)
+[WebServer] 11:49:33 pm [vite] (client) [console.warn] You have Reduced Motion enabled on your device. Animations may not appear as expected.. For more information and steps for solving, visit https://motion.dev/troubleshooting/reduced-motion-disabled
+  ok 71 [chromium] › tests\e2e\ui.spec.ts:120:1 › empty BM and reduced motion remain usable (4.1s)
+  ok 72 [chromium] › tests\e2e\ui.spec.ts:138:1 › insight source entries reconcile and return focus (4.8s)
+
+
+  1) [chromium] › tests\e2e\fidelity.spec.ts:162:1 › transaction filters reset pagination and category chips select the actual field
+
+    Error: locator.selectOption: Error: strict mode violation: getByRole('combobox', { name: 'Reporting period', exact: true }) resolved to 2 elements:
+        1) <select>…</select> aka getByLabel('Reporting periodOct 1, 2026')
+        2) <select>…</select> aka getByLabel('Reporting periodAll')
+
+    Call log:
+      - waiting for getByRole('combobox', { name: 'Reporting period', exact: true })
+
+
+      167 |   await page
+      168 |     .getByRole("combobox", { name: "Reporting period", exact: true })
+    > 169 |     .selectOption("all");
+          |      ^
+      170 |   await page.getByRole("button", { name: "Next page", exact: true }).click();
+      171 |   await expect(page.locator(".table-pagination [aria-current]")).toHaveText(
+      172 |     "2",
+        at C:\Users\moham\OneDrive\Desktop\rft\tests\e2e\fidelity.spec.ts:169:6
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\fidelity-transaction-filte-e2bd7-ips-select-the-actual-field-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\fidelity-transaction-filte-e2bd7-ips-select-the-actual-field-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\fidelity-transaction-filte-e2bd7-ips-select-the-actual-field-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\fidelity-transaction-filte-e2bd7-ips-select-the-actual-field-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests\e2e\fidelity.spec.ts:162:1 › transaction filters reset pagination and category chips select the actual field
+  71 passed (6.7m)

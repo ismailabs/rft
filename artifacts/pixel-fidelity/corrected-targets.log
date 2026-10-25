@@ -1,0 +1,46 @@
+[WebServer] (node:17808) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:16504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:15852) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\pixel-correction.spec.ts:266:1 › budget management opens the existing form and preserves unsaved exact limits (8.5s)
+  x  2 [chromium] › tests\e2e\pixel-correction.spec.ts:290:1 › long desktop account records wrap without overlap or page overflow (3.2s)
+
+
+  1) [chromium] › tests\e2e\pixel-correction.spec.ts:290:1 › long desktop account records wrap without overlap or page overflow
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1448
+    Received: 1528
+
+      302 |   const amount = await card.locator(":scope > strong").boundingBox();
+      303 |   expect(amount!.y).toBeGreaterThanOrEqual(name!.y + name!.height - 1);
+    > 304 |   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(
+          |                                                                           ^
+      305 |     1448,
+      306 |   );
+      307 | });
+        at C:\Users\moham\OneDrive\Desktop\rft\tests\e2e\pixel-correction.spec.ts:304:75
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private\pixel-retry-results\pixel-correction-long-desk-a0480-ut-overlap-or-page-overflow-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts\private\pixel-retry-results\pixel-correction-long-desk-a0480-ut-overlap-or-page-overflow-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\private\pixel-retry-results\pixel-correction-long-desk-a0480-ut-overlap-or-page-overflow-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\private\pixel-retry-results\pixel-correction-long-desk-a0480-ut-overlap-or-page-overflow-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests\e2e\pixel-correction.spec.ts:290:1 › long desktop account records wrap without overlap or page overflow
+  1 passed (34.8s)

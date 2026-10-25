@@ -13,7 +13,7 @@ export const marketingExample: Snapshot = (() => {
     name,
     type: type as "bank" | "ewallet",
     provider: name,
-    opening_balance: i ? "250.00" : "1000.00",
+    opening_balance: ["-3770.90", "2850.00", "1200.00", "680.25", "430.00"][i],
     opened_at: "2026-05-01T00:00:00Z",
     archived: false,
   }));
@@ -30,6 +30,12 @@ export const marketingExample: Snapshot = (() => {
       type: "expense",
       archived: false,
     },
+    {
+      id: "illustration-food",
+      name: "Food & Beverage",
+      type: "expense",
+      archived: false,
+    },
   ];
   for (let month = 5; month <= 10; month++)
     for (const type of ["income", "expense"] as const)
@@ -39,13 +45,25 @@ export const marketingExample: Snapshot = (() => {
         category_id: `illustration-${type === "income" ? "income" : "spend"}`,
         subcategory_id: null,
         type,
-        amount:
-          type === "income"
-            ? `${2000 + month * 100}.00`
-            : `${1200 + month * 70}.00`,
+        amount: (type === "income"
+          ? ["5200.00", "5600.00", "5500.00", "5200.00", "5800.00", "5200.00"]
+          : ["3500.00", "4000.00", "3800.00", "3500.00", "3958.20", "2774.20"])[
+          month - 5
+        ],
         occurred_at: `2026-${String(month).padStart(2, "0")}-05T04:00:00Z`,
         note: `Sample ${type}`,
         planned: null,
       });
+  data.transactions.push({
+    id: "illustration-dining",
+    account_id: data.accounts[0].id,
+    category_id: "illustration-food",
+    subcategory_id: null,
+    type: "expense",
+    amount: "876.20",
+    occurred_at: "2026-10-18T04:00:00Z",
+    note: "Illustrative dining entries",
+    planned: null,
+  });
   return data;
 })();

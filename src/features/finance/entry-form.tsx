@@ -1,8 +1,15 @@
 "use client";
 import { useId, useRef, useState } from "react";
-import { ArrowDown, ArrowUp, ArrowLeftRight } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUp,
+  ArrowLeftRight,
+  CalendarDays,
+  ChevronDown,
+  MoreHorizontal,
+} from "lucide-react";
 import { balances } from "@/domain/finance/calculations";
-import { CategoryMark } from "./visual-components";
+import { CategoryMark, AccountMark } from "./visual-components";
 import { parseMoney, money } from "@/domain/finance/money";
 import type {
   Snapshot,
@@ -33,6 +40,17 @@ const localNow = () =>
   new Date(Date.now() + 8 * 3600000).toISOString().slice(0, 16);
 const localTime = (v: string) =>
   new Date(Date.parse(v) + 8 * 3600000).toISOString().slice(0, 16);
+function displayLocalDate(value: unknown, ms: boolean) {
+  const time = new Date(`${String(value)}+08:00`);
+  return Number.isNaN(time.getTime())
+    ? ms
+      ? "Pilih tarikh"
+      : "Choose a date"
+    : new Intl.DateTimeFormat(ms ? "ms-MY" : "en-MY", {
+        dateStyle: "medium",
+        timeZone: "Asia/Kuala_Lumpur",
+      }).format(time);
+}
 export function EntryForm({
   kind,
   data,
@@ -40,6 +58,10 @@ export function EntryForm({
   initial,
   onSave,
   onCancel,
+  defaultDateTime,
+  defaults,
+  placement = "dialog",
+  onDelete,
 }: {
   kind: FormKind;
   data: Snapshot;
@@ -47,6 +69,15 @@ export function EntryForm({
   initial?: Editable;
   onSave: (value: unknown) => Promise<void>;
   onCancel: () => void;
+  defaultDateTime?: string;
+  defaults?: {
+    account?: string;
+    category?: string;
+    destination?: string;
+    noteLimit?: 100;
+  };
+  placement?: "dialog" | "inline";
+  onDelete?: () => void;
 }) {
   const record:
     | {
@@ -67,15 +98,46 @@ export function EntryForm({
   const [type, setType] = useState<"income" | "expense">(
     record?.type === "income" ? "income" : "expense",
   );
-  const [categoryId, setCategoryId] = useState(record?.category_id || "");
+  const [categoryId, setCategoryId] = useState(
+    record?.category_id || defaults?.category || "",
+  );
+  const [entryAccount, setEntryAccount] = useState(
+    record?.account_id || defaults?.account || "",
+  );
+  const [additionalNote, setAdditionalNote] = useState("");
+  const [transactionAt, setTransactionAt] = useState(
+    record?.occurred_at
+      ? localTime(record.occurred_at)
+      : defaultDateTime
+        ? localTime(defaultDateTime)
+        : localNow,
+  );
   const [pending, setPending] = useState(false),
     [error, setError] = useState("");
   const requestId = useRef("");
   const [transferAmount, setTransferAmount] = useState("");
-  const [sourceId, setSourceId] = useState("");
-  const [destinationId, setDestinationId] = useState("");
-  const [transferAt, setTransferAt] = useState(localNow);
+  const [transferNote, setTransferNote] = useState("");
+  const [sourceId, setSourceId] = useState(defaults?.account || "");
+  const [destinationId, setDestinationId] = useState(
+    defaults?.destination || "",
+  );
+  const [transferAt, setTransferAt] = useState(
+    defaultDateTime ? localTime(defaultDateTime) : localNow,
+  );
   const uid = useId();
+  let transferBalances: Map<string, bigint> | null = null;
+  let transactionBalances: Map<string, bigint> | null = null;
+  try {
+    transferBalances = balances(data, localInstant(transferAt));
+  } catch {
+    /* A cleared date is an incomplete draft, not a zero balance. */
+  }
+  try {
+    if (kind === "transaction")
+      transactionBalances = balances(data, localInstant(transactionAt));
+  } catch {
+    /* Incomplete dates do not imply a recorded zero balance. */
+  }
   const goal = initial && "target_amount" in initial ? initial : undefined;
   const accounts = data.accounts.filter(
     (a) => !a.archived || a.id === record?.account_id,
@@ -90,7 +152,9 @@ export function EntryForm({
       className={`field field-${({ occurred_at: "date", note: "description", category_id: "category", subcategory_id: "subcategory", account_id: "account", planned: "reflection" } as Record<string, string>)[name] || name}`}
       htmlFor={`${uid}-${name}`}
     >
-      <span>{label}</span>
+      <span title={label}>
+        {label === d.date ? (d.home === "Utama" ? "Tarikh" : "Date") : label}
+      </span>
       {node}
     </label>
   );
@@ -99,7 +163,55 @@ export function EntryForm({
     label: string,
     props: React.InputHTMLAttributes<HTMLInputElement> = {},
   ) =>
-    field(name, label, <input id={`${uid}-${name}`} name={name} {...props} />);
+    field(
+      name,
+      label,
+      props.type === "datetime-local" ? (
+        <span className="datetime-field">
+          <span className="datetime-display" aria-hidden="true">
+            <CalendarDays size={19} />
+            {displayLocalDate(
+              props.value ?? props.defaultValue ?? localNow(),
+              d.home === "Utama",
+            )}
+            <ChevronDown size={16} />
+          </span>
+          <input
+            id={`${uid}-${name}`}
+            name={name}
+            aria-label={label}
+            {...props}
+          />
+        </span>
+      ) : name === "amount" ? (
+        <span className="money-input">
+          <input
+            id={`${uid}-${name}`}
+            name={name}
+            aria-label={label}
+            {...props}
+          />
+          <span className="currency-affix" aria-hidden="true">
+            RM
+          </span>
+        </span>
+      ) : name === "note" && kind === "transfer" ? (
+        <span className="transfer-note-input">
+          <input
+            id={`${uid}-${name}`}
+            name={name}
+            aria-label={label}
+            aria-describedby={`${uid}-note-count`}
+            {...props}
+          />
+          <small id={`${uid}-note-count`}>
+            {transferNote.length}/{props.maxLength || 300}
+          </small>
+        </span>
+      ) : (
+        <input id={`${uid}-${name}`} name={name} {...props} />
+      ),
+    );
   const select = (
     name: string,
     label: string,
@@ -109,14 +221,41 @@ export function EntryForm({
     field(
       name,
       label,
-      <select id={`${uid}-${name}`} name={name} {...props}>
-        <option value="">{d.none}</option>
-        {options.map((o) => (
-          <option key={o.id} value={o.id}>
-            {o.name}
-          </option>
-        ))}
-      </select>,
+      <span
+        className={`select-with-mark ${name === "source_id" || name === "destination_id" ? "transfer-account-select" : ""}`}
+      >
+        {(() => {
+          const selected = String(props.value || props.defaultValue || "");
+          const account = data.accounts.find((a) => a.id === selected);
+          const category = data.categories.find((c) => c.id === selected);
+          return account ? (
+            <>
+              <AccountMark account={account} />
+              {name === "source_id" || name === "destination_id" ? (
+                <span className="selected-account-detail" aria-hidden="true">
+                  <b>{account.name}</b>
+                  <small>
+                    {transferBalances
+                      ? money(transferBalances.get(account.id) || 0n)
+                      : "—"}
+                  </small>
+                </span>
+              ) : null}
+            </>
+          ) : category ? (
+            <CategoryMark name={category.name} type={category.type} />
+          ) : null;
+        })()}
+        <select id={`${uid}-${name}`} name={name} {...props}>
+          <option value="">{d.none}</option>
+          {options.map((o) => (
+            <option key={o.id} value={o.id}>
+              {o.name}
+            </option>
+          ))}
+        </select>
+        <ChevronDown className="select-chevron" size={16} aria-hidden="true" />
+      </span>,
     );
   const typeField = field(
     "type",
@@ -189,7 +328,11 @@ export function EntryForm({
             archived: values.archived === "on",
           };
           break;
-        case "transaction":
+        case "transaction": {
+          const combinedNote = [values.note, values.additional_note]
+            .filter(Boolean)
+            .join("\n\n");
+          if (combinedNote.length > 300) throw new Error("NOTE_TOO_LONG");
           payload = {
             ...base,
             type,
@@ -198,11 +341,12 @@ export function EntryForm({
             category_id: categoryId,
             subcategory_id: values.subcategory_id || null,
             occurred_at: localInstant(String(values.occurred_at)),
-            note: values.note || "",
+            note: combinedNote,
             planned: values.planned === "" ? null : values.planned === "true",
             edit: !!record,
           };
           break;
+        }
         case "transfer":
           if (values.source_id === values.destination_id)
             throw new Error("SAME_ACCOUNT");
@@ -246,9 +390,13 @@ export function EntryForm({
     } catch (e) {
       const code = e instanceof Error ? e.message : "SERVER_UNAVAILABLE";
       setError(
-        code === "SAME_ACCOUNT"
-          ? d.sameAccount
-          : d.errors[code as keyof typeof d.errors] ||
+        code === "NOTE_TOO_LONG"
+          ? d.home === "Utama"
+            ? "Keterangan dan nota boleh mengandungi 300 aksara keseluruhannya. Pendekkan salah satu medan."
+            : "Description and note can contain 300 characters combined. Shorten either field."
+          : code === "SAME_ACCOUNT"
+            ? d.sameAccount
+            : d.errors[code as keyof typeof d.errors] ||
               d.errors.VALIDATION_FAILED,
       );
     } finally {
@@ -335,10 +483,19 @@ export function EntryForm({
               </button>
             ))}
           </div>
-          {select("account_id", d.account, accounts, {
-            required: true,
-            defaultValue: record?.account_id || "",
-          })}
+          {select(
+            "account_id",
+            d.account,
+            accounts.map((a) => ({
+              ...a,
+              name: `${a.name} (${transactionBalances ? money(transactionBalances.get(a.id) || 0n) : "—"})`,
+            })),
+            {
+              required: true,
+              value: entryAccount,
+              onChange: (e) => setEntryAccount(e.target.value),
+            },
+          )}
           {select("category_id", d.category, categories, {
             required: true,
             value: categoryId,
@@ -363,31 +520,82 @@ export function EntryForm({
           {input("occurred_at", d.date, {
             type: "datetime-local",
             required: true,
-            defaultValue: record?.occurred_at
-              ? localTime(record.occurred_at)
-              : localNow(),
-          })}
-          {input("note", d.note, {
-            maxLength: 300,
-            defaultValue: record?.note || "",
+            value: transactionAt,
+            onChange: (e) => setTransactionAt(e.target.value),
           })}
           {field(
-            "planned",
-            d.planned,
-            <select
-              id={`${uid}-planned`}
-              name="planned"
-              defaultValue={
-                record?.planned === null || !record
-                  ? ""
-                  : String(record.planned)
+            "note",
+            d.home === "Utama" ? "Keterangan" : "Description",
+            <textarea
+              id={`${uid}-note`}
+              name="note"
+              rows={1}
+              maxLength={300}
+              defaultValue={record?.note || ""}
+              placeholder={
+                d.home === "Utama"
+                  ? "cth. Jaya Grocer Mid Valley"
+                  : "e.g. Jaya Grocer Mid Valley"
               }
-            >
-              <option value="">{d.unspecified}</option>
-              <option value="true">{d.yesPlanned}</option>
-              <option value="false">{d.unplanned}</option>
-            </select>,
+            />,
           )}
+          <div className="transaction-notes">
+            {field(
+              "additional_note",
+              d.note,
+              <>
+                <textarea
+                  id={`${uid}-additional_note`}
+                  aria-label={d.note}
+                  name="additional_note"
+                  rows={4}
+                  maxLength={200}
+                  value={additionalNote}
+                  onChange={(e) => setAdditionalNote(e.target.value)}
+                  placeholder={
+                    d.home === "Utama"
+                      ? "Tambah nota atau rujukan…"
+                      : "Add a note, reference or other details…"
+                  }
+                />
+                <small className="note-count">
+                  {additionalNote.length}/200
+                </small>
+                <span className="sr-only">
+                  {d.home === "Utama"
+                    ? "Keterangan dan nota disimpan bersama, maksimum 300 aksara."
+                    : "Description and note are saved together, up to 300 characters combined."}
+                </span>
+              </>,
+            )}
+            <details className="reflection-options">
+              <summary>
+                <span>{d.planned}</span>
+                <MoreHorizontal
+                  className="reflection-more"
+                  size={20}
+                  aria-hidden="true"
+                />
+              </summary>
+              {field(
+                "planned",
+                d.planned,
+                <select
+                  id={`${uid}-planned`}
+                  name="planned"
+                  defaultValue={
+                    record?.planned === null || !record
+                      ? ""
+                      : String(record.planned)
+                  }
+                >
+                  <option value="">{d.unspecified}</option>
+                  <option value="true">{d.yesPlanned}</option>
+                  <option value="false">{d.unplanned}</option>
+                </select>,
+              )}
+            </details>
+          </div>
         </>
       ) : null}
       {kind === "transfer" ? (
@@ -404,13 +612,39 @@ export function EntryForm({
             onChange: (e) => setDestinationId(e.target.value),
           })}
           {amountField}
-          {input("occurred_at", d.date, {
-            type: "datetime-local",
-            required: true,
-            value: transferAt,
-            onChange: (e) => setTransferAt(e.target.value),
+          {placement === "inline" ? (
+            <details className="transfer-date-options">
+              <summary>{d.date}</summary>
+              <div className="transfer-date-content">
+                {input("occurred_at", d.date, {
+                  type: "datetime-local",
+                  required: true,
+                  value: transferAt,
+                  onChange: (e) => setTransferAt(e.target.value),
+                })}
+                <p>{d.transferHelp}</p>
+                <button type="button" className="text-link" onClick={onCancel}>
+                  {d.cancel}
+                </button>
+              </div>
+            </details>
+          ) : (
+            input("occurred_at", d.date, {
+              type: "datetime-local",
+              required: true,
+              value: transferAt,
+              onChange: (e) => setTransferAt(e.target.value),
+            })
+          )}
+          {input("note", d.note, {
+            maxLength: defaults?.noteLimit || 300,
+            value: transferNote,
+            onChange: (e) => setTransferNote(e.target.value),
+            placeholder:
+              d.home === "Utama"
+                ? "cth. Pindahan untuk belanja bulanan"
+                : "e.g. Transfer for monthly expenses",
           })}
-          {input("note", d.note, { maxLength: 300 })}
           <TransferPreview
             data={data}
             sourceId={sourceId}
@@ -513,6 +747,15 @@ export function EntryForm({
         </p>
       ) : null}
       <div className="form-actions">
+        {onDelete ? (
+          <button
+            type="button"
+            className="text-link danger-text"
+            onClick={onDelete}
+          >
+            {d.remove}
+          </button>
+        ) : null}
         <button
           type="button"
           className="button secondary"
@@ -522,7 +765,27 @@ export function EntryForm({
           {d.cancel}
         </button>
         <button type="submit" className="button" disabled={pending}>
-          {pending ? d.saving : d.save}
+          <span className="standard-save-label">
+            {pending ? d.saving : d.save}
+          </span>
+          {kind === "transaction" ? (
+            <span className="desktop-save-label">
+              {pending
+                ? d.saving
+                : d.home === "Utama"
+                  ? "Simpan transaksi"
+                  : "Save Transaction"}
+            </span>
+          ) : kind === "transfer" ? (
+            <span className="desktop-save-label">
+              <ArrowLeftRight size={21} />
+              {pending
+                ? d.saving
+                : d.home === "Utama"
+                  ? "Pindah wang"
+                  : "Transfer Money"}
+            </span>
+          ) : null}
         </button>
       </div>
     </form>

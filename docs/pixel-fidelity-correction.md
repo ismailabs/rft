@@ -1,0 +1,97 @@
+# A–E mandatory fidelity correction
+
+Status: corrected implementation and rendered comparison evidence prepared; final browser/CI verification in progress. **Production remains blocked. No pixel-perfect claim is made.** The preceding visual-recovery result was rejected by the owner; its CI receipts remain historical engineering evidence only.
+
+## Binding mapping
+
+All source files below are in `assets/`, are 1448 × 1086, and were opened at full available resolution. No alternative mockup was selected.
+
+| Screen                 | Original image suffix (2026-10-24) | Actual route        | Main corrections                                                                                             |
+| ---------------------- | ---------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------ |
+| A Dashboard            | `01_37_16 PM-1.png`                | `/app`              | 255 px rail, 77 px header, balance/flow/chart/table geometry, five brand marks, three distinct insight icons |
+| B Transactions         | `01_37_18 PM-3.png`                | `/app/transactions` | 783/365 px columns, filters, ten rows, selection, pagination, description/note form                          |
+| C Accounts & Transfers | `01_37_20 PM-4.png`                | `/app/accounts`     | 697/423 px columns, account cards, large source/destination pickers, transfer and account-summary placement  |
+| D Insights & Budgets   | `01_37_21 PM-5.png`                | `/app/insights`     | 158 px summary row, 334 px chart row, 350 px budget/goal row, category palette and Lucide icons              |
+| E Homepage Concept A   | `01_37_17 PM-2.png`                | `/`                 | Two-line hero, 766 × 522 desktop React preview, benefit strip and four feature cards                         |
+
+## Evidence and discrepancy log
+
+`artifacts/pixel-fidelity/before/` preserves the actual pre-correction renders, geometry and original baseline SHA 1a4896e. All captures use 1448 × 1086, DPR 1, with fonts ready. The old comparison fixture has different content; this limitation is not hidden.
+
+Local `pass-1` through `pass-9` and the superseded `final`/`final-reviewed` calibration folders preserve successive actual renders. They are ignored generated files, retained locally rather than adding every iteration's PNGs to Git. Pass 6 contains A–D only: E stalled during concurrent local verification, the read-only capture was stopped, and this incomplete run is not final evidence. The published before and delivery sets are the review evidence. The test-only banner no longer shifts the literal reference fixture by 26 px. Existing broader regression fixtures retain their explicit banner.
+
+Pass 1 exposed over-tall B rows/form, incorrect legend flex sizing and C transfer height. Pass 2 corrected the entry layout and artwork variants. Pass 3 exposes remaining typography, table, chart labels and preview-detail differences. These records do not certify pixel perfection.
+
+Pass 4 measurements identified a native chart select inheriting a 46 px minimum height, putting the dashboard chart title 11 px below its reference; a 170 px native minimum width overflowing the account-summary card; over-tall B table headers; and a 44 px budget action moving the progress rows down. The later calibration corrects those constraints, column widths, bar-pair spacing, labels, goal progress widths and the homepage preview's clipped insight-card corner. Long real account names/amounts expand their cards rather than overlap. B's category strip now has a keyboard-operable forward scroll button; chart amounts remain available by focus/hover on a fine pointer and visibly on touch devices.
+
+Measured reference panel targets (x/y/width/height, raster edges approximate within 1–2 px): A balance 285/182/712/140, monthly 285/471/712/264, recent 285/751/712/305, accounts 1012/182/407/484, insights 1012/683/407/372. B filter 277/183/783/260, history 277/457/783/576, composer 1076/95/365/950. C balance 285/183/697/140, accounts 285/338/697/414, recent 285/769/697/292, composer 997/183/423/619, summary 997/818/423/243. D summary y183/h158, charts y356/h334, budgets/goals y704/h350. E hero y77/h566, preview 623/104/766/522, feature grid 56/936/1334/124. The rail/header targets are 255/77 px. These are geometry measurements, not a claimed similarity percentage.
+
+The reviewed calibration measures 22 panel rectangles with a maximum absolute difference of 1.063 px from those raster targets. This diagnostic excludes glyph, icon and paint differences and is bounded by the manual raster-edge uncertainty. C's five date-row ink starts were 873/910/948/986/1024 px in the source; the earlier implementation drifted to 873/914/955/996/1037. Corrected rows start at 873/911/949/987/1025. Separate B/C input-border measurements then informed small flow corrections, preserving validation and optional-field expansion. The final delivery directory records the resulting actual screenshots, not a predicted render.
+
+## Before and corrected renders
+
+Every comparison is 2896 × 1086: the original approved 1448 × 1086 image on the left and the actual React render on the right, DPR 1 with fonts loaded. Before images use the same viewport but the older fixture content. Intermediate iterations are local calibration records; the delivery set is the current review target.
+
+| Screen | Pre-correction actual | Reference / corrected actual |
+| --- | --- | --- |
+| A | [Before](../artifacts/pixel-fidelity/before/A.png) | [Comparison](../artifacts/pixel-fidelity/delivery/A-comparison.png) |
+| B | [Before](../artifacts/pixel-fidelity/before/B.png) | [Comparison](../artifacts/pixel-fidelity/delivery/B-comparison.png) |
+| C | [Before](../artifacts/pixel-fidelity/before/C.png) | [Comparison](../artifacts/pixel-fidelity/delivery/C-comparison.png) |
+| D | [Before](../artifacts/pixel-fidelity/before/D.png) | [Comparison](../artifacts/pixel-fidelity/delivery/D-comparison.png) |
+| E | [Before](../artifacts/pixel-fidelity/before/E.png) | [Comparison](../artifacts/pixel-fidelity/delivery/E-comparison.png) |
+
+## Artwork and type
+
+`scripts/prepare-institution-artwork.mjs` crops the exact Maybank, CIMB, RHB, TNG eWallet and GrabPay marks from reference C. The standalone supplied variants were inspected but differ visibly from those marks. Netflix's small transaction mark is cropped from B. Original PNGs remain untouched. `public/institutions/provenance.json` records source/output hashes and crop coordinates. These are owner-supplied illustrations; no official licensing claim is invented. Unknown providers and cash retain semantic Lucide fallbacks.
+
+Insights use Lucide TrendingUp, Utensils and Calendar with green/amber/purple containers, plus Sparkles for the dashboard heading. Goal symbols use Plane, House and Laptop. Category and transaction symbols use the corresponding Lucide icons. Roboto is self-hosted from the pinned Fontsource package as the closest measured glyph treatment; the raster sources do not identify an original font file.
+
+The same crop script also preserves the shaded RFT leaf from C at 35 × 47 px. The prior flat SVG did not reproduce that artwork. It is used by the shared Brand component and the React preview, with decorative empty alternative text next to the written brand name.
+
+## Synthetic boundary and truthful differences
+
+The literal comparison snapshot lives only in `tests/browser-ui/reference-sample.ts`. Its display inputs never enter domain calculations or mutations. Authenticated Next routes do not supply those inputs and cannot activate this host through a URL parameter.
+
+The references disagree internally: A/C headline 12,480.75 versus five-account sum 11,480.75; D's Others amount is 12% of its total but labeled 22%, and the shown percentages sum to 110%; B's two visible income entries total 6,000 while A's income card is 5,200. Literal display overrides are confined to the isolated test illustration. Production keeps exact bigint calculations. The public labeled example uses internally reconciled values rather than copying conflicting totals.
+
+The reference chart's original data are unavailable; synthetic monthly values are inferred from measured raster bar heights and are only illustrative. Exact original series precision is not asserted. B's shortened Bills label is specific to that isolated fixture. Reference account numbers/phone-like strings are synthetic presentation inputs only, absent from authenticated routes. Direct bigint ratio formatting fixes a discovered double-rounding error (GrabPay's calculated share is 3.7%, not 3.8%).
+
+D's wedge boundaries were separately sampled from the raster: approximately 0/84.5/142.75/188.5/228/257.5/289.5/360 degrees clockwise. They disagree with both its printed percentages and its amounts. The isolated fixture therefore has measured arc weights distinct from its literal labels. Authenticated charts receive neither override and derive their arcs and labels from exact records. The seven category colors are source-ring median samples: `#52b788`, `#fe796f`, `#609efd`, `#fdc742`, `#ba89fc`, `#79cafe`, `#cfd4de`.
+
+Approved white Google buttons remain. Manual account recording replaces unsupported live linking, Data export replaces unsupported Recurring, and transfer date/time access replaces unsupported transfers to external recipients. No fake unread notification, testimonial, rating, user count or live-bank claim is added.
+
+Remaining fidelity limits: the raster does not provide an original font file or vector icon set. Self-hosted Roboto and the closest correct Lucide shapes retain small glyph/stroke/antialiasing differences; the raster's subtle paint texture and sparkline curvature are not identical. There is no claimed percentage similarity. The approved Google branding exception, honest copy, language control, illustrative/manual label, functional chart-data access and scope-correct controls remain intentional differences. The production/public example also keeps reconciled figures rather than reproducing contradictory source totals. These limits are recorded rather than concealed as pixel perfection.
+
+An accessibility check found the initially sampled blue management text at 3.97:1 on white. Interactive Budget/Clear Filters text uses the close blue `#2269df` at approximately 5.05:1 instead; the repair passed both affected axe checks. The reference's treatment is retained without waiving the mandatory accessibility gate. C's Manage button opens a functional account-management dialog; B's filter controls, boxed Clear Filters and dynamic Showing count follow the source.
+
+Description and optional Note share the existing persisted note field, separated by two newlines, with a validated 300-character combined maximum. Existing notes and API/schema contracts are preserved. Optional reflection remains accessible. No database migration, auth-policy change, hosted write, identity deletion, upload, merge or deployment is part of this correction.
+
+## Verification receipts and checkpoint limits
+
+Intermediate checkpoints passed the complete 80-test unit/database suite, typecheck, lint, build, handoff audit and custom secret scan. An earlier full browser run passed 71/72; its sole failure was a duplicate reporting-period label, now corrected by naming the transaction-date filter distinctly. An earlier scoped run passed 8/8. Those receipts precede the latest calibration and controls and do not verify them.
+
+The first fresh run in `artifacts/pixel-fidelity/fresh-verify.log` stopped at PGlite setup timeouts: 63 tests passed, 17 did not execute; both setup hooks exceeded the existing 30-second limit while Windows reported about 13 MB free physical memory. No assertion was relaxed or timeout raised. The owned preview/capture were stopped. The serial run passed 65 tests but still exceeded the database setup limit; an isolated retry then passed all 15 database tests in 13.8 seconds. Finally, the complete unchanged-source run `artifacts/pixel-fidelity/verified-source.log` passed: all 80 tests, typecheck, zero-warning lint, production build, original handoff/skills/asset audit and custom source/browser secret scan (248 text files; not Gitleaks). The earlier failures remain recorded.
+
+The current full browser run recorded 76/78 passes over 8.5 minutes. Both failing new checks initially had incorrect selectors; after those were corrected, the large-account stress check exposed a real 80 px overflow in the account-summary legend and a clipped headline amount. Dynamic expanded layouts now stack exceptionally long names/amounts without changing normal reference geometry. The repaired run passes both budget management and the stronger stress check, including the complete exact headline value, no card/legend text overlap, and no page overflow. Receipts: `current-browser.json/log`, `corrected-targets.json/log`, `stress-repair.json/log`. Regression renders cover 320, 375, 390, 430, 768, 1440, 1448 and 1920 px, EN/BM, empty states, reduced motion, keyboard/forms, exact transfer previews, safe error retention, anonymous protected-route failures and PWA privacy. No real hosted identity or record was changed.
+
+The next complete local run `final-source-verify.log` passed all 80 tests, typecheck, lint, build and custom scan (257 text files). `final-browser-scope` passed 14/14 enhanced checks, and `final-responsive` passed 18/18 checks after row/column calibration. The last input-border-only CSS correction is being rechecked: the combined run again exceeded the unchanged PGlite setup limit (65 passed, 15 not executed); its isolated database retry passed all 15. Build and final browser receipts are recorded separately. No skipped tests are counted as passes, and the complete current CI remains required before publication is described as verified.
+
+The complete `publication-verify.log` subsequently passed all 80 tests and every check, and `ready-source-verify.log` passed again after restoring C's functional Manage Accounts dialog, B's reference filter widths/boxed Clear Filters and count wording, and D's blue management link. The source remains frozen for final screenshots and browser checks. One resource-constrained scoped attempt recorded 12/14 passes with two 30-second timeouts (axe evaluation and dialog opening), not assertion failures; the earlier 14/14 and 18/18 receipts are retained with their checkpoint limits. A reused-browser E capture timeout was resolved by closing each capture browser before starting the next screen; no timeout or assertion was weakened. Full current CI remains the engineering publication gate.
+
+The next scoped run recorded 11/14: two timeouts and one actual contrast failure on Manage Budgets. `contrast-repair.json/log` then passed 2/2 for activity and insights after the blue correction. The failure is not misclassified as a resource error. Source and browser assertions remain intact; no real hosted identities or records were changed.
+
+Final functional checks also cover the five exact bank image paths, including the official Touch 'n Go provider spelling; balance masking; and a failed transfer submission preserving the exact amount and note. That transfer check exposed a real interaction defect: the fixed-height composer let a populated balance preview push Submit underneath the account-summary panel. The composer now expands for a preview/error while retaining the 619 px empty reference height. `transfer-submit-repair.json/log` passes the stronger case. The synthetic inline transfer note uses the source's 100-character illustration limit; authenticated forms keep the existing 300-character contract.
+
+Measured heading ink after calibration differs by at most 1 px in the sampled bounding rectangles: A source 291/104/332/32, actual 291/103/332/33; B 285/102/196/26 for both; C source 290/103/326/27, actual 290/103/327/27; D source 291/105/297/32, actual 291/104/298/33. This is a sampled raster diagnostic, not proof that every glyph is identical. The reference eye state is preserved; C's auxiliary privacy control remains available on hover/focus and visible on touch devices.
+
+The final frozen application/test source passes `commit-source-verify.log`: 80/80 tests, typecheck, zero-warning lint, production build, preserved-source audit and the custom source/browser secret scan. The final A–E recapture (`commit-source-capture.log`) has no page errors or missing images, loaded fonts and DPR 1 throughout. `delivery/source-manifest.json` binds all five PNG hashes to 82 rendering inputs with source digest `1039bcfbfe2e366e25b58cc6a96bad2cfef66b47eb9bd73c5756a306d50c1840`. The 22 measured panel rectangles remain within 1.063 px. All five equal-scale comparison sheets were visually inspected again. Complete clean CI for this source is still pending at this checkpoint; prior complete browser receipts are not substituted for it.
+
+Published log text has trailing whitespace and redundant terminal blank lines normalized for Git's whitespace check. Original raw logs are preserved locally in ignored `artifacts/private/pixel-raw-logs/`; no result lines, failures or timings were removed.
+
+## Modified source inventory
+
+Application: `src/app/fidelity.css`, `src/app/layout.tsx`, `src/app/page.tsx`, `src/components/brand.tsx`, `src/components/public-home.tsx`, `src/components/sample-preview.tsx`, `src/features/finance/balance-value.tsx`, `src/features/finance/copy-reference.tsx`, `src/features/finance/entry-form.tsx`, `src/features/finance/finance-app.tsx`, `src/features/finance/marketing-example.ts`, `src/features/finance/period-filter.tsx`, `src/features/finance/presentation.ts`, `src/features/finance/visual-components.tsx`, `src/i18n/dictionaries.ts`, and pinned Roboto package/lock entries.
+
+Verification: `tests/browser-ui/main.tsx`, `tests/browser-ui/image.tsx`, `tests/browser-ui/reference-sample.ts`, `tests/browser-ui/vite.config.ts`, `tests/e2e/capture.ts`, `tests/e2e/fidelity.spec.ts`, `tests/e2e/pixel-correction.spec.ts`, `tests/unit/marketing-example.test.ts`, `scripts/capture-pixel-fidelity.mjs`, `scripts/measure-pixel-geometry.mjs`, `scripts/prepare-institution-artwork.mjs`, derived `public/institutions/` artwork/provenance and the screenshot receipts. `.gitignore` excludes intermediate calibration output while preserving it locally. No migration, database-service, auth, RLS, money-parser or finance-domain rule source is changed.
+
+The earlier backup-tool download finished safely: archives only, no installation/execution, keys, dump or Drive upload. The owner-selected existing Drive destination is preserved for later recovery work; no paid service was enabled.

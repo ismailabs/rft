@@ -27,9 +27,9 @@ export const en = {
   expense: "Expense",
   expenses: "Expenses",
   transfer: "Transfer",
-  net: "Period net cash flow",
+  net: "Net Cash Flow",
   recent: "Recent activity",
-  seeAll: "View all activity",
+  seeAll: "View All",
   noActivity: "Your story starts with one entry.",
   noActivityHelp:
     "Add income or an expense when you are ready. Every figure here comes from your records.",

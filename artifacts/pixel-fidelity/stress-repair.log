@@ -1,0 +1,11 @@
+[WebServer] (node:17740) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:16928) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\pixel-correction.spec.ts:266:1 › budget management opens the existing form and preserves unsaved exact limits (8.9s)
+  ok 2 [chromium] › tests\e2e\pixel-correction.spec.ts:290:1 › long desktop account records wrap without overlap or page overflow (2.8s)
+
+  2 passed (25.8s)

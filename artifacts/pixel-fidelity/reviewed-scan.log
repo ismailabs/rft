@@ -1,0 +1,5 @@
+
+> ringgit-finance-tracker@0.1.0 scan:secrets
+> node scripts/scan-secrets.mjs
+
+PASS: custom source/asset scan (260 text files) and browser output checks. No configured privileged key patterns found. This is not a Gitleaks audit.

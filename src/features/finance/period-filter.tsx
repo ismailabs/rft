@@ -1,4 +1,5 @@
 "use client";
+import { CalendarDays, ChevronDown } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
 export function PeriodFilter({
   d,
@@ -8,6 +9,7 @@ export function PeriodFilter({
   setFrom,
   to,
   setTo,
+  rangeLabel,
 }: {
   d: Dictionary;
   kind: string;
@@ -16,11 +18,19 @@ export function PeriodFilter({
   setFrom: (v: string) => void;
   to: string;
   setTo: (v: string) => void;
+  rangeLabel?: string;
 }) {
   return (
     <div className="period-controls">
       <label className="inline-field">
         <span>{d.period}</span>
+        {rangeLabel && kind === "month" ? (
+          <span className="period-range" aria-hidden="true">
+            <CalendarDays size={19} />
+            {rangeLabel}
+            <ChevronDown size={15} />
+          </span>
+        ) : null}
         <select value={kind} onChange={(e) => setKind(e.target.value)}>
           {(["today", "week", "month", "all", "custom"] as const).map((key) => (
             <option key={key} value={key}>

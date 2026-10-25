@@ -1,0 +1,29 @@
+[WebServer] (node:5264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:15952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 18 tests using 1 worker
+
+(node:17100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference home at 390 (11.0s)
+  ok  2 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference home at 768 (13.6s)
+  ok  3 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference home at 1448 (14.8s)
+  ok  4 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference home at 1920 (6.4s)
+  ok  5 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference activity at 390 (5.3s)
+  ok  6 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference activity at 768 (7.0s)
+  ok  7 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference activity at 1448 (8.4s)
+  ok  8 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference activity at 1920 (6.7s)
+  ok  9 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference accounts at 390 (4.2s)
+  ok 10 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference accounts at 768 (6.9s)
+  ok 11 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference accounts at 1448 (7.0s)
+  ok 12 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference accounts at 1920 (7.9s)
+  ok 13 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference insights at 390 (7.5s)
+  ok 14 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference insights at 768 (6.0s)
+  ok 15 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference insights at 1448 (8.5s)
+  ok 16 [chromium] › tests\e2e\fidelity.spec.ts:15:5 › reference insights at 1920 (5.9s)
+  ok 17 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference accounts: artwork, content and accessibility (8.2s)
+  ok 18 [chromium] › tests\e2e\pixel-correction.spec.ts:290:1 › long desktop account records wrap without overlap or page overflow (3.1s)
+
+  18 passed (2.7m)

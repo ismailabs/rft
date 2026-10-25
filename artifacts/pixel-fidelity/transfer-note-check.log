@@ -1,0 +1,90 @@
+[WebServer] (node:15400) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:18952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference home: artwork, content and accessibility (10.6s)
+  ok 2 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference accounts: artwork, content and accessibility (6.7s)
+  x  3 [chromium] › tests\e2e\pixel-correction.spec.ts:136:1 › transfer date can be cleared and restored without a false balance or lost precision (30.8s)
+(node:9748) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 4 [chromium] › tests\e2e\pixel-correction.spec.ts:174:1 › balance privacy and transaction selection preserve access to edit actions (6.9s)
+
+
+  1) [chromium] › tests\e2e\pixel-correction.spec.ts:136:1 › transfer date can be cleared and restored without a false balance or lost precision
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> C:\Users\moham\AppData\Local\ms-playwright\chromium_headless_shell-1248\chrome-headless-shell-win64\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\Users\moham\AppData\Local\Temp\playwright_chromiumdev_profile-7QaeXn --remote-debugging-pipe --no-startup-window
+    <launched> pid=14880
+    [pid=14880][err] [1025/083139.455:INFO:CONSOLE:946] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (946)
+    [pid=14880][err] [1025/083140.266:INFO:CONSOLE:1055] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1055)
+    [pid=14880][err] [1025/083140.606:INFO:CONSOLE:946] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (946)
+    [pid=14880][err] [1025/083140.828:INFO:CONSOLE:1055] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1055)
+    [pid=14880][err] [1025/083141.498:INFO:CONSOLE:15802] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/@fs/C:/Users/moham/OneDrive/Desktop/rft/node_modules/.vite/deps/react-dom_client.js?v=dfd1558b (15802)
+    [pid=14880][err] [1025/083148.125:INFO:CONSOLE:946] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (946)
+    [pid=14880][err] [1025/083148.456:INFO:CONSOLE:1055] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1055)
+    [pid=14880][err] [1025/083148.986:INFO:CONSOLE:15802] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/@fs/C:/Users/moham/OneDrive/Desktop/rft/node_modules/.vite/deps/react-dom_client.js?v=dfd1558b (15802)
+    [pid=14880][err] [1025/083154.737:INFO:CONSOLE:946] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (946)
+    [pid=14880][err] [1025/083154.965:INFO:CONSOLE:1055] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1055)
+    [pid=14880][err] [1025/083155.111:INFO:CONSOLE:15802] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/@fs/C:/Users/moham/OneDrive/Desktop/rft/node_modules/.vite/deps/react-dom_client.js?v=dfd1558b (15802)
+    [pid=14880] <gracefully close start>
+    Call log:
+      - waiting for locator('.desktop-composer form').getByRole('button', { name: 'Transfer Money', exact: true })
+        - locator resolved to <button type="submit" class="button">…</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <li>…</li> from <section class="rft-panel desktop-account-summary">…</section> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <li>…</li> from <section class="rft-panel desktop-account-summary">…</section> subtree intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        51 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <li>…</li> from <section class="rft-panel desktop-account-summary">…</section> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+
+
+      163 |   await form
+      164 |     .getByRole("button", { name: "Transfer Money", exact: true })
+    > 165 |     .click();
+          |      ^
+      166 |   await expect(form.getByRole("alert")).toContainText("could not be confirmed");
+      167 |   expect(submitted).toMatchObject({
+      168 |     kind: "transfer",
+        at C:\Users\moham\OneDrive\Desktop\rft\tests\e2e\pixel-correction.spec.ts:165:6
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private\transfer-note-check-results\pixel-correction-transfer--d69ac-e-balance-or-lost-precision-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts\private\transfer-note-check-results\pixel-correction-transfer--d69ac-e-balance-or-lost-precision-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\private\transfer-note-check-results\pixel-correction-transfer--d69ac-e-balance-or-lost-precision-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\private\transfer-note-check-results\pixel-correction-transfer--d69ac-e-balance-or-lost-precision-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests\e2e\pixel-correction.spec.ts:136:1 › transfer date can be cleared and restored without a false balance or lost precision
+  3 passed (1.1m)

@@ -23,8 +23,8 @@
       "verified_at": "2026-10-24T13:30:29.513Z"
     },
     "G02": {
-      "status": "pass",
-      "note": "Clean Linux CI 40095971680: npm ci, typecheck, lint, 79 tests, production build and secret scan all succeed; npm audit zero vulnerabilities.",
+      "status": "blocked",
+      "note": "Mandatory pixel-correction worktree changes after the historical clean CI; final complete verification pending. Old receipts preserved.",
       "evidence": [
         "docs/visual-recovery-verification.md",
         "docs/savings-goals-migration.md",
@@ -117,7 +117,7 @@
     },
     "G10": {
       "status": "blocked",
-      "note": "Approved references mapped; actual captures/comparisons reviewed; all 64 current CI browser/axe/keyboard/responsive checks pass. Essential manual screen-reader/device acceptance and brand-rights limitations remain.",
+      "note": "Owner rejected prior fidelity; A–E correction and repeated actual screenshot comparisons are in progress. No visual-completion claim.",
       "evidence": [
         "docs/visual-recovery-verification.md",
         "docs/savings-goals-migration.md",
@@ -190,5 +190,11 @@
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
       "verified_at": "2026-10-24T04:01:51Z"
     }
+  },
+  "worktree_correction": {
+    "status": "IN_PROGRESS",
+    "base_commit": "1a4896e5b9742bd1df9cdfdab3df2929674c7538",
+    "record": "docs/pixel-fidelity-correction.md",
+    "note": "Owner rejected prior visual result. Historical CI remains historical; current worktree requires fresh complete verification and visual acceptance. No production deployment, hosted mutation or identity deletion."
   }
 }

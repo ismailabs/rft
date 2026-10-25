@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowDown,
   ArrowUp,
@@ -7,11 +8,11 @@ import {
   Landmark,
   Wallet,
   Banknote,
-  ShoppingBasket,
+  ShoppingCart,
   Utensils,
-  Car,
+  CarFront,
   BriefcaseBusiness,
-  Receipt,
+  FileText,
   Tag,
   Pencil,
   Trash2,
@@ -20,8 +21,23 @@ import {
   TrendingUp,
   Target,
   ChartNoAxesColumn,
+  ShoppingBag,
+  Gamepad2,
+  Plane,
+  House,
+  Laptop,
+  ChevronDown,
+  MoreHorizontal,
+  Calendar,
+  CupSoda,
+  Fuel,
+  Plus,
+  ChevronsUpDown,
+  type LucideIcon,
 } from "lucide-react";
 import type { ReactNode } from "react";
+import { BalanceValue } from "./balance-value";
+import { CopyReference } from "./copy-reference";
 import type {
   Account,
   Locale,
@@ -29,6 +45,7 @@ import type {
   Transaction,
   Transfer,
   SavingsGoal,
+  Budget,
 } from "@/domain/finance/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { money, parseMoney, basisPoints } from "@/domain/finance/money";
@@ -38,7 +55,7 @@ import {
   dailyExpenses,
 } from "@/domain/finance/reporting";
 import { totals } from "@/domain/finance/calculations";
-import { periodFor } from "@/domain/finance/periods";
+import { periodFor, localDate } from "@/domain/finance/periods";
 
 export function Panel({
   title,
@@ -64,28 +81,51 @@ export function Panel({
   );
 }
 export function AccountMark({ account }: { account: Account }) {
+  const provider = (account.provider || account.name).toLowerCase();
+  const artwork = /maybank/.test(provider)
+    ? "maybank"
+    : /cimb/.test(provider)
+      ? "cimb"
+      : /rhb/.test(provider)
+        ? "rhb"
+        : /tng|touch[\s'’]*n[\s'’]*go/.test(provider)
+          ? "tng"
+          : /grab\s*pay/.test(provider)
+            ? "grabpay"
+            : null;
   const Icon =
     account.type === "bank"
       ? Landmark
       : account.type === "cash"
         ? Banknote
         : Wallet;
-  // The supplied stylized institution marks have no verified rights record.
   return (
     <span
-      className={`account-mark ${account.type}`}
+      className={`account-mark ${account.type}${artwork ? " institution-artwork" : ""}`}
       title={account.provider || undefined}
     >
-      <Icon size={23} aria-hidden="true" />
+      {artwork ? (
+        <Image
+          src={`/institutions/${artwork}.png`}
+          width={56}
+          height={56}
+          alt=""
+          unoptimized
+        />
+      ) : (
+        <Icon size={23} aria-hidden="true" />
+      )}
     </span>
   );
 }
 export function CategoryMark({
   name = "",
   type = "expense",
+  variant = "category",
 }: {
   name?: string;
   type?: string;
+  variant?: "category" | "insight" | "filter";
 }) {
   const match = name.toLowerCase();
   const Icon =
@@ -96,12 +136,20 @@ export function CategoryMark({
         : /food|drink|makan|minum/.test(match)
           ? Utensils
           : /transport|pengangkutan/.test(match)
-            ? Car
+            ? CarFront
             : /grocer|runcit/.test(match)
-              ? ShoppingBasket
-              : /bill|bil|utilit/.test(match)
-                ? Receipt
-                : Tag;
+              ? ShoppingCart
+              : /shop|beli/.test(match)
+                ? variant === "insight"
+                  ? Calendar
+                  : ShoppingBag
+                : /entertain|hibur/.test(match)
+                  ? Gamepad2
+                  : /bill|bil|utilit/.test(match)
+                    ? FileText
+                    : /other|lain/.test(match)
+                      ? MoreHorizontal
+                      : Tag;
   const tone =
     type === "income"
       ? "green"
@@ -111,12 +159,79 @@ export function CategoryMark({
           ? "amber"
           : /transport|pengangkutan/.test(match)
             ? "blue"
-            : "purple";
+            : /grocer|runcit/.test(match)
+              ? variant === "filter"
+                ? "green"
+                : "amber"
+              : /shop|beli/.test(match)
+                ? variant === "insight"
+                  ? "blue"
+                  : "pink"
+                : variant === "insight" && /bill|utilit|other|lain/.test(match)
+                  ? "slate"
+                  : "purple";
   return (
     <span className={`category-mark ${tone}`}>
-      <Icon size={19} aria-hidden="true" />
+      {variant === "filter" && /entertain|hibur/.test(match) ? (
+        <Image
+          src="/institutions/netflix.png"
+          alt=""
+          width={13}
+          height={20}
+          unoptimized
+        />
+      ) : (
+        <Icon size={19} aria-hidden="true" />
+      )}
     </span>
   );
+}
+function TransactionMark({
+  name,
+  type,
+  note,
+}: {
+  name: string;
+  type: string;
+  note: string;
+}) {
+  if (/netflix/i.test(note))
+    return (
+      <span className="category-mark merchant-mark">
+        <Image
+          src="/institutions/netflix.png"
+          width={16}
+          height={23}
+          alt=""
+          unoptimized
+        />
+      </span>
+    );
+  const Icon = /tealive/i.test(note)
+    ? CupSoda
+    : /petrol|petronas/i.test(note)
+      ? Fuel
+      : null;
+  return Icon ? (
+    <span className={`category-mark ${Icon === Fuel ? "pink" : "amber"}`}>
+      <Icon size={19} aria-hidden="true" />
+    </span>
+  ) : (
+    <CategoryMark name={name} type={type} />
+  );
+}
+function categoryTone(name: string, type: string) {
+  if (type === "transfer") return "transfer";
+  if (type === "income") return /salary|gaji/i.test(name) ? "salary" : "green";
+  return /grocer|runcit/i.test(name)
+    ? "green"
+    : /transport/i.test(name)
+      ? "violet"
+      : /entertain|shop|hibur/i.test(name)
+        ? "pink"
+        : /bill|utilit/i.test(name)
+          ? "violet"
+          : "amber";
 }
 export function Skyline() {
   return (
@@ -141,6 +256,8 @@ export function BalanceSummary({
   locale,
   series,
   account = false,
+  change,
+  label,
 }: {
   amount: bigint;
   d: Dictionary;
@@ -148,30 +265,59 @@ export function BalanceSummary({
   locale: Locale;
   series: bigint[];
   account?: boolean;
+  change?: string;
+  label?: string;
 }) {
   const min = series.reduce((a, b) => (a < b ? a : b), series[0] ?? 0n),
     max = series.reduce((a, b) => (a > b ? a : b), series[0] ?? 0n);
   const points = series
     .map(
       (v, i) =>
-        `${10 + (i * 250) / Math.max(1, series.length - 1)},${70 - (max === min ? 20 : basisPoints(v - min, max - min) / 200)}`,
+        `${10 + (i * 250) / Math.max(1, series.length - 1)},${80 - (max === min ? 20 : basisPoints(v - min, max - min) / 180)}`,
+    )
+    .join(" ");
+  const coordinates = points.split(" ").map((p) => p.split(",").map(Number));
+  const curve = coordinates
+    .map(([x, y], i) =>
+      i
+        ? `C ${coordinates[i - 1][0] + (x - coordinates[i - 1][0]) / 2},${coordinates[i - 1][1]} ${coordinates[i - 1][0] + (x - coordinates[i - 1][0]) / 2},${y} ${x},${y}`
+        : `M ${x},${y}`,
     )
     .join(" ");
   return (
-    <section className="balance-summary">
+    <section
+      className={`balance-summary${money(amount).length > 20 ? " expanded-balance" : ""}`}
+    >
       <div className="balance-copy">
         <p>
-          {account ? d.estimatedAccount : d.estimated}
-          <Info size={15} aria-hidden="true" />
+          {label ||
+            (account
+              ? d.estimatedAccount
+              : d.home === "Utama"
+                ? "Anggaran Baki"
+                : "Estimated Balance")}
+          <span title={d.estimateNote}>
+            <Info size={15} aria-hidden="true" />
+          </span>
         </p>
-        <strong>{money(amount)}</strong>
-        <small>
-          {d.asOf}{" "}
-          {new Intl.DateTimeFormat(locale === "ms" ? "ms-MY" : "en-MY", {
-            dateStyle: "medium",
-            timeZone: "Asia/Kuala_Lumpur",
-          }).format(new Date(asOf))}
-        </small>
+        <BalanceValue value={money(amount)} locale={locale} />
+        {change ? (
+          <small className="balance-change">
+            <span>
+              <ArrowUp size={16} aria-hidden="true" />
+              {change}
+            </span>{" "}
+            {d.home === "Utama" ? "daripada bulan lalu" : "from last month"}
+          </small>
+        ) : (
+          <small>
+            {d.asOf}{" "}
+            {new Intl.DateTimeFormat(locale === "ms" ? "ms-MY" : "en-MY", {
+              dateStyle: "medium",
+              timeZone: "Asia/Kuala_Lumpur",
+            }).format(new Date(asOf))}
+          </small>
+        )}
       </div>
       <svg
         viewBox="0 0 275 85"
@@ -183,16 +329,13 @@ export function BalanceSummary({
             : "Recorded month-end balances"
         }
       >
-        <polygon points={`10,85 ${points} 260,85`} fill="#e1f4eb" />
-        <polyline
-          points={points}
-          fill="none"
-          stroke="#008765"
-          strokeWidth="2.2"
-        />
+        <path d={`${curve} L 260,85 L 10,85 Z`} fill="#e1f4eb" />
+        <path d={curve} fill="none" stroke="#008765" strokeWidth="2.2" />
       </svg>
       <Skyline />
-      <p className="balance-explanation">{d.estimateNote}</p>
+      <p className="balance-explanation" role="note">
+        {d.estimateNote}
+      </p>
     </section>
   );
 }
@@ -201,11 +344,13 @@ export function FlowSummary({
   expenses,
   net,
   d,
+  changes,
 }: {
   income: bigint;
   expenses: bigint;
   net: bigint;
   d: Dictionary;
+  changes?: [string, string, string];
 }) {
   return (
     <div className="metric-grid">
@@ -213,14 +358,26 @@ export function FlowSummary({
         { label: d.income, value: income, Icon: ArrowDown, tone: "green" },
         { label: d.expenses, value: expenses, Icon: ArrowUp, tone: "coral" },
         { label: d.net, value: net, Icon: Equal, tone: "blue" },
-      ].map((x) => (
+      ].map((x, i) => (
         <div className="metric" key={x.label}>
           <span className={`metric-icon ${x.tone}`}>
             <x.Icon size={23} aria-hidden="true" />
           </span>
           <dl>
             <dt>{x.label}</dt>
-            <dd>{money(x.value)}</dd>
+            <dd>
+              {money(x.value)}
+              {changes?.[i] ? (
+                <small className="metric-change">
+                  <span>
+                    {i === 1 ? "↓" : "↑"} {changes[i]}
+                  </span>{" "}
+                  {d.home === "Utama"
+                    ? "daripada bulan lalu"
+                    : "from last month"}
+                </small>
+              ) : null}
+            </dd>
           </dl>
         </div>
       ))}
@@ -233,15 +390,24 @@ export function MonthlyChart({
   locale,
   d,
   title,
+  values,
+  range = 6,
+  onRangeChange,
 }: {
   data: Snapshot;
   asOf: string;
   locale: Locale;
   d: Dictionary;
   title?: string;
+  values?: { income: bigint; expenses: bigint }[];
+  range?: 3 | 6 | 12;
+  onRangeChange?: (range: 3 | 6 | 12) => void;
 }) {
-  const rows = monthlyReport(data, asOf);
-  const max = rows.reduce(
+  const rows = monthlyReport(data, asOf, range).map((row, i) => ({
+    ...row,
+    ...(range === 6 ? values?.[i] : undefined),
+  }));
+  const highest = rows.reduce(
     (n, r) =>
       r.income > n
         ? r.income > r.expenses
@@ -252,6 +418,12 @@ export function MonthlyChart({
           : n,
     0n,
   );
+  // Whole-ringgit nice scale, computed with bigint before bounded chart ratios.
+  const step =
+    highest > 400000n ? 200000n : highest > 100000n ? 50000n : 10000n;
+  const max = highest
+    ? ((highest + 4n * step - 1n) / (4n * step)) * 4n * step
+    : 4n * step;
   const t = locale === "ms";
   return (
     <Panel
@@ -259,9 +431,32 @@ export function MonthlyChart({
         title || (t ? "Pendapatan dan perbelanjaan" : "Income vs Expenses")
       }
       action={
-        <span className="chart-period">
-          {t ? "6 bulan terakhir" : "Last 6 months"}
-        </span>
+        onRangeChange ? (
+          <label className="chart-period chart-range">
+            <span className="sr-only">
+              {t ? "Julat carta" : "Chart reporting range"}
+            </span>
+            <select
+              value={range}
+              onChange={(e) => {
+                const value = Number(e.target.value);
+                if (value === 3 || value === 6 || value === 12)
+                  onRangeChange(value);
+              }}
+            >
+              {([3, 6, 12] as const).map((n) => (
+                <option key={n} value={n}>
+                  {t ? `${n} bulan terakhir` : `Last ${n} months`}
+                </option>
+              ))}
+            </select>
+          </label>
+        ) : (
+          <span className="chart-period">
+            {t ? `${range} bulan terakhir` : `Last ${range} months`}
+            <ChevronDown size={14} aria-hidden="true" />
+          </span>
+        )
       }
       className="monthly-panel"
     >
@@ -276,7 +471,7 @@ export function MonthlyChart({
       >
         <div className="chart-axis">
           {[4, 3, 2, 1, 0].map((n) => (
-            <span key={n}>{money((max * BigInt(n)) / 4n)}</span>
+            <span key={n}>{compactAxis((max * BigInt(n)) / 4n)}</span>
           ))}
         </div>
         <div className="chart-plot">
@@ -356,6 +551,11 @@ export function MonthlyChart({
     </Panel>
   );
 }
+function compactAxis(value: bigint) {
+  return value >= 100000n && value % 100000n === 0n
+    ? `RM ${value / 100000n}K`
+    : money(value).replace(".00", "");
+}
 export type HistoryEntry =
   | (Transaction & { kind: string })
   | (Transfer & { kind: string; account_id: string; category_id: string });
@@ -367,6 +567,10 @@ export function TransactionHistory({
   onEdit,
   onDelete,
   groupDates = true,
+  selection,
+  columnOrder = "category-first",
+  dateOrder = "descending",
+  onDateSort,
 }: {
   entries: HistoryEntry[];
   data: Snapshot;
@@ -375,12 +579,32 @@ export function TransactionHistory({
   groupDates?: boolean;
   onEdit?: (t: Transaction) => void;
   onDelete?: (id: string, table: string) => void;
+  selection?: { ids: string[]; setIds: (ids: string[]) => void };
+  columnOrder?: "category-first" | "account-first";
+  dateOrder?: "ascending" | "descending";
+  onDateSort?: () => void;
 }) {
   const cat = (e: HistoryEntry) =>
     data.categories.find((c) => c.id === e.category_id)?.name ||
     (e.kind === "transfer" ? d.transfer : d.expense);
   const account = (e: HistoryEntry) =>
     data.accounts.find((a) => a.id === e.account_id);
+  const categoryContent = (e: HistoryEntry) => (
+    <span className={`category-badge ${categoryTone(cat(e), e.kind)}`}>
+      {cat(e)}
+    </span>
+  );
+  const accountContent = (e: HistoryEntry) => (
+    <span className="table-account">
+      {account(e) ? <AccountMark account={account(e)!} /> : null}
+      <span>
+        {account(e)?.name}
+        {"destination_id" in e
+          ? ` → ${data.accounts.find((a) => a.id === e.destination_id)?.name || ""}`
+          : ""}
+      </span>
+    </span>
+  );
   const formatDate = (e: HistoryEntry) =>
     new Intl.DateTimeFormat(locale === "ms" ? "ms-MY" : "en-MY", {
       dateStyle: "medium",
@@ -393,28 +617,38 @@ export function TransactionHistory({
     </strong>
   );
   const actions = (e: HistoryEntry) => (
-    <div className="row-actions">
-      {onEdit && e.kind !== "transfer" ? (
-        <button
-          className="icon-button"
-          aria-label={`${d.edit}: ${e.note || cat(e)}`}
-          onClick={() => onEdit(e as Transaction)}
-        >
-          <Pencil size={15} aria-hidden="true" />
-        </button>
-      ) : null}
-      {onDelete ? (
-        <button
-          className="icon-button danger-text"
-          aria-label={`${d.remove}: ${e.note || cat(e)}`}
-          onClick={() =>
-            onDelete(e.id, e.kind === "transfer" ? "transfers" : "transactions")
-          }
-        >
-          <Trash2 size={15} aria-hidden="true" />
-        </button>
-      ) : null}
-    </div>
+    <details className="row-action-menu">
+      <summary
+        aria-label={`${locale === "ms" ? "Tindakan" : "Actions"}: ${e.note || cat(e)}`}
+      >
+        <MoreHorizontal size={18} aria-hidden="true" />
+      </summary>
+      <div className="row-actions">
+        {onEdit && e.kind !== "transfer" ? (
+          <button
+            className="icon-button"
+            aria-label={`${d.edit}: ${e.note || cat(e)}`}
+            onClick={() => onEdit(e as Transaction)}
+          >
+            <Pencil size={15} aria-hidden="true" />
+          </button>
+        ) : null}
+        {onDelete ? (
+          <button
+            className="icon-button danger-text"
+            aria-label={`${d.remove}: ${e.note || cat(e)}`}
+            onClick={() =>
+              onDelete(
+                e.id,
+                e.kind === "transfer" ? "transfers" : "transactions",
+              )
+            }
+          >
+            <Trash2 size={15} aria-hidden="true" />
+          </button>
+        ) : null}
+      </div>
+    </details>
   );
   if (!entries.length)
     return (
@@ -436,11 +670,67 @@ export function TransactionHistory({
           <caption className="sr-only">{d.recent}</caption>
           <thead>
             <tr>
-              <th>{locale === "ms" ? "Tarikh" : "Date"}</th>
+              {selection ? (
+                <th className="selection-cell">
+                  <input
+                    type="checkbox"
+                    aria-label={
+                      locale === "ms"
+                        ? "Pilih semua baris pada halaman ini"
+                        : "Select all rows on this page"
+                    }
+                    checked={
+                      entries.length > 0 &&
+                      entries.every((e) => selection.ids.includes(e.id))
+                    }
+                    onChange={(e) =>
+                      selection.setIds(
+                        e.target.checked
+                          ? [
+                              ...new Set([
+                                ...selection.ids,
+                                ...entries.map((row) => row.id),
+                              ]),
+                            ]
+                          : selection.ids.filter(
+                              (id) => !entries.some((row) => row.id === id),
+                            ),
+                      )
+                    }
+                  />
+                </th>
+              ) : null}
+              <th
+                className="date-heading"
+                aria-sort={onDateSort ? dateOrder : undefined}
+              >
+                {onDateSort ? (
+                  <button
+                    className="date-sort"
+                    onClick={onDateSort}
+                    aria-label={
+                      locale === "ms"
+                        ? `Tarikh: ${dateOrder === "descending" ? "paling lama" : "terkini"} dahulu`
+                        : `Date: ${dateOrder === "descending" ? "oldest" : "newest"} first`
+                    }
+                  >
+                    {locale === "ms" ? "Tarikh" : "Date"}
+                    <ChevronsUpDown size={10} aria-hidden="true" />
+                  </button>
+                ) : locale === "ms" ? (
+                  "Tarikh"
+                ) : (
+                  "Date"
+                )}
+              </th>
               <th>{locale === "ms" ? "Keterangan" : "Description"}</th>
-              <th>{d.category}</th>
-              <th>{d.account}</th>
-              <th className="money-column">{d.amount}</th>
+              <th>
+                {columnOrder === "account-first" ? d.account : d.category}
+              </th>
+              <th>
+                {columnOrder === "account-first" ? d.category : d.account}
+              </th>
+              <th className="money-column">{d.amount.replace(" (RM)", "")}</th>
               {onDelete ? (
                 <th>
                   <span className="sr-only">{d.edit}</span>
@@ -451,26 +741,42 @@ export function TransactionHistory({
           <tbody>
             {entries.map((e) => (
               <tr key={e.id}>
+                {selection ? (
+                  <td className="selection-cell">
+                    <input
+                      type="checkbox"
+                      aria-label={`${locale === "ms" ? "Pilih" : "Select"}: ${e.note || cat(e)}`}
+                      checked={selection.ids.includes(e.id)}
+                      onChange={(event) =>
+                        selection.setIds(
+                          event.target.checked
+                            ? [...selection.ids, e.id]
+                            : selection.ids.filter((id) => id !== e.id),
+                        )
+                      }
+                    />
+                  </td>
+                ) : null}
                 <td className="date-cell">{formatDate(e)}</td>
                 <td>
                   <span className="table-description">
-                    <CategoryMark name={cat(e)} type={e.kind} />
+                    <TransactionMark
+                      name={cat(e)}
+                      type={e.kind}
+                      note={e.note}
+                    />
                     <span>{e.note || cat(e)}</span>
                   </span>
                 </td>
                 <td>
-                  <span className={`category-badge ${e.kind}`}>{cat(e)}</span>
+                  {columnOrder === "account-first"
+                    ? accountContent(e)
+                    : categoryContent(e)}
                 </td>
                 <td>
-                  <span className="table-account">
-                    {account(e) ? <AccountMark account={account(e)!} /> : null}
-                    <span>
-                      {account(e)?.name}
-                      {"destination_id" in e
-                        ? ` → ${data.accounts.find((a) => a.id === e.destination_id)?.name || ""}`
-                        : ""}
-                    </span>
-                  </span>
+                  {columnOrder === "account-first"
+                    ? categoryContent(e)
+                    : accountContent(e)}
                 </td>
                 <td className="money-column">{amount(e)}</td>
                 {onDelete ? <td>{actions(e)}</td> : null}
@@ -487,7 +793,7 @@ export function TransactionHistory({
               <p className="activity-date">{formatDate(e)}</p>
             ) : null}
             <div className="mobile-transaction">
-              <CategoryMark name={cat(e)} type={e.kind} />
+              <TransactionMark name={cat(e)} type={e.kind} note={e.note} />
               <div className="transaction-description">
                 <b>{e.note || cat(e)}</b>
                 <small>
@@ -512,13 +818,19 @@ export function AccountOverview({
   values,
   d,
   onEdit,
-  onDelete,
+  onAdd,
+  descriptions,
+  references,
+  primaryId,
 }: {
   data: Snapshot;
   values: Map<string, bigint>;
   d: Dictionary;
   onEdit?: (a: Account) => void;
-  onDelete?: (id: string, table: string) => void;
+  onAdd?: () => void;
+  descriptions?: Record<string, string>;
+  references?: Record<string, string>;
+  primaryId?: string;
 }) {
   if (!data.accounts.length)
     return (
@@ -531,51 +843,71 @@ export function AccountOverview({
   return (
     <div className={onEdit ? "account-card-grid" : "account-overview-list"}>
       {data.accounts.map((a) => (
-        <article key={a.id} className="financial-account">
+        <article
+          key={a.id}
+          className={`financial-account${a.name.length > 16 || (a.provider || "").length > 24 || money(values.get(a.id) || 0n).length > 13 ? " account-card-expanded" : ""}`}
+        >
           <AccountMark account={a} />
           <Link className="account-name" href={`/app/accounts/${a.id}`}>
             <b>{a.name}</b>
             <small>
-              {a.provider || d[a.type]}
+              {descriptions?.[a.id] || a.provider || d[a.type]}
               {a.archived ? ` · ${d.archived}` : ""}
             </small>
           </Link>
+          {references?.[a.id] ? (
+            <span className="illustrative-account-reference">
+              {references[a.id]}
+              <CopyReference value={references[a.id]} ms={d.home === "Utama"} />
+            </span>
+          ) : null}
+          {primaryId === a.id ? (
+            <span className="illustrative-primary">
+              {d.home === "Utama" ? "Utama" : "Primary"}
+            </span>
+          ) : null}
           <strong>{money(values.get(a.id) || 0n)}</strong>
           {onEdit ? (
             <div className="account-edit-actions">
               <button
-                className="icon-button"
+                className="icon-button account-edit"
                 aria-label={`${d.edit}: ${a.name}`}
                 onClick={() => onEdit(a)}
               >
-                <Pencil size={16} aria-hidden="true" />
+                <ChevronRight size={16} aria-hidden="true" />
               </button>
-              {onDelete ? (
-                <button
-                  className="icon-button danger-text"
-                  aria-label={`${d.remove}: ${a.name}`}
-                  onClick={() => onDelete(a.id, "accounts")}
-                >
-                  <Trash2 size={16} aria-hidden="true" />
-                </button>
-              ) : null}
             </div>
           ) : (
             <ChevronRight size={17} aria-hidden="true" />
           )}
         </article>
       ))}
+      {onAdd ? (
+        <button className="add-account-tile" onClick={onAdd}>
+          <span>
+            <Plus size={26} aria-hidden="true" />
+          </span>
+          <div>
+            <b>{d.addAccount}</b>
+            <small>
+              {d.home === "Utama"
+                ? "Tambah catatan bank atau e-dompet"
+                : "Record another bank or e-wallet"}
+            </small>
+          </div>
+        </button>
+      ) : null}
     </div>
   );
 }
 const ringColors = [
-  "#40b587",
-  "#fa8078",
-  "#5593ec",
-  "#f4be3b",
-  "#a976e7",
-  "#63b9df",
-  "#a6b0c2",
+  "#52b788",
+  "#fe796f",
+  "#609efd",
+  "#fdc742",
+  "#ba89fc",
+  "#79cafe",
+  "#cfd4de",
 ];
 export function AccountTypeSummary({
   data,
@@ -617,25 +949,71 @@ export function Breakdown({
   total,
   label,
   d,
+  variant = "category",
+  percentages,
+  arcWeights,
 }: {
   rows: { id: string; name: string; amount: bigint }[];
   total: bigint;
   label: string;
   d: Dictionary;
+  variant?: "category" | "account";
+  percentages?: Record<string, number>;
+  arcWeights?: Record<string, number>;
 }) {
+  const colors =
+    variant === "account"
+      ? ["#ffca24", "#ff4259", "#7bddf8", "#0877ff", "#00bc5d"]
+      : ringColors;
+  // Round directly from the exact ratio, avoiding double-rounding through
+  // basis points (e.g. 430 / 11,480.75 is 3.7%, not 3.8%).
+  const shareLabel = (row: { id: string; amount: bigint }) => {
+    const places = variant === "account" ? 1 : 0;
+    if (percentages?.[row.id] !== undefined)
+      return `${percentages[row.id].toFixed(places)}%`;
+    if (denominator <= 0n || row.amount < 0n) return "—";
+    const unit = places ? 10n : 1n;
+    const rounded = (row.amount * 100n * unit + denominator / 2n) / denominator;
+    return `${rounded / unit}${places ? `.${rounded % unit}` : ""}%`;
+  };
   const positive = rows.filter((r) => r.amount > 0n);
   const hasNegative = rows.some((r) => r.amount < 0n);
   const denominator = positive.reduce((n, r) => n + r.amount, 0n);
+  const chartWeights = arcWeights || percentages;
+  const illustrationWeight = chartWeights
+    ? positive.reduce((n, r) => n + (chartWeights[r.id] || 0), 0)
+    : 0;
   let angle = 0;
   const stops: string[] = [];
+  const labels: {
+    id: string;
+    value: string;
+    x: number;
+    y: number;
+    dark: boolean;
+  }[] = [];
   for (const r of positive) {
     const i = rows.findIndex((row) => row.id === r.id);
     const start = angle;
-    angle += basisPoints(r.amount, denominator) / 100;
-    stops.push(`${ringColors[i % ringColors.length]} ${start}% ${angle}%`);
+    angle += illustrationWeight
+      ? ((chartWeights![r.id] || 0) / illustrationWeight) * 100
+      : basisPoints(r.amount, denominator) / 100;
+    stops.push(
+      `${colors[i % colors.length]} ${start}% ${Math.max(start, angle - 0.2)}%, white ${Math.max(start, angle - 0.2)}% ${angle}%`,
+    );
+    const midpoint = (((start + angle) / 2) * Math.PI) / 50;
+    labels.push({
+      id: r.id,
+      value: shareLabel(r),
+      x: 50 + Math.sin(midpoint) * 39,
+      y: 50 - Math.cos(midpoint) * 39,
+      dark: i === 3 || i === 5 || i === 6,
+    });
   }
   return (
-    <div className="breakdown">
+    <div
+      className={`breakdown breakdown-${variant}${variant === "account" && rows.some((r) => r.name.length > 18 || money(r.amount).length > 18) ? " expanded-breakdown" : ""}`}
+    >
       {!hasNegative ? (
         <div
           className="donut-chart"
@@ -650,6 +1028,17 @@ export function Breakdown({
             <strong>{money(total)}</strong>
             <small>{label}</small>
           </div>
+          {variant === "category"
+            ? labels.map((l) => (
+                <span
+                  key={l.id}
+                  className={`donut-slice-label${l.dark ? " dark" : ""}`}
+                  style={{ left: `${l.x}%`, top: `${l.y}%` }}
+                >
+                  {l.value}
+                </span>
+              ))
+            : null}
         </div>
       ) : (
         <p className="signed-balance-note">
@@ -663,14 +1052,17 @@ export function Breakdown({
           rows.map((r, i) => (
             <li key={r.id}>
               <i
-                style={{ background: ringColors[i % ringColors.length] }}
+                style={{ background: colors[i % colors.length] }}
                 aria-hidden="true"
               />
+              {variant === "category" ? (
+                <CategoryMark name={r.name} variant="insight" />
+              ) : null}
               <span>{r.name}</span>
               <strong>{money(r.amount)}</strong>
               <small>
                 {!hasNegative && r.amount >= 0n && denominator
-                  ? `${(basisPoints(r.amount, denominator) / 100).toFixed(1)}%`
+                  ? shareLabel(r)
                   : "—"}
               </small>
             </li>
@@ -688,20 +1080,39 @@ export function FactualInsight({
   title,
   children,
   tone = "green",
+  icon: Icon = TrendingUp,
 }: {
   title: string;
   children: ReactNode;
   tone?: string;
+  icon?: LucideIcon;
 }) {
   return (
     <article className="factual-insight">
       <span className={`metric-icon ${tone}`}>
-        <TrendingUp size={23} aria-hidden="true" />
+        <Icon size={27} strokeWidth={1.9} aria-hidden="true" />
       </span>
       <div>
-        <h3>{title}</h3>
+        <h3>
+          {title.split(/(\d+(?:\.\d+)?% less)/).map((part, i) =>
+            /% less/.test(part) ? (
+              <span className="insight-emphasis" key={i}>
+                {part}
+              </span>
+            ) : (
+              part
+            ),
+          )}
+        </h3>
         <p>{children}</p>
       </div>
+      <Link
+        href="/app/insights#reports"
+        className="insight-detail-link"
+        aria-label={title}
+      >
+        <ChevronRight size={18} aria-hidden="true" />
+      </Link>
     </article>
   );
 }
@@ -710,14 +1121,14 @@ export function SavingsProgress({
   goals,
   d,
   locale,
+  asOf,
   onEdit,
-  onDelete,
 }: {
   goals: SavingsGoal[];
   d: Dictionary;
   locale: Locale;
+  asOf: string;
   onEdit: (g: SavingsGoal) => void;
-  onDelete: (id: string, table: string) => void;
 }) {
   if (!goals.length)
     return (
@@ -734,10 +1145,35 @@ export function SavingsProgress({
           const saved = parseMoney(g.saved_amount),
             target = parseMoney(g.target_amount),
             progress = Math.min(10000, basisPoints(saved, target));
+          const GoalIcon = /trip|travel|japan|cuti/i.test(g.name)
+            ? Plane
+            : /emergency|kecemasan/i.test(g.name)
+              ? House
+              : /laptop|computer|komputer/i.test(g.name)
+                ? Laptop
+                : Target;
+          const now = localDate(new Date(asOf));
+          const monthsLeft = g.target_date
+            ? Math.max(
+                0,
+                (Number(g.target_date.slice(0, 4)) - Number(now.slice(0, 4))) *
+                  12 +
+                  Number(g.target_date.slice(5, 7)) -
+                  Number(now.slice(5, 7)),
+              )
+            : null;
           return (
             <article className="savings-goal" key={g.id}>
               <span className="goal-symbol">
-                <Target size={27} aria-hidden="true" />
+                <GoalIcon size={29} aria-hidden="true">
+                  {GoalIcon === House ? (
+                    <path
+                      d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
+                      fill="#006b4e"
+                      stroke="none"
+                    />
+                  ) : null}
+                </GoalIcon>
               </span>
               <div className="goal-copy">
                 <h3>{g.name}</h3>
@@ -751,9 +1187,15 @@ export function SavingsProgress({
                     aria-label={`${g.name}: ${money(saved)} / ${money(target)}`}
                   />
                   <span>{(progress / 100).toFixed(0)}%</span>
+                  {monthsLeft !== null ? (
+                    <small className="goal-time-left">
+                      {monthsLeft}{" "}
+                      {locale === "ms" ? "bulan lagi" : "months to go"}
+                    </small>
+                  ) : null}
                 </div>
                 {g.target_date ? (
-                  <small>
+                  <small className="goal-target-date">
                     {d.targetDate}:{" "}
                     {new Intl.DateTimeFormat(
                       locale === "ms" ? "ms-MY" : "en-MY",
@@ -768,14 +1210,7 @@ export function SavingsProgress({
                   aria-label={`${d.edit}: ${g.name}`}
                   onClick={() => onEdit(g)}
                 >
-                  <Pencil size={16} aria-hidden="true" />
-                </button>
-                <button
-                  className="icon-button danger-text"
-                  aria-label={`${d.remove}: ${g.name}`}
-                  onClick={() => onDelete(g.id, "goals")}
-                >
-                  <Trash2 size={16} aria-hidden="true" />
+                  <ChevronRight size={18} aria-hidden="true" />
                 </button>
               </div>
             </article>
@@ -791,14 +1226,20 @@ export function BudgetProgress({
   data,
   d,
   onDelete,
+  warningIds,
+  onOpen,
 }: {
   data: Snapshot;
   d: Dictionary;
   onDelete: (id: string, table: string) => void;
+  warningIds?: string[];
+  onOpen?: (budget: Budget) => void;
 }) {
   if (!data.budgets.length) return <p className="empty-budget">{d.noGoals}</p>;
   return (
-    <div className="budget-lines">
+    <div
+      className={`budget-lines${new Set(data.budgets.map((b) => b.month)).size > 1 ? " multiple-budget-months" : ""}`}
+    >
       {data.budgets.map((b) => {
         const year = Number(b.month.slice(0, 4)),
           month = Number(b.month.slice(5, 7));
@@ -821,8 +1262,11 @@ export function BudgetProgress({
           data.categories.find((c) => c.id === b.category_id)?.name ||
           d.category;
         return (
-          <article className="budget-line" key={b.id}>
-            <CategoryMark name={category} />
+          <article
+            className={`budget-line${warningIds?.includes(b.category_id) || used > target ? " budget-warning" : ""}`}
+            key={b.id}
+          >
+            <CategoryMark name={category} variant="insight" />
             <div className="budget-category">
               <b>{category}</b>
               <small>{b.month.slice(0, 7)}</small>
@@ -842,11 +1286,15 @@ export function BudgetProgress({
               </span>
             </div>
             <button
-              className="icon-button danger-text"
-              aria-label={`${d.remove}: ${category}`}
-              onClick={() => onDelete(b.id, "budgets")}
+              className={`icon-button ${onOpen ? "" : "danger-text"}`}
+              aria-label={`${onOpen ? (d.home === "Utama" ? "Lihat bajet" : "View budget") : d.remove}: ${category}`}
+              onClick={() => (onOpen ? onOpen(b) : onDelete(b.id, "budgets"))}
             >
-              <Trash2 size={15} aria-hidden="true" />
+              {onOpen ? (
+                <ChevronRight size={15} aria-hidden="true" />
+              ) : (
+                <Trash2 size={15} aria-hidden="true" />
+              )}
             </button>
           </article>
         );

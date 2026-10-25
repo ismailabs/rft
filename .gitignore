@@ -11,3 +11,14 @@ artifacts/private/
 supabase/.temp/
 supabase/.branches/
 __pycache__/
+# Retain calibration iterations locally; publish before/delivery evidence.
+artifacts/pixel-fidelity/pass-*/
+artifacts/pixel-fidelity/final/
+artifacts/pixel-fidelity/final-reviewed/
+artifacts/pixel-fidelity/delivery-partial/
+artifacts/pixel-fidelity/delivery-pre-arc/
+artifacts/pixel-fidelity/delivery-pre-controls/
+artifacts/pixel-fidelity/delivery-pre-accessibility/
+artifacts/pixel-fidelity/delivery-pre-final/
+artifacts/pixel-fidelity/delivery-pre-type/
+artifacts/pixel-fidelity/delivery-pre-submit/

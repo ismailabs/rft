@@ -80,6 +80,7 @@ test("savings goal preserves exact input through pending and failure, then refre
 }) => {
   await page.setViewportSize({ width: 390, height: 1086 });
   await page.goto(`${harness}/?view=insights&fidelity=1`);
+  await page.getByRole("button", { name: "Manage Goals", exact: true }).click();
   await page
     .getByRole("button", { name: "Add savings goal", exact: true })
     .click();

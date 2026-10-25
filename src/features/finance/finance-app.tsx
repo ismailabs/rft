@@ -8,11 +8,11 @@ import {
   ChartNoAxesColumn,
   Settings,
   Plus,
-  Wallet,
   ArrowLeftRight,
   Pencil,
   Trash2,
   ChevronRight,
+  ChevronLeft,
   ShieldCheck,
   Download,
   LogOut,
@@ -22,6 +22,13 @@ import {
   Tag,
   PieChart,
   Target,
+  Utensils,
+  TrendingUp,
+  Calendar,
+  CreditCard,
+  Sparkles,
+  ChevronDown,
+  LayoutGrid,
 } from "lucide-react";
 import { dictionary } from "@/i18n/dictionaries";
 import {
@@ -40,6 +47,7 @@ import { EntryForm, type FormKind, type Editable } from "./entry-form";
 import { PeriodFilter } from "./period-filter";
 import { ExpenseTrend, ExpenseSources } from "./expense-trend";
 import { monthlyReport } from "@/domain/finance/reporting";
+import type { FinancePresentation } from "./presentation";
 import {
   Panel,
   BalanceSummary,
@@ -54,6 +62,7 @@ import {
   MobileSpendingTrend,
   SavingsProgress,
   BudgetProgress,
+  CategoryMark,
 } from "./visual-components";
 type View =
   | "home"
@@ -71,6 +80,7 @@ export function FinanceApp({
   initialAsOf,
   displayName = "",
   initialSearch = "",
+  presentation,
 }: {
   initial: Snapshot;
   locale: Locale;
@@ -79,6 +89,7 @@ export function FinanceApp({
   initialAsOf: string;
   displayName?: string;
   initialSearch?: string;
+  presentation?: FinancePresentation;
 }) {
   const d = dictionary(locale),
     router = useRouter();
@@ -87,6 +98,11 @@ export function FinanceApp({
     [form, setForm] = useState<{ kind: FormKind; initial?: Editable } | null>(
       null,
     );
+  const [budgetInfo, setBudgetInfo] = useState<string | null>(null);
+  const [entryPanelOpen, setEntryPanelOpen] = useState(true);
+  const [manager, setManager] = useState<
+    "budgets" | "goals" | "accounts" | null
+  >(null);
   const [deleting, setDeleting] = useState<{
       id: string;
       table: string;
@@ -99,6 +115,7 @@ export function FinanceApp({
   const [search, setSearch] = useState(initialSearch),
     [type, setType] = useState("all"),
     [account, setAccount] = useState(accountId || "");
+  const [oldestFirst, setOldestFirst] = useState(false);
   const [status, setStatus] = useState(""),
     [error, setError] = useState(""),
     [busy, setBusy] = useState(false);
@@ -226,12 +243,34 @@ export function FinanceApp({
           .toLocaleLowerCase()
           .includes(search.toLocaleLowerCase()),
     )
-    .sort((a, b) => Date.parse(b.occurred_at) - Date.parse(a.occurred_at));
+    .sort(
+      (a, b) =>
+        (oldestFirst ? 1 : -1) *
+        (Date.parse(a.occurred_at) - Date.parse(b.occurred_at)),
+    );
   const [page, setPage] = useState(1);
   const [categoryFilter, setCategoryFilter] = useState("");
   const [inlineRevision, setInlineRevision] = useState(0);
+  const [selectedHistoryIds, setSelectedHistoryIds] = useState<string[]>([]);
+  const [chartRange, setChartRange] = useState<3 | 6 | 12>(6);
   const report = monthlyReport(data, asOf);
   const ms = locale === "ms";
+  const malaysiaHour = (new Date(asOf).getUTCHours() + 8) % 24;
+  const greeting = presentation
+    ? ms
+      ? "Selamat pagi"
+      : "Good morning"
+    : ms
+      ? malaysiaHour < 12
+        ? "Selamat pagi"
+        : malaysiaHour < 18
+          ? "Selamat petang"
+          : "Selamat malam"
+      : malaysiaHour < 12
+        ? "Good morning"
+        : malaysiaHour < 18
+          ? "Good afternoon"
+          : "Good evening";
   const selectedEntries = entries.filter(
     (t) => !categoryFilter || t.category_id === categoryFilter,
   );
@@ -253,6 +292,12 @@ export function FinanceApp({
         setPage(1);
       }}
       to={to}
+      rangeLabel={
+        presentation?.periodLabel ||
+        (period?.start && kind === "month"
+          ? `${new Intl.DateTimeFormat(ms ? "ms-MY" : "en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "Asia/Kuala_Lumpur" }).format(new Date(period.start))} – ${new Intl.DateTimeFormat(ms ? "ms-MY" : "en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "Asia/Kuala_Lumpur" }).format(new Date(Date.parse(period.end) - 1))}`
+          : undefined)
+      }
       setTo={(v) => {
         setTo(v);
         setPage(1);
@@ -263,16 +308,33 @@ export function FinanceApp({
     <TransactionHistory
       entries={displayEntries}
       groupDates={view !== "home"}
+      columnOrder={view === "accounts" ? "account-first" : "category-first"}
+      dateOrder={oldestFirst ? "ascending" : "descending"}
+      onDateSort={
+        view === "activity"
+          ? () => {
+              setOldestFirst((v) => !v);
+              setPage(1);
+            }
+          : undefined
+      }
+      selection={
+        view === "activity"
+          ? { ids: selectedHistoryIds, setIds: setSelectedHistoryIds }
+          : undefined
+      }
       data={data}
       d={d}
       locale={locale}
       onEdit={
-        view === "home"
+        view === "home" || view === "accounts"
           ? undefined
           : (t) => setForm({ kind: "transaction", initial: t })
       }
       onDelete={
-        view === "home" ? undefined : (id, table) => setDeleting({ id, table })
+        view === "home" || view === "accounts"
+          ? undefined
+          : (id, table) => setDeleting({ id, table })
       }
     />
   );
@@ -292,7 +354,7 @@ export function FinanceApp({
     {
       href: "/app/accounts",
       name: d.accounts,
-      icon: Wallet,
+      icon: CreditCard,
       active: view === "accounts" || view === "account",
     },
     {
@@ -338,7 +400,14 @@ export function FinanceApp({
   }
   const recentPanel = (
     <Panel
-      title={d.recent}
+      title={
+        ms
+          ? "Transaksi terkini"
+          : view === "accounts"
+            ? "Recent Account Transactions"
+            : "Recent Transactions"
+      }
+      className="recent-transactions"
       action={
         <Link className="text-link" href="/app/transactions">
           {d.seeAll}
@@ -351,17 +420,30 @@ export function FinanceApp({
   const balancePanel = (
     <BalanceSummary
       amount={
-        view === "account" ? accountBalances.get(accountId || "") || 0n : funds
+        view === "account"
+          ? accountBalances.get(accountId || "") || 0n
+          : (presentation?.balance ?? funds)
       }
       d={d}
       asOf={new Date(Date.parse(period?.end || asOf) - 1).toISOString()}
       locale={locale}
-      series={report.map((r) =>
-        view === "account"
-          ? balances(data, r.period.end).get(accountId || "") || 0n
-          : r.closing,
-      )}
+      series={
+        presentation?.balanceSeries ||
+        report.map((r) =>
+          view === "account"
+            ? balances(data, r.period.end).get(accountId || "") || 0n
+            : r.closing,
+        )
+      }
       account={view === "account"}
+      label={
+        view === "accounts"
+          ? ms
+            ? "Jumlah Baki (Semua Akaun)"
+            : "Total Balance (All Accounts)"
+          : undefined
+      }
+      change={presentation?.balanceChange}
     />
   );
   const accountFlow =
@@ -371,15 +453,45 @@ export function FinanceApp({
           period,
         )
       : tally;
-  const flows = accountFlow ? <FlowSummary {...accountFlow} d={d} /> : null;
-  const insightSummary = (
+  const flows = accountFlow ? (
+    <FlowSummary
+      {...(presentation?.flows || accountFlow)}
+      changes={presentation?.flowChanges}
+      d={d}
+    />
+  ) : null;
+  const insightSummary = presentation?.insights ? (
+    presentation.insights.map((item) => (
+      <FactualInsight
+        key={item.icon}
+        title={item.title}
+        tone={item.tone}
+        icon={
+          item.icon === "dining"
+            ? Utensils
+            : item.icon === "calendar"
+              ? Calendar
+              : TrendingUp
+        }
+      >
+        {item.detail}
+      </FactualInsight>
+    ))
+  ) : (
     <>
       <FactualInsight
         title={ms ? "Catatan perbelanjaan anda" : "Your recorded spending"}
       >
-        {tally ? money(tally.expenses) : "—"}. {ms ? "Perbelanjaan dicatat dalam tempoh dipilih." : "Expenses recorded in the selected period."}
+        {tally ? money(tally.expenses) : "—"}.{" "}
+        {ms
+          ? "Perbelanjaan dicatat dalam tempoh dipilih."
+          : "Expenses recorded in the selected period."}
       </FactualInsight>
-      <FactualInsight title={shares[0]?.name || d.categoryShare} tone="amber">
+      <FactualInsight
+        title={shares[0]?.name || d.categoryShare}
+        tone="amber"
+        icon={Utensils}
+      >
         {shares[0]
           ? `${money(shares[0].amount)} · ${(shares[0].share / 100).toFixed(1)}%`
           : d.noInsights}
@@ -387,6 +499,7 @@ export function FinanceApp({
       <FactualInsight
         title={ms ? "Bajet bulanan" : "Monthly budgets"}
         tone="purple"
+        icon={Calendar}
       >
         {data.budgets.length
           ? `${data.budgets.length} ${ms ? "had bulanan disimpan" : "saved monthly category limits"}`
@@ -450,7 +563,7 @@ export function FinanceApp({
               placeholder={
                 ms
                   ? "Cari transaksi, akaun, kategori…"
-                  : "Search transactions, accounts, categories…"
+                  : "Search transactions, merchants, categories…"
               }
               value={search}
               onChange={(e) => {
@@ -468,6 +581,7 @@ export function FinanceApp({
               )}
             </span>
             <span>{displayName || d.settings}</span>
+            <ChevronDown size={15} aria-hidden="true" />
             {displayName ? (
               <span className="sr-only"> · {d.settings}</span>
             ) : null}
@@ -486,7 +600,7 @@ export function FinanceApp({
               <h1>
                 {view === "home"
                   ? displayName
-                    ? `${ms ? "Selamat kembali" : "Welcome back"}, ${displayName}`
+                    ? `${greeting}, ${displayName}`
                     : ms
                       ? "Gambaran kewangan anda"
                       : "Your financial overview"
@@ -497,7 +611,7 @@ export function FinanceApp({
                     : view === "accounts"
                       ? ms
                         ? "Akaun & Pindahan"
-                        : "Accounts & Transfers"
+                        : "Accounts & Transfer"
                       : view === "insights"
                         ? ms
                           ? "Analisis & Bajet"
@@ -506,14 +620,24 @@ export function FinanceApp({
               </h1>
               <p>
                 {view === "home"
-                  ? d.overviewIntro
+                  ? ms
+                    ? d.overviewIntro
+                    : `Here's your financial overview for ${new Intl.DateTimeFormat("en-MY", { month: "long", year: "numeric", timeZone: "Asia/Kuala_Lumpur" }).format(new Date(asOf))}.`
                   : view === "accounts"
-                    ? d.accountIntro
+                    ? ms
+                      ? d.accountIntro
+                      : "Manage your accounts and transfer money between your own accounts."
                     : view === "insights"
-                      ? d.insightsIntro
-                      : view === "settings"
-                        ? d.data
-                        : d.manual}
+                      ? ms
+                        ? d.insightsIntro
+                        : "Understand your spending, spot opportunities, and stay on track."
+                      : view === "activity"
+                        ? ms
+                          ? d.manual
+                          : "View and manage all your income and expenses."
+                        : view === "settings"
+                          ? d.data
+                          : d.manual}
               </p>
             </div>
             {view === "accounts" ? (
@@ -529,7 +653,11 @@ export function FinanceApp({
             ) : view === "activity" ? (
               <button
                 className="button"
-                onClick={() => setForm({ kind: "transaction" })}
+                onClick={() => {
+                  if (window.matchMedia("(min-width:1200px)").matches)
+                    setEntryPanelOpen(true);
+                  else setForm({ kind: "transaction" });
+                }}
               >
                 <Plus size={19} aria-hidden="true" />
                 {d.add}
@@ -594,7 +722,15 @@ export function FinanceApp({
                   </div>
                   {flows}
                 </div>
-                <MonthlyChart data={data} asOf={asOf} locale={locale} d={d} />
+                <MonthlyChart
+                  data={data}
+                  range={chartRange}
+                  onRangeChange={setChartRange}
+                  asOf={asOf}
+                  locale={locale}
+                  d={d}
+                  values={presentation?.monthly}
+                />
                 <MobileDashboardOverview
                   data={data}
                   asOf={asOf}
@@ -610,13 +746,19 @@ export function FinanceApp({
               >
                 <Panel
                   title={d.accounts}
+                  className="dashboard-accounts"
                   action={
                     <Link className="text-link" href="/app/accounts">
                       {ms ? "Urus" : "Manage"}
                     </Link>
                   }
                 >
-                  <AccountOverview data={data} values={accountBalances} d={d} />
+                  <AccountOverview
+                    data={data}
+                    values={accountBalances}
+                    d={d}
+                    descriptions={presentation?.accountDescriptions}
+                  />
                   <button
                     className="button secondary wide"
                     onClick={() => setForm({ kind: "account" })}
@@ -627,12 +769,18 @@ export function FinanceApp({
                 </Panel>
                 <Panel
                   title={d.insights}
+                  className="dashboard-insights"
                   action={
                     <Link className="text-link" href="/app/insights">
                       {ms ? "Lihat semua" : "View all"}
                     </Link>
                   }
                 >
+                  <Sparkles
+                    className="insights-heading-icon"
+                    size={23}
+                    aria-hidden="true"
+                  />
                   {insightSummary}
                 </Panel>
               </aside>
@@ -643,7 +791,7 @@ export function FinanceApp({
               <div className="primary-stack">
                 <Panel className="transaction-controls">
                   <div className="transaction-tabs">
-                    {["all", "income", "expense", "transfer"].map((v) => (
+                    {["all", "income", "expense"].map((v) => (
                       <button
                         key={v}
                         className={type === v ? "active" : ""}
@@ -674,7 +822,7 @@ export function FinanceApp({
                       placeholder={
                         ms
                           ? "Cari keterangan atau kategori…"
-                          : "Search by description, account or category…"
+                          : "Search by description, merchant, or reference…"
                       }
                       value={search}
                       onChange={(e) => {
@@ -720,6 +868,45 @@ export function FinanceApp({
                         ))}
                       </select>
                     </label>
+                    <label>
+                      <span className="sr-only">{d.type}</span>
+                      <select
+                        value={type}
+                        onChange={(e) => {
+                          setType(e.target.value);
+                          setPage(1);
+                        }}
+                      >
+                        <option value="all">
+                          {ms ? "Semua jenis" : "All Types"}
+                        </option>
+                        <option value="income">{d.income}</option>
+                        <option value="expense">{d.expenses}</option>
+                        <option value="transfer">{d.transfer}</option>
+                      </select>
+                    </label>
+                    <label>
+                      <span className="sr-only">
+                        {ms
+                          ? "Penapis tarikh transaksi"
+                          : "Transaction date filter"}
+                      </span>
+                      <select
+                        value={kind}
+                        onChange={(e) => {
+                          setKind(e.target.value);
+                          setPage(1);
+                        }}
+                      >
+                        <option value="month">
+                          {ms ? "Bulan ini" : "All Dates"}
+                        </option>
+                        <option value="today">{d.today}</option>
+                        <option value="week">{d.week}</option>
+                        <option value="all">{d.all}</option>
+                        <option value="custom">{d.custom}</option>
+                      </select>
+                    </label>
                     <button
                       className="text-link"
                       onClick={() => {
@@ -730,34 +917,49 @@ export function FinanceApp({
                         setPage(1);
                       }}
                     >
-                      {ms ? "Kosongkan penapis" : "Clear filters"}
+                      {ms ? "Kosongkan penapis" : "Clear Filters"}
                     </button>
                   </div>
-                  <div className="category-filter-strip">
+                  <div className="category-strip-shell">
+                    <div className="category-filter-strip">
+                      <button
+                        aria-pressed={!categoryFilter}
+                        onClick={() => {
+                          setCategoryFilter("");
+                          setPage(1);
+                        }}
+                      >
+                        <LayoutGrid size={21} />
+                        {ms ? "Semua" : "All"}
+                      </button>
+                      {data.categories
+                        .filter((c) => !c.archived && c.type === "expense")
+                        .map((c) => (
+                          <button
+                            key={c.id}
+                            aria-pressed={categoryFilter === c.id}
+                            onClick={() => {
+                              setCategoryFilter(c.id);
+                              setPage(1);
+                            }}
+                          >
+                            <CategoryMark name={c.name} variant="filter" />
+                            {c.name}
+                          </button>
+                        ))}
+                    </div>
                     <button
-                      aria-pressed={!categoryFilter}
-                      onClick={() => {
-                        setCategoryFilter("");
-                        setPage(1);
-                      }}
+                      className="category-strip-next icon-button"
+                      aria-label={ms ? "Lagi kategori" : "More categories"}
+                      onClick={(event) =>
+                        event.currentTarget.previousElementSibling?.scrollBy({
+                          left: 300,
+                          behavior: "instant",
+                        })
+                      }
                     >
-                      <Tag size={20} />
-                      {d.allTypes}
+                      <ChevronRight size={18} aria-hidden="true" />
                     </button>
-                    {data.categories
-                      .filter((c) => !c.archived && c.type === "expense")
-                      .map((c) => (
-                        <button
-                          key={c.id}
-                          aria-pressed={categoryFilter === c.id}
-                          onClick={() => {
-                            setCategoryFilter(c.id);
-                            setPage(1);
-                          }}
-                        >
-                          {c.name}
-                        </button>
-                      ))}
                   </div>
                 </Panel>
                 <Panel>
@@ -765,7 +967,7 @@ export function FinanceApp({
                   <div className="table-pagination">
                     <span>
                       {selectedEntries.length
-                        ? `${(page - 1) * 10 + 1}–${Math.min(page * 10, selectedEntries.length)} / ${selectedEntries.length}`
+                        ? `${ms ? "Memaparkan" : "Showing"} ${(page - 1) * 10 + 1}–${Math.min(page * 10, selectedEntries.length)} ${ms ? "daripada" : "of"} ${selectedEntries.length}`
                         : "0"}{" "}
                       {ms ? "transaksi" : "transactions"}
                     </span>
@@ -776,26 +978,69 @@ export function FinanceApp({
                         disabled={page === 1}
                         onClick={() => setPage((n) => n - 1)}
                       >
-                        ‹
+                        <ChevronLeft size={18} aria-hidden="true" />
                       </button>
-                      <span aria-current="page">{page}</span>
+                      {Array.from(
+                        { length: Math.ceil(selectedEntries.length / 10) },
+                        (_, i) => i + 1,
+                      )
+                        .filter(
+                          (n) =>
+                            selectedEntries.length <= 70 ||
+                            n === 1 ||
+                            n === Math.ceil(selectedEntries.length / 10) ||
+                            Math.abs(n - page) <= 2,
+                        )
+                        .map((n) => (
+                          <button
+                            key={n}
+                            className="icon-button"
+                            aria-label={`${ms ? "Halaman" : "Page"} ${n}`}
+                            aria-current={n === page ? "page" : undefined}
+                            onClick={() => setPage(n)}
+                          >
+                            {n}
+                          </button>
+                        ))}
                       <button
                         className="icon-button"
                         aria-label={ms ? "Halaman seterusnya" : "Next page"}
                         disabled={page * 10 >= selectedEntries.length}
                         onClick={() => setPage((n) => n + 1)}
                       >
-                        ›
+                        <ChevronRight size={18} aria-hidden="true" />
                       </button>
                     </div>
                   </div>
                 </Panel>
               </div>
-              <aside className="desktop-composer rft-panel" aria-label={d.add}>
-                <h2>{d.add}</h2>
+              <aside
+                className="desktop-composer rft-panel"
+                aria-label={d.add}
+                hidden={!entryPanelOpen}
+              >
+                <h2>{ms ? d.add : "Add Transaction"}</h2>
+                <button
+                  className="icon-button composer-close"
+                  aria-label={
+                    ms ? "Tutup panel transaksi" : "Close transaction panel"
+                  }
+                  onClick={() => setEntryPanelOpen(false)}
+                >
+                  <X size={20} aria-hidden="true" />
+                </button>
                 <EntryForm
                   key={inlineRevision}
                   kind="transaction"
+                  defaultDateTime={asOf}
+                  defaults={
+                    presentation
+                      ? {
+                          account: data.accounts[0]?.id,
+                          category: data.categories[0]?.id,
+                        }
+                      : undefined
+                  }
                   data={data}
                   d={d}
                   onSave={saveInline}
@@ -813,10 +1058,9 @@ export function FinanceApp({
                   action={
                     <button
                       className="text-link"
-                      onClick={() => setForm({ kind: "account" })}
+                      onClick={() => setManager("accounts")}
                     >
-                      <Plus size={18} />
-                      {d.addAccount}
+                      {ms ? "Urus" : "Manage"}
                     </button>
                   }
                 >
@@ -824,10 +1068,17 @@ export function FinanceApp({
                     data={data}
                     values={accountBalances}
                     d={d}
+                    descriptions={presentation?.accountDescriptions}
+                    references={presentation?.accountReferences}
+                    primaryId={
+                      presentation?.accountReferences
+                        ? data.accounts[0]?.id
+                        : undefined
+                    }
+                    onAdd={() => setForm({ kind: "account" })}
                     onEdit={(a) =>
                       setForm({ kind: "account_meta", initial: a })
                     }
-                    onDelete={(id, table) => setDeleting({ id, table })}
                   />
                 </Panel>
                 <div className="mobile-transfer-action">
@@ -854,14 +1105,34 @@ export function FinanceApp({
                 aria-label={ms ? "Ringkasan tambahan" : "Additional summaries"}
               >
                 <Panel
-                  title={
-                    ms ? "Pindahan antara akaun" : "Transfer Between Accounts"
-                  }
+                  title={ms ? "Pindahan antara akaun" : "Transfer Money"}
                   className="desktop-composer"
                 >
+                  <div className="transfer-tabs">
+                    <span>
+                      {ms ? "Antara akaun saya" : "Between My Accounts"}
+                    </span>
+                    <span>{ms ? "Catatan manual" : "Manual records"}</span>
+                  </div>
+                  <p className="manual-transfer-note">
+                    {ms
+                      ? "Catatan manual sahaja — wang tidak dipindahkan."
+                      : "Manual entry only — no funds are moved."}
+                  </p>
                   <EntryForm
                     key={inlineRevision}
                     kind="transfer"
+                    placement="inline"
+                    defaultDateTime={asOf}
+                    defaults={
+                      presentation
+                        ? {
+                            account: data.accounts[0]?.id,
+                            destination: data.accounts[1]?.id,
+                            noteLimit: 100,
+                          }
+                        : undefined
+                    }
                     data={data}
                     d={d}
                     onSave={saveInline}
@@ -871,6 +1142,7 @@ export function FinanceApp({
                 <Panel
                   title={ms ? "Ringkasan akaun" : "Account Summary"}
                   className="desktop-account-summary"
+                  action={filter}
                 >
                   <Breakdown
                     rows={data.accounts.map((a) => ({
@@ -879,8 +1151,10 @@ export function FinanceApp({
                       amount: accountBalances.get(a.id) || 0n,
                     }))}
                     total={funds}
-                    label={d.estimated}
+                    label={ms ? "Jumlah baki" : "Total Balance"}
                     d={d}
+                    variant="account"
+                    percentages={presentation?.accountPercentages}
                   />
                 </Panel>
               </aside>
@@ -891,6 +1165,8 @@ export function FinanceApp({
               {balancePanel}
               {flows}
               <MonthlyChart
+                range={chartRange}
+                onRangeChange={setChartRange}
                 data={{
                   ...data,
                   transactions: data.transactions.filter(
@@ -924,13 +1200,46 @@ export function FinanceApp({
                       ? "Perbelanjaan mengikut kategori"
                       : "Expenses by Category"
                   }
+                  className="category-breakdown"
+                  action={
+                    <label className="category-chart-period">
+                      <span className="sr-only">
+                        {ms ? "Tempoh kategori" : "Category reporting period"}
+                      </span>
+                      <select
+                        value={kind}
+                        onChange={(e) => {
+                          setKind(e.target.value);
+                          setPage(1);
+                        }}
+                      >
+                        {(
+                          ["today", "week", "month", "all", "custom"] as const
+                        ).map((v) => (
+                          <option key={v} value={v}>
+                            {d[v]}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  }
                 >
-                  <p className="hint">{d.shareHelp}</p>
+                  <p className="hint chart-help">{d.shareHelp}</p>
                   <Breakdown
-                    rows={shares}
+                    rows={
+                      presentation?.categoryPercentages
+                        ? [...shares].sort(
+                            (a, b) =>
+                              data.categories.findIndex((c) => c.id === a.id) -
+                              data.categories.findIndex((c) => c.id === b.id),
+                          )
+                        : shares
+                    }
                     total={tally?.expenses || 0n}
-                    label={d.expenses}
+                    label={ms ? "Jumlah perbelanjaan" : "Total Expenses"}
                     d={d}
+                    percentages={presentation?.categoryPercentages}
+                    arcWeights={presentation?.categoryArcWeights}
                   />
                   {period && shares.length ? (
                     <div className="insight-sources">
@@ -950,12 +1259,15 @@ export function FinanceApp({
                 </Panel>
                 <MonthlyChart
                   data={data}
+                  range={chartRange}
+                  onRangeChange={setChartRange}
                   asOf={asOf}
                   locale={locale}
                   d={d}
                   title={
                     ms ? "Perbandingan bulanan" : "Month-to-Month Comparison"
                   }
+                  values={presentation?.monthly}
                 />
               </div>
               <div className="insight-bottom-grid">
@@ -965,29 +1277,29 @@ export function FinanceApp({
                     <h2>{ms ? "Kemajuan bajet" : "Budget Progress"}</h2>
                     <button
                       className="text-link"
-                      onClick={() => setForm({ kind: "budget" })}
+                      onClick={() => setManager("budgets")}
                     >
-                      <Plus size={18} />
-                      {d.addGoal}
+                      {ms ? "Urus bajet" : "Manage Budgets"}
                     </button>
                   </div>
                   <p className="hint">{d.goalHelp}</p>
                   <BudgetProgress
                     data={data}
                     d={d}
+                    warningIds={presentation?.budgetWarningIds}
+                    onOpen={(b) => setBudgetInfo(b.id)}
                     onDelete={(id, table) => setDeleting({ id, table })}
                   />
                 </section>
                 <section id="goals">
                   <Panel
-                    title={d.savingsGoals}
+                    title={ms ? "Kemajuan matlamat" : "Goals Progress"}
                     action={
                       <button
                         className="text-link"
-                        onClick={() => setForm({ kind: "goal" })}
+                        onClick={() => setManager("goals")}
                       >
-                        <Plus size={17} />
-                        {d.addSavingsGoal}
+                        {ms ? "Urus matlamat" : "Manage Goals"}
                       </button>
                     }
                   >
@@ -995,8 +1307,8 @@ export function FinanceApp({
                       goals={data.goals || []}
                       d={d}
                       locale={locale}
+                      asOf={asOf}
                       onEdit={(g) => setForm({ kind: "goal", initial: g })}
-                      onDelete={(id, table) => setDeleting({ id, table })}
                     />
                   </Panel>
                 </section>
@@ -1297,13 +1609,129 @@ export function FinanceApp({
           <EntryForm
             key={`${form.kind}-${form.initial?.id || "new"}`}
             kind={form.kind}
+            defaultDateTime={asOf}
             initial={form.initial}
             data={data}
             d={d}
             onSave={save}
             onCancel={() => setForm(null)}
+            onDelete={
+              form.initial &&
+              (form.kind === "account_meta" || form.kind === "goal")
+                ? () => {
+                    const current = form;
+                    setForm(null);
+                    setDeleting({
+                      id: current.initial!.id,
+                      table: current.kind === "goal" ? "goals" : "accounts",
+                    });
+                  }
+                : undefined
+            }
           />
         ) : null}
+      </Sheet>
+      <Sheet
+        open={!!budgetInfo}
+        onOpenChange={(open) => {
+          if (!open) setBudgetInfo(null);
+        }}
+        title={ms ? "Butiran bajet" : "Budget details"}
+        close={d.close}
+      >
+        <BudgetProgress
+          data={{
+            ...data,
+            budgets: data.budgets.filter((b) => b.id === budgetInfo),
+          }}
+          d={d}
+          onDelete={(id, table) => {
+            setBudgetInfo(null);
+            setDeleting({ id, table });
+          }}
+        />
+        <button
+          className="button secondary"
+          onClick={() => setBudgetInfo(null)}
+        >
+          {d.close}
+        </button>
+      </Sheet>
+      <Sheet
+        open={!!manager}
+        onOpenChange={(open) => {
+          if (!open) setManager(null);
+        }}
+        title={
+          manager === "goals"
+            ? ms
+              ? "Urus matlamat"
+              : "Manage Goals"
+            : manager === "accounts"
+              ? ms
+                ? "Urus akaun"
+                : "Manage Accounts"
+              : ms
+                ? "Urus bajet"
+                : "Manage Budgets"
+        }
+        close={d.close}
+      >
+        <button
+          className="button"
+          onClick={() => {
+            const kind =
+              manager === "goals"
+                ? "goal"
+                : manager === "accounts"
+                  ? "account"
+                  : "budget";
+            setManager(null);
+            setForm({ kind });
+          }}
+        >
+          <Plus size={18} aria-hidden="true" />
+          {manager === "goals"
+            ? d.addSavingsGoal
+            : manager === "accounts"
+              ? d.addAccount
+              : d.addGoal}
+        </button>
+        {manager === "goals" ? (
+          <SavingsProgress
+            goals={data.goals}
+            d={d}
+            locale={locale}
+            asOf={asOf}
+            onEdit={(g) => {
+              setManager(null);
+              setForm({ kind: "goal", initial: g });
+            }}
+          />
+        ) : manager === "accounts" ? (
+          <AccountOverview
+            data={data}
+            values={accountBalances}
+            d={d}
+            onEdit={(a) => {
+              setManager(null);
+              setForm({ kind: "account_meta", initial: a });
+            }}
+          />
+        ) : (
+          <BudgetProgress
+            data={data}
+            d={d}
+            onOpen={(b) => {
+              setManager(null);
+              setBudgetInfo(b.id);
+            }}
+            onDelete={(id, table) => {
+              setManager(null);
+              setDeleting({ id, table });
+            }}
+          />
+        )}
       </Sheet>
       <Sheet
         open={!!deleting}

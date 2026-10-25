@@ -1,0 +1,177 @@
+[WebServer] (node:15192) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 14 tests using 1 worker
+
+(node:1036) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference home: artwork, content and accessibility (18.0s)
+  x   2 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference activity: artwork, content and accessibility (40.7s)
+(node:2488) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   3 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference accounts: artwork, content and accessibility (40.5s)
+(node:16608) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   4 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference insights: artwork, content and accessibility (31.0s)
+(node:18004) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  5 [chromium] › tests\e2e\pixel-correction.spec.ts:37:1 › description and optional note survive a failed save without changing exact money (6.6s)
+  ok  6 [chromium] › tests\e2e\pixel-correction.spec.ts:87:1 › literal homepage uses the same React screen with isolated reference figures (5.1s)
+  ok  7 [chromium] › tests\e2e\pixel-correction.spec.ts:109:1 › calculated account shares round the exact ratio once (3.1s)
+  ok  8 [chromium] › tests\e2e\pixel-correction.spec.ts:128:1 › transfer date can be cleared and restored without a false balance or lost precision (4.6s)
+  ok  9 [chromium] › tests\e2e\pixel-correction.spec.ts:149:1 › balance privacy and transaction selection preserve access to edit actions (5.0s)
+  ok 10 [chromium] › tests\e2e\pixel-correction.spec.ts:182:1 › account, goal and budget chevrons retain deletion confirmation without issuing writes (9.0s)
+  ok 11 [chromium] › tests\e2e\pixel-correction.spec.ts:225:1 › chart and account period controls change the actual report (4.4s)
+  ok 12 [chromium] › tests\e2e\pixel-correction.spec.ts:248:1 › date sorting changes row order (2.6s)
+  ok 13 [chromium] › tests\e2e\pixel-correction.spec.ts:273:1 › budget management opens the existing form and preserves unsaved exact limits (3.1s)
+  ok 14 [chromium] › tests\e2e\pixel-correction.spec.ts:297:1 › long desktop account records wrap without overlap or page overflow (2.2s)
+
+
+  1) [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference activity: artwork, content and accessibility
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+     Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md
+
+      32 |         ),
+      33 |       ).toBe(true);
+    > 34 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+         |             ^
+      35 |   });
+      36 | }
+      37 | test("description and optional note survive a failed save without changing exact money", async ({
+        at AxeBuilder.analyze (C:\Users\moham\OneDrive\Desktop\rft\node_modules\@axe-core\playwright\dist\index.mjs:219:13)
+        at C:\Users\moham\OneDrive\Desktop\rft\tests\e2e\pixel-correction.spec.ts:34:13
+    [cause]: Error: page.evaluate: Test timeout of 30000ms exceeded.
+        at AxeBuilder.finishRun (C:\Users\moham\OneDrive\Desktop\rft\node_modules\@axe-core\playwright\dist\index.mjs:320:21)
+        at AxeBuilder.analyze (C:\Users\moham\OneDrive\Desktop\rft\node_modules\@axe-core\playwright\dist\index.mjs:217:14)
+        at C:\Users\moham\OneDrive\Desktop\rft\tests\e2e\pixel-correction.spec.ts:34:13
+
+    Error Context: artifacts\private\ready-browser-scope-results\pixel-correction-literal-r-accbe-k-content-and-accessibility-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\private\ready-browser-scope-results\pixel-correction-literal-r-accbe-k-content-and-accessibility-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\private\ready-browser-scope-results\pixel-correction-literal-r-accbe-k-content-and-accessibility-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference accounts: artwork, content and accessibility
+
+    Test timeout of 30000ms exceeded.
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private\ready-browser-scope-results\pixel-correction-literal-r-73e1b-k-content-and-accessibility-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private\ready-browser-scope-results\pixel-correction-literal-r-73e1b-k-content-and-accessibility-chromium\test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts\private\ready-browser-scope-results\pixel-correction-literal-r-73e1b-k-content-and-accessibility-chromium\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\private\ready-browser-scope-results\pixel-correction-literal-r-73e1b-k-content-and-accessibility-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\private\ready-browser-scope-results\pixel-correction-literal-r-73e1b-k-content-and-accessibility-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference insights: artwork, content and accessibility
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 58
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#ffffff",
+    +               "contrastRatio": 3.97,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#3478ff",
+    +               "fontSize": "10.5pt (14px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 3.97 (foreground color: #3478ff, background color: #ffffff, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<section class=\"rft-panel budget-progress\" id=\"budgets\">",
+    +                 "target": Array [
+    +                   "#budgets",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 3.97 (foreground color: #3478ff, background color: #ffffff, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<button class=\"text-link\">Manage Budgets</button>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".section-row > .text-link",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      32 |         ),
+      33 |       ).toBe(true);
+    > 34 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+         |                                                                   ^
+      35 |   });
+      36 | }
+      37 | test("description and optional note survive a failed save without changing exact money", async ({
+        at C:\Users\moham\OneDrive\Desktop\rft\tests\e2e\pixel-correction.spec.ts:34:67
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private\ready-browser-scope-results\pixel-correction-literal-r-69e11-k-content-and-accessibility-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts\private\ready-browser-scope-results\pixel-correction-literal-r-69e11-k-content-and-accessibility-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\private\ready-browser-scope-results\pixel-correction-literal-r-69e11-k-content-and-accessibility-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\private\ready-browser-scope-results\pixel-correction-literal-r-69e11-k-content-and-accessibility-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference activity: artwork, content and accessibility
+    [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference accounts: artwork, content and accessibility
+    [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference insights: artwork, content and accessibility
+  11 passed (5.8m)
