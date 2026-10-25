@@ -3,7 +3,7 @@
   "project": "RFT",
   "environment": "production",
   "source_commit": "ea6666dba37f997aa14c79faa2df5669204737cd",
-  "reviewed_at": "2026-10-25T07:21:12.121Z",
+  "reviewed_at": "2026-10-25T07:37:09.583Z",
   "cost_verified_zero": false,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
@@ -97,16 +97,17 @@
     },
     "G07": {
       "status": "blocked",
-      "note": "Two original verified factors remain. Real protected A AAL2 and third C unenrolled AAL1 sessions independently passed API and hosted database/snapshot reads. Owner reports RFT opens after MFA. Enrolled AAL1 direct denial and safe removal remain unverified; no factor was changed.",
+      "note": "Two original verified factors remain. Real protected A AAL2 and third C unenrolled AAL1 sessions independently passed API and hosted database/snapshot reads. Owner reports RFT opens after MFA. Enrolled AAL1 direct denial and safe removal remain unverified; no factor was changed. Source-reviewed multiple-factor/lost-device procedure now documents supported recovery paths and the absence of a verified all-factors-lost reset; this is not hosted lifecycle evidence.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-final-receipt.md",
         "artifacts/verification/live-workflow.md",
         "docs/progress.md",
-        "artifacts/verification/hosted-signed-session-readonly.json"
+        "artifacts/verification/hosted-signed-session-readonly.json",
+        "docs/mfa-recovery.md"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-25T07:09:29.340Z"
+      "verified_at": "2026-10-25T07:37:09.583Z"
     },
     "G08": {
       "status": "blocked",
