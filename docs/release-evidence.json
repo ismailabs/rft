@@ -3,7 +3,7 @@
   "project": "RFT",
   "environment": "production",
   "source_commit": "fb5fc33d8c27c94478445ccd4c6d72c3b8d250aa",
-  "reviewed_at": "2026-10-25T02:35:19.858Z",
+  "reviewed_at": "2026-10-25T03:02:49.901Z",
   "cost_verified_zero": false,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
@@ -73,13 +73,14 @@
     },
     "G06": {
       "status": "blocked",
-      "note": "Real Google test login works; audience Testing and public intended production lifecycle unverified.",
+      "note": "Owner reports completing production Site URL/callback and Google publishing steps on 2026-10-25. Prior real Google local sign-in works. Actual intended public production OAuth/session lifecycle remains unverified; no repeated settings confirmation requested.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-final-receipt.md"
+        "artifacts/verification/ci-final-receipt.md",
+        "artifacts/verification/production-preparation-receipt.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T04:01:51Z"
+      "verified_at": "2026-10-25T03:27:22.705Z"
     },
     "G07": {
       "status": "blocked",
@@ -139,14 +140,15 @@
     },
     "G12": {
       "status": "blocked",
-      "note": "Custom secret scan/Google-only configuration pass. Public GitHub API confirms Active default-branch PR + GitHub Actions verify + deletion/force-push rules; main unchanged. Bypass actors are not exposed by this read-only request. Intended environment/secret scopes remain unverified.",
+      "note": "Production configuration is metadata-verified in exact Vercel project/team: server-only key stored as Production Secret, public config targets Production only, no Preview/Development credentials. Server key validated read-only; Google-only provider settings read. Standard Protection protects previews/deployment URLs. Main PR/verify/deletion/force-push rules remain active. Intended public OAuth/callback and other hosted launch checks remain outstanding.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-final-receipt.md",
-        "artifacts/verification/main-protection-receipt.json"
+        "artifacts/verification/main-protection-receipt.json",
+        "artifacts/verification/production-preparation-receipt.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T13:40:37.575Z"
+      "verified_at": "2026-10-25T03:02:49.901Z"
     },
     "G13": {
       "status": "blocked",
@@ -162,23 +164,26 @@
     },
     "G14": {
       "status": "blocked",
-      "note": "Existing Google Drive destination selected (observed 22.4 MB of 15 GB used). Tool archives downloaded only; no install, keys, hosted dump or upload. Operational encryption/key custody/schedule/restore proof remain unverified; synthetic restore is narrower.",
+      "note": "Owner explicitly cancelled encrypted backups and requested deployment/production continuation on 2026-10-25. No further backup implementation or key-custody action is requested. Portable tools/version and synthetic encryption checks completed before cancellation; no hosted dump, production key or upload occurred. Cancellation is a scope change, not a passed operational recovery test.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-final-receipt.md"
+        "artifacts/verification/ci-final-receipt.md",
+        "docs/operations.md",
+        "artifacts/verification/production-preparation-receipt.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T04:01:51Z"
+      "verified_at": "2026-10-25T03:02:49.901Z"
     },
     "G15": {
       "status": "blocked",
-      "note": "Supabase free independently confirmed; owner reports Vercel Hobby (free). Independent quotas, public OAuth/domain compliance and overall RM0 release eligibility remain incomplete.",
+      "note": "Exact intended Vercel team independently confirmed Hobby; current Supabase organization independently confirms free/tier_free and project ACTIVE_HEALTHY. No paid activation/purchase. Vercel CLI billing cost query is unavailable, not zero usage. Public Google/domain behavior and remaining RM0 readiness still require actual release evidence.",
       "evidence": [
         "docs/verification-report.md",
-        "artifacts/verification/ci-final-receipt.md"
+        "artifacts/verification/ci-final-receipt.md",
+        "artifacts/verification/production-preparation-receipt.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T04:01:51Z"
+      "verified_at": "2026-10-25T03:02:49.901Z"
     },
     "G16": {
       "status": "not-run",
@@ -204,5 +209,23 @@
       "statement": "Accept the corrected visuals with the documented differences",
       "deployment_authorized": false
     }
+  },
+  "owner_scope_changes": [
+    {
+      "date": "2026-10-25",
+      "request": "cancel encrypted backups, continue with the deployment and production",
+      "encrypted_backup_work": "cancelled",
+      "production_preparation": "continue",
+      "backup_verification_claim": false,
+      "plaintext_cloud_backup_authorized": false,
+      "other_security_privacy_budget_boundaries": "preserved"
+    }
+  ],
+  "production_preparation": {
+    "receipt": "artifacts/verification/production-preparation-receipt.json",
+    "deployment_status": "NOT_DEPLOYED",
+    "implementation_public_url": null,
+    "source_changes": "EN/BM privacy/deletion copy reflects cancelled backups; complete local verify passes 80/80 tests, type/lint/build/audit/custom scan; four public notice renders verified. Clean CI for publication pending.",
+    "owner_auth_configuration": "Owner reports done; actual public sign-in/session proof remains separate"
   }
 }

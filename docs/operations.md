@@ -1,4 +1,10 @@
-# Operations and recovery — proposed RM0 procedure, release blocked
+# Operations — encrypted backup work cancelled by owner
+
+On 2026-10-25 the owner directed: “cancel encrypted backups, continue with the deployment and production”. Encrypted backup implementation is cancelled. Do not generate a production backup key, make a hosted dump, upload to Drive, activate a backup schedule or resume that work without a new owner request. No plaintext cloud-backup replacement is authorized. This cancellation is an explicit scope change, not evidence that recovery was verified.
+
+At cancellation, pinned portable tools had been extracted outside OneDrive and version-checked. A local synthetic age round-trip/wrong-key/tamper test passed; its two disposable keys were removed. No native database rehearsal started, no hosted record was exported, no production key was created and nothing was uploaded. Uncommitted tool-preparation scripts are preserved in ignored `artifacts/private/cancelled-backup-preparation/`; they are not shipped as an active workflow.
+
+The application privacy/deletion copy now truthfully states that RFT does not operate application-managed backups and lost/deleted data may not be recoverable. Source migrations and earlier isolated PGlite recovery tests remain available; they do not establish an operational backup service. Remaining production/security/provider/privacy checks continue independently.
 
 ## Observed provider state
 
@@ -10,9 +16,9 @@ Current official sources reviewed on 2026-10-24:
 - [Vercel plans](https://vercel.com/docs/plans) and [pricing](https://vercel.com/pricing): Hobby is for personal/noncommercial use and pauses at included usage limits. Actual account eligibility, plan and quota state still need confirmation.
 - [Google app audience](https://support.google.com/cloud/answer/15549945?hl=en): Testing and production audiences differ. Only basic identity scopes are used here; do not infer an arbitrary token lifetime or verification exemption from the Testing label alone.
 
-## Recovery proposal for owner review
+## Historical recovery proposal — cancelled, not an active instruction
 
-Owner decision checkpoint: use the existing Google Drive account (observed 22.4 MB used of 15 GB). This selects a destination only. No folder/archive upload, key creation, hosted dump or scheduled job has occurred; an actual upload requires the separately agreed review. Downloaded PostgreSQL/age archives are preserved outside OneDrive without extraction or execution. Operator/substitute, retention, key recovery and witnessed restoration remain unresolved.
+Earlier owner decision: use the existing Google Drive account (observed 22.4 MB used of 15 GB). This destination choice is superseded by cancellation of encrypted backup work. No folder/archive upload, hosted dump or scheduled job occurred. Downloaded portable tools were extracted/version-checked only; synthetic encryption-test keys were removed. Operator/substitute, retention, production key custody and operational restoration were not established.
 
 The local PostgreSQL rehearsal restores an isolated synthetic database and verifies snapshot equality, exact money, ownership/MFA enforcement and Auth-FK deletion cascades. This is reproducible test evidence, **not** an operational backup of the hosted project.
 

@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-25T03:12:14.120Z",
+  "environment": "Local production build, anonymous public pages",
+  "source": {
+    "src/components/legal-page.tsx": "84ff9d4db93278a4225cd2199cec526b6b60247d836c274304287538548544c7",
+    "src/i18n/dictionaries.ts": "5f56056221ad11b97664554bb8e13a2022742926cfdea55f5484491acf286193"
+  },
+  "captures": [
+    {
+      "file": "privacy-en.png",
+      "fontStatus": "loaded",
+      "width": 1100,
+      "scrollWidth": 1100,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "sha256": "52c51787cb6a171667a216663a09810eb7822761596c4aff49e37bb36f92e43a"
+    },
+    {
+      "file": "terms-en.png",
+      "fontStatus": "loaded",
+      "width": 1100,
+      "scrollWidth": 1100,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "sha256": "011c6216022da09c657e5dc12d92a6dc1400098b5bccebe6718e349437592e71"
+    },
+    {
+      "file": "privacy-ms.png",
+      "fontStatus": "loaded",
+      "width": 1100,
+      "scrollWidth": 1100,
+      "missingImages": 0,
+      "lang": "ms",
+      "pageErrors": 0,
+      "sha256": "866526d75eca97e79c4fbc91af107d20375d3fe7fa4933c6a514dedd1dcd5509"
+    },
+    {
+      "file": "terms-ms.png",
+      "fontStatus": "loaded",
+      "width": 1100,
+      "scrollWidth": 1100,
+      "missingImages": 0,
+      "lang": "ms",
+      "pageErrors": 0,
+      "sha256": "408a0618aa92fb971b7d4e03c8cd42c5b6f3f020857880a1cb20153e280f5e2c"
+    }
+  ]
+}

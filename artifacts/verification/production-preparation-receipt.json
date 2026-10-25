@@ -1,0 +1,116 @@
+{
+  "checkedAt": "2026-10-25T03:02:49.901Z",
+  "projectId": "prj_eM0EcPUzjg3G31h4jc6uhfo60dBo",
+  "teamId": "team_y1FMLs1LWgVb2dOvegEGYVkf",
+  "teamSlug": "ismailstudio",
+  "plan": {
+    "value": "hobby",
+    "evidence": "Authenticated Vercel CLI teams list --format json; exact team ID match"
+  },
+  "productionOrigin": "https://rft-tau.vercel.app",
+  "originStatus": "Configured intended production domain; corrected implementation is not deployed",
+  "environmentMetadata": [
+    {
+      "key": "RFT_PUBLIC_RELEASE_READY",
+      "type": "encrypted",
+      "target": [
+        "production"
+      ]
+    },
+    {
+      "key": "SUPABASE_SECRET_KEY",
+      "type": "sensitive",
+      "target": [
+        "production"
+      ]
+    },
+    {
+      "key": "NEXT_PUBLIC_APP_ORIGIN",
+      "type": "encrypted",
+      "target": [
+        "production"
+      ]
+    },
+    {
+      "key": "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
+      "type": "encrypted",
+      "target": [
+        "production"
+      ]
+    },
+    {
+      "key": "NEXT_PUBLIC_SUPABASE_URL",
+      "type": "encrypted",
+      "target": [
+        "production"
+      ]
+    }
+  ],
+  "serverKeyValidation": {
+    "operation": "Read-only Supabase Auth admin listUsers, no identity metadata published",
+    "success": true
+  },
+  "googleOnlySettingsRead": {
+    "google": true,
+    "email": false
+  },
+  "previewCredentials": 0,
+  "developmentCredentials": 0,
+  "protection": {
+    "enabled": true,
+    "deploymentType": "prod_deployment_urls_and_all_previews"
+  },
+  "deployed": false,
+  "publicImplementationUrl": null,
+  "backupScope": {
+    "cancelledByOwner": true,
+    "date": "2026-10-25",
+    "statement": "cancel encrypted backups, continue with the deployment and production",
+    "hostedDumpCreated": false,
+    "productionKeyCreated": false,
+    "uploaded": false
+  },
+  "limits": [
+    "Owner reports completing production URL/callback and Google publishing; actual public OAuth/session smoke remains unperformed",
+    "Live signed-session cross-user/MFA/deletion and manual/device/privacy acceptance remain incomplete",
+    "Encrypted backup work is cancelled; cancellation is not a verified recovery result",
+    "Current Vercel billing usage data unavailable; no zero-usage claim"
+  ],
+  "ownerReportedConfiguration": {
+    "date": "2026-10-25",
+    "supabaseSiteUrlAndCallbackSaved": true,
+    "googlePublishingStepsCompleted": true,
+    "response": "done",
+    "independentlyObservedPublicOAuth": false
+  },
+  "supabase": {
+    "project": "pvsvhfatkfcxgccfnxzq",
+    "status": "ACTIVE_HEALTHY",
+    "region": "ap-south-1",
+    "postgresVersion": "17.11.0.003",
+    "organizationPlan": "free",
+    "organizationTier": "tier_free"
+  },
+  "preservedIdentityCounts": {
+    "users": 2,
+    "googleIdentities": 2,
+    "profiles": 1,
+    "verifiedFactors": 2
+  },
+  "vercelUsageQuery": {
+    "status": "unavailable",
+    "note": "CLI reports billing cost data unavailable for the selected current period; this is not evidence of zero usage. Intended team Hobby plan is independently confirmed."
+  },
+  "localVerification": {
+    "command": "npm run verify",
+    "exitCode": 0,
+    "unitDatabaseTests": 80,
+    "typecheck": "pass",
+    "lint": "pass",
+    "build": "pass",
+    "handoffAudit": "pass",
+    "customSecretScan": "pass",
+    "log": "artifacts/verification/production-preparation-verify.log",
+    "publicNoticeCaptures": "artifacts/verification/production-notices/receipt.json"
+  }
+}

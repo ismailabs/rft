@@ -142,7 +142,7 @@ export const en = {
   signout: "Sign out",
   deleteAccount: "Delete my RFT account",
   deleteAccountHelp:
-    "Permanently remove your RFT profile, financial records and sign-in identity. Recent Google sign-in and your authenticator (if enabled) are required. Provider logs and protected backups may have separate retention.",
+    "Permanently remove your RFT profile, financial records and sign-in identity. Recent Google sign-in and your authenticator (if enabled) are required. Provider logs may have separate retention. RFT does not currently operate application-managed backups.",
   deletePhrase: "Type DELETE RFT to confirm",
   reauth: "Sign in again with Google",
   install: "Install RFT",
@@ -373,7 +373,7 @@ export const ms: Dictionary = {
   signout: "Log keluar",
   deleteAccount: "Padam akaun RFT saya",
   deleteAccountHelp:
-    "Padam profil, catatan kewangan dan identiti log masuk RFT secara kekal. Log masuk Google terkini dan pengesah (jika aktif) diperlukan. Log penyedia dan sandaran terlindung mungkin mempunyai tempoh simpanan berasingan.",
+    "Padam profil, catatan kewangan dan identiti log masuk RFT secara kekal. Log masuk Google terkini dan pengesah (jika aktif) diperlukan. Log penyedia mungkin mempunyai tempoh simpanan berasingan. RFT tidak mengendalikan sandaran aplikasi pada masa ini.",
   deletePhrase: "Taip DELETE RFT untuk mengesahkan",
   reauth: "Log masuk semula dengan Google",
   install: "Pasang RFT",

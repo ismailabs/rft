@@ -23,7 +23,7 @@ export async function LegalPage({ kind }: { kind: "privacy" | "terms" }) {
           ],
           [
             "Eksport, pemadaman dan simpanan",
-            "Anda boleh mengeksport catatan. Pemadaman akaun memerlukan pengesahan terkini dan memadam rekod aplikasi serta identiti RFT. Log penyedia dan sandaran terlindung boleh mempunyai tempoh simpanan berasingan. Jadual sandaran dan tempoh simpanan mesti dimuktamadkan sebelum pelancaran.",
+            "Anda boleh mengeksport catatan. Pemadaman akaun memerlukan pengesahan terkini dan memadam rekod aplikasi serta identiti RFT. RFT tidak mengendalikan sandaran aplikasi pada masa ini. Log penyedia mungkin disimpan mengikut dasar penyedia. Data yang dipadam atau hilang mungkin tidak boleh dipulihkan. Simpan eksport peribadi yang dilindungi jika anda memerlukan salinan.",
           ],
           [
             "Status notis",
@@ -45,7 +45,7 @@ export async function LegalPage({ kind }: { kind: "privacy" | "terms" }) {
           ],
           [
             "Export, deletion and retention",
-            "You can export records. Account deletion requires recent identity verification and removes application records and your RFT identity. Provider logs and protected backups may have separate retention. The backup schedule and retention periods must be finalized before launch.",
+            "You can export records. Account deletion requires recent identity verification and removes application records and your RFT identity. RFT does not currently operate application-managed backups. Provider logs may be retained under provider policies. Deleted or lost data may not be recoverable. Keep protected personal exports if you need a copy.",
           ],
           [
             "Notice status",
