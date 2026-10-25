@@ -51,7 +51,7 @@ Keep this credential local while release is blocked. Preview/test deployment sco
 
 1. Review the actual local [privacy page](http://127.0.0.1:3000/privacy) and [terms page](http://127.0.0.1:3000/terms), including BM. Both are explicitly prelaunch drafts.
 2. Your approved public details are now included: **Ismail Studio**, **ismailstudio.my**, **contact@ismailstudio.my**. Confirm the notices accurately describe your actual handling when reviewing retention and recovery below.
-3. Review `docs/operations.md`: choose an existing, access-controlled encrypted backup location, identify who performs backups/restores, and settle retention and recovery limits. No paid service is assumed. If a safe feasible RM0 process cannot be verified, launch stays blocked.
+3. The existing Google Drive account is already selected as the backup destination; the observed storage was 22.4 MB of 15 GB used. Review `docs/operations.md` to identify who performs backups/restores and settle retention, key custody and recovery limits. No archive has been uploaded, and any actual upload needs separate review as previously agreed. Free tool archives were downloaded safely; no installation/execution, key creation or hosted dump occurred. If a safe feasible RM0 process cannot be verified, launch stays blocked.
 4. Complete any applicable Malaysian privacy/legal review. Codex can implement accurate wording from verified facts but cannot invent legal approval or operational guarantees.
 
 ## 5. Public OAuth and device acceptance — after the earlier gates

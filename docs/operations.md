@@ -12,6 +12,8 @@ Current official sources reviewed on 2026-10-24:
 
 ## Recovery proposal for owner review
 
+Owner decision checkpoint: use the existing Google Drive account (observed 22.4 MB used of 15 GB). This selects a destination only. No folder/archive upload, key creation, hosted dump or scheduled job has occurred; an actual upload requires the separately agreed review. Downloaded PostgreSQL/age archives are preserved outside OneDrive without extraction or execution. Operator/substitute, retention, key recovery and witnessed restoration remain unresolved.
+
 The local PostgreSQL rehearsal restores an isolated synthetic database and verifies snapshot equality, exact money, ownership/MFA enforcement and Auth-FK deletion cascades. This is reproducible test evidence, **not** an operational backup of the hosted project.
 
 Before release, all of the following need actual configuration and a witnessed restore:

@@ -2,61 +2,61 @@
   "schema_version": 1,
   "project": "RFT",
   "environment": "production",
-  "source_commit": "7612ed76c9bd03ec53d30adb3c3d74cba7827e0b",
-  "reviewed_at": "2026-10-24T13:40:37.575Z",
+  "source_commit": "fb5fc33d8c27c94478445ccd4c6d72c3b8d250aa",
+  "reviewed_at": "2026-10-25T02:26:55.314Z",
   "cost_verified_zero": false,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
   "public_url": null,
-  "scope": "Visual recovery source 7612ed7 verified by clean Linux CI (79 unit/integration and 64 browser checks); following evidence-only edits do not change application/test/migration source. Hosted read-only SQL simulation is narrower than signed-session proof. Production blocked; both designated identities preserved; no deletion authorized.",
+  "scope": "Mandatory A–E correction source fb5fc33: clean Linux CI 80/80 unit/database and 78/78 browser checks, actual 1448×1086 synthetic comparisons and measured artwork/layout. Historical recovery evidence remains narrower. Production blocked; designated identities preserved; no deletion authorized.",
   "gates": {
     "G01": {
       "status": "pass",
-      "note": "Reviewed source published to existing draft PR. Local HEAD/tracking/advertised SHA agree; original handoff/skills and registered asset exceptions pass. Main unchanged.",
+      "note": "Reviewed correction source is published in draft PR #1. Local HEAD/tracking/advertised SHA and tested PR merge/source Git trees agree; original handoff/skills/asset audit passes. Main unchanged.",
       "evidence": [
-        "docs/visual-recovery-verification.md",
-        "docs/savings-goals-migration.md",
-        "docs/design-reference-register.md",
-        "artifacts/verification/recovery-ci-receipt.md"
+        "docs/pixel-fidelity-correction.md",
+        "artifacts/pixel-fidelity/clean-ci-receipt.json",
+        "artifacts/pixel-fidelity/clean-ci-excerpt.log",
+        "artifacts/pixel-fidelity/delivery/source-manifest.json"
       ],
-      "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T13:30:29.513Z"
+      "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
+      "verified_at": "2026-10-25T02:26:55.314Z"
     },
     "G02": {
-      "status": "blocked",
-      "note": "Mandatory pixel-correction worktree changes after the historical clean CI; final complete verification pending. Old receipts preserved.",
+      "status": "pass",
+      "note": "Clean locked Linux CI passes fresh npm ci, typecheck, zero-warning lint, 80/80 unit/database tests, production build, source/browser custom secret scan and zero npm vulnerabilities. All job steps successful.",
       "evidence": [
-        "docs/visual-recovery-verification.md",
-        "docs/savings-goals-migration.md",
-        "docs/design-reference-register.md",
-        "artifacts/verification/recovery-ci-receipt.md"
+        "docs/pixel-fidelity-correction.md",
+        "artifacts/pixel-fidelity/clean-ci-receipt.json",
+        "artifacts/pixel-fidelity/clean-ci-excerpt.log",
+        "artifacts/pixel-fidelity/delivery/source-manifest.json"
       ],
-      "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T13:30:29.513Z"
+      "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
+      "verified_at": "2026-10-25T02:26:55.314Z"
     },
     "G03": {
       "status": "pass",
-      "note": "Current clean 79-test CI passes exact money/property/reconciliation tests, Malaysia month/day boundaries, large values and exact goals transport.",
+      "note": "Current 80-test clean CI passes exact money/property/reconciliation tests, Malaysia month/day boundaries, large values, goals transport and reconciled public example. Literal contradictory reference values remain test-only display inputs.",
       "evidence": [
-        "docs/visual-recovery-verification.md",
-        "docs/savings-goals-migration.md",
-        "docs/design-reference-register.md",
-        "artifacts/verification/recovery-ci-receipt.md"
+        "docs/pixel-fidelity-correction.md",
+        "artifacts/pixel-fidelity/clean-ci-receipt.json",
+        "artifacts/pixel-fidelity/clean-ci-excerpt.log",
+        "artifacts/pixel-fidelity/delivery/source-manifest.json"
       ],
-      "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T13:30:29.513Z"
+      "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
+      "verified_at": "2026-10-25T02:26:55.314Z"
     },
     "G04": {
       "status": "pass",
-      "note": "Current clean CI passes all isolated PostgreSQL atomic transfer, historical edit/date, FK/ownership, exact goals, synthetic restore and cascade tests. Hosted operational recovery is separate and remains blocked.",
+      "note": "Current clean CI passes isolated PostgreSQL atomic transfer, historical edit/date, FK/ownership, exact goals, synthetic restore and cascade tests. Hosted operational recovery remains separate and blocked.",
       "evidence": [
-        "docs/visual-recovery-verification.md",
-        "docs/savings-goals-migration.md",
-        "docs/design-reference-register.md",
-        "artifacts/verification/recovery-ci-receipt.md"
+        "docs/pixel-fidelity-correction.md",
+        "artifacts/pixel-fidelity/clean-ci-receipt.json",
+        "artifacts/pixel-fidelity/clean-ci-excerpt.log",
+        "artifacts/pixel-fidelity/delivery/source-manifest.json"
       ],
-      "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T13:30:29.513Z"
+      "verified_by": "Codex; inspected clean CI logs, Git refs/trees and local artifacts",
+      "verified_at": "2026-10-25T02:26:55.314Z"
     },
     "G05": {
       "status": "blocked",
@@ -117,15 +117,15 @@
     },
     "G10": {
       "status": "blocked",
-      "note": "Owner rejected prior fidelity; A–E correction and repeated actual screenshot comparisons are in progress. No visual-completion claim.",
+      "note": "A–E corrected and review-ready: all five final comparisons inspected, 22 selected panel bounds within 1.063 px of measured raster edges; complete 78/78 Chromium suite passes responsive/keyboard/axe checks. Remaining font/vector/paint and truthful/accessible control differences are documented; final owner visual acceptance and manual assistive-technology evidence remain outstanding. No pixel-perfect claim.",
       "evidence": [
-        "docs/visual-recovery-verification.md",
-        "docs/savings-goals-migration.md",
-        "docs/design-reference-register.md",
-        "artifacts/verification/recovery-ci-receipt.md"
+        "docs/pixel-fidelity-correction.md",
+        "artifacts/pixel-fidelity/clean-ci-receipt.json",
+        "artifacts/pixel-fidelity/clean-ci-excerpt.log",
+        "artifacts/pixel-fidelity/delivery/source-manifest.json"
       ],
       "verified_by": "Codex; actual provider/command results and separately identified owner reports",
-      "verified_at": "2026-10-24T13:30:29.513Z"
+      "verified_at": "2026-10-25T02:26:55.314Z"
     },
     "G11": {
       "status": "blocked",
@@ -162,7 +162,7 @@
     },
     "G14": {
       "status": "blocked",
-      "note": "Synthetic restore passes; encrypted operational backup destination/schedule/key recovery and hosted procedure unverified.",
+      "note": "Existing Google Drive destination selected (observed 22.4 MB of 15 GB used). Tool archives downloaded only; no install, keys, hosted dump or upload. Operational encryption/key custody/schedule/restore proof remain unverified; synthetic restore is narrower.",
       "evidence": [
         "docs/verification-report.md",
         "artifacts/verification/ci-final-receipt.md"
@@ -192,9 +192,11 @@
     }
   },
   "worktree_correction": {
-    "status": "IN_PROGRESS",
+    "status": "IMPLEMENTED_REVIEW_PENDING",
     "base_commit": "1a4896e5b9742bd1df9cdfdab3df2929674c7538",
+    "source_commit": "fb5fc33d8c27c94478445ccd4c6d72c3b8d250aa",
     "record": "docs/pixel-fidelity-correction.md",
-    "note": "Owner rejected prior visual result. Historical CI remains historical; current worktree requires fresh complete verification and visual acceptance. No production deployment, hosted mutation or identity deletion."
+    "ci_receipt": "artifacts/pixel-fidelity/clean-ci-receipt.json",
+    "note": "A–E implementation, final rendered comparisons and complete clean regression suite verified. Residual visual/manual acceptance limits remain explicit. No production deployment, hosted mutation or identity deletion."
   }
 }

@@ -1,0 +1,25 @@
+2026-10-25T02:22:28.2102334Z found 0 vulnerabilities
+2026-10-25T02:22:28.9149679Z PASS: 65 original handoff hashes; 12 skill names; skills unchanged; 20 original PNGs preserved, 1 owner-authorized removal, 5 hash-registered approved additions.
+2026-10-25T02:22:47.1031087Z  Test Files  9 passed (9)
+2026-10-25T02:22:47.1032103Z       Tests  80 passed (80)
+2026-10-25T02:22:54.6832131Z ✓ Compiled successfully in 7.0s
+2026-10-25T02:23:00.3857042Z   Finished TypeScript in 5.7s ...
+2026-10-25T02:23:01.5138485Z ✓ Generating static pages using 3 workers (14/14) in 186ms
+2026-10-25T02:23:01.7792036Z PASS: custom source/asset scan (285 text files) and browser output checks. No configured privileged key patterns found. This is not a Gitleaks audit.
+2026-10-25T02:23:02.3139170Z found 0 vulnerabilities
+2026-10-25T02:23:23.1243638Z Running 78 tests using 1 worker
+2026-10-25T02:24:29.2327385Z   ✓  34 [chromium] › tests/e2e/pixel-correction.spec.ts:7:3 › literal reference home: artwork, content and accessibility (2.1s)
+2026-10-25T02:24:31.9274236Z   ✓  35 [chromium] › tests/e2e/pixel-correction.spec.ts:7:3 › literal reference activity: artwork, content and accessibility (2.7s)
+2026-10-25T02:24:34.1472799Z   ✓  36 [chromium] › tests/e2e/pixel-correction.spec.ts:7:3 › literal reference accounts: artwork, content and accessibility (2.2s)
+2026-10-25T02:24:36.2506451Z   ✓  37 [chromium] › tests/e2e/pixel-correction.spec.ts:7:3 › literal reference insights: artwork, content and accessibility (2.1s)
+2026-10-25T02:24:37.7025687Z   ✓  38 [chromium] › tests/e2e/pixel-correction.spec.ts:45:1 › description and optional note survive a failed save without changing exact money (1.4s)
+2026-10-25T02:24:39.3342467Z   ✓  39 [chromium] › tests/e2e/pixel-correction.spec.ts:95:1 › literal homepage uses the same React screen with isolated reference figures (1.6s)
+2026-10-25T02:24:40.2167872Z   ✓  40 [chromium] › tests/e2e/pixel-correction.spec.ts:117:1 › calculated account shares round the exact ratio once (872ms)
+2026-10-25T02:24:41.3354381Z   ✓  41 [chromium] › tests/e2e/pixel-correction.spec.ts:136:1 › transfer date can be cleared and restored without a false balance or lost precision (1.1s)
+2026-10-25T02:24:43.3448640Z   ✓  42 [chromium] › tests/e2e/pixel-correction.spec.ts:174:1 › balance privacy and transaction selection preserve access to edit actions (2.0s)
+2026-10-25T02:24:48.0377998Z   ✓  43 [chromium] › tests/e2e/pixel-correction.spec.ts:207:1 › account, goal and budget chevrons retain deletion confirmation without issuing writes (4.7s)
+2026-10-25T02:24:49.7515070Z   ✓  44 [chromium] › tests/e2e/pixel-correction.spec.ts:250:1 › chart and account period controls change the actual report (1.7s)
+2026-10-25T02:24:51.0012950Z   ✓  45 [chromium] › tests/e2e/pixel-correction.spec.ts:273:1 › date sorting changes row order (1.2s)
+2026-10-25T02:24:52.6356572Z   ✓  46 [chromium] › tests/e2e/pixel-correction.spec.ts:298:1 › budget management opens the existing form and preserves unsaved exact limits (1.6s)
+2026-10-25T02:24:53.5999070Z   ✓  47 [chromium] › tests/e2e/pixel-correction.spec.ts:322:1 › long desktop account records wrap without overlap or page overflow (948ms)
+2026-10-25T02:25:41.0540461Z   78 passed (2.3m)

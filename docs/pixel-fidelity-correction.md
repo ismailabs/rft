@@ -1,6 +1,10 @@
 # A–E mandatory fidelity correction
 
-Status: corrected implementation and rendered comparison evidence prepared; final browser/CI verification in progress. **Production remains blocked. No pixel-perfect claim is made.** The preceding visual-recovery result was rejected by the owner; its CI receipts remain historical engineering evidence only.
+Status: corrected implementation, final rendered comparisons and complete clean CI verified; ready for visual review. **Production remains blocked. No pixel-perfect claim is made.** The preceding visual-recovery result was rejected by the owner; its CI receipts remain historical engineering evidence only.
+
+Current source: `fb5fc33d8c27c94478445ccd4c6d72c3b8d250aa`, published in [draft PR #1](https://github.com/ismailabs/rft/pull/1). [Clean PR CI](https://github.com/ismailabs/rft/actions/runs/40154172781) and [push CI](https://github.com/ismailabs/rft/actions/runs/40154168374) both succeeded. Inspected PR job 121051847675 passes every step: fresh locked install, source audit, typecheck, zero-warning lint, **80/80 unit/database tests**, production build, custom source/browser secret scan, dependency audit (**0 vulnerabilities**) and **78/78 Chromium tests**. Receipts: `artifacts/pixel-fidelity/clean-ci-receipt.json` and `clean-ci-excerpt.log`. Local/tracking/advertised source SHAs agree; source and tested PR merge trees are identical (`f9cc1f9772c57accb3a700ad5418d50747f3cad1`).
+
+The browser suite includes narrow/mobile/tablet/wide layouts, EN/BM, empty/long-data/reduced-motion states, keyboard focus, axe, functional filters/managers/chart ranges, exact transfer preview/submission payload and failed-save retention. These are isolated synthetic/public tests, not real hosted session proof. G10 retains final visual/manual acceptance limits, including unperformed screen-reader review; other hosted/operational release gates remain blocked. The detailed earlier failures below are preserved as checkpoint history, not current failures or substituted proof.
 
 ## Binding mapping
 
@@ -95,3 +99,9 @@ Application: `src/app/fidelity.css`, `src/app/layout.tsx`, `src/app/page.tsx`, `
 Verification: `tests/browser-ui/main.tsx`, `tests/browser-ui/image.tsx`, `tests/browser-ui/reference-sample.ts`, `tests/browser-ui/vite.config.ts`, `tests/e2e/capture.ts`, `tests/e2e/fidelity.spec.ts`, `tests/e2e/pixel-correction.spec.ts`, `tests/unit/marketing-example.test.ts`, `scripts/capture-pixel-fidelity.mjs`, `scripts/measure-pixel-geometry.mjs`, `scripts/prepare-institution-artwork.mjs`, derived `public/institutions/` artwork/provenance and the screenshot receipts. `.gitignore` excludes intermediate calibration output while preserving it locally. No migration, database-service, auth, RLS, money-parser or finance-domain rule source is changed.
 
 The earlier backup-tool download finished safely: archives only, no installation/execution, keys, dump or Drive upload. The owner-selected existing Drive destination is preserved for later recovery work; no paid service was enabled.
+
+## Git and deployment status
+
+The correction is committed and pushed to `codex/rft-v1`; PR #1 remains draft, open and unmerged. Main remains `c669f6ea616d266e6d433efec4cf4ac9853602a2`. GitHub ruleset 25783124 was rechecked Active with default-branch PR, GitHub Actions `verify`, deletion and force-push protection. Bypass actors are not exposed to this read-only check. `vercel.json` still disables Git deployments. The post-push Vercel read lists exactly one READY baseline placeholder at main's SHA, not this implementation. No corrected preview/production deployment or confirmed public app URL exists.
+
+All G01–G15 must have actual passing evidence before deployment under the handoff. Hosted signed-session isolation/write/related-ID negatives, MFA lifecycle, controlled deletion (neither current identity is disposable), public OAuth, environment scopes, privacy/retention review, recovery and physical-device acceptance remain outstanding. Both designated identities and existing records are preserved. See `docs/owner-actions.md` for precise actions and `docs/release-evidence.json` for the fail-closed gate record.

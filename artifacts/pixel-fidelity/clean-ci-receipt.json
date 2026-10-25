@@ -1,0 +1,134 @@
+{
+  "checkedAt": "2026-10-25T02:26:55.314Z",
+  "sourceCommit": "fb5fc33d8c27c94478445ccd4c6d72c3b8d250aa",
+  "sourceTree": "f9cc1f9772c57accb3a700ad5418d50747f3cad1",
+  "testedPrMergeCommit": "72b91a051fc40d5719552e1b51f6e29fd52462e9",
+  "mergeTreeMatches": true,
+  "runs": [
+    {
+      "id": 40154172781,
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "fb5fc33d8c27c94478445ccd4c6d72c3b8d250aa",
+      "html_url": "https://github.com/ismailabs/rft/actions/runs/40154172781"
+    },
+    {
+      "id": 40154168374,
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "fb5fc33d8c27c94478445ccd4c6d72c3b8d250aa",
+      "html_url": "https://github.com/ismailabs/rft/actions/runs/40154168374"
+    }
+  ],
+  "inspectedJob": {
+    "id": 121051847675,
+    "run": 40154172781,
+    "conclusion": "success",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1
+      },
+      {
+        "name": "Require free standard-runner public repository",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2
+      },
+      {
+        "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3
+      },
+      {
+        "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4
+      },
+      {
+        "name": "Run npm ci --ignore-scripts",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5
+      },
+      {
+        "name": "Run npm run verify",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6
+      },
+      {
+        "name": "Run npm audit --audit-level=moderate",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7
+      },
+      {
+        "name": "Run npx playwright install --with-deps chromium",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8
+      },
+      {
+        "name": "Run npm run test:e2e",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 9
+      },
+      {
+        "name": "Write evidence summary",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 10
+      },
+      {
+        "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 19
+      },
+      {
+        "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 20
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 21
+      }
+    ]
+  },
+  "observed": {
+    "unitDatabaseTests": 80,
+    "browserTests": 78,
+    "npmVulnerabilities": 0,
+    "allStepsSuccessful": true
+  },
+  "screenshots": {
+    "viewport": {
+      "width": 1448,
+      "height": 1086,
+      "dpr": 1
+    },
+    "screens": 5,
+    "measuredPanels": 22,
+    "maxAbsolutePanelDeltaPx": 1.063,
+    "sourceRasterEdgeUncertaintyPx": "1–2",
+    "pixelPerfectClaim": false
+  },
+  "production": {
+    "status": "NOT_DEPLOYED",
+    "publicUrl": null,
+    "baselineOnly": true
+  },
+  "limits": "Synthetic isolated tests and local screenshot review do not establish real hosted OAuth, signed-session RLS/MFA/deletion, owner/legal, physical-device or operational recovery evidence."
+}

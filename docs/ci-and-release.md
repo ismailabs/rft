@@ -6,8 +6,8 @@ Source: https://docs.github.com/en/billing/concepts/product-billing/github-actio
 
 `RFT verification / verify` runs clean locked install, original-handoff/protected-source audit, type/lint/unit/database/build, dependency audit, and Chromium public/synthetic-component tests. Browser screenshots from the component host are synthetic UI evidence, not real hosted Auth evidence. The test host is under tests/ and is not deployed by Next.js.
 
-`main` branch currently reports `protected: false` (GitHub API, 2026-10-24). Production is blocked until required verification is enforced. A pull request and green run do not themselves enable branch protection.
+GitHub's read-only public API confirms Active default-branch ruleset 25783124 (rechecked 2026-10-25): require a pull request and GitHub Actions `verify` check (integration 15368), prevent deletion and force pushes. Main remains at c669f6e. The endpoint does not expose bypass actors, so it is not independent evidence of an empty bypass list. Intended environment/secret scopes and the other release gates remain blocked.
 
 `vercel.json` disables Git-triggered deployment for every branch. No merge or production deployment should bypass G01–G15, privacy/operational review, Google audience publication and actual Auth lifecycle tests. Deployment is an explicit future gated operation. G16 must be verified after any authorized release.
 
-For the owner after the first successful CI run: GitHub → ismailabs/rft → Settings → Rules → Rulesets → New branch ruleset. Name it “RFT main protection”, target the default branch, require a pull request and the “verify” check from “RFT verification”, block force pushes/deletions, and set enforcement to Active. Do not enable a paid feature if GitHub asks for an upgrade. Codex will inspect the resulting protection before release.
+The owner has completed the ruleset setup. Preserve **Settings → Rules → Rulesets → RFT main protection** with Active enforcement and the existing required check. Do not merge around blocked release gates or enable a paid feature. The current source is in draft PR #1; new visual-correction CI is recorded separately from historical recovery CI.
