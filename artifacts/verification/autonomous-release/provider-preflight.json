@@ -1,0 +1,191 @@
+{
+  "recordedAt": "2026-10-26T03:43:41.234Z",
+  "project": "RFT",
+  "supabase": {
+    "project": "pvsvhfatkfcxgccfnxzq",
+    "organizationPlan": "free",
+    "organizationTier": "tier_free",
+    "functions": [
+      {
+        "name": "session_allowed",
+        "schema": "private",
+        "configuration": [
+          "search_path=\"\""
+        ],
+        "security_definer": true
+      },
+      {
+        "name": "finance_snapshot",
+        "schema": "public",
+        "configuration": [
+          "search_path=\"\""
+        ],
+        "security_definer": false
+      }
+    ],
+    "app_tables": [
+      {
+        "table": "accounts",
+        "anon_crud": false,
+        "rls_enabled": true
+      },
+      {
+        "table": "budgets",
+        "anon_crud": false,
+        "rls_enabled": true
+      },
+      {
+        "table": "categories",
+        "anon_crud": false,
+        "rls_enabled": true
+      },
+      {
+        "table": "goals",
+        "anon_crud": false,
+        "rls_enabled": true
+      },
+      {
+        "table": "profiles",
+        "anon_crud": false,
+        "rls_enabled": true
+      },
+      {
+        "table": "subcategories",
+        "anon_crud": false,
+        "rls_enabled": true
+      },
+      {
+        "table": "transactions",
+        "anon_crud": false,
+        "rls_enabled": true
+      },
+      {
+        "table": "transfers",
+        "anon_crud": false,
+        "rls_enabled": true
+      }
+    ],
+    "auth_users": 3,
+    "verified_totp": 2,
+    "database_bytes": 12220083,
+    "postgres_version": "17.11",
+    "google_identities": 3,
+    "user_cascade_foreign_keys": 8,
+    "hostedReadOnlyProbe": {
+      "mode": "read-only SQL claim-context simulation, not signed REST JWTs",
+      "status": "passed",
+      "contexts": 5,
+      "relations": 8,
+      "persistent_data_changed": false
+    },
+    "serverSecretReadAuthorization": true,
+    "serverSecretAdminWritesPerformed": false
+  },
+  "vercel": {
+    "projectId": "prj_eM0EcPUzjg3G31h4jc6uhfo60dBo",
+    "teamId": "team_y1FMLs1LWgVb2dOvegEGYVkf",
+    "plan": "hobby",
+    "planMethod": "Authenticated native CLI teams list --format json; exact ID/slug match on 26 October",
+    "primaryOrigin": "https://ringgitft.vercel.app",
+    "appOriginReadbackVerified": true,
+    "credentialsProductionOnly": true,
+    "serverSecretType": "sensitive",
+    "previewCredentials": false,
+    "developmentCredentials": false
+  },
+  "github": {
+    "repository": "ismailabs/rft",
+    "repositoryId": 1431647799,
+    "visibility": "public",
+    "ruleset": {
+      "id": 25783124,
+      "name": "RFT main protection",
+      "target": "branch",
+      "source_type": "Repository",
+      "source": "ismailabs/rft",
+      "enforcement": "active",
+      "conditions": {
+        "ref_name": {
+          "exclude": [],
+          "include": [
+            "~DEFAULT_BRANCH"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "type": "deletion"
+        },
+        {
+          "type": "non_fast_forward"
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": false,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          }
+        },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "strict_required_status_checks_policy": false,
+            "do_not_enforce_on_create": false,
+            "required_status_checks": [
+              {
+                "context": "verify",
+                "integration_id": 15368
+              }
+            ]
+          }
+        }
+      ],
+      "bypass_actors": [],
+      "current_user_can_bypass": "never"
+    },
+    "paidRunnerOrArtifactUploadEnabled": false
+  },
+  "advisories": [
+    {
+      "name": "auth_leaked_password_protection",
+      "level": "WARN",
+      "count": 1,
+      "remediation": "https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection",
+      "disposition": "Password/email provider is disabled; Google-only enforced independently; no paid password feature enabled"
+    }
+  ],
+  "cost": {
+    "configurationVerifiedZero": true,
+    "historicalAccountBillingUsage": "unavailable; not asserted as zero",
+    "paidActivationPerformed": false,
+    "domainPurchased": false,
+    "supabasePlanRule": "Exceeding Free quotas causes service restrictions; no automatic upgrade is authorized",
+    "vercelPlanRule": "Hobby caps usage; no usage add-on purchase on Hobby",
+    "sources": [
+      "https://vercel.com/docs/plans/hobby",
+      "https://vercel.com/pricing",
+      "https://supabase.com/docs/guides/platform/billing-faq"
+    ]
+  },
+  "google": {
+    "scopes": [
+      "email",
+      "profile"
+    ],
+    "scopePolicyExceptionVerified": true,
+    "source": "https://support.google.com/cloud/answer/15549945?hl=en",
+    "publicCallbackAcceptanceEvidence": "oauth-canonical-origin.json"
+  },
+  "applicationDataDeleted": false,
+  "realUserAuthenticatorChanged": false
+}

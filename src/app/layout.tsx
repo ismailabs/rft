@@ -11,6 +11,7 @@ import "./globals.css";
 import "./recovery.css";
 import "./fidelity.css";
 import { currentLocale } from "@/i18n/server";
+import { Pwa } from "@/components/pwa";
 export const metadata: Metadata = {
   title: { default: "RFT — Ringgit Finance Tracker", template: "%s | RFT" },
   description:
@@ -37,6 +38,7 @@ export default async function RootLayout({
           {locale === "ms" ? "Langkau ke kandungan" : "Skip to content"}
         </a>
         {children}
+        <Pwa />
       </body>
     </html>
   );

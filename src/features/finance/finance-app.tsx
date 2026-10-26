@@ -42,7 +42,6 @@ import { periodFor, inPeriod, localDate } from "@/domain/finance/periods";
 import type { Snapshot, Locale } from "@/domain/finance/types";
 import { Brand } from "@/components/brand";
 import { Sheet } from "@/components/ui/dialog";
-import { Pwa } from "@/components/pwa";
 import { EntryForm, type FormKind, type Editable } from "./entry-form";
 import { PeriodFilter } from "./period-filter";
 import { ExpenseTrend, ExpenseSources } from "./expense-trend";
@@ -509,7 +508,6 @@ export function FinanceApp({
   );
   return (
     <div className={`app-shell recovered view-${view}`}>
-      <Pwa />
       <aside
         className="app-sidebar"
         aria-label={ms ? "Navigasi RFT" : "RFT navigation"}

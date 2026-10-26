@@ -14,7 +14,13 @@ export async function verifiedIdentity(requireAssurance = true) {
     await client.auth.mfa.listFactors();
   const { data: assurance, error: assuranceError } =
     await client.auth.mfa.getAuthenticatorAssuranceLevel();
-  if (factorError || assuranceError || !factors || !assurance)
+  if (
+    factorError ||
+    assuranceError ||
+    !factors ||
+    !assurance ||
+    (assurance.currentLevel !== "aal1" && assurance.currentLevel !== "aal2")
+  )
     throw new Error("UNAUTHENTICATED");
   if (
     requireAssurance &&

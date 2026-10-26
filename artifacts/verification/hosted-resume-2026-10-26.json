@@ -1,0 +1,82 @@
+{
+  "recordedAt": "2026-10-26T02:22:49.053Z",
+  "sourceCommit": "cb858d9d479318e08efd5d6488e0a929020427f0",
+  "applicationSource": "ea6666dba37f997aa14c79faa2df5669204737cd",
+  "status": "partial-awaiting-C",
+  "localRecovery": {
+    "previousVerifierHandle": "missing; ports 3000/3100 confirmed not listening before restart",
+    "application": "Existing reviewed production build; npm start bound to 127.0.0.1:3000",
+    "verifier": "Reviewed loopback-only verifier restored on 127.0.0.1:3100; ordinary browser requests only",
+    "newBuildClaimed": false,
+    "generatedTypes": "Only development type-reference paths had drifted; next typegen regenerated them without manual editing; Git diff clean",
+    "typecheckExit": 0
+  },
+  "httpChecks": [
+    {
+      "route": "/login",
+      "status": 200,
+      "googleButtonPresent": true,
+      "privateNoStore": true
+    },
+    {
+      "route": "/privacy",
+      "status": 200,
+      "approvedDatedNoticePresent": true,
+      "privateNoStore": true
+    },
+    {
+      "route": "/api/finance",
+      "anonymousStatus": 401,
+      "error": "UNAUTHENTICATED",
+      "privateNoStore": true
+    },
+    {
+      "route": "loopback A verifier",
+      "anonymousResult": "UNAUTHENTICATED",
+      "privateNoStore": true
+    },
+    {
+      "route": "loopback A verifier",
+      "method": "POST",
+      "status": 404
+    },
+    {
+      "route": "loopback unknown path",
+      "status": 404
+    }
+  ],
+  "signedA": {
+    "observedAt": "2026-10-26T02:14:25.666Z",
+    "google": true,
+    "exactPinnedProtectedIdentity": true,
+    "currentLevel": "aal2",
+    "nextLevel": "aal2",
+    "financeApiStatus": 200,
+    "privateNoStore": true,
+    "databaseAccountRows": 2,
+    "snapshotPermitted": true
+  },
+  "wrongWindowFollowup": {
+    "observedAt": "2026-10-26T02:17:26.268Z",
+    "requestedPath": "C",
+    "actualRecognizedIdentity": "A",
+    "countedAsCVerification": false
+  },
+  "protectedBefore": {
+    "preserved_users": 2,
+    "preserved_application_rows": 21,
+    "preserved_rows_sha256": "c7cc520e1c768c0f1a478f81ac35ad0b87f8b2591236bffc1dc76b7f69f49b97",
+    "preserved_verified_factors": 2
+  },
+  "checksumMethod": "Ordered arrays of table name, row key and full JSONB row across eight app tables, SHA256; new method, compared only against a matching after-run query",
+  "recordOrIdentityDeletionAuthorized": false,
+  "recordOrIdentityDeletionPerformed": false,
+  "applicationDataMutationDuringResume": false,
+  "productionReleased": false,
+  "limits": [
+    "No current C signed reconnect yet; prior C-only core fixture state preserved without reseeding",
+    "A positive AAL2 is not enrolled-AAL1 denial or full MFA lifecycle evidence",
+    "Signed cross-user/related-ID tests still await distinct C browser storage",
+    "No browser cookie-file extraction, token export, forged claims or privileged mutation"
+  ]
+}

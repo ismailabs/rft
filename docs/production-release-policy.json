@@ -1,9 +1,26 @@
 {
   "schema_version": 1,
   "project": "RFT",
-  "effective_date": "2026-10-25",
-  "predeploy_required_gates": ["G01", "G02", "G03", "G04", "G05", "G06", "G07", "G08", "G09", "G10", "G11", "G12", "G13", "G15"],
-  "postdeploy_required_gates": ["G16"],
+  "effective_date": "2026-10-26",
+  "predeploy_required_gates": [
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "G09",
+    "G10",
+    "G11",
+    "G12",
+    "G13",
+    "G15"
+  ],
+  "postdeploy_required_gates": [
+    "G16"
+  ],
   "owner_scope_exceptions": [
     {
       "gate": "G14",
@@ -15,8 +32,19 @@
       "recovery_verified": false,
       "plaintext_cloud_backup_authorized": false,
       "authority": "Direct owner messages in this conversation on 2026-10-25, recorded in docs/progress.md",
-      "evidence": ["docs/operations.md", "docs/owner-actions.md", "docs/progress.md", "src/components/legal-page.tsx"]
+      "evidence": [
+        "docs/operations.md",
+        "docs/owner-actions.md",
+        "docs/progress.md",
+        "src/components/legal-page.tsx"
+      ]
     }
   ],
-  "boundaries": "Every other mandatory gate still requires passing evidence. Preserve A/B and all existing records. No deletion without exact separate authorization; no irreversible real-data change without authorization and verified recovery. RM0; no paid activation. This policy does not mark recovery tested or authorize plaintext backups."
+  "boundaries": "Every other mandatory gate still requires passing evidence. Preserve A/B and all existing records. No deletion without exact separate authorization; no irreversible real-data change without authorization and verified recovery. RM0; no paid activation. This policy does not mark recovery tested or authorize plaintext backups.",
+  "acceptance_methods": {
+    "authority": "Direct owner goal changed on 26 October: skip everything requiring the owner, execute autonomously through production launch",
+    "record": "docs/autonomous-release-scope.md",
+    "non_cancelled_gate_ids_unchanged": true,
+    "manual_cases_never_relabelled_as_tested": true
+  }
 }

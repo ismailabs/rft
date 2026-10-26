@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-26T03:02:46.153Z",
+  "stage": "local",
+  "origin": "http://127.0.0.1:3000",
+  "serviceWorkersAllowed": true,
+  "authSessionUsed": false,
+  "physicalDeviceTestPerformed": false,
+  "manualOwnerStepsPerformed": false,
+  "checks": [],
+  "limits": [
+    "Headless Chromium installation eligibility and actual service-worker behavior; no physical phone or human screen-reader certification",
+    "Private Google login and enrolled authenticator UI are not automated"
+  ],
+  "homepageCapture": {
+    "viewport": {
+      "width": 390,
+      "height": 900
+    },
+    "dpr": 1,
+    "sha256": "7885a16a997d9fe0c1921d489df7a01905387fa2945b5ed04a01dcb172b1dc85",
+    "axeViolations": 0
+  },
+  "status": "failed",
+  "failure": "PWA_VERIFICATION_FAILED",
+  "completedAt": "2026-10-26T03:03:17.398Z"
+}

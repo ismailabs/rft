@@ -1,0 +1,12 @@
+
+> ringgit-finance-tracker@0.1.0 test
+> vitest run tests/integration/auth-assurance.test.ts
+
+
+ RUN  v5.0.5 C:/Users/moham/OneDrive/Desktop/rft
+
+
+ Test Files  1 passed (1)
+      Tests  22 passed (22)
+   Start at  10:56:52
+   Duration  3.39s (import 69%, transform 18%, tests 12%, worker 1%)
