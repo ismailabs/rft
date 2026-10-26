@@ -1,0 +1,48 @@
+{
+  "deploymentId": "dpl_FztyjpriKrefH4BHCwMCTmCQgmx6",
+  "productionSource": "1076e996ee3c64fd710831767018e6ef92127f6d",
+  "productionStatus": "READY",
+  "primaryAlias": true,
+  "target": "production",
+  "protectedBefore": {
+    "preserved_users": 2,
+    "preserved_application_rows": 21,
+    "preserved_rows_sha256": "c7cc520e1c768c0f1a478f81ac35ad0b87f8b2591236bffc1dc76b7f69f49b97",
+    "preserved_verified_factors": 2
+  },
+  "protectedAfter": {
+    "preserved_users": 2,
+    "preserved_application_rows": 21,
+    "preserved_rows_sha256": "c7cc520e1c768c0f1a478f81ac35ad0b87f8b2591236bffc1dc76b7f69f49b97",
+    "preserved_verified_factors": 2
+  },
+  "protectedUnchanged": true,
+  "pwaReceipt": "artifacts/verification/autonomous-release/production-pwa-1792987388780/receipt.json",
+  "publicReceipt": "artifacts/verification/autonomous-release/production-public-1792987388652/receipt.json",
+  "requiredHeadCI": {
+    "source": "f98aa5b62cdf2854f290c68e5de22f8b8cab05cf",
+    "run": 40266512198,
+    "job": 121389992284,
+    "status": "success",
+    "tests": 113,
+    "browser": 78,
+    "dependencyVulnerabilities": 0,
+    "sourceScanFiles": 330
+  },
+  "runtimeLogCounts": {
+    "scope": "Exact deployment error/fatal level grouped counts during smoke window",
+    "result": "No groups returned",
+    "limit": "Bounded retained log window; not lifetime no-error certification"
+  },
+  "productionUIVisuallyInspected": 8,
+  "noPaidActivation": true,
+  "gitDeploymentsEnabled": false,
+  "checkedAt": "2026-10-26T04:05:09.205Z",
+  "origin": "https://ringgitft.vercel.app",
+  "applicationTestReleaseSource": "e0d171aaf67d3a8e6b2069002881e94d9d09ec22",
+  "applicationSourceMatchesTestedCandidate": true,
+  "identityDeletionPerformed": false,
+  "factorChangesPerformed": false,
+  "historicalBillingUsage": "unavailable; no zero-usage assertion",
+  "operationalRecoveryVerified": false
+}

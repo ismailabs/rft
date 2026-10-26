@@ -9,3 +9,7 @@ The owner previously accepted corrected A–E visuals, M1–M8/adaptations, whit
 The existing verified primary origin is `https://ringgitft.vercel.app`; the existing `rft-tau.vercel.app` alias redirects there. Supabase already accepts the primary callback. The Vercel Production app-origin mismatch was corrected, with no domain purchase or Auth configuration change. Before launch this address still served the old baseline; check `docs/release-evidence.json` and the final deployment receipt for actual status.
 
 Release retains exact-money, authorization/RLS/MFA, secret isolation, free-plan/RM0 and protected-main checks. New production interactive Google/MFA, hosted identity erasure, physical phone and human screen-reader procedures are explicitly omitted, not recorded as tested. Automatic HTTPS/protocol/public/PWA smoke remains required. No billing, paid service, new domain or destructive data operation is authorized.
+
+## Confirmed release
+
+Production is now independently verified at https://ringgitft.vercel.app (dpl_FztyjpriKrefH4BHCwMCTmCQgmx6, source 1076e996ee3c64fd710831767018e6ef92127f6d). Open that address and use the normal Google sign-in when you want to use RFT. No further setup/QA action is requested. Final evidence/limitations: docs/production-release-report.md.
