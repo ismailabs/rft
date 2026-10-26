@@ -1,0 +1,4 @@
+﻿"Date (UTC)","Type","MYR amount","Account / source","Destination","Category","Subcategory","Note","Planned"
+"2026-10-24T03:19:00+00:00","expense","5.10","QA synthetic cash","","Food & drinks","","QA SYNTHETIC expense — no real spending",""
+"2026-10-24T03:19:00+00:00","income","25.20","QA synthetic cash","","Gift","","QA SYNTHETIC income — no real money",""
+"2026-10-24T03:19:00+00:00","transfer","10.34","QA synthetic cash","QA synthetic wallet","","","QA SYNTHETIC transfer record — no bank movement",""

@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-10-25T07:55:49.363Z",
+  "environment": "Local production server and real hosted signed C session; A required for cross-user phase",
+  "status": "awaiting-A",
+  "checks": [
+    {
+      "name": "Hosted API creates accounts taxonomy income expense transfer budget goal; exact reconciliation",
+      "status": "pass",
+      "syntheticTotalMYR": "2369.90",
+      "syntheticNetMYR": "2249.90"
+    },
+    {
+      "name": "Invalid and over-precision money and same-account transfer rejected with no persisted change",
+      "status": "pass"
+    },
+    {
+      "name": "Historical edits across Malaysia month boundary recompute exactly; no deletion performed",
+      "status": "pass"
+    },
+    {
+      "name": "Account archive and restoration, category/subcategory metadata and exact goal update",
+      "status": "pass"
+    }
+  ],
+  "protectedIdentitiesWritten": false,
+  "identityDeleted": false,
+  "recordDeletionPerformed": false,
+  "scope": "Only C synthetic fixtures; no privileged client",
+  "pending": [
+    "All record/identity deletion checks require separate C-only authorization",
+    "Positive recent-auth export if expired",
+    "Hosted enrolled MFA lifecycle"
+  ],
+  "recordedAt": "2026-10-25T08:08:03.823Z",
+  "applicationSource": "ea6666dba37f997aa14c79faa2df5669204737cd",
+  "sourceHashes": {
+    "artifacts/private/hosted-qa-http.mjs": "db461e632c469f95e63edea23e32246b64a342c509e40d6624695d99d7a973c0",
+    "artifacts/private/hosted-qa-synthetic.mjs": "2f0cc37c69bf0f23dccf4521421bdde9f20a8595e745466e42cfcc12cdabee1f"
+  },
+  "realSession": {
+    "provider": "google",
+    "identity": "C; pinned distinct from protected A/B",
+    "currentLevel": "aal1",
+    "nextLevel": "aal1",
+    "source": "Normal request from the signed-in native Edge profile; no forged claims, cookie-file extraction or privileged client"
+  },
+  "providerVerification": {
+    "cApplicationCounts": {
+      "goals": 1,
+      "budgets": 1,
+      "accounts": 2,
+      "profiles": 1,
+      "transfers": 1,
+      "categories": 17,
+      "transactions": 2,
+      "subcategories": 1
+    },
+    "cApplicationRows": 26,
+    "authUserCount": 3,
+    "verifiedFactors": 2,
+    "protectedIdentities": 2,
+    "protectedApplicationRows": 21,
+    "protectedBeforeAfterSha256Equal": true
+  },
+  "limits": [
+    "Core creation/edit/validation only; cross-user phase waits for actual A AAL2 session",
+    "All record and identity deletion remains unauthorized and unperformed",
+    "No MFA enrollment/removal performed",
+    "Positive fresh-auth CSV and complete hosted/manual/public release gates remain unverified",
+    "Synthetic C total is not real money or a production calculation override"
+  ]
+}

@@ -1,0 +1,85 @@
+[WebServer] (node:5268) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 14 tests using 1 worker
+
+(node:16148) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference home: artwork, content and accessibility (14.7s)
+  ok  2 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference activity: artwork, content and accessibility (16.5s)
+  x   3 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference accounts: artwork, content and accessibility (35.3s)
+(node:20920) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  4 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference insights: artwork, content and accessibility (16.5s)
+  ok  5 [chromium] › tests\e2e\pixel-correction.spec.ts:37:1 › description and optional note survive a failed save without changing exact money (10.0s)
+  ok  6 [chromium] › tests\e2e\pixel-correction.spec.ts:87:1 › literal homepage uses the same React screen with isolated reference figures (8.7s)
+  ok  7 [chromium] › tests\e2e\pixel-correction.spec.ts:109:1 › calculated account shares round the exact ratio once (6.4s)
+  ok  8 [chromium] › tests\e2e\pixel-correction.spec.ts:128:1 › transfer date can be cleared and restored without a false balance or lost precision (6.5s)
+  ok  9 [chromium] › tests\e2e\pixel-correction.spec.ts:149:1 › balance privacy and transaction selection preserve access to edit actions (12.6s)
+  ok 10 [chromium] › tests\e2e\pixel-correction.spec.ts:182:1 › account, goal and budget chevrons retain deletion confirmation without issuing writes (23.1s)
+  ok 11 [chromium] › tests\e2e\pixel-correction.spec.ts:218:1 › chart and account period controls change the actual report (18.2s)
+  ok 12 [chromium] › tests\e2e\pixel-correction.spec.ts:241:1 › date sorting changes row order (20.6s)
+  x  13 [chromium] › tests\e2e\pixel-correction.spec.ts:266:1 › budget management opens the existing form and preserves unsaved exact limits (47.1s)
+(node:6528) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 14 [chromium] › tests\e2e\pixel-correction.spec.ts:290:1 › long desktop account records wrap without overlap or page overflow (12.1s)
+
+
+  1) [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference accounts: artwork, content and accessibility
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+     Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md
+
+      32 |         ),
+      33 |       ).toBe(true);
+    > 34 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+         |             ^
+      35 |   });
+      36 | }
+      37 | test("description and optional note survive a failed save without changing exact money", async ({
+        at AxeBuilder.analyze (C:\Users\moham\OneDrive\Desktop\rft\node_modules\@axe-core\playwright\dist\index.mjs:219:13)
+        at C:\Users\moham\OneDrive\Desktop\rft\tests\e2e\pixel-correction.spec.ts:34:13
+    [cause]: Error: page.evaluate: Test timeout of 30000ms exceeded.
+        at AxeBuilder.axeConfigure (C:\Users\moham\OneDrive\Desktop\rft\node_modules\@axe-core\playwright\dist\index.mjs:340:43)
+        at AxeBuilder.finishRun (C:\Users\moham\OneDrive\Desktop\rft\node_modules\@axe-core\playwright\dist\index.mjs:321:41)
+        at AxeBuilder.analyze (C:\Users\moham\OneDrive\Desktop\rft\node_modules\@axe-core\playwright\dist\index.mjs:217:14)
+        at C:\Users\moham\OneDrive\Desktop\rft\tests\e2e\pixel-correction.spec.ts:34:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private\delivery-browser-scope-results\pixel-correction-literal-r-73e1b-k-content-and-accessibility-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts\private\delivery-browser-scope-results\pixel-correction-literal-r-73e1b-k-content-and-accessibility-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\private\delivery-browser-scope-results\pixel-correction-literal-r-73e1b-k-content-and-accessibility-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\private\delivery-browser-scope-results\pixel-correction-literal-r-73e1b-k-content-and-accessibility-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests\e2e\pixel-correction.spec.ts:266:1 › budget management opens the existing form and preserves unsaved exact limits
+
+    Test timeout of 30000ms exceeded.
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts\private\delivery-browser-scope-results\pixel-correction-budget-ma-ed70e-serves-unsaved-exact-limits-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts\private\delivery-browser-scope-results\pixel-correction-budget-ma-ed70e-serves-unsaved-exact-limits-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\private\delivery-browser-scope-results\pixel-correction-budget-ma-ed70e-serves-unsaved-exact-limits-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\private\delivery-browser-scope-results\pixel-correction-budget-ma-ed70e-serves-unsaved-exact-limits-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference accounts: artwork, content and accessibility
+    [chromium] › tests\e2e\pixel-correction.spec.ts:266:1 › budget management opens the existing form and preserves unsaved exact limits
+  12 passed (7.1m)

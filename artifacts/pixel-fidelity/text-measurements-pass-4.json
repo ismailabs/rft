@@ -1,0 +1,78 @@
+{
+  "reference": {
+    "greeting": {
+      "x": 291,
+      "y": 104,
+      "width": 332,
+      "height": 32
+    },
+    "balanceLabel": {
+      "x": 310,
+      "y": 209,
+      "width": 134,
+      "height": 11
+    },
+    "balanceAmount": {
+      "x": 311,
+      "y": 238,
+      "width": 218,
+      "height": 31
+    },
+    "monthlyTitle": {
+      "x": 309,
+      "y": 489,
+      "width": 153,
+      "height": 15
+    },
+    "recentTitle": {
+      "x": 309,
+      "y": 769,
+      "width": 157,
+      "height": 13
+    },
+    "accountsTitle": {
+      "x": 1033,
+      "y": 204,
+      "width": 72,
+      "height": 12
+    }
+  },
+  "implementation": {
+    "greeting": {
+      "x": 286,
+      "y": 102,
+      "width": 335,
+      "height": 34
+    },
+    "balanceLabel": {
+      "x": 309,
+      "y": 207,
+      "width": 130,
+      "height": 12
+    },
+    "balanceAmount": {
+      "x": 310,
+      "y": 237,
+      "width": 216,
+      "height": 32
+    },
+    "monthlyTitle": {
+      "x": 308,
+      "y": 500,
+      "width": 155,
+      "height": 17
+    },
+    "recentTitle": {
+      "x": 308,
+      "y": 770,
+      "width": 155,
+      "height": 13
+    },
+    "accountsTitle": {
+      "x": 1035,
+      "y": 207,
+      "width": 71,
+      "height": 13
+    }
+  }
+}

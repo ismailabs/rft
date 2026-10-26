@@ -1,0 +1,92 @@
+{
+  "recordedAt": "2026-10-26T02:34:59.175Z",
+  "applicationSource": "ea6666dba37f997aa14c79faa2df5669204737cd",
+  "phaseEnvironment": "Real signed Google A AAL2 and pinned distinct C unenrolled AAL1; local production server and hosted Supabase",
+  "checkedAt": "2026-10-26T02:24:09.220Z",
+  "status": "non-destructive-checks-passed",
+  "previousCore": {
+    "date": "2026-10-25",
+    "checks": [
+      {
+        "name": "Hosted API creates accounts taxonomy income expense transfer budget goal; exact reconciliation",
+        "status": "pass",
+        "syntheticTotalMYR": "2369.90",
+        "syntheticNetMYR": "2249.90"
+      },
+      {
+        "name": "Invalid and over-precision money and same-account transfer rejected with no persisted change",
+        "status": "pass"
+      },
+      {
+        "name": "Historical edits across Malaysia month boundary recompute exactly; no deletion performed",
+        "status": "pass"
+      },
+      {
+        "name": "Account archive and restoration, category/subcategory metadata and exact goal update",
+        "status": "pass"
+      }
+    ]
+  },
+  "currentIsolationAndExport": {
+    "date": "2026-10-26",
+    "checks": [
+      {
+        "name": "Signed A session cannot select or update C rows across all eight RLS relations",
+        "status": "pass"
+      },
+      {
+        "name": "Reverse C foreign reads and application-level A edits of C denied",
+        "status": "pass"
+      },
+      {
+        "name": "Cross-owner account/category/transfer/budget parents and foreign-owner insert denied at server/database boundary",
+        "status": "pass"
+      },
+      {
+        "name": "Preserved A snapshot unchanged and C exact total conserved after negative tests",
+        "status": "pass"
+      },
+      {
+        "name": "Owned-only C CSV export neutralizes formula and escapes commas quotes and newlines",
+        "status": "pass",
+        "exportContentVerified": true,
+        "csvHash": "ab9f305d6d300559b81e043a57b2e8f27b2f0c9d1f74a1296f2f61bbf351f1e1"
+      }
+    ],
+    "scope": {
+      "aReadsOfC": 8,
+      "aUpdatesOfC": 8,
+      "reverseReads": "A's available account/category/transaction/transfer fixtures",
+      "serverForeignEdits": 2,
+      "serverRelatedParentRequests": 5,
+      "directRelatedParentUpdates": 2,
+      "foreignOwnerInsert": "goals",
+      "deleteRequests": 0
+    }
+  },
+  "protectedBefore": {
+    "preserved_users": 2,
+    "preserved_application_rows": 21,
+    "preserved_rows_sha256": "c7cc520e1c768c0f1a478f81ac35ad0b87f8b2591236bffc1dc76b7f69f49b97",
+    "preserved_verified_factors": 2
+  },
+  "protectedAfter": {
+    "preserved_users": 2,
+    "preserved_application_rows": 21,
+    "preserved_rows_sha256": "c7cc520e1c768c0f1a478f81ac35ad0b87f8b2591236bffc1dc76b7f69f49b97",
+    "preserved_verified_factors": 2
+  },
+  "exactProtectedChecksumUnchanged": true,
+  "protectedAuthFactorsUnchanged": true,
+  "syntheticTotalMYR": "2369.90",
+  "cRecordDeletion": false,
+  "cIdentityDeletion": false,
+  "googleAccountDeletion": false,
+  "pending": [
+    "Negative DELETE coverage requires exact C-only approval",
+    "Full enrolled MFA lifecycle and AAL1 mutation bypass tests",
+    "Strict parsed CSV row/content and recent-auth expiry checks",
+    "Controlled C deletion/revocation only after separate owner consent",
+    "All other mandatory production gates"
+  ]
+}

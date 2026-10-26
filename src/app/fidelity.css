@@ -1,0 +1,2729 @@
+/* A–E desktop measurements at 1448 × 1086. Mobile keeps the approved M1–M8
+   structure in recovery.css; these desktop dimensions never apply to phones. */
+.balance-summary .balance-copy {
+  position: static;
+}
+.balance-summary .balance-visibility {
+  right: 10px;
+  top: 9px;
+}
+.recovered,
+.homepage-recovered {
+  font-family: "Roboto", sans-serif;
+}
+.account-mark.institution-artwork {
+  background: transparent;
+}
+.account-mark.institution-artwork img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.category-mark.pink,
+.category-badge.pink {
+  color: #b71e45;
+  background: #ffe9ee;
+}
+.category-mark.slate {
+  background: #eef1f6;
+  color: #55617c;
+}
+.category-mark.merchant-mark {
+  background: transparent;
+}
+.merchant-mark img {
+  width: 16px;
+  height: 23px;
+  object-fit: contain;
+}
+.category-badge.green {
+  color: #006d50;
+  background: #e2f4ec;
+}
+.category-badge.salary {
+  color: #0058b6;
+  background: #e0efff;
+}
+.category-badge.violet {
+  color: #5734d6;
+  background: #ece8ff;
+}
+.category-badge.amber {
+  color: #a75400;
+  background: #fff1db;
+}
+.balance-change span,
+.metric-change span {
+  color: #008354;
+  font-weight: 500;
+}
+.add-account-tile {
+  border: 1px dashed var(--line);
+  background: white;
+  border-radius: 9px;
+  display: flex;
+  gap: 16px;
+  text-align: left;
+  align-items: center;
+  padding: 14px;
+  min-height: 104px;
+}
+.add-account-tile > span {
+  width: 51px;
+  height: 51px;
+  border-radius: 50%;
+  background: #f5f6f9;
+  display: grid;
+  place-items: center;
+  font-size: 27px;
+  color: #34415f;
+  flex: none;
+}
+.add-account-tile b {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+.add-account-tile small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.chart-period {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.transfer-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+  margin: 22px 0;
+}
+.transfer-tabs span {
+  flex: 1;
+  padding: 0 8px 12px;
+  text-align: center;
+  color: var(--muted);
+}
+.transfer-tabs span:first-child {
+  color: #006653;
+  border-bottom: 3px solid #008565;
+  font-weight: 500;
+}
+.dashboard-insights {
+  position: relative;
+}
+.insights-heading-icon {
+  position: absolute;
+  top: 19px;
+  left: 20px;
+  color: #7a27e9;
+}
+.dashboard-insights .panel-heading h2 {
+  padding-left: 33px;
+}
+.select-with-mark {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.select-with-mark > .account-mark,
+.select-with-mark > .category-mark {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  top: 6px;
+  left: 8px;
+  pointer-events: none;
+}
+.select-with-mark:has(> .account-mark) > select,
+.select-with-mark:has(> .category-mark) > select {
+  padding-left: 58px;
+}
+.select-with-mark > select {
+  width: 100%;
+}
+.selected-account-detail {
+  display: none;
+}
+.note-count {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  color: var(--muted);
+}
+.entry-form .field-additional_note {
+  order: 7;
+}
+.reflection-options {
+  order: 8;
+  font-size: 11px;
+  color: var(--muted);
+}
+.reflection-options summary {
+  cursor: pointer;
+}
+.reflection-options .field {
+  margin-top: 8px;
+}
+.goal-time-left {
+  white-space: nowrap;
+}
+.balance-visibility {
+  position: absolute;
+  right: -296px;
+  top: -7px;
+  color: #66728b;
+}
+.insight-detail-link {
+  display: none;
+}
+.insight-emphasis {
+  color: #007b51;
+  font-weight: 600;
+}
+.row-action-menu {
+  position: relative;
+}
+.row-action-menu > summary {
+  display: grid;
+  place-items: center;
+  list-style: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  color: #65718b;
+}
+.row-action-menu > .row-actions {
+  position: absolute;
+  right: 0;
+  top: 32px;
+  z-index: 8;
+  padding: 5px;
+  background: white;
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 12px #0001;
+  border-radius: 7px;
+}
+.selection-cell {
+  width: 34px;
+}
+.selection-cell input {
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+  accent-color: var(--primary);
+}
+.transaction-table tr:has(.selection-cell input:checked) {
+  background: #edf8f3;
+}
+.preview-window {
+  container-type: inline-size;
+}
+.preview-native-canvas {
+  width: 1448px;
+  height: 986px;
+  display: grid;
+  grid-template-columns: 275px 1173px;
+  padding-top: 22px;
+  transform: scale(calc(100cqw / 1448px));
+  transform-origin: top left;
+  position: relative;
+  background: #f7f8fa;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.preview-native-canvas .window-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22px;
+}
+.preview-native-canvas .window-dots i {
+  width: 9px;
+  height: 9px;
+}
+.preview-native-sidebar {
+  background: #fbfcfd;
+  border-right: 1px solid var(--line);
+  padding: 18px 23px;
+}
+.preview-native-sidebar .brand {
+  margin: 0 4px 32px;
+}
+.preview-native-sidebar .brand-word {
+  font-size: 30px;
+}
+.preview-native-sidebar .brand-name {
+  font-size: 13px;
+}
+.preview-native-sidebar > div {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  height: 54px;
+  padding: 12px 20px;
+  color: #354360;
+  font-size: 18px;
+}
+.preview-native-sidebar > div.active {
+  background: #e4f3ed;
+  border-radius: 9px;
+  color: #092b30;
+  font-weight: 500;
+}
+.preview-native-sidebar > div:nth-of-type(7) {
+  margin-top: 30px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  height: 68px;
+}
+.preview-native-header {
+  display: flex;
+  align-items: center;
+  height: 77px;
+  padding: 14px 32px;
+  gap: 28px;
+  background: white;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+  color: #65718a;
+}
+.preview-native-header > span:first-child {
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  width: 660px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 15px;
+}
+.preview-native-profile {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--ink);
+}
+.preview-native-profile b {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  background: #e2e5ec;
+  border-radius: 50%;
+  font-weight: 400;
+}
+.preview-native-main {
+  padding: 26px 28px 26px 37px;
+}
+.preview-native-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  height: 76px;
+  margin-bottom: 20px;
+}
+.preview-native-heading h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 5px;
+  line-height: 45px;
+  letter-spacing: -1px;
+}
+.preview-native-heading p {
+  margin: 0;
+  font-size: 19px;
+  color: #65718a;
+}
+.preview-native-heading > span {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: white;
+  font-size: 16px;
+  white-space: nowrap;
+  margin-top: 6px;
+}
+.preview-native-main .reference-dashboard {
+  grid-template-columns: minmax(0, 1.57fr) minmax(0, 1fr);
+  gap: 19px;
+}
+.preview-native-main .primary-stack,
+.preview-native-main .secondary-stack {
+  gap: 24px;
+}
+.preview-native-main .balance-summary {
+  height: 160px;
+  min-height: 160px;
+  padding: 22px;
+}
+.preview-native-main .balance-copy > p {
+  font-size: 20px;
+}
+.preview-native-main .balance-copy strong {
+  font-size: 43px;
+  line-height: 52px;
+}
+.preview-native-main .balance-copy small {
+  font-size: 15px;
+}
+.preview-native-main .balance-spark {
+  height: 92px;
+}
+.preview-native-main .balance-visibility {
+  right: -267px;
+}
+.preview-native-main .balance-explanation {
+  display: none;
+}
+.preview-native-main .metric-grid {
+  height: 140px;
+  gap: 16px;
+}
+.preview-native-main .metric {
+  height: 140px;
+  gap: 16px;
+  padding: 22px 17px;
+}
+.preview-native-main .metric-icon {
+  width: 47px;
+  height: 47px;
+}
+.preview-native-main .metric dt {
+  font-size: 16px;
+}
+.preview-native-main .metric dd {
+  font-size: 23px;
+  white-space: nowrap;
+}
+.preview-native-main .rft-panel {
+  padding: 22px;
+}
+.preview-native-main .rft-panel h2 {
+  font-size: 22px;
+}
+.preview-native-main .monthly-panel {
+  height: 325px;
+}
+.preview-native-main .monthly-panel .bar-chart {
+  height: 204px;
+}
+.preview-native-main .chart-axis {
+  font-size: 13px;
+  width: 48px;
+}
+.preview-native-main .chart-period {
+  font-size: 14px;
+}
+.preview-native-main .chart-legend {
+  font-size: 15px;
+  margin-top: 18px;
+}
+.preview-native-main .chart-values {
+  display: none;
+}
+.preview-native-canvas
+  .preview-native-main
+  .secondary-stack
+  > .rft-panel:first-child {
+  height: 544px;
+}
+.preview-native-main .financial-account {
+  height: 80px;
+  gap: 16px;
+}
+.preview-native-main .account-mark {
+  width: 56px;
+  height: 56px;
+}
+.preview-native-main .account-name b {
+  font-size: 18px;
+}
+.preview-native-main .account-name small {
+  font-size: 14px;
+}
+.preview-native-main .financial-account > strong {
+  font-size: 17px;
+}
+.preview-add-account {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  gap: 20px;
+  background: #f6f7fa;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-top: 15px;
+  font-size: 16px;
+}
+.preview-native-main .dashboard-insights {
+  height: 210px;
+}
+.preview-native-main .factual-insight h3 {
+  font-size: 18px;
+}
+.preview-native-main .factual-insight p {
+  font-size: 15px;
+}
+.benefit-eyebrow {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-align: center;
+  color: #52617e;
+  line-height: 14px;
+}
+.desktop-save-label {
+  display: none;
+}
+.datetime-field {
+  position: relative;
+  display: block;
+}
+.datetime-display {
+  display: none;
+}
+.donut-slice-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+}
+.donut-slice-label.dark {
+  color: #42516e;
+}
+.illustrative-account-reference {
+  font-size: 14px;
+  color: #65718a;
+  margin-top: 8px;
+  white-space: nowrap;
+}
+.account-card-grid .illustrative-account-reference {
+  position: absolute;
+  left: 85px;
+  bottom: 17px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+}
+.copy-reference {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: #65718a;
+  border-radius: 4px;
+}
+.desktop-composer {
+  position: relative;
+}
+.composer-close {
+  position: absolute;
+  top: 15px;
+  right: 13px;
+  color: #65718a;
+}
+.desktop-composer[hidden] {
+  display: none;
+}
+.illustrative-primary {
+  position: absolute;
+  right: 14px;
+  bottom: 17px;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 3px 8px;
+  border-radius: 7px;
+  background: #e0f7ea;
+  color: #006d50;
+}
+.transfer-date-content {
+  margin-top: 10px;
+  font-size: 12px;
+}
+.transaction-notes {
+  position: relative;
+  order: 7;
+}
+.budget-warning progress::-webkit-progress-value {
+  background: #ff8189;
+}
+.budget-warning progress::-moz-progress-bar {
+  background: #ff8189;
+}
+.category-breakdown {
+  position: relative;
+}
+.category-chart-period select {
+  border: 1px solid var(--line);
+  background: white;
+  color: #35435f;
+  font-size: 12px;
+  border-radius: 8px;
+  padding: 7px 10px;
+  min-height: 34px;
+  text-transform: capitalize;
+}
+.chart-range {
+  width: 123px;
+  height: 31px;
+}
+.chart-range select {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-size: 12px;
+  line-height: 20px;
+  min-height: 0;
+  height: 20px;
+}
+.reflection-more {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .desktop-account-summary .period-controls .inline-field:has(.period-range) {
+    width: 105px;
+  }
+  .desktop-account-summary .period-controls .inline-field .period-range {
+    display: none;
+  }
+  .desktop-account-summary
+    .period-controls
+    .inline-field:has(.period-range)
+    select {
+    color: #35435f;
+    appearance: auto;
+    text-transform: capitalize;
+    height: 31px;
+    min-height: 31px;
+    padding: 5px 9px;
+  }
+  .desktop-account-summary:has(.period-controls input) {
+    height: auto;
+    min-height: 243px;
+  }
+  .desktop-account-summary .panel-heading:has(input) {
+    flex-wrap: wrap;
+  }
+  .filter-select-row select {
+    text-transform: capitalize;
+  }
+  .homepage-recovered .public-header .header-google .button {
+    width: 179px;
+    height: 40px;
+    min-height: 40px;
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+  .homepage-recovered .public-header .sign-in-link {
+    width: 85px;
+    height: 40px;
+    min-height: 40px;
+    padding: 8px 12px;
+    font-weight: 400;
+  }
+  .insight-chart-grid .category-breakdown > .panel-heading {
+    margin-bottom: 15px;
+  }
+  .recovered .page-heading > .button {
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+  .transaction-type-buttons button.income > svg {
+    color: #008565;
+  }
+  .category-breakdown > .panel-heading {
+    margin-bottom: 15px;
+  }
+  .category-breakdown .category-chart-period {
+    position: absolute;
+    right: 21px;
+    top: 13px;
+  }
+  .insight-summary-grid {
+    grid-template-columns: 362fr 359fr 388fr;
+  }
+  .metric-change {
+    line-height: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  .reference-transactions .primary-stack {
+    gap: 14px;
+  }
+  .desktop-composer .transaction-notes .field {
+    margin: 0;
+  }
+  .desktop-composer .transaction-notes .reflection-options {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    z-index: 4;
+  }
+  .desktop-composer .reflection-options summary {
+    list-style: none;
+    width: 28px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+  }
+  .desktop-composer .reflection-options summary span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    overflow: hidden;
+  }
+  .desktop-composer .reflection-more {
+    display: block;
+  }
+  .desktop-composer .reflection-options[open] > .field {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    width: 290px;
+    background: white;
+    border: 1px solid var(--line);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px #0002;
+  }
+  .homepage-recovered {
+    overflow-x: clip;
+  }
+  .homepage-recovered .public-header {
+    position: relative;
+    z-index: 3;
+  }
+  .concept-a-hero {
+    overflow: visible;
+  }
+  .concept-a-copy h1 {
+    font-size: 60px;
+    letter-spacing: -1.5px;
+  }
+  .concept-a-copy > p {
+    font-size: 21px;
+    width: 530px;
+    margin-bottom: 38px;
+  }
+  .homepage-recovered .hero-actions > .button.secondary {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .desktop-preview-wrap::before {
+    inset: auto;
+    left: 115px;
+    top: -52px;
+    width: 650px;
+    height: 300px;
+    border-radius: 50%;
+    transform: rotate(9deg);
+    background: #e7f7ef;
+  }
+  .desktop-preview-wrap::after {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 300px;
+    width: 850px;
+    height: 238px;
+    border-radius: 50%;
+    transform: rotate(-6deg);
+    background: #e9f8f1;
+  }
+  .preview-window {
+    z-index: 1;
+  }
+  .desktop-preview-wrap > .sample-label {
+    z-index: 2;
+  }
+  .homepage-recovered .concept-features {
+    max-width: none;
+    padding-left: 3.87%;
+    padding-right: 4%;
+  }
+  .brand {
+    gap: 13px;
+  }
+  .brand-lockup {
+    gap: 0;
+  }
+  .brand-word {
+    font-size: 28px;
+    line-height: 28px;
+  }
+  .brand-name {
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .recovered .page-heading p {
+    max-width: none;
+  }
+  .transaction-table td {
+    text-align: left;
+  }
+  .transaction-table .money-column {
+    text-align: right;
+  }
+  .reference-accounts .account-card-grid .account-name {
+    padding-top: 3px;
+  }
+  .reference-accounts .account-card-grid .financial-account > strong {
+    right: 31px;
+    top: 20px;
+    max-width: none;
+    font-weight: 600;
+  }
+  .reference-accounts .account-card-grid .financial-account {
+    padding-bottom: 13px;
+  }
+  .desktop-composer .entry-form .select-with-mark:has(> .account-mark) > select,
+  .desktop-composer
+    .entry-form
+    .select-with-mark:has(> .category-mark)
+    > select {
+    padding-left: 59px;
+    font-weight: 400;
+  }
+  .desktop-composer .entry-form .field-date {
+    position: relative;
+  }
+  .datetime-display {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    padding: 10px 14px;
+    font-weight: 400;
+    pointer-events: none;
+  }
+  .datetime-display svg:last-child {
+    margin-left: auto;
+  }
+  .datetime-field:not(:focus-within) input {
+    color: transparent;
+  }
+  .datetime-field:not(:focus-within) input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+  .datetime-field:focus-within .datetime-display {
+    visibility: hidden;
+  }
+  .desktop-composer .standard-save-label {
+    display: none;
+  }
+  .desktop-composer .desktop-save-label {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  .reference-accounts .desktop-composer {
+    position: relative;
+    height: 619px;
+  }
+  .reference-accounts .transfer-tabs > span:last-child {
+    visibility: hidden;
+  }
+  .reference-accounts .transfer-date-options {
+    position: absolute;
+    top: 58px;
+    right: 19px;
+    width: calc(50% - 19px);
+    order: 0;
+  }
+  .reference-accounts .transfer-date-options > summary {
+    list-style: none;
+    min-height: 44px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #526481;
+    display: grid;
+    place-items: center;
+  }
+  .reference-accounts .transfer-date-content {
+    position: absolute;
+    top: 46px;
+    right: 0;
+    width: 380px;
+    padding: 17px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 7px 20px #152a3b20;
+    z-index: 10;
+  }
+  .reference-accounts .transfer-date-content .field-date {
+    display: grid;
+  }
+  .reference-accounts .desktop-composer .entry-form > .field-source_id {
+    margin-top: -5px;
+  }
+  .breakdown-legend li > small {
+    white-space: nowrap;
+    width: auto;
+    min-width: 30px;
+  }
+  .recovered .app-sidebar {
+    background: #fbfcfd;
+    padding-top: 22px;
+  }
+  .recovered .app-sidebar > .brand {
+    margin-bottom: 30px;
+  }
+  .recovered .app-sidebar nav {
+    gap: 1px;
+  }
+  .recovered .app-sidebar nav a {
+    height: 48px;
+    padding: 12px 20px;
+    gap: 21px;
+    font-size: 14px;
+  }
+  .recovered .app-sidebar nav a:nth-child(5) {
+    border: 0;
+    margin: 0;
+    padding: 12px 20px;
+    border-radius: 9px;
+  }
+  .recovered .app-sidebar nav a:nth-child(7) {
+    border-top: 1px solid var(--line);
+    margin: 19px 15px 0;
+    padding: 24px 5px 12px;
+    height: 69px;
+    border-radius: 0;
+  }
+  .recovered .app-sidebar > .button,
+  .recovered .app-sidebar > p,
+  .recovered .app-sidebar > a:last-child {
+    display: none;
+  }
+  .recovered .app-header {
+    padding: 12px 30px;
+  }
+  .recovered .global-search {
+    width: 642px;
+    flex: none;
+  }
+  .profile-link {
+    gap: 12px;
+  }
+  .recovered .app-main {
+    padding: 21px 29px 30px;
+  }
+  .recovered .page-heading {
+    height: 66px;
+    margin-bottom: 19px;
+    align-items: center;
+  }
+  .recovered .page-heading h1 {
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: -0.8px;
+    margin: 0 0 3px;
+  }
+  .view-accounts .page-heading > div {
+    max-width: none;
+  }
+  .recovered .page-heading p {
+    font-size: 18px;
+    line-height: 25px;
+    color: #65718a;
+  }
+  .rft-panel {
+    padding: 18px 21px;
+    border-radius: 12px;
+    border-color: #e9edf2;
+  }
+  .rft-panel h2 {
+    font-size: 18px;
+    letter-spacing: -0.4px;
+    line-height: 24px;
+  }
+  .panel-heading {
+    margin-bottom: 13px;
+  }
+  .primary-stack,
+  .secondary-stack {
+    gap: 15px;
+  }
+  .balance-summary {
+    height: 140px;
+    min-height: 140px;
+    padding: 19px 22px;
+    grid-template-columns: 1fr 40%;
+  }
+  .balance-copy > p {
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  .balance-copy strong {
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: -0.6px;
+  }
+  .balance-copy small {
+    font-size: 13px;
+    line-height: 21px;
+    margin-top: 6px;
+  }
+  .balance-copy .balance-change {
+    font-size: 14px;
+  }
+  .balance-explanation {
+    position: absolute;
+    left: 22px;
+    bottom: 5px;
+    margin: 0;
+    font-size: 9px;
+    line-height: 11px;
+  }
+  .balance-explanation {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .balance-visibility {
+    right: -296px;
+  }
+  .balance-spark {
+    align-self: end;
+    margin: 0;
+    height: 80px;
+  }
+  .metric-grid {
+    height: 117px;
+  }
+  .primary-stack,
+  .secondary-stack {
+    gap: 16px;
+  }
+  .metric {
+    height: 117px;
+    padding: 18px 14px;
+    gap: 13px;
+  }
+  .metric dl {
+    padding-top: 5px;
+  }
+  .metric dt {
+    min-height: 0;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 4px;
+  }
+  .metric dd {
+    font-size: 20px;
+    line-height: 24px;
+    white-space: nowrap;
+    letter-spacing: -0.3px;
+  }
+  .metric-change {
+    font-size: 11px;
+    color: #65718a;
+    display: block;
+    margin-top: 7px;
+    white-space: nowrap;
+  }
+  .monthly-panel {
+    position: relative;
+    height: 264px;
+  }
+  .monthly-panel .panel-heading {
+    margin-bottom: 17px;
+  }
+  .chart-period {
+    font-size: 12px;
+    padding: 5px 10px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    line-height: 20px;
+  }
+  .bar-chart {
+    height: 146px;
+    padding-top: 2px;
+    gap: 16px;
+  }
+  .chart-axis {
+    width: 43px;
+    font-size: 11px;
+    text-align: left;
+    padding-bottom: 24px;
+  }
+  .chart-plot {
+    gap: 13px;
+    border: 0;
+    background: repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent calc(16.666% - 1px),
+      #edf0f5 calc(16.666% - 1px),
+      #edf0f5 16.666%
+    );
+  }
+  .bar-month {
+    width: 10%;
+  }
+  .bar-pair {
+    gap: 8px;
+  }
+  .bar-month > span {
+    font-size: 11px;
+  }
+  .chart-legend {
+    margin-top: 13px;
+    gap: 35px;
+    font-size: 12px;
+  }
+  .chart-values {
+    position: absolute;
+    right: 21px;
+    bottom: 14px;
+    margin: 0;
+  }
+  .chart-values summary {
+    width: 25px;
+    height: 25px;
+    font-size: 0;
+    min-height: 25px;
+    list-style: none;
+    border-radius: 5px;
+  }
+  .chart-values summary::after {
+    content: "⋯";
+    font-size: 18px;
+    color: #6c7890;
+  }
+  .chart-values[open] {
+    z-index: 5;
+    width: 340px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    background: white;
+    box-shadow: 0 5px 20px #0001;
+  }
+  .chart-values[open] summary {
+    width: auto;
+    font-size: 12px;
+  }
+  .financial-account {
+    height: 71px;
+    padding: 12px 0;
+  }
+  .account-name b {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .account-name small {
+    color: #65718a;
+    font-size: 13px;
+  }
+  .financial-account > strong {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .reference-dashboard .secondary-stack > .rft-panel:first-child {
+    height: 484px;
+  }
+  .reference-dashboard .account-overview-list + .button {
+    margin-top: 11px;
+    height: 44px;
+  }
+  .reference-dashboard .dashboard-insights {
+    height: 372px;
+  }
+  .dashboard-insights .panel-heading {
+    margin-bottom: 16px;
+  }
+  .dashboard-insights .factual-insight {
+    gap: 19px;
+    height: 103px;
+    padding: 16px 0;
+  }
+  .factual-insight h3 {
+    font-size: 15px;
+    line-height: 21px;
+    letter-spacing: 0;
+    margin-bottom: 4px;
+  }
+  .factual-insight p {
+    font-size: 14px;
+    line-height: 21px;
+    color: #65718a;
+  }
+  .dashboard-insights .factual-insight h3 {
+    font-weight: 400;
+  }
+  .dashboard-insights .factual-insight > div {
+    flex: 1;
+  }
+  .dashboard-insights .insight-detail-link {
+    display: grid;
+    place-items: center;
+    align-self: center;
+    width: 20px;
+    height: 40px;
+    color: #7d88a0;
+    flex: none;
+  }
+  .recent-transactions {
+    height: 305px;
+    padding-top: 12px;
+  }
+  .recent-transactions .panel-heading {
+    margin-bottom: 10px;
+  }
+  .transaction-table {
+    font-size: 12px;
+    line-height: 16px;
+    table-layout: auto;
+  }
+  .transaction-table th {
+    padding: 9px 0;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .transaction-table td {
+    height: 40px;
+    padding: 7px 7px 7px 0;
+  }
+  .table-description {
+    gap: 12px;
+    min-width: 0;
+    white-space: nowrap;
+  }
+  .table-description .category-mark {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+  }
+  .table-description .category-mark svg {
+    width: 19px;
+    height: 19px;
+  }
+  .entry-money {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .category-badge {
+    font-size: 11px;
+    padding: 4px 8px;
+    line-height: 15px;
+    white-space: nowrap;
+  }
+  .date-cell {
+    width: 108px;
+  }
+  .view-home .table-account .account-mark {
+    display: none;
+  }
+  .reference-accounts {
+    grid-template-columns: minmax(0, 697fr) minmax(0, 423fr);
+  }
+  .account-card-grid {
+    gap: 12px;
+  }
+  .account-card-grid .financial-account {
+    height: 104px;
+    min-height: 104px;
+    padding: 13px;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .account-card-grid .account-mark {
+    width: 56px;
+    height: 56px;
+  }
+  .account-card-grid .account-name {
+    padding-top: 3px;
+    min-width: 0;
+  }
+  .account-card-grid .financial-account > strong {
+    position: absolute;
+    right: 31px;
+    top: 20px;
+    margin: 0;
+    font-size: 16px;
+    flex-basis: auto;
+  }
+  .account-card-grid .account-edit-actions {
+    bottom: auto;
+    top: 12px;
+    right: 1px;
+  }
+  .account-card-grid .account-edit-actions .danger-text {
+    position: absolute;
+    top: 52px;
+    right: 0;
+  }
+  .reference-accounts .primary-stack > .rft-panel:not(.recent-transactions) {
+    min-height: 414px;
+    padding: 16px;
+  }
+  .reference-accounts .primary-stack .panel-heading {
+    margin-bottom: 14px;
+  }
+  .account-card-grid .account-name {
+    align-self: flex-start;
+  }
+  .reference-accounts .recent-transactions {
+    height: 292px;
+  }
+  .reference-accounts .transaction-table .row-actions {
+    display: none;
+  }
+  .reference-accounts .desktop-composer {
+    min-height: 619px;
+  }
+  .reference-transactions {
+    grid-template-columns: minmax(0, 783fr) minmax(0, 365fr);
+    margin-left: -7px;
+    margin-right: -21px;
+  }
+  .view-activity .page-heading {
+    width: calc(100% - 365px);
+  }
+  .reference-transactions .desktop-composer {
+    margin-top: -88px;
+    min-height: 950px;
+    padding: 22px 20px;
+  }
+  .reference-transactions .transaction-controls {
+    height: 260px;
+    padding: 14px;
+  }
+  .transaction-tabs {
+    gap: 4px;
+    flex-wrap: nowrap;
+  }
+  .transaction-tabs > button {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+  .search-control {
+    height: 44px;
+    margin-top: 13px;
+  }
+  .search-control input {
+    font-size: 14px;
+  }
+  .filter-select-row {
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .filter-select-row select {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  .filter-select-row label {
+    max-width: 24%;
+  }
+  .filter-select-row .text-link {
+    white-space: nowrap;
+    font-size: 13px;
+  }
+  .category-filter-strip {
+    padding-top: 15px;
+    overflow: hidden;
+  }
+  .category-filter-strip button {
+    height: 55px;
+    padding: 6px;
+    border-color: #eff1f5;
+  }
+  .category-filter-strip button:first-child {
+    min-width: 58px;
+    flex-direction: column;
+    gap: 0;
+  }
+  .category-filter-strip .category-mark {
+    width: 33px;
+    height: 37px;
+  }
+  .reference-transactions .primary-stack > .rft-panel:last-child {
+    min-height: 576px;
+    padding: 10px 17px 17px;
+  }
+  .reference-transactions .transaction-table td {
+    height: 45px;
+  }
+  .reference-transactions .transaction-table td {
+    padding: 4px 7px 4px 0;
+  }
+  .reference-transactions .date-cell {
+    width: 104px;
+  }
+  .reference-transactions .table-account {
+    min-width: 100px;
+  }
+  .desktop-composer .entry-form {
+    gap: 20px;
+  }
+  .desktop-composer > h2 {
+    font-size: 24px;
+    margin: 0 0 24px;
+  }
+  .desktop-composer .entry-form .field > span:first-child {
+    font-size: 14px;
+  }
+  .desktop-composer .entry-form input,
+  .desktop-composer .entry-form select,
+  .desktop-composer .entry-form textarea {
+    height: 47px;
+    min-height: 47px;
+    padding: 10px 13px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: white;
+    font-size: 15px;
+    width: 100%;
+  }
+  .desktop-composer .transaction-type-buttons {
+    margin-bottom: 5px;
+  }
+  .desktop-composer .transaction-type-buttons button {
+    height: 55px;
+  }
+  .desktop-composer .field-description textarea {
+    resize: none;
+  }
+  .desktop-composer .field-additional_note textarea {
+    height: 112px;
+    resize: vertical;
+  }
+  .desktop-composer .field-additional_note {
+    gap: 7px;
+  }
+  .desktop-composer .reflection-options {
+    margin-top: -17px;
+  }
+  .desktop-composer .form-actions {
+    margin-top: -7px;
+  }
+  .reference-accounts .desktop-composer .entry-form {
+    gap: 19px;
+    margin-top: 0;
+  }
+  .reference-accounts .desktop-composer .entry-form > .hint {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    overflow: hidden;
+  }
+  .reference-accounts .desktop-composer .field-source_id,
+  .reference-accounts .desktop-composer .field-destination_id {
+    order: 0;
+  }
+  .reference-accounts .desktop-composer .transfer-account-select > select {
+    height: 74px;
+  }
+  .reference-accounts
+    .desktop-composer
+    .transfer-account-select
+    > .account-mark {
+    width: 47px;
+    height: 47px;
+    left: 12px;
+    top: 13px;
+  }
+  .transfer-account-select:has(.selected-account-detail) > select {
+    color: transparent;
+  }
+  .transfer-account-select > select option {
+    color: var(--ink);
+  }
+  .selected-account-detail {
+    position: absolute;
+    left: 73px;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .selected-account-detail b {
+    font-weight: 500;
+  }
+  .selected-account-detail small {
+    font-size: 14px;
+    color: #50607c;
+  }
+  .reference-accounts .desktop-composer .entry-form > .field-date {
+    order: 7;
+    font-size: 11px;
+    display: none;
+  }
+  .reference-accounts .desktop-composer .form-actions {
+    margin-top: 0;
+  }
+  .reference-accounts .desktop-composer .form-actions .button.secondary {
+    display: none;
+  }
+  .reference-accounts .desktop-composer .entry-form > .field-amount {
+    order: 1;
+  }
+  .reference-accounts .desktop-composer .field-description {
+    order: 2;
+  }
+  .reference-accounts .desktop-composer .form-actions .button {
+    background: #dcf1e9;
+    color: #006653;
+    font-size: 17px;
+  }
+  .period-controls .inline-field:has(.period-range) {
+    position: relative;
+    width: 273px;
+  }
+  .recovered .inline-field > .period-range {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: 44px;
+    clip-path: none;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    gap: 10px;
+    pointer-events: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .period-controls .inline-field:has(.period-range) select {
+    width: 100%;
+    max-width: none;
+    color: transparent;
+    appearance: none;
+  }
+  .period-controls .inline-field:has(.period-range) select option {
+    color: var(--ink);
+  }
+  .table-pagination {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .table-pagination .icon-button {
+    width: 37px;
+    height: 38px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+  .table-pagination [aria-current] {
+    padding: 0;
+  }
+  .insight-summary-grid {
+    gap: 13px;
+    margin-bottom: 14px;
+  }
+  .insight-summary-grid .factual-insight {
+    height: 158px;
+    padding: 19px 21px;
+    gap: 22px;
+  }
+  .insight-summary-grid .factual-insight .metric-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+  }
+  .insight-summary-grid .factual-insight h3 {
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: 500;
+    margin: 2px 0 7px;
+  }
+  .insight-summary-grid .factual-insight p {
+    font-size: 15px;
+    line-height: 21px;
+  }
+  .insight-chart-grid {
+    grid-template-columns: minmax(0, 610fr) minmax(0, 511fr);
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .insight-chart-grid > .rft-panel {
+    height: 334px;
+    min-height: 334px;
+  }
+  .insight-chart-grid .bar-chart {
+    height: 210px;
+  }
+  .insight-chart-grid .panel-heading {
+    margin-bottom: 20px;
+  }
+  .insight-chart-grid .chart-legend {
+    margin-top: 15px;
+  }
+  .insight-chart-grid .chart-help {
+    display: none;
+  }
+  .insight-sources {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .insight-sources:focus-within {
+    position: relative;
+    width: auto;
+    height: auto;
+    clip-path: none;
+    background: white;
+    z-index: 4;
+  }
+  .breakdown {
+    gap: 23px;
+    padding: 0;
+  }
+  .insight-chart-grid .donut-chart {
+    width: 234px;
+    max-width: 42%;
+  }
+  .donut-chart > div {
+    width: 56%;
+    height: 56%;
+    padding: 0;
+  }
+  .donut-chart strong {
+    font-size: 18px;
+    letter-spacing: -0.3px;
+  }
+  .donut-chart small {
+    font-size: 12px;
+  }
+  .breakdown-legend li {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0;
+    height: 35px;
+    gap: 9px;
+    font-size: 12px;
+  }
+  .breakdown-legend li > i {
+    width: 11px;
+    height: 11px;
+  }
+  .breakdown-legend .category-mark {
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+  }
+  .breakdown-legend li > .category-mark {
+    flex: none;
+    min-width: 24px;
+  }
+  .breakdown-legend .category-mark svg {
+    width: 17px;
+    height: 17px;
+  }
+  .breakdown-legend li > span {
+    min-width: 0;
+    flex: 1;
+    white-space: nowrap;
+  }
+  .breakdown-legend li > strong {
+    font-size: 12px;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .breakdown-legend li > small {
+    flex-basis: auto;
+    margin-left: 10px;
+    width: 30px;
+    font-size: 12px;
+    text-align: right;
+  }
+  .insight-bottom-grid {
+    grid-template-columns: minmax(0, 593fr) minmax(0, 530fr);
+    gap: 13px;
+  }
+  .insight-bottom-grid .rft-panel {
+    height: 350px;
+  }
+  .insight-bottom-grid .hint {
+    display: none;
+  }
+  .budget-progress .section-row {
+    margin: 0 0 4px;
+  }
+  .budget-line {
+    height: 46px;
+    min-height: 46px;
+    padding: 5px 0;
+    gap: 13px;
+    border-bottom: 1px solid #f2f4f7;
+  }
+  .budget-line .category-mark {
+    width: 35px;
+    height: 35px;
+  }
+  .budget-category {
+    width: 125px;
+    flex: none;
+  }
+  .budget-category b {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .budget-category small {
+    display: none;
+  }
+  .budget-meter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+  .budget-meter progress {
+    height: 12px;
+    width: auto;
+    flex: 1;
+  }
+  .budget-meter small {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .budget-line > button {
+    width: 16px;
+    height: 36px;
+  }
+  .savings-goal {
+    height: 94px;
+    padding: 10px 0;
+    gap: 24px;
+  }
+  .savings-goal .goal-symbol {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+  }
+  .savings-goal:nth-child(2) .goal-symbol {
+    background: #dcf2e8;
+    color: #008458;
+  }
+  .savings-goal:nth-child(3) .goal-symbol {
+    background: #e1efff;
+    color: #0674ff;
+  }
+  .savings-goal .goal-copy h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .savings-goal .goal-copy p {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  .savings-goal .goal-copy small {
+    font-size: 11px;
+  }
+  .savings-goal .goal-target-date {
+    display: none;
+  }
+  .savings-goal .goal-progress-line {
+    gap: 14px;
+  }
+  .savings-goal .goal-time-left {
+    width: 91px;
+    color: #65718a;
+  }
+  .savings-goal .row-actions {
+    gap: 0;
+  }
+  .savings-goal .row-actions .icon-button {
+    width: 22px;
+    height: 30px;
+  }
+  .desktop-account-summary {
+    height: 243px;
+  }
+  .desktop-account-summary .donut-chart {
+    width: 160px;
+  }
+  .desktop-account-summary .donut-chart strong {
+    font-size: 14px;
+  }
+  .desktop-account-summary .breakdown {
+    gap: 17px;
+  }
+  .desktop-account-summary .breakdown-legend li {
+    position: relative;
+    height: 36px;
+    align-items: flex-start;
+    padding-top: 2px;
+  }
+  .desktop-account-summary .breakdown-legend li > small {
+    position: absolute;
+    left: 20px;
+    top: 17px;
+    margin: 0;
+    text-align: left;
+  }
+  .homepage-recovered .public-header {
+    padding-left: 4.3%;
+    padding-right: 4.1%;
+  }
+  .homepage-recovered .public-header nav {
+    margin-left: 50px;
+    gap: 41px;
+  }
+  .homepage-recovered .public-header .brand-word {
+    font-size: 27px;
+  }
+  .homepage-recovered .public-header .leaf-mark {
+    width: 32px;
+    height: 42px;
+  }
+  .concept-a-hero {
+    height: 566px;
+    min-height: 566px;
+    padding: 27px 4.1% 17px 4.3%;
+    grid-template-columns: 42.25% 57.75%;
+    gap: 0;
+    align-items: start;
+  }
+  .concept-a-copy {
+    margin-top: 34px;
+  }
+  .marketing-pill {
+    display: flex;
+    width: fit-content;
+    height: 39px;
+    padding: 9px 15px;
+    margin-bottom: 20px;
+  }
+  .concept-a-copy h1 {
+    font-size: 60px;
+    line-height: 64px;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+  }
+  .concept-a-copy > p {
+    font-size: 21px;
+    line-height: 32px;
+    width: 530px;
+    max-width: 100%;
+    margin-bottom: 38px;
+  }
+  .homepage-recovered .hero-actions {
+    gap: 18px;
+  }
+  .homepage-recovered .hero-actions .google-action .button {
+    width: 275px;
+    height: 62px;
+    font-size: 20px;
+  }
+  .homepage-recovered .hero-actions > .button.secondary {
+    width: 210px;
+    height: 62px;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 14px 18px;
+  }
+  .homepage-recovered .hero-assurances {
+    margin-top: 38px;
+    gap: 22px;
+    font-size: 13px;
+  }
+  .desktop-preview-wrap {
+    padding: 0;
+  }
+  .preview-window {
+    aspect-ratio: 766 / 522;
+  }
+  .desktop-preview-wrap > .sample-label {
+    bottom: -13px;
+    font-size: 9px;
+  }
+  .benefit-strip {
+    height: 143px;
+    padding: 28px 4% 20px;
+    gap: 20px 24px;
+    grid-template-rows: 14px 57px;
+  }
+  .benefit-strip article {
+    padding: 0 35px;
+    gap: 22px;
+  }
+  .benefit-strip article > svg {
+    flex: none;
+    width: 32px;
+    height: 32px;
+  }
+  .benefit-strip article h2 {
+    white-space: nowrap;
+  }
+  .concept-features {
+    padding-top: 11px;
+  }
+  .features-heading {
+    margin-bottom: 13px;
+  }
+  .features-heading > p {
+    margin-bottom: 17px;
+    line-height: 14px;
+  }
+  .features-heading h2 {
+    font-size: 34px;
+    line-height: 36px;
+    max-width: 520px;
+    margin-bottom: 2px;
+  }
+  .features-heading > span {
+    display: block;
+    font-size: 15px;
+    line-height: 21px;
+  }
+  .feature-card {
+    min-height: 124px;
+    padding: 18px;
+    gap: 24px;
+  }
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+  }
+  .feature-card h3 {
+    margin: 4px 0 7px;
+  }
+  .feature-card p {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
+
+/* Final calibration from pass-4 pixel bounds and computed control geometry. */
+@media (min-width: 1200px) {
+  .recovered.view-home .app-main {
+    padding: 20px 28px 30px 30px;
+  }
+  .recovered.view-accounts .app-main {
+    padding-left: 30px;
+    padding-right: 28px;
+  }
+  .recovered.view-insights .app-main {
+    padding-left: 31px;
+    padding-right: 28px;
+  }
+  .reference-dashboard > .secondary-stack {
+    gap: 17px;
+  }
+  .recovered .table-description {
+    gap: 16px;
+    white-space: normal;
+  }
+  .table-description > span,
+  .table-account > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .dashboard-accounts {
+    padding-top: 17px;
+  }
+  .dashboard-accounts > .panel-heading h2 {
+    line-height: 22px;
+  }
+  .dashboard-accounts > .panel-heading .text-link {
+    min-height: 22px;
+    height: 22px;
+  }
+  .dashboard-accounts .account-overview-list {
+    max-height: 355px;
+    overflow-y: auto;
+  }
+  .recovered.view-home .reference-dashboard .dashboard-insights {
+    height: auto;
+    min-height: 372px;
+    padding-bottom: 3px;
+  }
+  .recovered.view-home .dashboard-insights .factual-insight {
+    height: auto;
+    min-height: 103px;
+    position: relative;
+  }
+  .dashboard-insights .insight-detail-link {
+    position: absolute;
+    right: -3px;
+    top: 26px;
+  }
+  .factual-insight h3,
+  .factual-insight p {
+    white-space: pre-line;
+  }
+  .recovered.view-home .monthly-panel {
+    padding-top: 13px;
+  }
+  .recovered.view-home .monthly-panel > .panel-heading {
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .recovered.view-home .monthly-panel h2 {
+    font-size: 17.5px;
+    letter-spacing: -0.25px;
+  }
+  .recovered.view-home .monthly-panel .bar-chart {
+    height: 144px;
+  }
+  .recovered.view-home .monthly-panel .chart-axis {
+    width: 36px;
+  }
+  .recovered.view-home .monthly-panel .chart-plot {
+    padding: 0 20px 0 28px;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .recovered.view-home .monthly-panel .bar-month {
+    flex: 0 1 60px;
+    width: 60px;
+  }
+  .recovered.view-home .monthly-panel .chart-legend {
+    margin-top: 15px;
+  }
+  .recovered.view-accounts .balance-summary,
+  .recovered.view-home .balance-summary {
+    padding: 22px 22px 18px;
+  }
+  .recovered .balance-copy > p {
+    margin-bottom: 4px;
+  }
+  .view-accounts .rft-panel h2 {
+    font-size: 20px;
+    letter-spacing: -0.5px;
+  }
+  .desktop-account-summary {
+    position: relative;
+  }
+  .desktop-account-summary > .panel-heading .period-controls {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+  }
+  .desktop-account-summary .period-controls .inline-field:has(.period-range) {
+    width: 100px;
+  }
+  .desktop-account-summary
+    .period-controls
+    .inline-field:has(.period-range)
+    select {
+    min-width: 0;
+    width: 100px;
+    max-width: 100px;
+    font-size: 12px;
+  }
+  .desktop-account-summary .panel-heading:has(input) .period-controls {
+    position: static;
+  }
+  .reference-transactions .primary-stack > .rft-panel:last-child {
+    padding-left: 18px;
+    padding-right: 14px;
+  }
+  .reference-transactions .transaction-table {
+    font-size: 13px;
+    table-layout: auto;
+  }
+  .reference-transactions .transaction-table th {
+    padding: 7px 0 3px;
+  }
+  .reference-transactions .transaction-table th:first-child {
+    padding: 5px 0;
+    width: 4.5394%;
+  }
+  .reference-transactions .transaction-table th:nth-child(2) {
+    width: 14.1522%;
+    padding-left: 5px;
+  }
+  .reference-transactions .transaction-table th:nth-child(3) {
+    width: 26.5688%;
+  }
+  .reference-transactions .transaction-table th:nth-child(4) {
+    width: 15.3538%;
+  }
+  .reference-transactions .transaction-table th:nth-child(5) {
+    width: 18.6916%;
+  }
+  .reference-transactions .transaction-table th:nth-child(6) {
+    width: 12.283%;
+  }
+  .reference-transactions .transaction-table th:nth-child(7) {
+    width: 8.4112%;
+  }
+  .reference-transactions .date-cell {
+    width: 106px;
+    padding-left: 5px;
+  }
+  .reference-transactions .table-description {
+    gap: 18px;
+    max-width: 100%;
+  }
+  .reference-transactions .transaction-table .money-column {
+    padding-right: 2px;
+  }
+  .reference-transactions .row-action-menu > summary {
+    margin-left: auto;
+  }
+  .reference-transactions .table-pagination {
+    margin-top: 23px;
+  }
+  .date-sort {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    height: 24px;
+    min-height: 24px;
+    font: inherit;
+    color: inherit;
+  }
+  .view-insights .insight-summary-grid {
+    margin-bottom: 15px;
+  }
+  .view-insights .rft-panel h2 {
+    font-size: 19px;
+    letter-spacing: -0.2px;
+  }
+  .view-insights .category-breakdown {
+    padding-top: 16px;
+  }
+  .view-insights .monthly-panel {
+    padding-top: 16px;
+  }
+  .view-insights .monthly-panel > .panel-heading {
+    align-items: flex-start;
+    height: 24px;
+    margin-bottom: 31px;
+  }
+  .view-insights .monthly-panel .chart-range {
+    position: absolute;
+    top: 13px;
+    right: 21px;
+  }
+  .view-insights .monthly-panel .chart-axis {
+    width: 42px;
+  }
+  .view-insights .monthly-panel .chart-plot {
+    padding: 0 9px;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .view-insights .monthly-panel .bar-month {
+    flex: 0 1 48px;
+    width: 48px;
+  }
+  .view-insights .budget-progress {
+    height: auto;
+    min-height: 350px;
+    padding-top: 14px;
+  }
+  .budget-progress > .section-row {
+    margin-bottom: 5px;
+  }
+  .budget-progress > .section-row > .text-link {
+    min-height: 24px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .view-insights .budget-line {
+    height: auto;
+    min-height: 45.5px;
+  }
+  .multiple-budget-months .budget-category small {
+    display: block;
+  }
+  .view-insights #goals > .rft-panel {
+    height: auto;
+    min-height: 350px;
+    padding: 14px 21px 11px 24px;
+  }
+  .view-insights #goals .panel-heading {
+    margin-bottom: 20px;
+  }
+  .view-insights .savings-goal {
+    position: relative;
+    height: auto;
+    min-height: 93px;
+  }
+  .view-insights .savings-goal .row-actions {
+    position: absolute;
+    right: 0;
+    top: 20px;
+  }
+  .view-insights .savings-goal .goal-copy h3 {
+    padding-right: 24px;
+  }
+  .view-insights .goal-progress-line {
+    gap: 0;
+  }
+  .view-insights .goal-progress-line progress {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    margin-right: 15px;
+  }
+  .view-insights .goal-progress-line > span {
+    width: 23px;
+    margin-right: 5px;
+    font-size: 12px;
+  }
+  .view-insights .savings-goal .goal-time-left {
+    width: 124px;
+    min-width: 124px;
+    padding-right: 5px;
+    text-align: right;
+    font-size: 13px;
+  }
+  .preview-native-canvas .preview-native-main .dashboard-insights {
+    height: 180px;
+    min-height: 0;
+  }
+  .view-activity .page-heading,
+  .view-accounts .page-heading {
+    display: block;
+    position: relative;
+  }
+  .view-activity .page-heading > .button {
+    position: absolute;
+    right: 0;
+    top: 5px;
+  }
+  .view-accounts .page-heading > .button {
+    position: absolute;
+    right: 0;
+    top: 11px;
+    width: 196px;
+  }
+  .concept-a-copy h1 {
+    font-size: clamp(50px, 4.15vw, 60px);
+  }
+  .homepage-recovered .hero-actions .google-action .button {
+    width: clamp(225px, 19vw, 275px);
+    font-size: clamp(16px, 1.4vw, 20px);
+  }
+  .account-card-grid .account-card-expanded {
+    height: auto;
+    min-height: 104px;
+    flex-wrap: wrap;
+  }
+  .reference-accounts .account-card-grid .account-card-expanded > strong {
+    position: static;
+    margin-left: 71px;
+    flex-basis: calc(100% - 71px);
+    white-space: normal;
+  }
+  .account-card-grid:has(.account-card-expanded) .financial-account {
+    height: auto;
+    min-height: 104px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .view-activity .page-heading > .button {
+    top: 0;
+    min-height: 44px;
+    height: 44px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1279px) {
+  .view-accounts .page-heading > .button {
+    top: 0;
+    min-height: 44px;
+    height: 44px;
+  }
+}
+
+.money-input {
+  display: block;
+  position: relative;
+}
+.currency-affix,
+.select-chevron {
+  display: none;
+}
+.manual-transfer-note {
+  font-size: 11px;
+  line-height: 15px;
+  color: #65718a;
+}
+@media (min-width: 1200px) {
+  .recovered .app-header {
+    padding-right: 38px;
+  }
+  .app-header .profile-avatar {
+    background: #d1d5e2;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  .preview-native-profile b {
+    background: #d1d5e2;
+  }
+  .balance-change > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 16px;
+    vertical-align: -3px;
+  }
+  .desktop-composer .select-with-mark > select {
+    appearance: none;
+    padding-right: 34px;
+  }
+  .select-with-mark > .select-chevron {
+    display: block;
+    position: absolute;
+    right: 13px;
+    top: calc(50% - 8px);
+    color: #65718a;
+    pointer-events: none;
+  }
+  .desktop-composer .money-input .currency-affix {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    right: 14px;
+    top: 0;
+    height: 47px;
+    color: #263752;
+    font-size: 14px;
+    font-weight: 400;
+    pointer-events: none;
+  }
+  .desktop-composer .money-input input {
+    padding-right: 45px;
+  }
+  .reference-accounts .desktop-composer .money-input .currency-affix {
+    left: 0;
+    right: auto;
+    width: 55px;
+    background: #f7f8fa;
+    border-right: 1px solid var(--line);
+    border-radius: 9px 0 0 9px;
+    top: 1px;
+    height: 45px;
+  }
+  .reference-accounts .desktop-composer .money-input input {
+    padding-left: 71px;
+  }
+  .reference-accounts .manual-transfer-note {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 3px;
+    margin: 0;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+  }
+  .dialog-content .budget-category small,
+  .dialog-content .goal-target-date {
+    display: block;
+  }
+  .income-bar {
+    background: linear-gradient(#3b9e79, #278e68);
+  }
+  .expense-bar {
+    background: linear-gradient(#ff9388, #ff7d73);
+  }
+  .insight-summary-grid .factual-insight {
+    gap: 21px;
+    padding-right: 15px;
+  }
+  .savings-goal .goal-symbol > svg.lucide-plane,
+  .savings-goal .goal-symbol > svg.lucide-house {
+    fill: currentColor;
+  }
+}
+.category-strip-shell {
+  position: relative;
+  min-width: 0;
+}
+.expanded-balance .balance-copy > strong {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+@media (min-width: 1200px) {
+  .recovered .balance-summary.expanded-balance {
+    height: auto;
+    min-height: 140px;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 8px;
+  }
+  .expanded-balance .balance-copy {
+    max-width: none;
+    width: 100%;
+  }
+  .expanded-balance .balance-spark {
+    justify-self: end;
+    width: 40%;
+    height: 65px;
+  }
+  .desktop-account-summary:has(.expanded-breakdown) {
+    height: auto;
+    min-height: 243px;
+  }
+  .breakdown-account.expanded-breakdown {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+  }
+  .expanded-breakdown .donut-chart {
+    flex: none;
+    align-self: center;
+  }
+  .desktop-account-summary .expanded-breakdown .donut-chart strong {
+    font-size: 12px;
+    line-height: 16px;
+    overflow-wrap: anywhere;
+  }
+  .expanded-breakdown .breakdown-legend {
+    width: 100%;
+    min-width: 0;
+  }
+  .desktop-account-summary .expanded-breakdown .breakdown-legend li {
+    display: grid;
+    grid-template-columns: 12px minmax(0, 1fr);
+    height: auto;
+    min-height: 64px;
+    gap: 2px 9px;
+    align-items: start;
+  }
+  .expanded-breakdown .breakdown-legend li > i {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 3px;
+  }
+  .expanded-breakdown .breakdown-legend li > span,
+  .expanded-breakdown .breakdown-legend li > strong {
+    grid-column: 2;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .desktop-account-summary .expanded-breakdown .breakdown-legend li > small {
+    position: static;
+    grid-column: 2;
+    width: auto;
+    margin: 0;
+  }
+  .reference-accounts .primary-stack:has(.expanded-balance) > .rft-panel {
+    height: auto;
+  }
+  .reference-accounts
+    .primary-stack:has(.expanded-balance)
+    .transaction-table
+    td {
+    overflow-wrap: anywhere;
+  }
+  .reference-accounts .primary-stack:has(.expanded-balance) .entry-money {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+.category-strip-next {
+  position: absolute;
+  right: -12px;
+  top: calc(50% - 20px);
+  width: 40px;
+  min-height: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: 0 2px 8px #2233440a;
+  border-radius: 50%;
+}
+@media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
+  .chart-values:not([open]) > summary {
+    opacity: 0;
+  }
+  .monthly-panel:hover .chart-values > summary,
+  .chart-values > summary:focus-visible {
+    opacity: 1;
+  }
+}
+
+/* Final text-ink calibration: A's first description is 127×12 px in the
+   source, versus 119×11 px at the preceding 12 px table setting. */
+@media (min-width: 1200px) {
+  .reference-dashboard .transaction-table,
+  .reference-accounts .transaction-table,
+  .reference-dashboard .entry-money,
+  .reference-accounts .entry-money {
+    font-size: 13px;
+  }
+  .reference-dashboard .transaction-table th {
+    padding-top: 13px;
+  }
+  .reference-accounts .transaction-table th {
+    padding-top: 11px;
+  }
+  .reference-dashboard .metric-change {
+    font-size: 12px;
+  }
+  .recovered .page-heading > .button,
+  .reference-transactions
+    .desktop-composer
+    .form-actions
+    > .button[type="submit"] {
+    background: linear-gradient(120deg, #009879, #00866a);
+    box-shadow: 0 2px 3px #00634a13;
+  }
+}
+
+@media (min-width: 1200px) {
+  .reference-dashboard .transaction-table {
+    table-layout: fixed;
+    font-size: 12.75px;
+  }
+  .reference-dashboard .transaction-table th:nth-child(1) {
+    width: 16.1501%;
+  }
+  .reference-dashboard .transaction-table th:nth-child(2) {
+    width: 31.8519%;
+  }
+  .reference-dashboard .transaction-table th:nth-child(3) {
+    width: 19.8888%;
+  }
+  .reference-dashboard .transaction-table th:nth-child(4) {
+    width: 14.9539%;
+  }
+  .reference-dashboard .transaction-table th:nth-child(5) {
+    width: 17.1553%;
+  }
+  .reference-dashboard .table-description {
+    gap: 18px;
+  }
+  .reference-dashboard .transaction-table th {
+    padding-top: 14px;
+  }
+  .reference-accounts .transaction-table {
+    table-layout: fixed;
+  }
+  .reference-accounts .transaction-table th:nth-child(1) {
+    width: 16.2328%;
+  }
+  .reference-accounts .transaction-table th:nth-child(2) {
+    width: 31.853%;
+  }
+  .reference-accounts .transaction-table th:nth-child(3) {
+    width: 20.2144%;
+  }
+  .reference-accounts .transaction-table th:nth-child(4) {
+    width: 17.1516%;
+  }
+  .reference-accounts .transaction-table th:nth-child(5) {
+    width: 14.5482%;
+  }
+  .reference-accounts .table-description {
+    gap: 17px;
+  }
+  .reference-accounts .table-description > span:last-child {
+    letter-spacing: -0.3px;
+  }
+  .reference-accounts .transaction-table th {
+    padding-top: 13px;
+  }
+  .reference-accounts .transaction-table td {
+    height: 37px;
+    padding-top: 5.5px;
+    padding-bottom: 5.5px;
+  }
+  .reference-transactions .table-description > span:last-child {
+    font-size: 12.25px;
+  }
+  .reference-transactions .entry-money {
+    font-size: 13px;
+  }
+}
+
+/* Source B/C input-border measurements, not a different form layout. These
+   small flow adjustments preserve room for validation and optional fields. */
+@media (min-width: 1200px) {
+  .reference-transactions .desktop-composer > .panel-heading {
+    transform: translateY(4px);
+  }
+  .reference-transactions .transaction-type-buttons {
+    transform: translateY(6px);
+    margin-bottom: 8px;
+  }
+  .reference-transactions .desktop-composer .entry-form > .field-amount {
+    margin-bottom: -2px;
+  }
+  .reference-transactions .field-amount input {
+    height: 48px;
+  }
+  .reference-transactions .desktop-composer .entry-form > .field-date {
+    margin-bottom: -2px;
+  }
+  .reference-transactions .desktop-composer .entry-form > .field-description {
+    margin-bottom: -3px;
+  }
+  .reference-transactions .desktop-composer .entry-form > .field-category {
+    margin-bottom: -2px;
+  }
+  .reference-transactions .field-category select,
+  .reference-transactions .field-account select {
+    height: 50px;
+  }
+  .reference-transactions .desktop-composer .form-actions {
+    margin-top: -2px;
+  }
+  .reference-transactions .desktop-composer .form-actions .secondary {
+    height: 49px;
+    min-height: 49px;
+  }
+  .reference-accounts .desktop-composer > .panel-heading,
+  .reference-accounts .transfer-tabs,
+  .reference-accounts .transfer-date-options > summary {
+    transform: translateY(-4px);
+  }
+  .reference-accounts .desktop-composer .entry-form {
+    margin-top: -5px;
+  }
+  .reference-accounts .desktop-composer .entry-form > .field-source_id {
+    margin-bottom: -2px;
+  }
+  .reference-accounts .desktop-composer .entry-form > .field-amount {
+    margin-bottom: 1px;
+  }
+  .reference-accounts .desktop-composer .field-amount input {
+    height: 50px;
+  }
+  .reference-accounts .desktop-composer .field-description input {
+    height: 46px;
+    min-height: 46px;
+  }
+  .reference-accounts .desktop-composer .form-actions .button {
+    height: 51px;
+    min-height: 51px;
+  }
+  .reference-accounts .desktop-composer .money-input .currency-affix {
+    height: 48px;
+  }
+  .reference-accounts .desktop-composer:has(.transfer-preview),
+  .reference-accounts .desktop-composer:has(.error) {
+    height: auto;
+    min-height: 619px;
+  }
+  .reference-transactions .filter-select-row > label {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+  .reference-transactions .filter-select-row > label:nth-child(1) {
+    width: 18.858%;
+  }
+  .reference-transactions .filter-select-row > label:nth-child(2) {
+    width: 20.1859%;
+  }
+  .reference-transactions .filter-select-row > label:nth-child(3) {
+    width: 16.6003%;
+  }
+  .reference-transactions .filter-select-row > label:nth-child(4) {
+    width: 15.2722%;
+  }
+  .reference-transactions .filter-select-row select {
+    width: 100%;
+    max-width: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 12px;
+    border-color: #e5e9ef;
+  }
+  .reference-transactions .filter-select-row > .text-link {
+    font-size: 14px;
+    width: 14.874%;
+    margin-left: auto;
+    min-height: 44px;
+    padding: 8px;
+    color: #2269df;
+    border: 1px solid #eef4fb;
+    border-radius: 12px;
+    background: #f8fbff;
+    white-space: nowrap;
+  }
+  .view-insights .budget-progress > .section-row > .text-link {
+    color: #2269df;
+  }
+}
+.transfer-note-input {
+  position: relative;
+  display: block;
+}
+.transfer-note-input input {
+  display: block;
+  padding-right: 54px;
+}
+.transfer-note-input small {
+  position: absolute;
+  right: 12px;
+  top: calc(50% - 7px);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 400;
+  color: #65718a;
+  pointer-events: none;
+}
+@media (min-width: 1200px) {
+  .view-home .page-heading h1 {
+    letter-spacing: -0.95px;
+    transform: translate(4px, 3px) scaleY(0.941176);
+    transform-origin: top left;
+  }
+  .view-activity .page-heading h1 {
+    letter-spacing: -1.05px;
+    transform: translateY(-2px);
+  }
+  .view-accounts .page-heading h1 {
+    letter-spacing: -0.1px;
+    transform: translateX(4px);
+  }
+  .view-insights .page-heading h1 {
+    letter-spacing: -0.2px;
+    transform: translate(2px, 3px) scaleY(0.941176);
+    transform-origin: top left;
+  }
+  .view-home .page-heading p,
+  .view-accounts .page-heading p,
+  .view-insights .page-heading p {
+    padding-left: 4px;
+  }
+  .reference-accounts .desktop-composer .transfer-note-input input {
+    padding-right: 54px;
+  }
+}
+@media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
+  .view-accounts .balance-visibility {
+    opacity: 0;
+  }
+  .view-accounts .balance-summary:hover .balance-visibility,
+  .view-accounts .balance-visibility:focus-visible {
+    opacity: 1;
+  }
+}

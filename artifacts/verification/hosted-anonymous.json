@@ -1,0 +1,45 @@
+{
+  "environment": "hosted anonymous using publishable key only",
+  "results": [
+    {
+      "resource": "profiles",
+      "status": 401
+    },
+    {
+      "resource": "accounts",
+      "status": 401
+    },
+    {
+      "resource": "categories",
+      "status": 401
+    },
+    {
+      "resource": "subcategories",
+      "status": 401
+    },
+    {
+      "resource": "transactions",
+      "status": 401
+    },
+    {
+      "resource": "transfers",
+      "status": 401
+    },
+    {
+      "resource": "budgets",
+      "status": 401
+    },
+    {
+      "resource": "finance_snapshot",
+      "status": 401
+    },
+    {
+      "resource": "initialize_profile",
+      "status": 401
+    },
+    {
+      "resource": "rls_auto_enable",
+      "status": 401
+    }
+  ]
+}

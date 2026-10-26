@@ -1,0 +1,51 @@
+
+> ringgit-finance-tracker@0.1.0 verify
+> npm run audit:handoff && npm run typecheck && npm run lint && npm test && npm run build && npm run scan:secrets
+
+
+> ringgit-finance-tracker@0.1.0 audit:handoff
+> node scripts/audit-handoff.mjs
+
+PASS: 65 original handoff hashes; 12 skill names; skills unchanged; 20 original PNGs preserved, 1 owner-authorized removal, 5 hash-registered approved additions.
+Split extraction supported: four entry documents remain at repository root. This is not an application release check.
+Root AGENTS original byte prefix preserved; only the reviewed Next.js 16.4.3 generated documentation appendix is accepted.
+
+> ringgit-finance-tracker@0.1.0 typecheck
+> tsc --noEmit
+
+
+> ringgit-finance-tracker@0.1.0 lint
+> eslint src tests scripts --max-warnings 0
+
+
+> ringgit-finance-tracker@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 C:/Users/moham/OneDrive/Desktop/rft
+
+ ❯ tests/integration/database.test.ts (15 tests | 15 skipped) 33294ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/database.test.ts [ tests/integration/database.test.ts ]
+Error: Hook timed out in 30000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ ❯ tests/integration/database.test.ts:26:1
+     24|   await db.exec("set role authenticated");
+     25| }
+     26| beforeAll(async () => {
+       | ^
+     27|   db = new PGlite();
+     28|   await db.exec(`create role anon; create role authenticated; create s…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 8 passed (9)
+      Tests  65 passed | 15 skipped (80)
+   Start at  07:09:58
+   Duration  46.25s (tests 96%, import 3%, transform 1%)
+
+    Isolate  9 workers spawned · ~301ms startup each (spawn + environment, per file)
+             at least ~2.41s faster with isolate: false — reuses workers across files instead of one per file

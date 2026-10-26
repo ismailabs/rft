@@ -1,0 +1,15 @@
+
+> ringgit-finance-tracker@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 C:/Users/moham/OneDrive/Desktop/rft
+
+
+ Test Files  10 passed (10)
+      Tests  91 passed (91)
+   Start at  14:41:23
+   Duration  46.27s (tests 92%, import 7%, transform 1%)
+
+    Isolate  10 workers spawned · ~485ms startup each (spawn + environment, per file)
+             at least ~4.37s faster with isolate: false — reuses workers across files instead of one per file

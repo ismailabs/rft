@@ -1,0 +1,91 @@
+
+> ringgit-finance-tracker@0.1.0 verify
+> npm run audit:handoff && npm run typecheck && npm run lint && npm test && npm run build && npm run scan:secrets
+
+
+> ringgit-finance-tracker@0.1.0 audit:handoff
+> node scripts/audit-handoff.mjs
+
+PASS: 65 original handoff hashes; 12 skill names; skills unchanged; 20 original PNGs preserved, 1 owner-authorized removal, 5 hash-registered approved additions.
+Split extraction supported: four entry documents remain at repository root. This is not an application release check.
+Root AGENTS original byte prefix preserved; only the reviewed Next.js 16.4.3 generated documentation appendix is accepted.
+
+> ringgit-finance-tracker@0.1.0 typecheck
+> tsc --noEmit
+
+
+> ringgit-finance-tracker@0.1.0 lint
+> eslint src tests scripts --max-warnings 0
+
+
+> ringgit-finance-tracker@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 C:/Users/moham/OneDrive/Desktop/rft
+
+
+ Test Files  11 passed (11)
+      Tests  113 passed (113)
+   Start at  11:05:54
+   Duration  15.41s (tests 84%, import 13%, transform 2%, worker 1%)
+
+    Isolate  11 workers spawned · ~252ms startup each (spawn + environment, per file)
+             at least ~2.52s faster with isolate: false — reuses workers across files instead of one per file
+
+
+> ringgit-finance-tracker@0.1.0 build
+> next build
+
+▲ Next.js 16.4.3 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 246ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 17.5s
+  Running TypeScript ...
+  Finished TypeScript in 12.8s ...
+  Collecting page data using 3 workers ...
+  Generating static pages using 3 workers (0/14) ...
+  Generating static pages using 3 workers (3/14)
+  Generating static pages using 3 workers (6/14)
+  Generating static pages using 3 workers (10/14)
+✓ Generating static pages using 3 workers (14/14) in 850ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ƒ /_not-found
+├ ƒ /api/delete-account
+├ ƒ /api/export
+├ ƒ /api/finance
+├ ƒ /api/mfa
+├ ƒ /api/onboarding
+├ ƒ /app
+├ ƒ /app/accounts
+├ ƒ /app/accounts/[id]
+├ ƒ /app/categories
+├ ƒ /app/insights
+├ ƒ /app/settings
+├ ƒ /app/transactions
+├ ƒ /auth/callback
+├ ƒ /auth/mfa
+├ ƒ /auth/sign-in
+├ ƒ /auth/sign-out
+├ ƒ /login
+├ ○ /manifest.webmanifest
+├ ƒ /preview
+├ ƒ /privacy
+└ ƒ /terms
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+> ringgit-finance-tracker@0.1.0 scan:secrets
+> node scripts/scan-secrets.mjs
+
+PASS: custom source/asset scan (321 text files) and browser output checks. No configured privileged key patterns found. This is not a Gitleaks audit.

@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-26T02:50:48.393Z",
+  "provider": "google",
+  "authorizationStatus": 302,
+  "providerHost": "accounts.google.com",
+  "providerCallback": "https://pvsvhfatkfcxgccfnxzq.supabase.co/auth/v1/callback",
+  "requestedAppCallback": "https://rft-tau.vercel.app/auth/callback",
+  "scopes": [
+    "email",
+    "profile"
+  ],
+  "basicIdentityScopesOnly": true,
+  "sensitiveOrRestrictedScopesRequested": false,
+  "stateFields": null,
+  "authSettings": {
+    "google": true,
+    "email": false
+  },
+  "rawStateOrCookiesRecorded": false,
+  "realUserAuthenticationPerformed": false,
+  "ownerPublicationReport": "Previously reported done; no new assertion of Console publishing/brand status",
+  "googlePolicyReference": "https://support.google.com/cloud/answer/15549945?hl=en",
+  "scopeException": "Google documents basic-identity Sign in with Google as exempt from Testing allowlist/seven-day limits",
+  "limits": [
+    "Authorization configuration probe only; no private Google credentials or production user session were used",
+    "Google Workspace administrator/Advanced Protection restrictions can still apply"
+  ]
+}

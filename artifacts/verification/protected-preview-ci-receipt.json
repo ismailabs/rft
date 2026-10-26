@@ -1,0 +1,100 @@
+{
+  "recordedAt": "2026-10-25T09:04:18.186Z",
+  "repo": "ismailabs/rft",
+  "sourceCommit": "7bf8d9e287e0334fc243409cd51a5415c8260108",
+  "applicationSourceCommit": "ea6666dba37f997aa14c79faa2df5669204737cd",
+  "sourceUnchangedPaths": [
+    "src",
+    "tests",
+    "scripts",
+    "public",
+    "supabase",
+    ".github",
+    "package.json",
+    "package-lock.json",
+    "vercel.json"
+  ],
+  "testedMergeCommit": "2d14b7cc6ae3c32dc8c27b3304926242d1b44234",
+  "sourceAndTestedMergeTree": "9ecfe3a006fa537119c5d6e1cba0aafa2f633e15",
+  "runId": 40178711604,
+  "url": "https://github.com/ismailabs/rft/actions/runs/40178711604",
+  "jobId": 121124935155,
+  "conclusion": "success",
+  "jobSteps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success"
+    },
+    {
+      "name": "Require free standard-runner public repository",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm ci --ignore-scripts",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run verify",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm audit --audit-level=moderate",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npx playwright install --with-deps chromium",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run npm run test:e2e",
+      "conclusion": "success"
+    },
+    {
+      "name": "Write evidence summary",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success"
+    }
+  ],
+  "results": {
+    "unitDatabase": {
+      "passed": 91,
+      "total": 91
+    },
+    "chromium": {
+      "passed": 78,
+      "total": 78
+    },
+    "dependencyVulnerabilities": 0,
+    "customSecretScanTextFiles": 313
+  },
+  "inspected": [
+    "Authenticated completed workflow/job status",
+    "Decoded actual job logs, count and result lines",
+    "Current feature/main advertised Git refs",
+    "Exact tested merge/source tree equality"
+  ],
+  "limits": [
+    "Custom secret scan is not Gitleaks",
+    "CI covers synthetic/local database and UI flows; not hosted signed cross-user/MFA/deletion or public production",
+    "Protected credential-free Preview verified separately; production baseline unchanged"
+  ]
+}

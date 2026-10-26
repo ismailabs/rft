@@ -1,0 +1,70 @@
+import type { Snapshot } from "@/domain/finance/types";
+export const sample: Snapshot = {
+  locale: "en",
+  subcategories: [],
+  budgets: [],
+  goals: [],
+  accounts: [
+    {
+      id: "sample-cash",
+      name: "Cash",
+      type: "cash",
+      provider: "",
+      opening_balance: "100.00",
+      opened_at: "2026-01-01T00:00:00Z",
+      archived: false,
+    },
+    {
+      id: "sample-wallet",
+      name: "E-wallet",
+      type: "ewallet",
+      provider: "",
+      opening_balance: "20.00",
+      opened_at: "2026-01-01T00:00:00Z",
+      archived: false,
+    },
+  ],
+  categories: [
+    { id: "sample-income", name: "Income", type: "income", archived: false },
+    {
+      id: "sample-food",
+      name: "Food & drinks",
+      type: "expense",
+      archived: false,
+    },
+  ],
+  transactions: [
+    {
+      id: "sample-t1",
+      account_id: "sample-cash",
+      category_id: "sample-income",
+      subcategory_id: null,
+      type: "income",
+      amount: "80.00",
+      occurred_at: "2026-01-02T01:00:00Z",
+      note: "Sample income",
+      planned: null,
+    },
+    {
+      id: "sample-t2",
+      account_id: "sample-cash",
+      category_id: "sample-food",
+      subcategory_id: null,
+      type: "expense",
+      amount: "24.90",
+      occurred_at: "2026-01-03T04:00:00Z",
+      note: "Sample lunch",
+      planned: true,
+    },
+  ],
+  transfers: [
+    {
+      id: "sample-transfer",
+      source_id: "sample-cash",
+      destination_id: "sample-wallet",
+      amount: "50.00",
+      occurred_at: "2026-01-04T01:00:00Z",
+      note: "Sample transfer",
+    },
+  ],
+};

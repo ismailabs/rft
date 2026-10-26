@@ -1,0 +1,40 @@
+name: RFT verification
+on:
+  push:
+    branches: ["codex/**"]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rft-verify-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CI: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - name: Require free standard-runner public repository
+        run: test "${{ github.event.repository.private }}" = "false"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24.19.0"
+          package-manager-cache: false
+      - run: npm ci --ignore-scripts
+      - run: npm run verify
+      - run: npm audit --audit-level=moderate
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      # No deployment credentials, package caches or billed artifact uploads.
+      - name: Write evidence summary
+        if: always()
+        run: |
+          echo 'This run verifies local synthetic tests and public/isolated UI flows.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'It does not verify real Google OAuth, hosted two-user/MFA/deletion, legal, billing or operational recovery gates.' >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,36 @@
+{
+  "verified_at": "2026-10-24T13:30:29.513Z",
+  "project": "RFT",
+  "project_ref": "pvsvhfatkfcxgccfnxzq",
+  "source_commit": "7612ed76c9bd03ec53d30adb3c3d74cba7827e0b",
+  "script": "supabase/tests/hosted-read-only.sql",
+  "result": {
+    "status": "passed",
+    "mode": "read-only SQL claim-context simulation, not signed REST JWTs",
+    "contexts": 5,
+    "relations": 8,
+    "persistent_data_changed": false
+  },
+  "owner_designation": {
+    "A": "Current profile (preserve)",
+    "B": "New RFT Test",
+    "preserve_both": true,
+    "deletion_authorized": false
+  },
+  "owner_report": "B shows an empty app",
+  "independent_aggregate_counts": {
+    "google_identities": 2,
+    "rft_profiles": 1,
+    "verified_factors": 2,
+    "accounts": 2,
+    "transactions": 2,
+    "transfers": 1,
+    "goals": 0
+  },
+  "limits": [
+    "No signed-JWT browser or REST probe",
+    "No hosted write or related-ID swap checks",
+    "No factor removal or identity deletion",
+    "Opening an empty app does not itself initialize a saved profile"
+  ]
+}

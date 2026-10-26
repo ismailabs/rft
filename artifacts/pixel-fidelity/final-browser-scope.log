@@ -1,0 +1,23 @@
+[WebServer] (node:13212) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 14 tests using 1 worker
+
+(node:19876) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference home: artwork, content and accessibility (7.4s)
+  ok  2 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference activity: artwork, content and accessibility (4.4s)
+  ok  3 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference accounts: artwork, content and accessibility (3.9s)
+  ok  4 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference insights: artwork, content and accessibility (4.3s)
+  ok  5 [chromium] › tests\e2e\pixel-correction.spec.ts:37:1 › description and optional note survive a failed save without changing exact money (2.9s)
+  ok  6 [chromium] › tests\e2e\pixel-correction.spec.ts:87:1 › literal homepage uses the same React screen with isolated reference figures (3.8s)
+  ok  7 [chromium] › tests\e2e\pixel-correction.spec.ts:109:1 › calculated account shares round the exact ratio once (1.7s)
+  ok  8 [chromium] › tests\e2e\pixel-correction.spec.ts:128:1 › transfer date can be cleared and restored without a false balance or lost precision (2.0s)
+  ok  9 [chromium] › tests\e2e\pixel-correction.spec.ts:149:1 › balance privacy and transaction selection preserve access to edit actions (5.2s)
+  ok 10 [chromium] › tests\e2e\pixel-correction.spec.ts:182:1 › account, goal and budget chevrons retain deletion confirmation without issuing writes (8.2s)
+  ok 11 [chromium] › tests\e2e\pixel-correction.spec.ts:218:1 › chart and account period controls change the actual report (5.8s)
+  ok 12 [chromium] › tests\e2e\pixel-correction.spec.ts:241:1 › date sorting changes row order (3.0s)
+  ok 13 [chromium] › tests\e2e\pixel-correction.spec.ts:266:1 › budget management opens the existing form and preserves unsaved exact limits (4.2s)
+  ok 14 [chromium] › tests\e2e\pixel-correction.spec.ts:290:1 › long desktop account records wrap without overlap or page overflow (3.6s)
+
+  14 passed (1.2m)

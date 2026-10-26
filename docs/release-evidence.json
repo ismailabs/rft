@@ -1,0 +1,325 @@
+{
+  "schema_version": 1,
+  "project": "RFT",
+  "environment": "production",
+  "source_commit": "e0d171aaf67d3a8e6b2069002881e94d9d09ec22",
+  "reviewed_at": "2026-10-26T03:56:11.781Z",
+  "cost_verified_zero": true,
+  "has_unapproved_irreversible_change": false,
+  "deployment_status": "NOT_DEPLOYED",
+  "public_url": null,
+  "scope": "Autonomous predeployment acceptance verified against source e0d171a: clean Linux CI 40266053232/job121388618346 passes 113 unit/database/route and 78 Chromium checks, build/audit/source preservation. Real signed A/C and current provider receipts are separate. Explicit omitted manual procedures remain not-run. All predeploy gates pass under owner-amended scope; production/G16 not yet performed.",
+  "protected_preview": {
+    "deployment_id": "dpl_8R9AmtEN4PGdSKK43FKGdS3tnqiV",
+    "source_commit": "904913ba94df1fef21d40a7613adacfabe97c2fd",
+    "url": "https://rft-ovpxnmtjm-ismailstudio.vercel.app",
+    "access": "Vercel Standard Protection; existing CLI identity; no share link",
+    "supabase_configured": false,
+    "public_page_captures_passed": 8,
+    "production_released": false,
+    "evidence": [
+      "docs/protected-preview-verification.md",
+      "artifacts/verification/protected-preview-infrastructure.json",
+      "artifacts/verification/protected-preview-904913b-attempt2/receipt.json"
+    ]
+  },
+  "gates": {
+    "G01": {
+      "status": "pass",
+      "note": "Existing checkout/history retained; 65 handoff hashes, 12 installed skills, 20 original PNGs plus one specifically authorized removal and five registered additions pass preservation audit. Focused source changes preserve approved visuals; new candidate publication will be independently checked. Published local/tracking/advertised feature SHA agrees. Tested merge 419b5ee48b38290390d6e214ca371c1d9f4cb770 and source e0d171a have identical tree c7a8225365204580a68a4716ea1092d8410eccea.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/local-verify.log",
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    },
+    "G02": {
+      "status": "pass",
+      "note": "Exact source e0d171a clean PR run40266053232/job121388618346 passes all steps: locked install, preservation/type/lint, 113/113 tests, production build, custom browser/source scan328files, audit0vulnerabilities and78/78Chromium. Actual decoded logs inspected. Tested merge/source trees match; subsequent readiness changes are evidence/docs only.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log",
+        "docs/autonomous-release-scope.md"
+      ],
+      "verified_by": "Codex; actual completed Actions job, decoded logs and exact local Git trees",
+      "verified_at": "2026-10-26T03:56:11.781Z"
+    },
+    "G03": {
+      "status": "pass",
+      "note": "Actual 113-test suite includes exact MYR/property/reconciliation/date/large-value tests. Real C synthetic creation, historical edits and transfer reconcile exactly to RM2,369.90 total. Reference-only amounts remain isolated fixtures.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/local-verify.log",
+        "artifacts/verification/hosted-signed-isolation-2026-10-26.json",
+        "artifacts/verification/hosted-c-core-receipt.json",
+        "tests/unit/finance.test.ts",
+        "tests/unit/reconciliation.test.ts",
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    },
+    "G04": {
+      "status": "pass",
+      "note": "Actual isolated PostgreSQL tests cover atomic transfer/rollback/history/ownership/cascades and exact goals; hosted schema retains ownership constraints, eight user-cascade FKs and RLS. Deployment contains no migration or irreversible data operation. Operational backup recovery remains explicitly untested G14.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/local-verify.log",
+        "artifacts/verification/autonomous-release/provider-preflight.json",
+        "tests/integration/database.test.ts",
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    },
+    "G05": {
+      "status": "pass",
+      "note": "Autonomous acceptance: genuine signed A AAL2/C unenrolled AAL1 read/update/related-parent denial and CSV checks passed; protected A/B checksum unchanged. Fresh hosted read-only five-context/eight-table probe passes without persistent changes. Isolated full eight-table read/update/delete, owner-reassignment, invalid/revoked-session and RPC matrix passes. No hosted DELETE requests or identity erasure performed.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/local-verify.log",
+        "artifacts/verification/autonomous-release/provider-preflight.json",
+        "artifacts/verification/hosted-signed-isolation-2026-10-26.json",
+        "artifacts/verification/hosted-c-core-receipt.json",
+        "tests/integration/database.test.ts",
+        "tests/integration/hosted-probe.test.ts",
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    },
+    "G06": {
+      "status": "pass",
+      "note": "Autonomous acceptance: prior genuine Google A/C sessions; live Google-only settings/basic email-profile scopes; exact existing HTTPS primary domain/callback acceptance independently proven. Production app-origin mismatch repaired to ringgitft.vercel.app. Secure PKCE/cookie/server checks pass. New owner-interactive production login is explicitly omitted; deployed protocol checks remain G16.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/local-verify.log",
+        "artifacts/verification/autonomous-release/provider-preflight.json",
+        "artifacts/verification/autonomous-release/oauth-canonical-origin.json",
+        "artifacts/verification/autonomous-release/oauth-configuration.json",
+        "tests/integration/cookies.test.ts",
+        "artifacts/verification/hosted-signed-isolation-2026-10-26.json",
+        "artifacts/verification/hosted-c-core-receipt.json",
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    },
+    "G07": {
+      "status": "pass",
+      "note": "Autonomous acceptance: two existing verified factors preserved; genuine A AAL2 and unenrolled C AAL1 reads recorded. Actual hosted enrolled-AAL1 denial is a read-only SQL-context probe, not a signed REST token. New 22 actual server/helper/MFA-route adapter tests cover fail-closed missing/unknown assurance, trusted Google identity, recent OAuth, factor ownership, AAL1 enrollment/removal denial, AAL2 removal and refresh. New real factor lifecycle is omitted; no factor changed.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/local-verify.log",
+        "artifacts/verification/autonomous-release/provider-preflight.json",
+        "tests/integration/auth-assurance.test.ts",
+        "docs/mfa-recovery.md",
+        "artifacts/verification/hosted-signed-isolation-2026-10-26.json",
+        "artifacts/verification/hosted-c-core-receipt.json",
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    },
+    "G08": {
+      "status": "pass",
+      "note": "Autonomous product acceptance combines actual hosted synthetic account/taxonomy/transaction/transfer/budget/goal/history/archive checks with isolated exact-money/CRUD/report/locale/authorization regression. Human-dependent remaining acceptance procedures are omitted under the direct revised goal, not described as executed.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/local-verify.log",
+        "artifacts/verification/hosted-signed-isolation-2026-10-26.json",
+        "artifacts/verification/hosted-c-core-receipt.json",
+        "docs/requirements-traceability.md",
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    },
+    "G09": {
+      "status": "pass",
+      "note": "Real signed C CSV checks formula-prefix/comma/quote/newline and excludes protected A account names. Actual export/delete route adapter tests enforce owner-only snapshot, Malaysia dates, recent OAuth, CSRF, explicit phrase, server-key availability, successful global revocation before caller-only deletion and safe provider failures. Isolated database verifies complete cascades and stale-session denial; current hosted eight cascade FKs and server-key read authorization verified. Hosted identity erasure/stale-session rehearsal omitted and unauthorized; no deletion occurred.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/local-verify.log",
+        "artifacts/verification/autonomous-release/provider-preflight.json",
+        "artifacts/verification/hosted-signed-isolation-2026-10-26.json",
+        "artifacts/verification/hosted-c-core-receipt.json",
+        "tests/integration/data-routes.test.ts",
+        "tests/integration/auth-assurance.test.ts",
+        "tests/integration/database.test.ts",
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    },
+    "G10": {
+      "status": "pass",
+      "note": "Owner accepted all five A–E equal-scale corrections and documented font/vector/texture differences. Exact new source clean CI passes all78Chromium responsive/keyboard/axe/functional checks, including literal reference layouts. Root PWA registration changes no visual/CSS component; actual new390px capture is byte-identical to inspected earlier protected Preview. Human screen-reader/physical-device review explicitly omitted under revised scope.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/local-verify.log",
+        "artifacts/verification/autonomous-release/local-pwa-1792984848047/receipt.json",
+        "docs/pixel-fidelity-correction.md",
+        "artifacts/pixel-fidelity/delivery/source-manifest.json",
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:56:11.781Z"
+    },
+    "G11": {
+      "status": "pass",
+      "note": "Six actual Chromium checks pass with service workers enabled: root registration/control/update, valid manifest and zero installation errors, empty persistent caches/storage, private no-store 401 finance/export, denied anonymous mutation and login redirect. Network-only worker has no fetch cache. Physical phone installation/update/account switching omitted; no physical-device claim.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/local-pwa-1792984848047/receipt.json",
+        "artifacts/verification/autonomous-release/local-verify.log",
+        "public/sw.js",
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    },
+    "G12": {
+      "status": "pass",
+      "note": "Fresh authenticated ruleset read confirms Active default-branch PR/Actions verify/deletion/force-push protection with no bypass. Production-only server Secret is sensitive, read-authorized and absent from Preview/Development; actual current source/browser custom scan passes. No privileged browser key, insecure session replacement or data migration. One disabled-password-protection advisor warning remains explicitly recorded; Google-only enforced.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/provider-preflight.json",
+        "artifacts/verification/autonomous-release/local-verify.log",
+        "docs/production-release-policy.json",
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    },
+    "G13": {
+      "status": "pass",
+      "note": "Owner-approved factual EN/BM notices/contact/no-backup/data-loss limitations retain approved final wording. Four inspected final renders are accessible; current actual signed isolation/CSV plus isolated deletion/auth tests substantiate engineering controls. Controlled hosted erasure remains omitted. Bounded privacy assessment does not claim consolidated-statute review, legal certification or exemption; applicable obligations remain.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/provider-preflight.json",
+        "artifacts/verification/autonomous-release/local-verify.log",
+        "docs/privacy-readiness-assessment.md",
+        "artifacts/verification/production-notices-approved/receipt.json",
+        "artifacts/verification/hosted-signed-isolation-2026-10-26.json",
+        "artifacts/verification/hosted-c-core-receipt.json",
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    },
+    "G14": {
+      "status": "not-run",
+      "recovery_verified": false,
+      "note": "Explicitly removed from scope by the owner's backup cancellation and approval of factual no-backup/data-loss notices. No further backup or key-custody action is requested. Earlier portable/synthetic checks do not prove operational recovery. This is not a passed gate; only the targeted effective policy excludes it. Every other gate remains mandatory.",
+      "evidence": [
+        "docs/verification-report.md",
+        "artifacts/verification/ci-final-receipt.md",
+        "docs/operations.md",
+        "docs/production-release-policy.md",
+        "docs/production-release-policy.json",
+        "artifacts/verification/production-preparation-receipt.json"
+      ],
+      "verified_by": "Codex; actual provider/command results and separately identified owner reports",
+      "verified_at": "2026-10-25T07:09:29.340Z"
+    },
+    "G15": {
+      "status": "pass",
+      "note": "Exact current Vercel team is independently Hobby and Supabase organization Free/tier_free. Existing verified free primary domain and redirect; no new domain or paid activation. Free service caps/restrictions and basic Google Sign-In email/profile Testing exception checked in official current sources. Historical billing-usage API is unavailable, not asserted zero; RM0 service configuration verified.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/provider-preflight.json",
+        "artifacts/verification/autonomous-release/oauth-canonical-origin.json",
+        "docs/autonomous-release-scope.md"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    },
+    "G16": {
+      "status": "not-run",
+      "note": "Implementation has not yet been deployed to production. Actual primary-origin HTTPS/protocol/privacy/PWA/public-page smoke and exact deployed-source verification required after protected merge.",
+      "evidence": [
+        "artifacts/verification/autonomous-release/provider-preflight.json",
+        "docs/autonomous-release-scope.md"
+      ],
+      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
+      "verified_at": "2026-10-26T03:50:06.525Z"
+    }
+  },
+  "worktree_correction": {
+    "status": "IMPLEMENTED_VISUAL_ACCEPTED",
+    "base_commit": "1a4896e5b9742bd1df9cdfdab3df2929674c7538",
+    "source_commit": "fb5fc33d8c27c94478445ccd4c6d72c3b8d250aa",
+    "record": "docs/pixel-fidelity-correction.md",
+    "ci_receipt": "artifacts/pixel-fidelity/clean-ci-receipt.json",
+    "note": "Owner accepted corrected A–E visuals with documented differences. Final rendered comparisons and complete 80/80 unit/database plus 78/78 browser suite verified. Manual/accessibility and other release gates remain separate. No production deployment, hosted mutation or identity deletion.",
+    "owner_visual_acceptance": {
+      "date": "2026-10-25",
+      "scope": "A–E corrected visuals with documented differences",
+      "statement": "Accept the corrected visuals with the documented differences",
+      "deployment_authorized": false
+    }
+  },
+  "owner_scope_changes": [
+    {
+      "date": "2026-10-25",
+      "request": "cancel encrypted backups, continue with the deployment and production",
+      "encrypted_backup_work": "cancelled",
+      "production_preparation": "continue",
+      "backup_verification_claim": false,
+      "owner_notice_approval": "Approve these factual notices for publication",
+      "plaintext_cloud_backup_authorized": false,
+      "other_security_privacy_budget_boundaries": "preserved"
+    }
+  ],
+  "production_preparation": {
+    "receipt": "artifacts/verification/production-preparation-receipt.json",
+    "deployment_status": "NOT_DEPLOYED",
+    "implementation_public_url": null,
+    "source_changes": "Frozen followup application ea6666d is published via f1adca4. Both current clean Linux CI runs pass 91/91 unit/database and 78/78 Chromium checks; all job steps succeed and merge/source trees match. Four final approved EN/BM notice renders are inspected with zero axe violations. Remaining hosted/manual/public gates still block release.",
+    "owner_auth_configuration": "Owner reports done; actual public sign-in/session proof remains separate",
+    "followupReceipt": "artifacts/verification/production-followup-receipt.json",
+    "ci_receipt": "artifacts/verification/production-followup-ci-receipt.json"
+  },
+  "effective_release_policy": "docs/production-release-policy.json",
+  "effective_release_guard": "node scripts/check-effective-release.mjs",
+  "protected_test_identities": "A/B preserved with exact fresh before/after checksum over 21 rows and two factors. Real A AAL2 and C Guest AAL1 completed the signed read/update/related-ID/CSV phase. No record or identity deletion occurred or is authorized. One planned verifier upgrade awaits ordinary refreshes from the existing A/C tabs; no new Google identity is needed.",
+  "acceptance_scope": "docs/autonomous-release-scope.md",
+  "omitted_procedures": [
+    {
+      "procedure": "New owner-interactive production Google/MFA rehearsal",
+      "status": "not-run"
+    },
+    {
+      "procedure": "New real authenticator enrollment/removal",
+      "status": "not-run"
+    },
+    {
+      "procedure": "Controlled hosted identity deletion and subsequent stale-session exercise",
+      "status": "not-run",
+      "authorized": false
+    },
+    {
+      "procedure": "Physical phone installation/update and human screen-reader listening",
+      "status": "not-run"
+    },
+    {
+      "procedure": "Application-managed encrypted backup and operational recovery",
+      "status": "not-run",
+      "recovery_verified": false
+    }
+  ]
+}

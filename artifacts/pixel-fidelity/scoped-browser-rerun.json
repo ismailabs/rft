@@ -1,0 +1,400 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/pixel-correction.spec.ts",
+      "--reporter=list,json"
+    ],
+    "configFile": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\playwright.config.ts",
+    "rootDir": "C:/Users/moham/OneDrive/Desktop/rft/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/moham/OneDrive/Desktop/rft/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/moham/OneDrive/Desktop/rft/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3000",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "pixel-correction.spec.ts",
+      "file": "pixel-correction.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "literal reference home: artwork, content and accessibility",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10370,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -   1\u001b[39m\n\u001b[31m+ Received  + 107\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure <dl> elements are structured correctly\",\u001b[39m\n\u001b[31m+     \"help\": \"<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.14/definition-list?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"definition-list\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix all of the following:\u001b[39m\n\u001b[31m+   dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+         \"html\": \"<dl><dt>Income</dt><dd>RM 5,200.00</dd><small class=\\\"metric-change\\\"><span>↑ 12%</span> from last month</small></dl>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"values\": \"small\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"only-dlitems\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<small class=\\\"metric-change\\\"><span>↑ 12%</span> from last month</small>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".metric:nth-child(1) > dl > .metric-change\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".metric:nth-child(1) > dl\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix all of the following:\u001b[39m\n\u001b[31m+   dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+         \"html\": \"<dl><dt>Expenses</dt><dd>RM 3,650.40</dd><small class=\\\"metric-change\\\"><span>↓ 8%</span> from last month</small></dl>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"values\": \"small\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"only-dlitems\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<small class=\\\"metric-change\\\"><span>↓ 8%</span> from last month</small>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".metric:nth-child(2) > dl > .metric-change\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".metric:nth-child(2) > dl\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix all of the following:\u001b[39m\n\u001b[31m+   dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+         \"html\": \"<dl><dt>Net Cash Flow</dt><dd>RM 1,549.60</dd><small class=\\\"metric-change\\\"><span>↑ 42%</span> from last month</small></dl>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"values\": \"small\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"only-dlitems\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<small class=\\\"metric-change\\\"><span>↑ 42%</span> from last month</small>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".metric:nth-child(3) > dl > .metric-change\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".metric:nth-child(3) > dl\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.structure\",\u001b[39m\n\u001b[31m+       \"wcag2a\",\u001b[39m\n\u001b[31m+       \"wcag131\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.3.1\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-9.3.3\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -   1\u001b[39m\n\u001b[31m+ Received  + 107\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure <dl> elements are structured correctly\",\u001b[39m\n\u001b[31m+     \"help\": \"<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.14/definition-list?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"definition-list\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix all of the following:\u001b[39m\n\u001b[31m+   dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+         \"html\": \"<dl><dt>Income</dt><dd>RM 5,200.00</dd><small class=\\\"metric-change\\\"><span>↑ 12%</span> from last month</small></dl>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"values\": \"small\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"only-dlitems\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<small class=\\\"metric-change\\\"><span>↑ 12%</span> from last month</small>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".metric:nth-child(1) > dl > .metric-change\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".metric:nth-child(1) > dl\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix all of the following:\u001b[39m\n\u001b[31m+   dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+         \"html\": \"<dl><dt>Expenses</dt><dd>RM 3,650.40</dd><small class=\\\"metric-change\\\"><span>↓ 8%</span> from last month</small></dl>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"values\": \"small\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"only-dlitems\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<small class=\\\"metric-change\\\"><span>↓ 8%</span> from last month</small>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".metric:nth-child(2) > dl > .metric-change\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".metric:nth-child(2) > dl\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix all of the following:\u001b[39m\n\u001b[31m+   dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+         \"html\": \"<dl><dt>Net Cash Flow</dt><dd>RM 1,549.60</dd><small class=\\\"metric-change\\\"><span>↑ 42%</span> from last month</small></dl>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"values\": \"small\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"only-dlitems\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<small class=\\\"metric-change\\\"><span>↑ 42%</span> from last month</small>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".metric:nth-child(3) > dl > .metric-change\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".metric:nth-child(3) > dl\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.structure\",\u001b[39m\n\u001b[31m+       \"wcag2a\",\u001b[39m\n\u001b[31m+       \"wcag131\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.3.1\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-9.3.3\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e\\pixel-correction.spec.ts:15:65",
+                    "location": {
+                      "file": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e\\pixel-correction.spec.ts",
+                      "column": 65,
+                      "line": 15
+                    },
+                    "snippet": "  13 |     expect((await surface.boundingBox())?.y).toBe(183);\n  14 |     for (const img of await page.locator(\".institution-artwork img\").all()) expect(await img.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);\n> 15 |     expect((await new AxeBuilder({page}).analyze()).violations).toEqual([]);\n     |                                                                 ^\n  16 |   });\n  17 | }\n  18 | test(\"description and optional note survive a failed save without changing exact money\", async ({page}) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e\\pixel-correction.spec.ts",
+                        "column": 65,
+                        "line": 15
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -   1\u001b[39m\n\u001b[31m+ Received  + 107\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure <dl> elements are structured correctly\",\u001b[39m\n\u001b[31m+     \"help\": \"<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.14/definition-list?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"definition-list\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix all of the following:\u001b[39m\n\u001b[31m+   dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+         \"html\": \"<dl><dt>Income</dt><dd>RM 5,200.00</dd><small class=\\\"metric-change\\\"><span>↑ 12%</span> from last month</small></dl>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"values\": \"small\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"only-dlitems\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<small class=\\\"metric-change\\\"><span>↑ 12%</span> from last month</small>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".metric:nth-child(1) > dl > .metric-change\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".metric:nth-child(1) > dl\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix all of the following:\u001b[39m\n\u001b[31m+   dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+         \"html\": \"<dl><dt>Expenses</dt><dd>RM 3,650.40</dd><small class=\\\"metric-change\\\"><span>↓ 8%</span> from last month</small></dl>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"values\": \"small\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"only-dlitems\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<small class=\\\"metric-change\\\"><span>↓ 8%</span> from last month</small>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".metric:nth-child(2) > dl > .metric-change\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".metric:nth-child(2) > dl\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix all of the following:\u001b[39m\n\u001b[31m+   dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+         \"html\": \"<dl><dt>Net Cash Flow</dt><dd>RM 1,549.60</dd><small class=\\\"metric-change\\\"><span>↑ 42%</span> from last month</small></dl>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"values\": \"small\",\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"only-dlitems\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"dl element has direct children that are not allowed: small\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<small class=\\\"metric-change\\\"><span>↑ 42%</span> from last month</small>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \".metric:nth-child(3) > dl > .metric-change\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \".metric:nth-child(3) > dl\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.structure\",\u001b[39m\n\u001b[31m+       \"wcag2a\",\u001b[39m\n\u001b[31m+       \"wcag131\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.3.1\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-9.3.3\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  13 |     expect((await surface.boundingBox())?.y).toBe(183);\n  14 |     for (const img of await page.locator(\".institution-artwork img\").all()) expect(await img.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);\n> 15 |     expect((await new AxeBuilder({page}).analyze()).violations).toEqual([]);\n     |                                                                 ^\n  16 |   });\n  17 | }\n  18 | test(\"description and optional note survive a failed save without changing exact money\", async ({page}) => {\n    at C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e\\pixel-correction.spec.ts:15:65"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T15:23:18.846Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\test-results\\pixel-correction-literal-r-222ce-k-content-and-accessibility-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\test-results\\pixel-correction-literal-r-222ce-k-content-and-accessibility-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\test-results\\pixel-correction-literal-r-222ce-k-content-and-accessibility-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e\\pixel-correction.spec.ts",
+                    "column": 65,
+                    "line": 15
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-a4df8c99f8c39b7b6649",
+          "file": "pixel-correction.spec.ts",
+          "line": 6,
+          "column": 3
+        },
+        {
+          "title": "literal reference activity: artwork, content and accessibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6299,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T15:23:31.687Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-35a262792c44794dabe2",
+          "file": "pixel-correction.spec.ts",
+          "line": 6,
+          "column": 3
+        },
+        {
+          "title": "literal reference accounts: artwork, content and accessibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5498,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T15:23:38.275Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-155684c5f9dbd2318b6b",
+          "file": "pixel-correction.spec.ts",
+          "line": 6,
+          "column": 3
+        },
+        {
+          "title": "literal reference insights: artwork, content and accessibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4710,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T15:23:43.796Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-fc16a6617e6b1f0ff5b4",
+          "file": "pixel-correction.spec.ts",
+          "line": 6,
+          "column": 3
+        },
+        {
+          "title": "description and optional note survive a failed save without changing exact money",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3676,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T15:23:48.531Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-cea1e671b62c7dbf3675",
+          "file": "pixel-correction.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "transfer date can be cleared and restored without a false balance or lost precision",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4886,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T15:23:52.236Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-ca27fb42f2b8470dccd5",
+          "file": "pixel-correction.spec.ts",
+          "line": 38,
+          "column": 1
+        },
+        {
+          "title": "balance privacy and transaction selection preserve access to edit actions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8283,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T15:23:57.161Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-775ac7a021bf3984c587",
+          "file": "pixel-correction.spec.ts",
+          "line": 52,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-24T15:23:16.417Z",
+    "duration": 51406.391,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "checkedAt": "2026-10-25T07:09:29.340Z",
+  "status": "IMPLEMENTED_CANDIDATE_PRODUCTION_BLOCKED",
+  "sourceHashes": {
+    "src/components/legal-page.tsx": "81ec6d48f818e98d982660b5cd55a76752b499519c2f73c88dd6df058f9352da",
+    "src/app/globals.css": "48350557acdb578d0b9de8310897a0ce4fed4cd577fbb5627058951d2ea57ec8",
+    "docs/production-release-policy.json": "af53947996e419d8a6bc1ae69f0335ab2391396a4c0ac2be68042582de3ae46c",
+    "scripts/lib/release-policy.ts": "8dcbabfb8fdbc29559f47280c2054e96f9808b9614a782fe6633d5fc9bd89073",
+    "scripts/check-effective-release.mjs": "4e11ad54f742caec17d09894221f4c2aa7e9c1a2accd92e2662d7d11217da45c",
+    "tests/unit/release-policy.test.ts": "3deb065693eb84a07dad0893a354807d889554a759be1d0a86f3f7bddf8d1522"
+  },
+  "ownerNoticeApproval": "Approve these factual notices for publication",
+  "localChecks": {
+    "unitDatabase": {
+      "passed": 91,
+      "failed": 0,
+      "log": "artifacts/verification/production-followup-unit.log"
+    },
+    "typecheck": "pass",
+    "lint": "pass",
+    "build": {
+      "status": "pass",
+      "log": "artifacts/verification/production-followup-build.log"
+    },
+    "dependencyAudit": {
+      "vulnerabilities": 0
+    },
+    "customSecretScan": {
+      "status": "pass",
+      "textFiles": 303,
+      "isGitleaks": false
+    },
+    "originalPreservationAudit": {
+      "handoffHashes": 65,
+      "skills": 12,
+      "preservedOriginalPNGs": 20,
+      "ownerAuthorizedRemoval": 1,
+      "registeredAdditions": 5
+    },
+    "noticeRenders": {
+      "count": 4,
+      "axeViolations": 0,
+      "fonts": "loaded",
+      "pageErrors": 0,
+      "horizontalOverflow": false,
+      "receipt": "artifacts/verification/production-notices-approved/receipt.json"
+    },
+    "releaseGuard": {
+      "result": "blocked",
+      "excluded": [
+        "G14"
+      ],
+      "recoveryVerified": false
+    }
+  },
+  "hosted": {
+    "receipt": "artifacts/verification/hosted-signed-session-readonly.json",
+    "observedGoogleIdentities": 3,
+    "verifiedFactors": 2,
+    "positiveAAL2": "A",
+    "positiveUnenrolledAAL1": "C",
+    "enrolledAAL1DenialVerified": false,
+    "protectedIdentities": 2,
+    "protectedApplicationRows": 21,
+    "protectedBeforeAfterFingerprintsEqual": true,
+    "syntheticWriteMatrix": "prepared, not run",
+    "identityDeletionAuthorized": false,
+    "identityDeletionPerformed": false
+  },
+  "deployment": {
+    "implementationDeployed": false,
+    "publicImplementationUrl": null,
+    "mainMerged": false,
+    "gitDeploymentsEnabled": false
+  },
+  "limits": [
+    "Current clean CI pending for this followup source",
+    "No actual signed-session write/related-ID or enrolled-AAL1 denial proof",
+    "No controlled hosted identity deletion/revocation test",
+    "Remaining manual PWA, accessibility, public OAuth and release checks remain mandatory",
+    "Original G14 cancelled by direct owner instruction, never claimed passed",
+    "No legal compliance certification; factual owner review only"
+  ]
+}

@@ -1,0 +1,450 @@
+{
+  "source": "1a4896e5b9742bd1df9cdfdab3df2929674c7538",
+  "viewport": {
+    "width": 1448,
+    "height": 1086,
+    "dpr": 1
+  },
+  "screens": {
+    "A": {
+      "scrollWidth": 1448,
+      "boxes": [
+        {
+          "selector": "app-sidebar",
+          "x": 0,
+          "y": 0,
+          "width": 255,
+          "height": 1086,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "24px 13px",
+          "gap": "normal"
+        },
+        {
+          "selector": "app-header",
+          "x": 255,
+          "y": 26,
+          "width": 1193,
+          "height": 77,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "12px 30px",
+          "gap": "20px"
+        },
+        {
+          "selector": "page-heading",
+          "title": "Welcome back, Sample",
+          "x": 284,
+          "y": 124,
+          "width": 1135,
+          "height": 69.59375,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "0px",
+          "gap": "20px"
+        },
+        {
+          "selector": "balance-summary",
+          "x": 284,
+          "y": 212.59375,
+          "width": 712.71875,
+          "height": 147.125,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "20px 22px 12px",
+          "gap": "normal 12px"
+        },
+        {
+          "selector": "metric-grid",
+          "x": 284,
+          "y": 374.71875,
+          "width": 712.71875,
+          "height": 112,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "0px",
+          "gap": "12px"
+        },
+        {
+          "selector": "rft-panel monthly-panel",
+          "title": "Income vs Expenses",
+          "x": 284,
+          "y": 501.71875,
+          "width": 712.71875,
+          "height": 264.390625,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Last 7 days",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Top Categories",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Recent activity",
+          "x": 284,
+          "y": 781.109375,
+          "width": 712.71875,
+          "height": 373.796875,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Accounts",
+          "x": 1011.71875,
+          "y": 212.59375,
+          "width": 407.28125,
+          "height": 509,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Insights",
+          "x": 1011.71875,
+          "y": 736.59375,
+          "width": 407.28125,
+          "height": 344,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        }
+      ]
+    },
+    "B": {
+      "scrollWidth": 1448,
+      "boxes": [
+        {
+          "selector": "app-sidebar",
+          "x": 0,
+          "y": 0,
+          "width": 255,
+          "height": 1086,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "24px 13px",
+          "gap": "normal"
+        },
+        {
+          "selector": "app-header",
+          "x": 255,
+          "y": 26,
+          "width": 1193,
+          "height": 77,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "12px 30px",
+          "gap": "20px"
+        },
+        {
+          "selector": "page-heading",
+          "title": "Transactions",
+          "x": 284,
+          "y": 124,
+          "width": 1135,
+          "height": 69.59375,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "0px",
+          "gap": "20px"
+        },
+        {
+          "selector": "rft-panel transaction-controls",
+          "x": 284,
+          "y": 212.59375,
+          "width": 761.015625,
+          "height": 282.140625,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel ",
+          "x": 284,
+          "y": 509.734375,
+          "width": 761.015625,
+          "height": 534.796875,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "desktop-composer rft-panel",
+          "title": "Add transaction",
+          "x": 1060.015625,
+          "y": 212.59375,
+          "width": 358.984375,
+          "height": 827.28125,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        }
+      ]
+    },
+    "C": {
+      "scrollWidth": 1448,
+      "boxes": [
+        {
+          "selector": "app-sidebar",
+          "x": 0,
+          "y": 0,
+          "width": 255,
+          "height": 1086,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "24px 13px",
+          "gap": "normal"
+        },
+        {
+          "selector": "app-header",
+          "x": 255,
+          "y": 26,
+          "width": 1193,
+          "height": 77,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "12px 30px",
+          "gap": "20px"
+        },
+        {
+          "selector": "page-heading",
+          "title": "Accounts & Transfers",
+          "x": 284,
+          "y": 124,
+          "width": 1135,
+          "height": 69.59375,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "0px",
+          "gap": "20px"
+        },
+        {
+          "selector": "balance-summary",
+          "x": 284,
+          "y": 212.59375,
+          "width": 712.71875,
+          "height": 147.125,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "20px 22px 12px",
+          "gap": "normal 12px"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Your Accounts",
+          "x": 284,
+          "y": 374.71875,
+          "width": 712.71875,
+          "height": 429.953125,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel account-types-panel",
+          "title": "Accounts by Type",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Recent activity",
+          "x": 284,
+          "y": 819.671875,
+          "width": 712.71875,
+          "height": 398.796875,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel desktop-composer",
+          "title": "Transfer Between Accounts",
+          "x": 1011.71875,
+          "y": 212.59375,
+          "width": 407.28125,
+          "height": 725.71875,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel desktop-account-summary",
+          "title": "Account Summary",
+          "x": 1011.71875,
+          "y": 953.3125,
+          "width": 407.28125,
+          "height": 299.78125,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        }
+      ]
+    },
+    "D": {
+      "scrollWidth": 1448,
+      "boxes": [
+        {
+          "selector": "app-sidebar",
+          "x": 0,
+          "y": 0,
+          "width": 255,
+          "height": 1086,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "24px 13px",
+          "gap": "normal"
+        },
+        {
+          "selector": "app-header",
+          "x": 255,
+          "y": 26,
+          "width": 1193,
+          "height": 77,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "12px 30px",
+          "gap": "20px"
+        },
+        {
+          "selector": "page-heading",
+          "title": "Insights & Budgets",
+          "x": 284,
+          "y": 124,
+          "width": 1135,
+          "height": 69.59375,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "0px",
+          "gap": "20px"
+        },
+        {
+          "selector": "rft-panel mobile-spending-trend",
+          "title": "Spending Trend",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Expenses by Category",
+          "x": 284,
+          "y": 373.59375,
+          "width": 599.0625,
+          "height": 412.46875,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel monthly-panel",
+          "title": "Month-to-Month Comparison",
+          "x": 898.0625,
+          "y": 373.59375,
+          "width": 520.9375,
+          "height": 332,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel budget-progress",
+          "title": "Budget Progress",
+          "x": 284,
+          "y": 801.0625,
+          "width": 599.0625,
+          "height": 447.5,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        },
+        {
+          "selector": "rft-panel ",
+          "title": "Savings Goals",
+          "x": 898.0625,
+          "y": 801.0625,
+          "width": 520.9375,
+          "height": 481.53125,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "19px 21px",
+          "gap": "normal"
+        }
+      ]
+    },
+    "E": {
+      "scrollWidth": 1448,
+      "boxes": [
+        {
+          "selector": "concept-a-hero",
+          "title": "Track your money.A brighter tomorrow.",
+          "x": 0,
+          "y": 77,
+          "width": 1448,
+          "height": 569.015625,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "30px 62.25px 25px",
+          "gap": "2%"
+        },
+        {
+          "selector": "concept-a-copy",
+          "title": "Track your money.A brighter tomorrow.",
+          "x": 62.25,
+          "y": 135.234375,
+          "width": 529.390625,
+          "height": 457.53125,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "0px",
+          "gap": "normal"
+        },
+        {
+          "selector": "desktop-preview-wrap",
+          "title": "Your financial overview",
+          "x": 618.109375,
+          "y": 107,
+          "width": 767.625,
+          "height": 514.015625,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "0px 0px 0px 12px",
+          "gap": "normal"
+        },
+        {
+          "selector": "balance-summary",
+          "x": 789.296875,
+          "y": 230.140625,
+          "width": 371.46875,
+          "height": 101.984375,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "12px",
+          "gap": "5px"
+        },
+        {
+          "selector": "rft-panel monthly-panel",
+          "title": "Income vs Expenses",
+          "x": 789.296875,
+          "y": 429.109375,
+          "width": 371.46875,
+          "height": 214.53125,
+          "font": "\"DM Sans\", sans-serif",
+          "padding": "10px",
+          "gap": "normal"
+        }
+      ]
+    }
+  }
+}

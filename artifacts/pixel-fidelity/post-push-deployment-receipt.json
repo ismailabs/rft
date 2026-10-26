@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-25T02:22:28.383Z",
+  "count": 1,
+  "deployments": [
+    {
+      "id": "dpl_Gdg96eCDHUsrTyEkA64cNXLGgNHb",
+      "state": "READY",
+      "target": "production",
+      "sha": "c669f6ea616d266e6d433efec4cf4ac9853602a2"
+    }
+  ]
+}

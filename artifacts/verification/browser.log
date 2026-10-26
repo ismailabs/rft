@@ -1,0 +1,44 @@
+
+> ringgit-finance-tracker@0.1.0 test:e2e
+> playwright test --max-failures=1
+
+[WebServer] (node:1772) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:16968) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 28 tests using 1 worker
+
+(node:18664) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\public.spec.ts:4:3 › public homepage at 320px (5.7s)
+  ok  2 [chromium] › tests\e2e\public.spec.ts:4:3 › public homepage at 375px (3.0s)
+  ok  3 [chromium] › tests\e2e\public.spec.ts:4:3 › public homepage at 430px (2.6s)
+  ok  4 [chromium] › tests\e2e\public.spec.ts:4:3 › public homepage at 768px (2.4s)
+  ok  5 [chromium] › tests\e2e\public.spec.ts:4:3 › public homepage at 1440px (2.8s)
+  ok  6 [chromium] › tests\e2e\public.spec.ts:26:1 › BM language, FAQ and public routes work (3.2s)
+  ok  7 [chromium] › tests\e2e\public.spec.ts:49:1 › protected pages and direct APIs fail closed without configuration/session (2.6s)
+  ok  8 [chromium] › tests\e2e\public.spec.ts:82:1 › PWA manifest and worker never cache finance responses (148ms)
+  ok  9 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated home UI at 320px (4.0s)
+  ok 10 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated home UI at 430px (4.0s)
+  ok 11 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated home UI at 1440px (3.9s)
+  ok 12 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated activity UI at 320px (2.9s)
+  ok 13 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated activity UI at 430px (4.5s)
+  ok 14 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated activity UI at 1440px (3.5s)
+  ok 15 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated accounts UI at 320px (3.5s)
+  ok 16 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated accounts UI at 430px (3.5s)
+  ok 17 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated accounts UI at 1440px (8.8s)
+  ok 18 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated insights UI at 320px (7.5s)
+  ok 19 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated insights UI at 430px (5.7s)
+  ok 20 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated insights UI at 1440px (4.4s)
+  ok 21 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated settings UI at 320px (3.7s)
+  ok 22 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated settings UI at 430px (4.0s)
+  ok 23 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated settings UI at 1440px (4.5s)
+  ok 24 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated categories UI at 320px (4.0s)
+  ok 25 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated categories UI at 430px (3.4s)
+  ok 26 [chromium] › tests\e2e\ui.spec.ts:13:5 › isolated categories UI at 1440px (4.6s)
+  ok 27 [chromium] › tests\e2e\ui.spec.ts:30:1 › entry sheet manages keyboard focus and preserves failed input (3.0s)
+[WebServer] 11:04:12 am [vite] (client) [console.warn] You have Reduced Motion enabled on your device. Animations may not appear as expected.. For more information and steps for solving, visit https://motion.dev/troubleshooting/reduced-motion-disabled
+  ok 28 [chromium] › tests\e2e\ui.spec.ts:67:1 › empty BM and reduced motion remain usable (3.9s)
+
+  28 passed (2.1m)

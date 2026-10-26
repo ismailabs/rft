@@ -1,0 +1,14 @@
+> Visual decisions below are historical. The owner's recovery directive and docs/design-reference-register.md now control the five desktop/homepage references, all M1–M8, shared leaf branding and approved Google button exception. Current source count is 25, with one specifically owner-authorized old-logo removal.
+
+# Implementation decisions
+
+- Preserve all handoff files byte for byte, including split extraction. New living evidence stays in docs/ and artifacts/. Root instruction references resolve under RFT-Codex-Desktop-Handoff/.
+- Use the verified stable Next.js 16.4.3/React 19.3.1, Node 24, pinned npm dependencies and lockfile. Versions checked against npm registry and official installation docs on 2026-10-24. TypeScript 7 failed the current typescript-eslint compatibility check; pin TypeScript 6.0.3. Next's current React/import/accessibility ESLint plugins declare ESLint 9 compatibility, so pin 9.39.5 pending upstream ESLint 10 peer support; npm audit currently reports zero vulnerabilities. Current Supabase SSR guidance and relevant changelog notices consulted.
+- MYR represented as canonical decimal strings over JSON and bigint sen in pure TypeScript. SQL numeric results must be explicitly cast to text in RPC JSON to prevent floating-point decoding. NUMERIC(18,2) columns never independently track mutable totals.
+- One transfer row is the atomic source/destination event. Fee is a separate expense recorded explicitly by the user. No hidden fee mutation.
+- Reject entries before either participating account's opening instant. Opening values and timestamps become immutable after any history; rename/type/provider/archive are separate safe metadata changes. Negative manual balances allowed and described as estimates. Do not enforce invented available-funds rules.
+- Refunds: V1 corrects/reduces the original expense through editing, with a clear explanatory note; never classify refunds automatically as earnings. Dedicated refund event handling deferred and not implied.
+- Design follows the inspected warm-white/teal mobile concepts, with DM Sans, strong tabular money, a single primary Add control, four mobile destinations and adaptive desktop rail. No mockup metrics or endorsements used as product facts.
+- The UI/UX skill's query returned glassmorphism/blue and casual handwriting. These conflict with the approved references and were rejected; accessibility/touch guidance retained. No new skills installed.
+- Bank/e-wallet images are generated/stylized references with no source license evidence. Preserve all; use Lucide account-type icons plus provider labels until lawful, accurate brand files are verified. RFT-owned artwork may be resized for icons without modifying originals.
+- Tests use isolated synthetic users and records. PGlite tests can verify PostgreSQL constraints/RLS, not real hosted Google OAuth or GoTrue session behavior; those gates remain separate.

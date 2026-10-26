@@ -1,0 +1,86 @@
+[
+  {
+    "source": "assets/ChatGPT Image Oct 24, 2026, 01_37_20 PM-4.png",
+    "destination": "public/institutions/maybank.png",
+    "crop": {
+      "left": 315,
+      "top": 409,
+      "width": 56,
+      "height": 56
+    },
+    "sourceSha256": "42d72fd27a651eec406b7e2b033761274209c4ab6d1cbc3f3e4cc2b4a1d2b421",
+    "outputSha256": "457bb1a81994fbf1ba954613631f54b09d4bde34b8c5cbad83aeb50dc84173cf"
+  },
+  {
+    "source": "assets/ChatGPT Image Oct 24, 2026, 01_37_20 PM-4.png",
+    "destination": "public/institutions/cimb.png",
+    "crop": {
+      "left": 655,
+      "top": 409,
+      "width": 56,
+      "height": 56
+    },
+    "sourceSha256": "42d72fd27a651eec406b7e2b033761274209c4ab6d1cbc3f3e4cc2b4a1d2b421",
+    "outputSha256": "e54ba74367772b0ba9354dce748c09d2846cb88bfca544d99fee58c4fb1f6ded"
+  },
+  {
+    "source": "assets/ChatGPT Image Oct 24, 2026, 01_37_20 PM-4.png",
+    "destination": "public/institutions/rhb.png",
+    "crop": {
+      "left": 315,
+      "top": 525,
+      "width": 56,
+      "height": 56
+    },
+    "sourceSha256": "42d72fd27a651eec406b7e2b033761274209c4ab6d1cbc3f3e4cc2b4a1d2b421",
+    "outputSha256": "29385edb0989a3d63b10dda1ab16076cc929ac83bad104d41f83a7d082d2b9bd"
+  },
+  {
+    "source": "assets/ChatGPT Image Oct 24, 2026, 01_37_20 PM-4.png",
+    "destination": "public/institutions/tng.png",
+    "crop": {
+      "left": 655,
+      "top": 525,
+      "width": 56,
+      "height": 56
+    },
+    "sourceSha256": "42d72fd27a651eec406b7e2b033761274209c4ab6d1cbc3f3e4cc2b4a1d2b421",
+    "outputSha256": "4b64838a9a7e33bcddee8ec5a4aff9e237c9e16970dea34bc364fcaf6e9bcc90"
+  },
+  {
+    "source": "assets/ChatGPT Image Oct 24, 2026, 01_37_20 PM-4.png",
+    "destination": "public/institutions/grabpay.png",
+    "crop": {
+      "left": 315,
+      "top": 640,
+      "width": 56,
+      "height": 56
+    },
+    "sourceSha256": "42d72fd27a651eec406b7e2b033761274209c4ab6d1cbc3f3e4cc2b4a1d2b421",
+    "outputSha256": "28c35b64896ff9fad2c3f20ebfde86cdc5644bbe808273337ee9a64f6c81f66b"
+  },
+  {
+    "source": "assets/ChatGPT Image Oct 24, 2026, 01_37_18 PM-3.png",
+    "destination": "public/institutions/netflix.png",
+    "crop": {
+      "left": 443,
+      "top": 647,
+      "width": 16,
+      "height": 24
+    },
+    "sourceSha256": "30bb9c92a451e64f5766f3517307d4576cfc67d48113514671326d9903cadfd2",
+    "outputSha256": "42d16234e4386b0e682ca28c278713065823124db12f8cd400900fc988ff0b75"
+  },
+  {
+    "source": "assets/ChatGPT Image Oct 24, 2026, 01_37_20 PM-4.png",
+    "destination": "public/institutions/rft-leaf.png",
+    "crop": {
+      "left": 28,
+      "top": 21,
+      "width": 35,
+      "height": 47
+    },
+    "sourceSha256": "42d72fd27a651eec406b7e2b033761274209c4ab6d1cbc3f3e4cc2b4a1d2b421",
+    "outputSha256": "6635b92381ded391e3ef22f8f2120984644ab90d720d6004b274e4ce73d0d820"
+  }
+]

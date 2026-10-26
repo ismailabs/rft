@@ -1,0 +1,41 @@
+{
+  "recordedAt": "2026-10-26T03:37:54.647Z",
+  "projectId": "prj_eM0EcPUzjg3G31h4jc6uhfo60dBo",
+  "team": "ismailstudio",
+  "primaryOrigin": "https://ringgitft.vercel.app",
+  "verifiedExistingProjectDomains": [
+    {
+      "name": "ringgitft.vercel.app",
+      "verified": true,
+      "redirect": null
+    },
+    {
+      "name": "rft-tau.vercel.app",
+      "verified": true,
+      "redirect": "ringgitft.vercel.app",
+      "redirectStatusCode": 307
+    }
+  ],
+  "beforeProductionAppOrigin": "https://rft-tau.vercel.app",
+  "afterProductionAppOrigin": "https://ringgitft.vercel.app",
+  "productionOnlyReadbackVerified": true,
+  "callbackProbe": {
+    "method": "Anonymous Google PKCE authorization initiation, followed by a read-only SELECT of only referrer/provider/null-user fields for the probe's own public code challenge",
+    "acceptedProductionCallback": "https://ringgitft.vercel.app/auth/callback",
+    "acceptedSiteRoot": "https://ringgitft.vercel.app",
+    "legacyAliasCallbackRejectedToSiteRoot": true,
+    "unapprovedExternalCallbackRejectedToSiteRoot": true,
+    "rawCodesTokensStateCookiesRead": false,
+    "privateUserAuthenticationPerformed": false
+  },
+  "providerCallback": "https://pvsvhfatkfcxgccfnxzq.supabase.co/auth/v1/callback",
+  "googleScopes": [
+    "email",
+    "profile"
+  ],
+  "basicIdentityScopesOnly": true,
+  "googleBasicIdentityPolicy": "https://support.google.com/cloud/answer/15549945?hl=en",
+  "newDomainOrPaidServiceCreated": false,
+  "supabaseSettingsChanged": false,
+  "productionApplicationDeployed": false
+}

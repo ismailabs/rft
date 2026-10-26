@@ -1,0 +1,14 @@
+2026-10-26T03:50:50.5075409Z Build Date: 2026-10-21T00:45:21Z
+2026-10-26T03:50:51.2551966Z Complete job name: verify
+2026-10-26T03:51:11.5114950Z found 0 vulnerabilities
+2026-10-26T03:51:11.5706630Z ##[group]Run npm run verify
+2026-10-26T03:51:12.0623824Z PASS: 65 original handoff hashes; 12 skill names; skills unchanged; 20 original PNGs preserved, 1 owner-authorized removal, 5 hash-registered approved additions.
+2026-10-26T03:51:31.0248952Z  Test Files  11 passed (11)
+2026-10-26T03:51:31.0250431Z       Tests  113 passed (113)
+2026-10-26T03:51:38.7474243Z ✓ Compiled successfully in 7.1s
+2026-10-26T03:51:45.9757398Z PASS: custom source/asset scan (328 text files) and browser output checks. No configured privileged key patterns found. This is not a Gitleaks audit.
+2026-10-26T03:51:45.9954038Z ##[group]Run npm audit --audit-level=moderate
+2026-10-26T03:51:46.5106622Z found 0 vulnerabilities
+2026-10-26T03:51:51.2116403Z Building dependency tree...
+2026-10-26T03:52:04.9541500Z ##[group]Run npm run test:e2e
+2026-10-26T03:54:27.6009315Z   78 passed (2.4m)

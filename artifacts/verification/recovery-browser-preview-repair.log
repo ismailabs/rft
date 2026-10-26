@@ -1,0 +1,16 @@
+[WebServer] (node:16348) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:16352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:14892) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\fidelity.spec.ts:50:1 › savings goal preserves exact input through pending and failure, then refreshes saved progress (4.6s)
+  ok 2 [chromium] › tests\e2e\fidelity.spec.ts:134:1 › transaction filters reset pagination and category chips select the actual field (6.3s)
+  ok 3 [chromium] › tests\e2e\fidelity.spec.ts:172:1 › mobile transfer preview preserves the combined total and displays exact after amounts (5.5s)
+  ok 4 [chromium] › tests\e2e\public.spec.ts:28:1 › BM language, FAQ and public routes work (3.4s)
+  ok 5 [chromium] › tests\e2e\ui.spec.ts:71:1 › large balances and long financial rows stay readable at 320px (4.0s)
+
+  5 passed (33.2s)

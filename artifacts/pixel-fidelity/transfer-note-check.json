@@ -1,0 +1,294 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/pixel-correction.spec.ts",
+      "--grep",
+      "transfer date|balance privacy|literal reference (home|accounts)",
+      "--output",
+      "artifacts/private/transfer-note-check-results",
+      "--reporter=list,json"
+    ],
+    "configFile": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\playwright.config.ts",
+    "rootDir": "C:/Users/moham/OneDrive/Desktop/rft/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/moham/OneDrive/Desktop/rft/artifacts/private/transfer-note-check-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/moham/OneDrive/Desktop/rft/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\artifacts\\private\\transfer-note-check-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3000",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "pixel-correction.spec.ts",
+      "file": "pixel-correction.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "literal reference home: artwork, content and accessibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10630,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T00:31:36.053Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-a4df8c99f8c39b7b6649",
+          "file": "pixel-correction.spec.ts",
+          "line": 7,
+          "column": 3
+        },
+        {
+          "title": "literal reference accounts: artwork, content and accessibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6686,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T00:31:47.518Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-155684c5f9dbd2318b6b",
+          "file": "pixel-correction.spec.ts",
+          "line": 7,
+          "column": 3
+        },
+        {
+          "title": "transfer date can be cleared and restored without a false balance or lost precision",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30768,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e\\pixel-correction.spec.ts",
+                        "column": 6,
+                        "line": 165
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nBrowser logs:\n\n<launching> C:\\Users\\moham\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1248\\chrome-headless-shell-win64\\chrome-headless-shell.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\moham\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-7QaeXn --remote-debugging-pipe --no-startup-window\n<launched> pid=14880\n[pid=14880][err] [1025/083139.455:INFO:CONSOLE:946] \"[vite] connecting...\", source: http://127.0.0.1:5174/@vite/client (946)\n[pid=14880][err] [1025/083140.266:INFO:CONSOLE:1055] \"[vite] connected.\", source: http://127.0.0.1:5174/@vite/client (1055)\n[pid=14880][err] [1025/083140.606:INFO:CONSOLE:946] \"[vite] connecting...\", source: http://127.0.0.1:5174/@vite/client (946)\n[pid=14880][err] [1025/083140.828:INFO:CONSOLE:1055] \"[vite] connected.\", source: http://127.0.0.1:5174/@vite/client (1055)\n[pid=14880][err] [1025/083141.498:INFO:CONSOLE:15802] \"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold\", source: http://127.0.0.1:5174/@fs/C:/Users/moham/OneDrive/Desktop/rft/node_modules/.vite/deps/react-dom_client.js?v=dfd1558b (15802)\n[pid=14880][err] [1025/083148.125:INFO:CONSOLE:946] \"[vite] connecting...\", source: http://127.0.0.1:5174/@vite/client (946)\n[pid=14880][err] [1025/083148.456:INFO:CONSOLE:1055] \"[vite] connected.\", source: http://127.0.0.1:5174/@vite/client (1055)\n[pid=14880][err] [1025/083148.986:INFO:CONSOLE:15802] \"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold\", source: http://127.0.0.1:5174/@fs/C:/Users/moham/OneDrive/Desktop/rft/node_modules/.vite/deps/react-dom_client.js?v=dfd1558b (15802)\n[pid=14880][err] [1025/083154.737:INFO:CONSOLE:946] \"[vite] connecting...\", source: http://127.0.0.1:5174/@vite/client (946)\n[pid=14880][err] [1025/083154.965:INFO:CONSOLE:1055] \"[vite] connected.\", source: http://127.0.0.1:5174/@vite/client (1055)\n[pid=14880][err] [1025/083155.111:INFO:CONSOLE:15802] \"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold\", source: http://127.0.0.1:5174/@fs/C:/Users/moham/OneDrive/Desktop/rft/node_modules/.vite/deps/react-dom_client.js?v=dfd1558b (15802)\n[pid=14880] <gracefully close start>\nCall log:\n\u001b[2m  - waiting for locator('.desktop-composer form').getByRole('button', { name: 'Transfer Money', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" class=\"button\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li>…</li> from <section class=\"rft-panel desktop-account-summary\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <li>…</li> from <section class=\"rft-panel desktop-account-summary\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    51 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <li>…</li> from <section class=\"rft-panel desktop-account-summary\">…</section> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n\n  163 |   await form\n  164 |     .getByRole(\"button\", { name: \"Transfer Money\", exact: true })\n> 165 |     .click();\n      |      ^\n  166 |   await expect(form.getByRole(\"alert\")).toContainText(\"could not be confirmed\");\n  167 |   expect(submitted).toMatchObject({\n  168 |     kind: \"transfer\",\n    at C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e\\pixel-correction.spec.ts:165:6"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T00:31:54.232Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\artifacts\\private\\transfer-note-check-results\\pixel-correction-transfer--d69ac-e-balance-or-lost-precision-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\artifacts\\private\\transfer-note-check-results\\pixel-correction-transfer--d69ac-e-balance-or-lost-precision-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\artifacts\\private\\transfer-note-check-results\\pixel-correction-transfer--d69ac-e-balance-or-lost-precision-chromium\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-ca27fb42f2b8470dccd5",
+          "file": "pixel-correction.spec.ts",
+          "line": 136,
+          "column": 1
+        },
+        {
+          "title": "balance privacy and transaction selection preserve access to edit actions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6882,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-25T00:32:27.169Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-775ac7a021bf3984c587",
+          "file": "pixel-correction.spec.ts",
+          "line": 174,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-25T00:31:27.400Z",
+    "duration": 68002.056,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

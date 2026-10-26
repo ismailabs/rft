@@ -1,0 +1,234 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/e2e/pixel-correction.spec.ts",
+      "--grep",
+      "budget management|long desktop",
+      "--output",
+      "artifacts/private/pixel-retry-results",
+      "--reporter=list,json"
+    ],
+    "configFile": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\playwright.config.ts",
+    "rootDir": "C:/Users/moham/OneDrive/Desktop/rft/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/moham/OneDrive/Desktop/rft/artifacts/private/pixel-retry-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/moham/OneDrive/Desktop/rft/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\artifacts\\private\\pixel-retry-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3000",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "pixel-correction.spec.ts",
+      "file": "pixel-correction.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "budget management opens the existing form and preserves unsaved exact limits",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8499,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T22:39:12.778Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-4f151009b0d0c326e84c",
+          "file": "pixel-correction.spec.ts",
+          "line": 266,
+          "column": 1
+        },
+        {
+          "title": "long desktop account records wrap without overlap or page overflow",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3214,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1448\u001b[39m\nReceived: \u001b[31m1528\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1448\u001b[39m\nReceived: \u001b[31m1528\u001b[39m\n    at C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e\\pixel-correction.spec.ts:304:75",
+                    "location": {
+                      "file": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e\\pixel-correction.spec.ts",
+                      "column": 75,
+                      "line": 304
+                    },
+                    "snippet": "  302 |   const amount = await card.locator(\":scope > strong\").boundingBox();\n  303 |   expect(amount!.y).toBeGreaterThanOrEqual(name!.y + name!.height - 1);\n> 304 |   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(\n      |                                                                           ^\n  305 |     1448,\n  306 |   );\n  307 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e\\pixel-correction.spec.ts",
+                        "column": 75,
+                        "line": 304
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m1448\u001b[39m\nReceived: \u001b[31m1528\u001b[39m\n\n  302 |   const amount = await card.locator(\":scope > strong\").boundingBox();\n  303 |   expect(amount!.y).toBeGreaterThanOrEqual(name!.y + name!.height - 1);\n> 304 |   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(\n      |                                                                           ^\n  305 |     1448,\n  306 |   );\n  307 | });\n    at C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e\\pixel-correction.spec.ts:304:75"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-24T22:39:23.261Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\artifacts\\private\\pixel-retry-results\\pixel-correction-long-desk-a0480-ut-overlap-or-page-overflow-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\artifacts\\private\\pixel-retry-results\\pixel-correction-long-desk-a0480-ut-overlap-or-page-overflow-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\artifacts\\private\\pixel-retry-results\\pixel-correction-long-desk-a0480-ut-overlap-or-page-overflow-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\moham\\OneDrive\\Desktop\\rft\\tests\\e2e\\pixel-correction.spec.ts",
+                    "column": 75,
+                    "line": 304
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0b47dda8cd8cf3719c54-96623baff23034689f24",
+          "file": "pixel-correction.spec.ts",
+          "line": 290,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-24T22:38:53.615Z",
+    "duration": 34751.914,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

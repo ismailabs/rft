@@ -1,0 +1,11 @@
+[WebServer] (node:11160) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:2632) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference activity: artwork, content and accessibility (15.8s)
+  ok 2 [chromium] › tests\e2e\pixel-correction.spec.ts:7:3 › literal reference insights: artwork, content and accessibility (3.8s)
+
+  2 passed (33.1s)

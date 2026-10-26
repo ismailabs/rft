@@ -1,0 +1,43 @@
+2026-10-24T12:55:59.7664481Z HEAD is now at 406b8f0 Merge 7612ed76c9bd03ec53d30adb3c3d74cba7827e0b into c669f6ea616d266e6d433efec4cf4ac9853602a2
+2026-10-24T12:56:04.2939778Z ##[group]Run npm ci --ignore-scripts
+2026-10-24T12:56:17.6508234Z found 0 vulnerabilities
+2026-10-24T12:56:17.7084693Z ##[group]Run npm run verify
+2026-10-24T12:56:18.1671875Z PASS: 65 original handoff hashes; 12 skill names; skills unchanged; 20 original PNGs preserved, 1 owner-authorized removal, 5 hash-registered approved additions.
+2026-10-24T12:56:34.5768314Z  Test Files  8 passed (8)
+2026-10-24T12:56:34.5769573Z       Tests  79 passed (79)
+2026-10-24T12:56:41.7514634Z ✓ Compiled successfully in 6.6s
+2026-10-24T12:56:46.9878485Z   Finished TypeScript in 5.2s ...
+2026-10-24T12:56:48.3289696Z PASS: custom source/asset scan (210 text files) and browser output checks. No configured privileged key patterns found. This is not a Gitleaks audit.
+2026-10-24T12:56:48.3486160Z ##[group]Run npm audit --audit-level=moderate
+2026-10-24T12:56:48.8548728Z found 0 vulnerabilities
+2026-10-24T12:57:05.6259309Z ##[group]Run npm run test:e2e
+2026-10-24T12:57:10.9011841Z   ✓   1 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference home at 390 (1.8s)
+2026-10-24T12:57:12.7068901Z   ✓   2 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference home at 768 (1.8s)
+2026-10-24T12:57:14.5769664Z   ✓   3 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference home at 1448 (1.9s)
+2026-10-24T12:57:16.5559917Z   ✓   4 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference home at 1920 (2.0s)
+2026-10-24T12:57:18.4249069Z   ✓   5 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference activity at 390 (1.9s)
+2026-10-24T12:57:20.5485206Z   ✓   6 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference activity at 768 (2.1s)
+2026-10-24T12:57:22.8469590Z   ✓   7 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference activity at 1448 (2.3s)
+2026-10-24T12:57:25.1827021Z   ✓   8 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference activity at 1920 (2.3s)
+2026-10-24T12:57:26.9818339Z   ✓   9 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference accounts at 390 (1.8s)
+2026-10-24T12:57:28.8813091Z   ✓  10 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference accounts at 768 (1.9s)
+2026-10-24T12:57:30.8895221Z   ✓  11 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference accounts at 1448 (2.0s)
+2026-10-24T12:57:32.9557946Z   ✓  12 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference accounts at 1920 (2.1s)
+2026-10-24T12:57:35.1052550Z   ✓  13 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference insights at 390 (2.1s)
+2026-10-24T12:57:37.0647950Z   ✓  14 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference insights at 768 (1.9s)
+2026-10-24T12:57:39.1419833Z   ✓  15 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference insights at 1448 (2.1s)
+2026-10-24T12:57:41.2530469Z   ✓  16 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference insights at 1920 (2.1s)
+2026-10-24T12:57:42.7534703Z   ✓  17 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference settings at 390 (1.5s)
+2026-10-24T12:57:44.2760290Z   ✓  18 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference settings at 768 (1.5s)
+2026-10-24T12:57:45.8771041Z   ✓  19 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference settings at 1448 (1.6s)
+2026-10-24T12:57:47.5374724Z   ✓  20 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference settings at 1920 (1.6s)
+2026-10-24T12:57:49.2533373Z   ✓  21 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference account at 390 (1.7s)
+2026-10-24T12:57:51.1331361Z   ✓  22 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference account at 768 (1.9s)
+2026-10-24T12:57:52.9824261Z   ✓  23 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference account at 1448 (1.8s)
+2026-10-24T12:57:54.7446812Z   ✓  24 [chromium] › tests/e2e/fidelity.spec.ts:15:5 › reference account at 1920 (1.8s)
+2026-10-24T12:57:56.1650736Z   ✓  25 [chromium] › tests/e2e/fidelity.spec.ts:59:3 › Concept A reference at 1448 (1.4s)
+2026-10-24T12:57:57.5704940Z   ✓  26 [chromium] › tests/e2e/fidelity.spec.ts:59:3 › Concept A reference at 1920 (1.4s)
+2026-10-24T12:57:58.9986367Z   ✓  27 [chromium] › tests/e2e/fidelity.spec.ts:78:1 › savings goal preserves exact input through pending and failure, then refreshes saved progress (1.4s)
+2026-10-24T12:58:01.4183476Z   ✓  28 [chromium] › tests/e2e/fidelity.spec.ts:162:1 › transaction filters reset pagination and category chips select the actual field (2.4s)
+2026-10-24T12:58:03.2663431Z   ✓  29 [chromium] › tests/e2e/fidelity.spec.ts:200:1 › mobile transfer preview preserves the combined total and displays exact after amounts (1.8s)
+2026-10-24T12:58:54.7505690Z   64 passed (1.8m)

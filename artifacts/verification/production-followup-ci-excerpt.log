@@ -1,0 +1,15 @@
+2026-10-25T07:15:22.8892909Z HEAD is now at f639252 Merge f1adca433c88b195261cceaa896d1bcd4158ecff into c669f6ea616d266e6d433efec4cf4ac9853602a2
+2026-10-25T07:15:27.3548140Z ##[group]Run npm ci --ignore-scripts
+2026-10-25T07:15:27.3548557Z npm ci --ignore-scripts
+2026-10-25T07:15:40.7155514Z found 0 vulnerabilities
+2026-10-25T07:15:40.7707297Z ##[group]Run npm run verify
+2026-10-25T07:15:40.7707634Z npm run verify
+2026-10-25T07:15:41.2638395Z PASS: 65 original handoff hashes; 12 skill names; skills unchanged; 20 original PNGs preserved, 1 owner-authorized removal, 5 hash-registered approved additions.
+2026-10-25T07:16:00.4849465Z  Test Files  10 passed (10)
+2026-10-25T07:16:00.4853128Z       Tests  91 passed (91)
+2026-10-25T07:16:08.6141540Z ✓ Compiled successfully in 7.5s
+2026-10-25T07:16:16.0316528Z PASS: custom source/asset scan (304 text files) and browser output checks. No configured privileged key patterns found. This is not a Gitleaks audit.
+2026-10-25T07:16:16.5359784Z found 0 vulnerabilities
+2026-10-25T07:16:37.5917870Z ##[group]Run npm run test:e2e
+2026-10-25T07:16:37.5918215Z npm run test:e2e
+2026-10-25T07:19:01.9436633Z   78 passed (2.4m)

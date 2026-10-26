@@ -1,0 +1,56 @@
+[WebServer] (node:15984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 9 tests using 1 worker
+
+(node:11776) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 tests\e2e\fidelity.spec.ts:15:5 › reference insights at 390 (1.1m)
+Testing stopped early after 1 maximum allowed failures.
+
+
+  1) tests\e2e\fidelity.spec.ts:15:5 › reference insights at 390 ───────────────────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Tearing down "context" exceeded the test timeout of 30000ms.
+
+    Error: page.screenshot: Test timeout of 30000ms exceeded.
+    Call log:
+      - taking page screenshot
+      - waiting for fonts to load...
+      - fonts loaded
+
+
+       at capture.ts:16
+
+      14 |   if (relative.startsWith("..") || path.isAbsolute(relative))
+      15 |     throw new Error("Screenshot target must remain under artifacts");
+    > 16 |   const bytes = await page.screenshot(settings);
+         |                            ^
+      17 |   await mkdir(path.dirname(target), { recursive: true });
+      18 |   const temporary = `${target}.${randomUUID()}.tmp`;
+      19 |   await writeFile(temporary, bytes, { flag: "wx" });
+        at capture (C:\Users\moham\OneDrive\Desktop\rft\tests\e2e\capture.ts:16:28)
+        at C:\Users\moham\OneDrive\Desktop\rft\tests\e2e\fidelity.spec.ts:25:13
+
+    Error: browserContext.close: Protocol error (Target.disposeBrowserContext): Failed to find context with id D6F9973A3A5C058DC7AF58C899D42E56
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\fidelity-reference-insights-at-390\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\fidelity-reference-insights-at-390\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\fidelity-reference-insights-at-390\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\fidelity-reference-insights-at-390\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\e2e\fidelity.spec.ts:15:5 › reference insights at 390 ────────────────────────────────────
+  8 did not run
+  1 error was not a part of any test, see above for details
