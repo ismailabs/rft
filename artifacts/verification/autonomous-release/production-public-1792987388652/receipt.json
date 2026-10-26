@@ -1,0 +1,234 @@
+{
+  "checkedAt": "2026-10-26T04:03:08.652Z",
+  "deploymentId": "dpl_FztyjpriKrefH4BHCwMCTmCQgmx6",
+  "origin": "https://ringgitft.vercel.app",
+  "environment": "Production; anonymous HTTPS public/protocol checks",
+  "sourceCommit": "1076e996ee3c64fd710831767018e6ef92127f6d",
+  "access": "Public; no session or bypass",
+  "productionReleased": true,
+  "shareLinkCreated": false,
+  "secretValuesRecorded": false,
+  "serviceWorkers": "Separate real worker-controlled production run",
+  "checks": [
+    {
+      "name": "Public HTTPS approved homepage",
+      "status": "pass",
+      "httpStatus": 200
+    },
+    {
+      "name": "Existing legacy alias redirects to canonical primary",
+      "status": "pass",
+      "httpStatus": 307
+    },
+    {
+      "name": "/api/finance denies anonymous access",
+      "status": "pass",
+      "httpStatus": 401,
+      "error": "UNAUTHENTICATED"
+    },
+    {
+      "name": "/api/export denies anonymous access",
+      "status": "pass",
+      "httpStatus": 401,
+      "error": "UNAUTHENTICATED"
+    },
+    {
+      "name": "/app redirects anonymous visitor to login",
+      "status": "pass",
+      "httpStatus": 307
+    },
+    {
+      "name": "/app/transactions redirects anonymous visitor to login",
+      "status": "pass",
+      "httpStatus": 307
+    },
+    {
+      "name": "/app/accounts redirects anonymous visitor to login",
+      "status": "pass",
+      "httpStatus": 307
+    },
+    {
+      "name": "/app/insights redirects anonymous visitor to login",
+      "status": "pass",
+      "httpStatus": 307
+    },
+    {
+      "name": "/app/settings redirects anonymous visitor to login",
+      "status": "pass",
+      "httpStatus": 307
+    },
+    {
+      "name": "Cross-origin mutation denied before identity/data",
+      "status": "pass",
+      "httpStatus": 401
+    },
+    {
+      "name": "Empty callback fails safely on canonical origin",
+      "status": "pass"
+    },
+    {
+      "name": "Real production Google initialization with S256/secure SameSite cookie/canonical callback and provider redirect",
+      "status": "pass",
+      "rftStatus": 303,
+      "providerStatus": 302,
+      "scopes": [
+        "email",
+        "profile"
+      ],
+      "credentialEntryPerformed": false,
+      "cookieValuesRecorded": false
+    },
+    {
+      "name": "Manifest any icon 192x192 matches reviewed source",
+      "status": "pass"
+    },
+    {
+      "name": "Manifest any icon 512x512 matches reviewed source",
+      "status": "pass"
+    },
+    {
+      "name": "Manifest maskable icon 512x512 matches reviewed source",
+      "status": "pass"
+    },
+    {
+      "name": "Hosted worker source has no finance/persistent cache handler",
+      "status": "pass"
+    }
+  ],
+  "captures": [
+    {
+      "path": "/",
+      "locale": "en",
+      "width": 1448,
+      "height": 1086,
+      "file": "homepage-1448.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 1448,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 0,
+      "axeViolations": 0,
+      "sha256": "e34ef7c9ea93756a3e7ae04aaeb850a7a740e279d4ecd501cff3e2c2fe3665a3"
+    },
+    {
+      "path": "/",
+      "locale": "en",
+      "width": 390,
+      "height": 900,
+      "file": "homepage-390.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 390,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 0,
+      "axeViolations": 0,
+      "sha256": "7885a16a997d9fe0c1921d489df7a01905387fa2945b5ed04a01dcb172b1dc85"
+    },
+    {
+      "path": "/preview",
+      "locale": "en",
+      "width": 1448,
+      "height": 1086,
+      "file": "public-preview-1448.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 1448,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 0,
+      "axeViolations": 0,
+      "sha256": "3ec8bfd29503d81e4b23f78c9b5689fa2123a446865d0b25990de00e535c2ac7"
+    },
+    {
+      "path": "/login",
+      "locale": "en",
+      "width": 390,
+      "height": 900,
+      "file": "login-390.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 390,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 0,
+      "axeViolations": 0,
+      "sha256": "7525a05278e9a497fc69470c902c24a71ee980cbcde4225b065638f46af06e94"
+    },
+    {
+      "path": "/privacy",
+      "locale": "en",
+      "width": 1100,
+      "height": 900,
+      "file": "privacy-en.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 1100,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 0,
+      "axeViolations": 0,
+      "sha256": "c683162603921aa671904038d85305b87fd5834d974d05d8f39cab2ab572221d"
+    },
+    {
+      "path": "/terms",
+      "locale": "en",
+      "width": 1100,
+      "height": 900,
+      "file": "terms-en.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 1100,
+      "missingImages": 0,
+      "lang": "en",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 0,
+      "axeViolations": 0,
+      "sha256": "114d71193160c00e49429e29a0f812fd1a1e62437fc733b8ca584c6a297b0963"
+    },
+    {
+      "path": "/privacy",
+      "locale": "ms",
+      "width": 1100,
+      "height": 900,
+      "file": "privacy-ms.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 1100,
+      "missingImages": 0,
+      "lang": "ms",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 0,
+      "axeViolations": 0,
+      "sha256": "5811bdb3dc0614cb2f2d64e9f4cf78dab36dd1aa5890c78d29209f2d7c547033"
+    },
+    {
+      "path": "/terms",
+      "locale": "ms",
+      "width": 1100,
+      "height": 900,
+      "file": "terms-ms.png",
+      "fontStatus": "loaded",
+      "scrollWidth": 1100,
+      "missingImages": 0,
+      "lang": "ms",
+      "pageErrors": 0,
+      "unexpectedExternalRequests": 0,
+      "blockedPlatformToolbarRequests": 0,
+      "axeViolations": 0,
+      "sha256": "912cedf19d5a1b6d0f2186ca9303e86bb125c73f520462683a0346b8a6af4be7"
+    }
+  ],
+  "limits": [
+    "No new interactive Google identity/MFA or hosted identity erasure",
+    "No physical phone or human screen-reader claim"
+  ],
+  "status": "pass",
+  "completedAt": "2026-10-26T04:04:24.151Z"
+}

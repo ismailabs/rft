@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-10-26T04:03:08.900Z",
+  "stage": "production",
+  "origin": "https://ringgitft.vercel.app",
+  "serviceWorkersAllowed": true,
+  "authSessionUsed": false,
+  "physicalDeviceTestPerformed": false,
+  "manualOwnerStepsPerformed": false,
+  "checks": [
+    {
+      "name": "Actual worker registration/control/update and empty persistent financial storage",
+      "status": "pass",
+      "scope": "https://ringgitft.vercel.app/",
+      "script": "https://ringgitft.vercel.app/sw.js",
+      "state": "activated",
+      "secureContext": true,
+      "cacheNames": [],
+      "databaseNames": [],
+      "localStorageKeys": [],
+      "sessionStorageKeys": []
+    },
+    {
+      "name": "Chromium manifest parse and installation eligibility",
+      "status": "pass",
+      "installabilityErrors": 0
+    },
+    {
+      "name": "Worker-controlled /api/finance remains private",
+      "status": "pass",
+      "error": "UNAUTHENTICATED",
+      "cacheControl": "private, no-store",
+      "httpStatus": 401
+    },
+    {
+      "name": "Worker-controlled /api/export remains private",
+      "status": "pass",
+      "error": "UNAUTHENTICATED",
+      "cacheControl": "private, no-store",
+      "httpStatus": 401
+    },
+    {
+      "name": "Anonymous valid mutation denied before data access",
+      "status": "pass",
+      "error": "UNAUTHENTICATED",
+      "httpStatus": 401
+    },
+    {
+      "name": "Protected navigation stays network-only with no persistent finance/auth cache",
+      "status": "pass",
+      "caches": [],
+      "databases": [],
+      "localKeys": [],
+      "sessionKeys": [],
+      "scrollWidth": 390,
+      "width": 390
+    }
+  ],
+  "limits": [
+    "Headless Chromium installation eligibility and actual service-worker behavior; no physical phone or human screen-reader certification",
+    "Private Google login and enrolled authenticator UI are not automated"
+  ],
+  "homepageCapture": {
+    "viewport": {
+      "width": 390,
+      "height": 900
+    },
+    "dpr": 1,
+    "sha256": "7885a16a997d9fe0c1921d489df7a01905387fa2945b5ed04a01dcb172b1dc85",
+    "axeViolations": 0
+  },
+  "manifestErrors": [],
+  "manifestUrl": "https://ringgitft.vercel.app/manifest.webmanifest",
+  "installabilityErrors": [],
+  "unexpectedExternalRequests": 0,
+  "blockedPlatformToolbarRequests": 0,
+  "pageErrors": 0,
+  "status": "pass",
+  "completedAt": "2026-10-26T04:03:35.896Z"
+}

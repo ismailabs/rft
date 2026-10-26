@@ -3,12 +3,12 @@
   "project": "RFT",
   "environment": "production",
   "source_commit": "e0d171aaf67d3a8e6b2069002881e94d9d09ec22",
-  "reviewed_at": "2026-10-26T03:56:11.781Z",
+  "reviewed_at": "2026-10-26T04:05:09.205Z",
   "cost_verified_zero": true,
   "has_unapproved_irreversible_change": false,
-  "deployment_status": "NOT_DEPLOYED",
-  "public_url": null,
-  "scope": "Autonomous predeployment acceptance verified against source e0d171a: clean Linux CI 40266053232/job121388618346 passes 113 unit/database/route and 78 Chromium checks, build/audit/source preservation. Real signed A/C and current provider receipts are separate. Explicit omitted manual procedures remain not-run. All predeploy gates pass under owner-amended scope; production/G16 not yet performed.",
+  "deployment_status": "LIVE_VERIFIED",
+  "public_url": "https://ringgitft.vercel.app",
+  "scope": "Production deployed from protected merged source with identical application/test/release paths to tested e0d171a. Actual public HTTPS/Google-init/callback/privacy/worker/installability smoke passes. All non-cancelled gates pass under explicit owner-directed autonomous acceptance; omitted human procedures remain not-run. No identity, factor or record deletion; no paid activation or application-managed backups.",
   "protected_preview": {
     "deployment_id": "dpl_8R9AmtEN4PGdSKK43FKGdS3tnqiV",
     "source_commit": "904913ba94df1fef21d40a7613adacfabe97c2fd",
@@ -249,14 +249,16 @@
       "verified_at": "2026-10-26T03:50:06.525Z"
     },
     "G16": {
-      "status": "not-run",
-      "note": "Implementation has not yet been deployed to production. Actual primary-origin HTTPS/protocol/privacy/PWA/public-page smoke and exact deployed-source verification required after protected merge.",
+      "status": "pass",
+      "note": "Actual public canonical HTTPS homepage/login/preview and four approved EN/BM notices rendered in eight captures with fonts loaded, no overflow/missing images/page errors/external requests and zero axe violations. Anonymous private routes/APIs and cross-origin mutation fail closed. Actual production Google initialization proves S256 secure-SameSite cookie, canonical callback and basic email/profile provider redirect; no interactive credential entry. Real service-worker control/update/manifest/installability and empty storage/private responses pass six checks. Exact deployment/source and unchanged A/B digest independently verified.",
       "evidence": [
-        "artifacts/verification/autonomous-release/provider-preflight.json",
+        "artifacts/verification/autonomous-release/production-release.json",
+        "artifacts/verification/autonomous-release/production-public-1792987388652/receipt.json",
+        "artifacts/verification/autonomous-release/production-pwa-1792987388780/receipt.json",
         "docs/autonomous-release-scope.md"
       ],
-      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
-      "verified_at": "2026-10-26T03:50:06.525Z"
+      "verified_by": "Codex; actual anonymous deployed HTTP/Chromium/provider results and exact Git source comparison",
+      "verified_at": "2026-10-26T04:05:09.205Z"
     }
   },
   "worktree_correction": {
@@ -321,5 +323,11 @@
       "status": "not-run",
       "recovery_verified": false
     }
-  ]
+  ],
+  "production_deployment": {
+    "id": "dpl_FztyjpriKrefH4BHCwMCTmCQgmx6",
+    "source_commit": "1076e996ee3c64fd710831767018e6ef92127f6d",
+    "status": "READY",
+    "receipt": "artifacts/verification/autonomous-release/production-release.json"
+  }
 }
