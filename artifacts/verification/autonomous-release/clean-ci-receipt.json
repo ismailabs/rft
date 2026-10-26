@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-26T03:55:35.040Z",
+  "sourceCommit": "e0d171aaf67d3a8e6b2069002881e94d9d09ec22",
+  "workflowRun": 40266053232,
+  "job": 121388618346,
+  "runUrl": "https://github.com/ismailabs/rft/actions/runs/40266053232",
+  "jobConclusion": "success",
+  "allStepsSucceeded": true,
+  "unitDatabaseRouteTests": 113,
+  "browserTests": 78,
+  "dependencyVulnerabilities": 0,
+  "customScanTextFiles": 328,
+  "handoffHashes": 65,
+  "skillsUnchanged": 12,
+  "liveIdentityDeletionPerformed": false,
+  "limits": "Clean CI is synthetic/isolated browser/database verification. Separate real signed/provider evidence and explicit omitted procedures are referenced by release evidence.",
+  "testedMerge": "419b5ee48b38290390d6e214ca371c1d9f4cb770",
+  "testedMergeAndSourceTree": "c7a8225365204580a68a4716ea1092d8410eccea",
+  "treesIndependentlyVerifiedEqual": true
+}

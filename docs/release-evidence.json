@@ -2,13 +2,13 @@
   "schema_version": 1,
   "project": "RFT",
   "environment": "production",
-  "source_commit": "ea6666dba37f997aa14c79faa2df5669204737cd",
-  "reviewed_at": "2026-10-26T03:50:06.525Z",
+  "source_commit": "e0d171aaf67d3a8e6b2069002881e94d9d09ec22",
+  "reviewed_at": "2026-10-26T03:56:11.781Z",
   "cost_verified_zero": true,
   "has_unapproved_irreversible_change": false,
   "deployment_status": "NOT_DEPLOYED",
   "public_url": null,
-  "scope": "Owner-directed autonomous release acceptance, 26 October. Actual signed A/C evidence plus current hosted read-only policy checks, 113 local unit/database/route tests and six actual worker/installability/privacy checks. New clean CI and production smoke remain pending. Omitted human-dependent procedures are explicit, never recorded as performed; no records, factors or identities deleted.",
+  "scope": "Autonomous predeployment acceptance verified against source e0d171a: clean Linux CI 40266053232/job121388618346 passes 113 unit/database/route and 78 Chromium checks, build/audit/source preservation. Real signed A/C and current provider receipts are separate. Explicit omitted manual procedures remain not-run. All predeploy gates pass under owner-amended scope; production/G16 not yet performed.",
   "protected_preview": {
     "deployment_id": "dpl_8R9AmtEN4PGdSKK43FKGdS3tnqiV",
     "source_commit": "904913ba94df1fef21d40a7613adacfabe97c2fd",
@@ -26,23 +26,26 @@
   "gates": {
     "G01": {
       "status": "pass",
-      "note": "Existing checkout/history retained; 65 handoff hashes, 12 installed skills, 20 original PNGs plus one specifically authorized removal and five registered additions pass preservation audit. Focused source changes preserve approved visuals; new candidate publication will be independently checked.",
+      "note": "Existing checkout/history retained; 65 handoff hashes, 12 installed skills, 20 original PNGs plus one specifically authorized removal and five registered additions pass preservation audit. Focused source changes preserve approved visuals; new candidate publication will be independently checked. Published local/tracking/advertised feature SHA agrees. Tested merge 419b5ee48b38290390d6e214ca371c1d9f4cb770 and source e0d171a have identical tree c7a8225365204580a68a4716ea1092d8410eccea.",
       "evidence": [
         "artifacts/verification/autonomous-release/local-verify.log",
-        "docs/autonomous-release-scope.md"
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
       "verified_at": "2026-10-26T03:50:06.525Z"
     },
     "G02": {
-      "status": "blocked",
-      "note": "Current local verification passes 113/113 tests, type/lint/build and custom source/browser scan. Clean Linux CI for the exact new candidate is pending; earlier 91/78 runs are historical.",
+      "status": "pass",
+      "note": "Exact source e0d171a clean PR run40266053232/job121388618346 passes all steps: locked install, preservation/type/lint, 113/113 tests, production build, custom browser/source scan328files, audit0vulnerabilities and78/78Chromium. Actual decoded logs inspected. Tested merge/source trees match; subsequent readiness changes are evidence/docs only.",
       "evidence": [
-        "artifacts/verification/autonomous-release/local-verify.log",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log",
         "docs/autonomous-release-scope.md"
       ],
-      "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
-      "verified_at": "2026-10-26T03:50:06.525Z"
+      "verified_by": "Codex; actual completed Actions job, decoded logs and exact local Git trees",
+      "verified_at": "2026-10-26T03:56:11.781Z"
     },
     "G03": {
       "status": "pass",
@@ -53,7 +56,9 @@
         "artifacts/verification/hosted-c-core-receipt.json",
         "tests/unit/finance.test.ts",
         "tests/unit/reconciliation.test.ts",
-        "docs/autonomous-release-scope.md"
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
       "verified_at": "2026-10-26T03:50:06.525Z"
@@ -65,7 +70,9 @@
         "artifacts/verification/autonomous-release/local-verify.log",
         "artifacts/verification/autonomous-release/provider-preflight.json",
         "tests/integration/database.test.ts",
-        "docs/autonomous-release-scope.md"
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
       "verified_at": "2026-10-26T03:50:06.525Z"
@@ -80,7 +87,9 @@
         "artifacts/verification/hosted-c-core-receipt.json",
         "tests/integration/database.test.ts",
         "tests/integration/hosted-probe.test.ts",
-        "docs/autonomous-release-scope.md"
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
       "verified_at": "2026-10-26T03:50:06.525Z"
@@ -96,7 +105,9 @@
         "tests/integration/cookies.test.ts",
         "artifacts/verification/hosted-signed-isolation-2026-10-26.json",
         "artifacts/verification/hosted-c-core-receipt.json",
-        "docs/autonomous-release-scope.md"
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
       "verified_at": "2026-10-26T03:50:06.525Z"
@@ -111,7 +122,9 @@
         "docs/mfa-recovery.md",
         "artifacts/verification/hosted-signed-isolation-2026-10-26.json",
         "artifacts/verification/hosted-c-core-receipt.json",
-        "docs/autonomous-release-scope.md"
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
       "verified_at": "2026-10-26T03:50:06.525Z"
@@ -124,7 +137,9 @@
         "artifacts/verification/hosted-signed-isolation-2026-10-26.json",
         "artifacts/verification/hosted-c-core-receipt.json",
         "docs/requirements-traceability.md",
-        "docs/autonomous-release-scope.md"
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
       "verified_at": "2026-10-26T03:50:06.525Z"
@@ -140,23 +155,27 @@
         "tests/integration/data-routes.test.ts",
         "tests/integration/auth-assurance.test.ts",
         "tests/integration/database.test.ts",
-        "docs/autonomous-release-scope.md"
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
       "verified_at": "2026-10-26T03:50:06.525Z"
     },
     "G10": {
-      "status": "blocked",
-      "note": "Owner accepted all five A–E corrected visual comparisons and documented font/vector/texture differences. Existing 78 Chromium responsive/keyboard/axe tests passed for earlier source; exact new candidate browser CI pending. New actual public mobile render has zero axe issues and is byte-identical to accepted prior Preview. Human screen-reader/physical-device review omitted.",
+      "status": "pass",
+      "note": "Owner accepted all five A–E equal-scale corrections and documented font/vector/texture differences. Exact new source clean CI passes all78Chromium responsive/keyboard/axe/functional checks, including literal reference layouts. Root PWA registration changes no visual/CSS component; actual new390px capture is byte-identical to inspected earlier protected Preview. Human screen-reader/physical-device review explicitly omitted under revised scope.",
       "evidence": [
         "artifacts/verification/autonomous-release/local-verify.log",
         "artifacts/verification/autonomous-release/local-pwa-1792984848047/receipt.json",
         "docs/pixel-fidelity-correction.md",
         "artifacts/pixel-fidelity/delivery/source-manifest.json",
-        "docs/autonomous-release-scope.md"
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
-      "verified_at": "2026-10-26T03:50:06.525Z"
+      "verified_at": "2026-10-26T03:56:11.781Z"
     },
     "G11": {
       "status": "pass",
@@ -165,7 +184,9 @@
         "artifacts/verification/autonomous-release/local-pwa-1792984848047/receipt.json",
         "artifacts/verification/autonomous-release/local-verify.log",
         "public/sw.js",
-        "docs/autonomous-release-scope.md"
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
       "verified_at": "2026-10-26T03:50:06.525Z"
@@ -177,7 +198,9 @@
         "artifacts/verification/autonomous-release/provider-preflight.json",
         "artifacts/verification/autonomous-release/local-verify.log",
         "docs/production-release-policy.json",
-        "docs/autonomous-release-scope.md"
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
       "verified_at": "2026-10-26T03:50:06.525Z"
@@ -192,7 +215,9 @@
         "artifacts/verification/production-notices-approved/receipt.json",
         "artifacts/verification/hosted-signed-isolation-2026-10-26.json",
         "artifacts/verification/hosted-c-core-receipt.json",
-        "docs/autonomous-release-scope.md"
+        "docs/autonomous-release-scope.md",
+        "artifacts/verification/autonomous-release/clean-ci-receipt.json",
+        "artifacts/verification/autonomous-release/clean-ci-excerpt.log"
       ],
       "verified_by": "Codex; inspected actual command/provider receipts and explicitly separated isolated adapters, SQL contexts and real signed sessions",
       "verified_at": "2026-10-26T03:50:06.525Z"
